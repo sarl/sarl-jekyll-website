@@ -1,0 +1,23 @@
+name: SARL Site
+markdown: redcarpet
+pygments: true
+
+
+post:
+  template: _templates/_post.txt
+  extension: md
+page:
+  template: _templates/_page.txt
+  extension: md
+editor: subl
+sarl:
+  url: https://github.com/sarl/sarl.git
+  workdir: /tmp
+  branch: master
+git:
+  branch: master
+transfer:
+  command: rsync
+  settings: -av
+  source: _site/
+  destination: ~/Git/username.github.com/
