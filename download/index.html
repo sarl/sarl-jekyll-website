@@ -2,4 +2,165 @@
 layout: default
 title: Download SARL
 ---
+<div class="row">
+	<h1>Download Options</h1>
+	<!--table one starts-->
+	<div class="col-md-1">&nbsp;</div>
+	<div class="col-md-4">
+		<div class="pricing">
+			<table>
+				<tfoot>
+					<tr>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="focus">Update Sites <span>Use Update Manager in Eclipse</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<a
+							rel="popover"
+							data-content="This is an Eclipse update site URL, which you need to paste into the update manager within Eclipse!"
+							data-original-title="Right-click and 'Copy Link'"
+							href="http://updates.sarl.io/snapshots"
+							class="has-popover btn btn-primary btn-large"
+							style="width: 80%;">Latest Release (Comming soon...)</a>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<a
+							rel="popover"
+							data-content="This is an Eclipse update site URL, which you need to paste into the update manager within Eclipse!"
+							data-original-title="Right-click and 'Copy Link'"
+							href="http://updates.sarl.io/snapshots"
+							class="has-popover btn btn-primary btn-large"
+							style="width: 80%;">Latest Milestone (Comming soon...)</a>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center;">
+							<a
+							rel="popover"
+							data-content="This is an Eclipse update site URL, which you need to paste into the update manager within Eclipse!"
+							data-original-title="Right-click and 'Copy Link'"
+							href="http://updates.sarl.io/snapshots"
+							class="has-popover btn btn-primary btn-large"
+							style="width: 80%;">Bleeding Edge!</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-1">&nbsp;</div>
+	<div class="col-md-4">
+		<div class="pricing">
+			<table>
+				<tfoot>
+					<tr>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="focus">Full Eclipse <span>Just Download and Unzip</span></td>
+					</tr>
+					<tr>
+						<td style="text-align: center; white-space: nowrap;">
+							<a href="http://updates.sarl.io/snapshots/"
+							class="btn btn-primary btn-large" style="width: 45%;">OS X 64 Bit</a>&nbsp;
+							<a href="http://updates.sarl.io/snapshots/"
+							class="btn btn-primary btn-large"
+							style="width:30%;">32 Bit</a>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center; white-space: nowrap;">
+							<a href="http://updates.sarl.io/snapshots/"
+							class="btn btn-primary btn-large"
+							style="width: 45%;">Linux 64 Bit</a>&nbsp;
+							<a href="http://updates.sarl.io/snapshots/"
+							class="btn btn-primary btn-large"
+							style="width:30%;">32 Bit</a>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center; white-space: nowrap;">
+							<a href="http://updates.sarl.io/snapshots/"
+							class="btn btn-primary btn-large"
+							style="width: 45%;">Windows 64 Bit</a>&nbsp;
+							<a href="http://updates.sarl.io/snapshots/"
+							class="btn btn-primary btn-large"
+							style="width:30%;">32 Bit</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-1">&nbsp;</div>
+</div>
+
+<div class="row">
+	<h1>Installation Instructions</h1>
+	<p>
+		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a> installed in order to compile and execute.
+	</p>
+
+
+	<p>
+		There are two easy ways to get SARL up and running. 
+		A pre-configured Eclipse distribution is available which has already all the necessary plug-ins installed. 
+		Alternatively, you can install SARL SDK into your existing Eclipse using the Eclipse update mechanism.
+	</p>
+
+	<h2>Install Pre-Configured Eclipse with SARL SDK</h2>
+	<ol>
+		<li>Download the distribution from above that matches your OS.</li>
+		<li>Unzip the archive into the directory of your choice. Windows Users should choose a directory close to the root since the zip contains a deeply nested folder structure. The maximum path length on windows may not exceed 256 characters.</li>
+		<li>Launch Eclipse and select the workspace location. A workspace location is the directory for your user data and project files.</li>
+
+	</ol>
+
+	<h2>Install SARL SDK From Update Site</h2>
+	
+	
+	<p>If you have an Eclipse running :</p>
+
+	<ol>
+
+		<li>Choose <b>Help -> Install New Software...</b> from the menu bar and <b>Add...</b> Insert one of the update site URLs from above. This site aggregates all the necessary and optional components and dependencies of SARL.</li>
+		<li>Select the <b>SARL SDK</b> from the category SARL {version} and complete the wizard by clicking the Next button until you can click Finish.</li>
+		<li>After a quick download and a restart of Eclipse, SARL is ready to use.</li>
+	</ol>
+
+</div>
+
+<div class="row">
+	<h1>Maven Repository</h1>
+	<p>You can also compile SARL using maven. Add the following maven repository to you pom.xml</p>
+	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full pom.xml example</p>
+	<pre class="prettyprint">
+		<code class="language-java linenums">
+			&lt;project&gt;
+				...
+				&lt;repositories&gt;
+					&lt;repository&gt;
+						&lt;id>sarl-repository&lt;/id&gt;
+						&lt;url>http://maven.sarl.io/&lt;/url&gt;
+					&lt;/repository&gt;
+				&lt;/repositories&gt;
+				...
+			&lt;/project&gt;
+		</code>
+		
+	</pre >
+</div>
+
+
+
+
 
