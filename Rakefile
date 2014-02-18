@@ -4,6 +4,7 @@ require 'rake'
 require 'yaml'
 require 'fileutils'
 require 'rbconfig'
+require 'nokogiri'
 
 # == Configuration =============================================================
 
@@ -80,6 +81,14 @@ def open_command
   end
 end
 
+
+def add_navbar(source, navbar_file="_includes/navbar.html")
+  navbar = read_file(navbar_file)
+  f = File.open(source)
+  html_doc = Nokogiri::HTML(f)
+  html_doc.css("body").children.first.add_previous_sibling(navbar)
+  html_doc
+end
 # == Tasks =====================================================================
 
 # rake post["Title"]
@@ -256,7 +265,21 @@ desc ""
 task :copy_sarl_doc do
   sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
   puts "Copying documentation to #{FileUtils.pwd}"
-  FileUtils.cp_r("#{sarl_copy}/#{SARL_GENERATED_DOC}/io", FileUtils.pwd)
+  #FileUtils.cp_r("#{sarl_copy}/#{SARL_GENERATED_DOC}/io", FileUtils.pwd)
+  doc_base = "#{sarl_copy}/#{SARL_GENERATED_DOC}"
+  puts "Scanning : #{doc_base}/io/*.html"
+  Dir.glob("#{doc_base}/io/**/*.html") do |html_file|
+    puts "Found #{html_file.to_s}"
+    dest_path = html_file.to_s.gsub(doc_base, FileUtils.pwd)
+    puts "Copying to #{dest_path}"
+    html_doc = add_navbar(html_file.to_s)
+    write_with_path(dest_path, html_doc.to_html)
+  end
 end
 
+
+def write_with_path(dst, content)
+  FileUtils.mkdir_p(File.dirname(dst))
+  File.write(dst,content)
+end
 

@@ -1,7 +1,7 @@
 name: SARL Site
 markdown: redcarpet
 pygments: true
-
+permalink: /news/:year/:month/:day/:title.html
 
 post:
   template: _templates/_post.txt
