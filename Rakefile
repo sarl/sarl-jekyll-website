@@ -265,7 +265,6 @@ desc "Copies SARL Documentation created with build_doc for sarl-site."
 task :copy_sarl_doc do
   sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
   puts "Copying documentation to #{FileUtils.pwd}"
-  #FileUtils.cp_r("#{sarl_copy}/#{SARL_GENERATED_DOC}/io", FileUtils.pwd)
   doc_base = "#{sarl_copy}/#{SARL_GENERATED_DOC}"
   puts "Scanning : #{doc_base}/io/*.html"
   Dir.glob("#{doc_base}/io/**/*.html") do |html_file|
@@ -277,6 +276,12 @@ task :copy_sarl_doc do
   end
 end
 
+desc "Full build of site : build_doc, copy_sarl_doc, build"
+task :build_full do
+    Rake::Task[:build_doc].invoke
+    Rake::Task[:copy_sarl_doc].invoke
+    Rake::Task[:build].invoke
+end
 
 def write_with_path(dst, content)
   FileUtils.mkdir_p(File.dirname(dst))
