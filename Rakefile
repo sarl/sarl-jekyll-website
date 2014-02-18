@@ -261,7 +261,7 @@ task :build_doc, :option do |t, args|
   
 end
 
-desc ""
+desc "Copies SARL Documentation created with build_doc for sarl-site."
 task :copy_sarl_doc do
   sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
   puts "Copying documentation to #{FileUtils.pwd}"
