@@ -285,6 +285,10 @@ end
 
 def write_with_path(dst, content)
   FileUtils.mkdir_p(File.dirname(dst))
-  File.write(dst,content)
+  # Not available on Ruby installed on Ubuntu LTS
+  #File.write(dst,content)
+  file = File.open(dst, "w")
+  file.write(content) 
+  file.close unless file == nil
 end
 
