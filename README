@@ -1,0 +1,13 @@
+-----------------------
+FAST GENERATION PROCESS
+-----------------------
+1)  cd $HOME/git
+2)  git clone https://sgalland@bitbucket.org/srodriguez/sarl-site.git
+3)  git clone https://github.com/sarl/sarl.github.io.git
+4)  cd sarl-site
+5)  Change the website file (html...)
+6)  rake build_full
+7)  rake transfer
+8)  git commit / git push
+9)  cd ../sarl.github.io.git
+10) git commit / git push
