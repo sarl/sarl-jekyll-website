@@ -274,6 +274,13 @@ task :copy_sarl_doc do
     html_doc = add_navbar(html_file.to_s)
     write_with_path(dest_path, html_doc.to_html)
   end
+  puts "Scanning : #{doc_base}/io/*.png"
+  Dir.glob("#{doc_base}/io/**/*.png") do |image_file|
+    puts "Found #{image_file.to_s}"
+    dest_path = image_file.to_s.gsub(doc_base, FileUtils.pwd)
+    puts "Copying to #{dest_path}"
+    FileUtils.copy(image_file, dest_path)
+  end
 end
 
 desc "Full build of site : build_doc, copy_sarl_doc, build"
