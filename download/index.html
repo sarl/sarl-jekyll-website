@@ -131,12 +131,22 @@ title: Download SARL
 <div class="row">
 	<h1>Maven Repository</h1>
 	<p>You can also compile SARL using maven. Add the following maven repository to you pom.xml</p>
-	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full pom.xml example</p>
+	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full pom.xml example.</p>
 	<pre class="prettyprint">
 		<code class="language-java linenums">
 			&lt;project&gt;
 				...
+				&lt;dependencies&gt;
+					...
+					&lt;dependency&gt;
+						&lt;groupId&gt;io.janusproject&lt;/groupId&gt;
+						&lt;artifactId&gt;io.janusproject.kernel&lt;/artifactId&gt;
+						&lt;version&gt;${janus.version}&lt;/version&gt;
+					&lt;/dependency&gt;
+				&lt;/dependencies&gt;
+				...
 				&lt;repositories&gt;
+					...
 					&lt;repository&gt;
 						&lt;id>sarl-repository&lt;/id&gt;
 						&lt;url>http://maven.sarl.io/&lt;/url&gt;
