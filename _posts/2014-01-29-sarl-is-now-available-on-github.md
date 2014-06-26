@@ -1,7 +1,7 @@
 ---
 title: "SARL is now available on Github"
 layout: post
-categories: news
+categories: [Releases]
 ---
 
 

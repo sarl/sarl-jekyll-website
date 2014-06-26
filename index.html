@@ -6,6 +6,7 @@ title: SARL Agent-Oriented Programming Language
 
 <!-- Main component for a primary marketing message or call to action -->
 <div class="jumbotron">
+
 	<h1>SARL</h1>
 	<p>General-purpose Agent-Oriented Programming Language.</p>
 	<p>
@@ -109,16 +110,14 @@ title: SARL Agent-Oriented Programming Language
 
   <hr class="featurette-divider">
 
-  <div class="row featurette" id="news">
-   <h2 class="featurette-heading">And Stay tunned... <span class="text-muted">Latest News.</span></h2>
-   <ul class="posts">
-     {% for post in site.posts %}
-     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-     {% endfor %}
-   </ul>
+  <div class="row featurette">
+  <div class="col-md-12">
+   <h2 class="featurette-heading  news">And Stay tunned... <span class="text-muted">Latest News.</span></h2>
+   {% include recent_posts_loop.html %}
+  </div>
  </div>
 
- <hr class="featurette-divider">
+ 
 
  <!-- /END THE FEATURETTES -->
 </div>

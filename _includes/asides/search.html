@@ -1,0 +1,14 @@
+  {% if site.simple_search %}
+  <div class="well">
+  	<!-- Sidebar content title -->
+  	<h3>Search <i class="glyphicon glyphicon-search pull-right"></i></h3>
+  	<form action="{{ site.simple_search }}" method="get" class="form-search">
+  		<fieldset role="search">
+  			<input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
+  			<input class="input-medium" type="text" name="q" results="0" placeholder="Search"/>
+  			<button type="submit" class="btn btn-primary">Search</button>
+  		</fieldset>
+  	</form>
+  </div>
+  {% endif %}
+

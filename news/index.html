@@ -1,0 +1,32 @@
+---
+layout: default
+title: SARL News and Events
+---
+
+<h1>Latest News</h1>
+
+
+<div class="row news">
+
+<div class="col-lg-8">
+
+    {% assign index = true %}
+    {% for post in site.posts %}
+    {% assign content = post.content %}
+    <div class="entry">
+        <article>
+        {% include article.html %}
+        </article>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="col-lg-4">
+	{% if site.blog_index_asides.size %}
+    	{% include_array blog_index_asides %}
+    {% else %}
+    	{% include_array default_asides %}
+    {% endif %}
+</div>
+</div>

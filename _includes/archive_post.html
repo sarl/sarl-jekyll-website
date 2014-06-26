@@ -1,0 +1,18 @@
+{% capture category %}{{ post.categories | size }}{% endcapture %}
+<h2>
+  <a href="{{ root_url }}{{ post.url }}">
+    {% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}
+  </a>
+</h2>
+<p class="meta">
+  <i class="glyphicon glyphicon-calendar"></i>&nbsp; {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+  <i class="glyphicon glyphicon-user"></i>&nbsp; {% if post.author %} {{post.author}} {%else%} {{site.author}} {% endif %}
+  {% if category != '0' %}
+  - <i class="glyphicon glyphicon-folder-close"></i>&nbsp; {{ post.categories | category_links }}
+  {% endif %}
+  {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
+  - <i class="glyphicon glyphicon-comments"></i>&nbsp;  <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
+  {% endif %}
+</p>
+
+

@@ -1,7 +1,7 @@
 ---
 title: "Accepted paper on SARL at IAT 2014"
 layout: post
-categories: news
+categories: Publications
 ---
 
 
@@ -19,5 +19,7 @@ SARL comes with its full support in the Eclipse IDE for compilation and debuggin
 The main perspective that guided the creation of SARL is the establishment of an open and easily extensible language.
 Our expectation is to provide the community with a common forum in terms of a first working testbed to study and compare various programming alternatives and associated metamodels.
 
+**Citing Details**
 
+{% bibliography --file publications --query @*[key=iat2014] %}
 
