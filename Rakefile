@@ -85,7 +85,6 @@ end
 def add_navbar(source, navbar_file="_includes/navbar.html", footer_file="_includes/footer.html")
   navbar = read_file(navbar_file)
   footer = read_file(footer_file)
-  puts footer
   f = File.open(source)
   html_doc = Nokogiri::HTML(f)
   #Extract the documentation as html (not the jnario spec source)
