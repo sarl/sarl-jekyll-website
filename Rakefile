@@ -28,7 +28,9 @@ SARL_GENERATED_DOC = "#{SARL_DOC_SUITE}/target/jnario-doc"
 
 # Execute a system command
 def execute(command)
-  system "#{command}"
+  if not system "#{command}"
+    raise "failure when executing the command:\n$> #{command}"
+  end
 end
 
 # Chech the title

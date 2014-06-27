@@ -1,3 +1,14 @@
+-----------------
+INSTALL ON UBUNTU
+-----------------
+1)  apt-get install rake
+2)  apt-get install nodejs
+3)  apt-get install ruby-dev
+4)  apt-get install ruby-nokogiri
+5)  gem install --no-rdoc --no-ri jekyll-scholar
+    (the dependencies should be installed also)
+6)  gem install --no-rdoc --no-ri stringex
+
 -----------------------
 FAST GENERATION PROCESS
 -----------------------
@@ -11,3 +22,16 @@ FAST GENERATION PROCESS
 8)  git commit / git push
 9)  cd ../sarl.github.io.git
 10) git commit / git push
+
+------------------------------
+ADD A PUBLICATION/PRESENTATION
+------------------------------
+1)  Edit the files in "_bibliography"
+
+--------
+ADD NEWS
+--------
+1)    rake post["<title>"]
+2)    Edit the generated file in ./_posts
+2.1)     The categories may be: Publications, Presentations, [Releases], news
+
