@@ -5,7 +5,7 @@ categories: Publications
 ---
 
 
-An article presenting SARL has been accepted at the 2014 IEEE/WIC/ACM [International Conference on Intelligent Agent Technology (IAT)](http://wic2014.mimuw.edu.pl/iat/homepage), 11â14 August 2014 / Warsaw, Poland.
+An article presenting SARL has been accepted at the 2014 IEEE/WIC/ACM [International Conference on Intelligent Agent Technology (IAT)](http://wic2014.mimuw.edu.pl/iat/homepage), 11-14 August 2014 / Warsaw, Poland.
 
 
 **Paper description**
