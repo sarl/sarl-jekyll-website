@@ -109,6 +109,15 @@ def add_navbar(source, navbar_file="_includes/navbar.html", footer_file="_includ
   # Add the navbar on top
   html_doc.at_css("body").children.first.add_previous_sibling(navbar)
   html_doc.at_css("body").children.last.add_next_sibling(footer)
+  # Add the favicon
+  favicon =  Nokogiri::XML::Node.new "link", html_doc
+  favicon['rel'] = 'icon'
+  favicon['href'] = '/images/favicon.ico'
+  html_doc.at_css("head").children.first.add_previous_sibling(favicon)
+  favicon =  Nokogiri::XML::Node.new "link", html_doc
+  favicon['rel'] = 'shortcut icon'
+  favicon['href'] = '/images/favicon.ico'
+  html_doc.at_css("head").children.first.add_previous_sibling(favicon)
   
   html_doc
 end
@@ -276,7 +285,7 @@ task :build_doc, :option do |t, args|
   puts "Checking branch [#{CONFIG["sarl"]["branch"]}]"
   execute("cd #{sarl_copy} && git checkout #{CONFIG["sarl"]["branch"]}")
 
-  puts "Compling documentation ..."
+  puts "Compiling documentation ..."
   execute("mvn -f #{sarl_copy}/pom.xml #{option} test")
   execute("mvn -f #{sarl_copy}/#{SARL_DOC_SUITE}/pom.xml org.jnario:report:generate")
 
