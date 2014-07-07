@@ -122,17 +122,21 @@ title: Download SARL
 	<ol>
 
 		<li>Choose <b>Help -> Install New Software...</b> from the menu bar and <b>Add...</b> Insert one of the update site URLs from above. This site aggregates all the necessary and optional components and dependencies of SARL.</li>
-		<li>Select the <b>SARL SDK</b> from the category SARL {version} and complete the wizard by clicking the Next button until you can click Finish.</li>
+		<li>Select the <b>SARL Language Definition</b> and the <b>SARL Development Kit</b> from the category SARL, and complete the wizard by clicking the Next button until you can click Finish.</li>
 		<li>After a quick download and a restart of Eclipse, SARL is ready to use.</li>
 	</ol>
 
-	<p><span class="label label-warning">Recommendation</span> We recommend to use Eclipse Luna.</p>
+	<p><span class="label label-info">Note</span> We recommend to use Eclipse Luna.</p>
 
 </div>
 
 <div class="row">
 	<h1>Maven Repository</h1>
-	<p>You can also compile SARL using maven. Add the following maven repository to you pom.xml</p>
+	<p>You can also compile SARL using maven. Add the following maven repository to you pom.xml.</p>
+	<p>The <code>janus.version</code> property must specify the version of the
+	<a href="http://www.janusproject.io">Janus runtime environment</a>,
+	which is supporting the SARL language. The available version numbers are given on
+	the <a href="http://www.janusproject.io">Janus platform website</a>.</p>
 	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full pom.xml example.</p>
 	<pre class="prettyprint">
 		<code class="language-java linenums">
@@ -146,14 +150,6 @@ title: Download SARL
 						&lt;version&gt;${janus.version}&lt;/version&gt;
 					&lt;/dependency&gt;
 				&lt;/dependencies&gt;
-				...
-				&lt;repositories&gt;
-					...
-					&lt;repository&gt;
-						&lt;id>janus-repository&lt;/id&gt;
-						&lt;url>http://maven.janusproject.io/&lt;/url&gt;
-					&lt;/repository&gt;
-				&lt;/repositories&gt;
 				...
 			&lt;/project&gt;
 		</code>
