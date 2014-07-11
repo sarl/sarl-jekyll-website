@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="381"
+   height="381"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="download-icon.svg"
+   inkscape:export-filename="/home/sgalland/git/sarl-site/images/download-icon.png"
+   inkscape:export-xdpi="30.66"
+   inkscape:export-ydpi="30.66">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1440"
+     inkscape:window-height="876"
+     id="namedview29"
+     showgrid="false"
+     inkscape:zoom="0.61942257"
+     inkscape:cx="-128.34534"
+     inkscape:cy="190.5"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <linearGradient
+       id="imagebot_13">
+      <stop
+         stop-opacity="0.15044"
+         id="imagebot_22"
+         offset="0"
+         stop-color="#ffffff" />
+      <stop
+         stop-opacity="0.29204"
+         id="imagebot_21"
+         offset="1"
+         stop-color="#ffffff" />
+    </linearGradient>
+    <linearGradient
+       id="imagebot_14">
+      <stop
+         id="imagebot_20"
+         offset="0"
+         stop-color="#ffffff" />
+      <stop
+         id="imagebot_19"
+         offset="1"
+         stop-color="#e4e4e4" />
+    </linearGradient>
+    <linearGradient
+       id="imagebot_15">
+      <stop
+         id="imagebot_18"
+         offset="0"
+         stop-color="#00b400"
+         style="stop-color:#5cb85c;stop-opacity:1;" />
+      <stop
+         id="imagebot_17"
+         offset="1"
+         stop-color="#4bff4b" />
+    </linearGradient>
+    <filter
+       id="imagebot_11">
+      <feGaussianBlur
+         id="imagebot_16"
+         stdDeviation="5.4" />
+    </filter>
+    <linearGradient
+       x2="0.12917"
+       y1="0.71667"
+       x1="0.7125"
+       id="imagebot_9"
+       xlink:href="#imagebot_15"
+       y2="0.10417" />
+    <linearGradient
+       x2="0.83445"
+       y1="0.14256"
+       x1="0.12792"
+       id="imagebot_7"
+       xlink:href="#imagebot_14"
+       y2="0.87249" />
+    <linearGradient
+       x2="1"
+       y1="0.5"
+       x1="0"
+       id="imagebot_5"
+       xlink:href="#imagebot_13"
+       y2="0.5" />
+  </defs>
+  <metadata
+     id="imagebot_12">image/svg+xml<rdf:RDF>
+  <cc:Work
+     rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+       rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+    <dc:title></dc:title>
+  </cc:Work>
+</rdf:RDF>
+</metadata>
+  <g
+     id="imagebot_2"
+     label="Layer 1">
+    <g
+       transform="translate(-195.875 -385.375)"
+       label="Layer 1"
+       id="imagebot_3">
+      <path
+         stroke="#ffffff"
+         stroke-linejoin="round"
+         stroke-miterlimit="4"
+         stroke-width="5"
+         fill-rule="nonzero"
+         stroke-dashoffset="0"
+         filter="url(#imagebot_11)"
+         d="M 565.714 575.219A 180 180 0 1 1 205.714 575.219A 180 180 0 1 1 565.714 575.219Z"
+         id="imagebot_10"
+         fill="#000000"
+         transform="matrix(1.05116 0 0 1.05116 -17.7337 -27.429)" />
+      <path
+         id="imagebot_8"
+         d="M 557.143 575.219C 557.143 669.897 480.392 746.648 385.714 746.648C 291.037 746.648 214.286 669.897 214.286 575.219C 214.286 480.542 291.037 403.791 385.714 403.791C 480.392 403.791 557.143 480.542 557.143 575.219Z"
+         fill-rule="nonzero"
+         fill="url(#imagebot_9)" />
+      <path
+         fill-rule="nonzero"
+         stroke-width="19.7"
+         fill="url(#imagebot_7)"
+         d="M 385.719 385.375C 280.984 385.375 195.875 470.484 195.875 575.219C 195.875 679.953 280.984 765.063 385.719 765.063C 490.453 765.063 575.563 679.953 575.563 575.219C 575.563 470.484 490.453 385.375 385.719 385.375ZM 385.719 405.063C 479.807 405.063 555.875 481.131 555.875 575.219C 555.875 669.307 479.807 745.375 385.719 745.375C 291.631 745.375 215.563 669.307 215.563 575.219C 215.563 481.131 291.631 405.063 385.719 405.063ZM 355.156 449.594L 355.156 556.344L 307.063 556.344L 385.719 631.438L 464.375 556.344L 416.281 556.344L 416.281 449.594L 355.156 449.594ZM 294.406 634.969L 294.406 690.625L 477 690.625L 477 634.969L 447.563 634.969L 447.563 664.313L 323.906 664.313L 323.906 634.969L 294.406 634.969Z"
+         id="imagebot_6" />
+      <path
+         fill-rule="nonzero"
+         fill="url(#imagebot_5)"
+         d="M 385.719 409.5C 294.197 409.5 220 483.697 220 575.219C 220 637.855 254.757 692.357 306.031 720.531C 312.188 602.957 409.455 509.5 528.563 509.5C 531.715 509.5 534.848 509.558 537.969 509.688C 512.57 450.76 453.962 409.5 385.719 409.5Z"
+         id="imagebot_4" />
+    </g>
+    <title
+       id="title27">Layer 1</title>
+  </g>
+</svg>
