@@ -84,7 +84,7 @@ def open_command
 end
 
 
-def add_navbar(source, navbar_file="_includes/navbar.html", footer_file="_includes/footer.html")
+def fixing_documentation_page(source, navbar_file="_includes/navbar.html", footer_file="_includes/footer.html")
   navbar = read_file(navbar_file)
   footer = read_file(footer_file)
   f = File.open(source)
@@ -118,8 +118,14 @@ def add_navbar(source, navbar_file="_includes/navbar.html", footer_file="_includ
   favicon['rel'] = 'shortcut icon'
   favicon['href'] = '{{ page.relative }}images/favicon.ico'
   html_doc.at_css("head").children.first.add_previous_sibling(favicon)
-  
-  html_doc
+  # Building the string representation of the page
+  raw_html_code = html_doc.to_html
+  # Retreive the path to the root of the website
+  rel_url = /href="(.*)css\/custom.css"/.match(raw_html_code)
+  # Fixing the invalid markup for "{{page.relative}}"
+  if rel_url
+    raw_html_code.gsub(/%7[Bb]%7[Bb](\s|(%20))*page\.relative(\s|(%20))*%7[Dd]%7[Dd]\/*/, rel_url[1].to_s)
+  end
 end
 # == Tasks =====================================================================
 
@@ -311,8 +317,8 @@ task :copy_sarl_doc do
     puts "Found #{html_file.to_s}"
     dest_path = html_file.to_s.gsub(doc_base, FileUtils.pwd)
     puts "Copying to #{dest_path}"
-    html_doc = add_navbar(html_file.to_s)
-    write_with_path(dest_path, html_doc.to_html)
+    html_doc = fixing_documentation_page(html_file.to_s)
+    write_with_path(dest_path, html_doc)
   end
   puts "Scanning : #{doc_base}/io/*.png"
   Dir.glob("#{doc_base}/io/**/*.png") do |image_file|
