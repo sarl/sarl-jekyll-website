@@ -271,19 +271,22 @@ desc "Build sarl documentation using maven"
 task :build_doc, :option do |t, args|
   option = args[:option]
   sarl_git_url = CONFIG["sarl"]["url"]
-  sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
-  
-  if(!File.exists?(sarl_copy))
-    puts "No working copy found. Cloninng to #{sarl_copy}..."    
-    execute("git clone #{sarl_git_url} #{sarl_copy}")
-  else
-    puts "working copy found [#{sarl_copy}]. Updating..."
-    execute("cd #{sarl_copy} && git pull --rebase")
-  end
+  if(sarl_git_url.start_with?('http:', 'https:', 'ssh:', 'git:'))
+    sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
 
-  
-  puts "Checking branch [#{CONFIG["sarl"]["branch"]}]"
-  execute("cd #{sarl_copy} && git checkout #{CONFIG["sarl"]["branch"]}")
+    if(!File.exists?(sarl_copy))
+      puts "No working copy found. Cloninng to #{sarl_copy}..."    
+      execute("git clone #{sarl_git_url} #{sarl_copy}")
+    else
+      puts "working copy found [#{sarl_copy}]. Updating..."
+      execute("cd #{sarl_copy} && git pull --rebase")
+    end
+
+    puts "Checking branch [#{CONFIG["sarl"]["branch"]}]"
+    execute("cd #{sarl_copy} && git checkout #{CONFIG["sarl"]["branch"]}")
+  else
+    sarl_copy = sarl_git_url
+  end
 
   puts "Compiling documentation ..."
   execute("mvn -f #{sarl_copy}/pom.xml #{option} test")
@@ -295,7 +298,12 @@ end
 
 desc "Copies SARL Documentation created with build_doc for sarl-site."
 task :copy_sarl_doc do
-  sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
+  sarl_git_url = CONFIG["sarl"]["url"]
+  if(sarl_git_url.start_with?('http:', 'https:', 'ssh:', 'git:'))
+    sarl_copy = "#{CONFIG["sarl"]["workdir"]}/sarl_copy"
+  else
+    sarl_copy = sarl_git_url
+  end
   puts "Copying documentation to #{FileUtils.pwd}"
   doc_base = "#{sarl_copy}/#{SARL_GENERATED_DOC}"
   puts "Scanning : #{doc_base}/io/*.html"
