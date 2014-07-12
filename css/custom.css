@@ -288,18 +288,18 @@ tfoot td {
 
 
 /* LIGHTER STYLE BY STEPHANE */
-/*
+
 body {
   color: #333333;
-  background-color: #f0f0f0;
+  background-color: #ebebeb;
 }
 
 .jumbotron {
-  color: #f0f0f0;
+  color: #ebebeb;
 }
 
 .col-lg-3 {
-  color: #f0f0f0;
+  color: #ebebeb;
 }
 
 .col-lg-3 a {
@@ -307,7 +307,7 @@ body {
 }
 
 .col-lg-4 {
-  color: #f0f0f0;
+  color: #ebebeb;
 }
 
 .col-lg-4 a {
@@ -323,7 +323,7 @@ body {
 }
 
 .marketing .col-lg-4 a.btn {
-  color: #333333;
+  color: #f0f0f0;
 }
 
 .nav-pills>li>a {
@@ -333,4 +333,4 @@ body {
 .nav-pills>li>a:hover {
   color: #ffddc7;
 }
-*/
+
