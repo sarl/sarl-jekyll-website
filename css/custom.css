@@ -283,3 +283,54 @@ tfoot td {
   float: right !important;
   margin-left: 20px;
 }
+
+
+
+
+/* LIGHTER STYLE BY STEPHANE */
+/*
+body {
+  color: #333333;
+  background-color: #f0f0f0;
+}
+
+.jumbotron {
+  color: #f0f0f0;
+}
+
+.col-lg-3 {
+  color: #f0f0f0;
+}
+
+.col-lg-3 a {
+  color: #ffddc7;
+}
+
+.col-lg-4 {
+  color: #f0f0f0;
+}
+
+.col-lg-4 a {
+  color: #ffddc7;
+}
+
+.marketing .col-lg-4 {
+  color: #333333;
+}
+
+.marketing .col-lg-4 a {
+  color: #df691a;
+}
+
+.marketing .col-lg-4 a.btn {
+  color: #333333;
+}
+
+.nav-pills>li>a {
+  color: #333333;
+}
+
+.nav-pills>li>a:hover {
+  color: #ffddc7;
+}
+*/

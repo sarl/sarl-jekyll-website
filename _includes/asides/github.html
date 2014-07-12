@@ -13,7 +13,7 @@
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
-            jxhr.src = '{{ root_url}}/js/jXHR.js';
+            jxhr.src = '{{ page.relative }}/js/jXHR.js';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(jxhr, s);
         }
@@ -26,6 +26,6 @@
         });
     });
   </script>
-  <script src="{{ root_url }}/js/github.js" type="text/javascript"> </script>
+  <script src="{{ page.relative }}/js/github.js" type="text/javascript"> </script>
 </section>
 {% endif %}

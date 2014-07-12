@@ -1,6 +1,6 @@
 {% capture category %}{{ post.categories | size }}{% endcapture %}
 <h2>
-  <a href="{{ root_url }}{{ post.url }}">
+  <a href="{{ page.relative }}{{ post.url }}">
     {% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}
   </a>
 </h2>
@@ -11,7 +11,7 @@
   - <i class="glyphicon glyphicon-folder-close"></i>&nbsp; {{ post.categories | category_links }}
   {% endif %}
   {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
-  - <i class="glyphicon glyphicon-comments"></i>&nbsp;  <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
+  - <i class="glyphicon glyphicon-comments"></i>&nbsp;  <a href="{% if index %}{{ page.relative }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
   {% endif %}
 </p>
 

@@ -4,13 +4,13 @@
 
 {% if index %}
 <h2 class="entry-title">
-  <a href="{{ root_url }}{{ post.url }}">
+  <a href="{{ page.relative }}{{ post.url }}">
     {% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}
   </a>
 </h2>
 {% else %}
 <h2 class="entry-title">
-  <a href="{{page.url}}">
+  <a href="{{page.relative}}{{page.url}}">
     {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
   </a>
 </h2>
@@ -22,7 +22,7 @@
   <i class="glyphicon glyphicon-user"></i>&nbsp; {% if post.author %} {{post.author}} {%else%} {{site.author}} {% endif %}- 
   <i class="glyphicon glyphicon-folder-close"></i>&nbsp; {% include post/categories.html %}
   {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
-  - <i class="glyphicon glyphicon-comments"></i>&nbsp;  <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
+  - <i class="glyphicon glyphicon-comments"></i>&nbsp;  <a href="{% if index %}{{ page.relative }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
   {% endif %}
 </p>
 {% endunless %}
@@ -35,7 +35,7 @@
 {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
 {% if excerpted == 'true' %}
 <ul class="pager">
-  <li class="next"><a  rel="full-article" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a></li>
+  <li class="next"><a  rel="full-article" href="{{ page.relative }}{{ post.url }}">{{ site.excerpt_link }}</a></li>
 </ul>
 {% endif %}
 {% else %}

@@ -112,11 +112,11 @@ def add_navbar(source, navbar_file="_includes/navbar.html", footer_file="_includ
   # Add the favicon
   favicon =  Nokogiri::XML::Node.new "link", html_doc
   favicon['rel'] = 'icon'
-  favicon['href'] = '/images/favicon.ico'
+  favicon['href'] = '{{ page.relative }}images/favicon.ico'
   html_doc.at_css("head").children.first.add_previous_sibling(favicon)
   favicon =  Nokogiri::XML::Node.new "link", html_doc
   favicon['rel'] = 'shortcut icon'
-  favicon['href'] = '/images/favicon.ico'
+  favicon['href'] = '{{ page.relative }}images/favicon.ico'
   html_doc.at_css("head").children.first.add_previous_sibling(favicon)
   
   html_doc
