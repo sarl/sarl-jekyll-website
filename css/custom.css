@@ -285,9 +285,47 @@ tfoot td {
 }
 
 
-
-
 /* LIGHTER STYLE BY STEPHANE */
+
+ul.page_outline:before {
+  content: "Outline";
+  color: #4e5d6c;
+  font-size: 90%;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+ul.page_outline {
+  display: block;
+  border-color: #4e5d6c;
+  border-style: solid;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-left-width: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  background-color: #ebebeb;
+  color: #333333;
+  list-style-type: none;
+}
+
+ul.page_outline a {
+  color: #333333;
+}
+
+p.page_outline {
+  border: #333333;
+  background: red;
+  width: 100%;
+  margin: 5px;
+}
 
 body {
   color: #333333;
