@@ -24,6 +24,8 @@ DRAFTS = "_drafts"
 SARL_DOC_SUITE = "docs/io.sarl.docs.suite"
 SARL_GENERATED_DOC = "#{SARL_DOC_SUITE}/target/jnario-doc"
 
+SARL_GENERATED_JAVADOC = "target/site/apidocs"
+
 # == Helpers ===================================================================
 
 # Execute a system command
@@ -321,8 +323,12 @@ task :build_doc, :option do |t, args|
   puts "Compiling documentation ..."
   execute("mvn -f #{sarl_copy}/pom.xml #{option} test")
   execute("mvn -f #{sarl_copy}/#{SARL_DOC_SUITE}/pom.xml org.jnario:report:generate")
-
   puts "Documentation generated"
+
+  puts "Compiling the javadoc ..."
+  javadoc_source_path = "plugins/io.sarl.util/src/main/java:plugins/io.sarl.core/src/main/java:plugins/io.sarl.core/src/main/generated-sources/xtend:plugins/io.sarl.lang.core/src"
+  execute("mvn -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true clean javadoc:aggregate")
+  puts "Javadoc generated"
   
 end
 
@@ -350,6 +356,19 @@ task :copy_sarl_doc do
     dest_path = image_file.to_s.gsub(doc_base, FileUtils.pwd)
     puts "Copying to #{dest_path}"
     FileUtils.copy(image_file, dest_path)
+  end
+  puts "Copying javadoc to #{FileUtils.pwd}"
+  javadoc_base = "#{sarl_copy}/#{SARL_GENERATED_JAVADOC}"
+  site_javadoc_base = FileUtils.pwd + "/docs/api"
+  FileUtils.rm_rf(site_javadoc_base)
+  Dir.glob("#{javadoc_base}/**/*") do |jdoc_file|
+    if (not File.directory?(jdoc_file.to_s))
+      puts "Found #{jdoc_file.to_s}"
+      dest_path = jdoc_file.to_s.gsub(javadoc_base, site_javadoc_base)
+      puts "Copying to #{dest_path}"
+      FileUtils.mkdir_p(File.dirname(dest_path))
+      FileUtils.copy(jdoc_file, dest_path)
+    end
   end
 end
 
