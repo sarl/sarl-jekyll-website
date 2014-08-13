@@ -321,13 +321,13 @@ task :build_doc, :option do |t, args|
   end
 
   puts "Compiling documentation ..."
-  execute("mvn -f #{sarl_copy}/pom.xml #{option} test")
+  execute("mvn -f #{sarl_copy}/pom.xml #{option} clean test")
   execute("mvn -f #{sarl_copy}/#{SARL_DOC_SUITE}/pom.xml org.jnario:report:generate")
   puts "Documentation generated"
 
   puts "Compiling the javadoc ..."
   javadoc_source_path = "plugins/io.sarl.util/src/main/java:plugins/io.sarl.core/src/main/java:plugins/io.sarl.core/src/main/generated-sources/xtend:plugins/io.sarl.lang.core/src"
-  execute("mvn -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true clean javadoc:aggregate")
+  execute("mvn -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true javadoc:aggregate")
   puts "Javadoc generated"
   
 end
@@ -343,6 +343,8 @@ task :copy_sarl_doc do
   puts "Copying documentation to #{FileUtils.pwd}"
   doc_base = "#{sarl_copy}/#{SARL_GENERATED_DOC}"
   puts "Scanning : #{doc_base}/io/*.html"
+  site_docs_base = FileUtils.pwd + "/io"
+  FileUtils.rm_rf(site_docs_base)
   Dir.glob("#{doc_base}/io/**/*.html") do |html_file|
     puts "Found #{html_file.to_s}"
     dest_path = html_file.to_s.gsub(doc_base, FileUtils.pwd)
