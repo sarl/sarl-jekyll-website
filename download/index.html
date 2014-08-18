@@ -131,25 +131,13 @@ title: Download SARL
 </div>
 
 <div class="row">
-	<h1>Maven Repository</h1>
-	<p>You can also compile SARL using maven. Add the following maven repository to you pom.xml.</p>
-	<p>The <code>janus.version</code> property must specify the version of the
-	<a href="http://www.janusproject.io">Janus runtime environment</a>,
-	which is supporting the SARL language. The available version numbers are given on
-	the <a href="http://www.janusproject.io">Janus platform website</a>.</p>
-	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full pom.xml example.</p>
-	<pre class="prettyprint"><code class="language-xml linenums">&lt;project&gt;
-	...
-	&lt;dependencies&gt;
-		...
-		&lt;dependency&gt;
-			&lt;groupId&gt;io.janusproject&lt;/groupId&gt;
-			&lt;artifactId&gt;io.janusproject.kernel&lt;/artifactId&gt;
-			&lt;version&gt;${janus.version}&lt;/version&gt;
-		&lt;/dependency&gt;
-	&lt;/dependencies&gt;
-	...
-&lt;/project&gt;</code></pre>
+	<h1>Maven Support</h1>
+	<p>You can also compile SARL code using <a href="http://maven.apache.org">Maven</a>.
+	   The configuration of Maven is given in the tutorial "<a href="http://www.sarl.io/io/sarl/docs/gettingstarted/CreateFirstProjectSpec.html#Create_a_Maven_Project_with_SARL_Nature">Create First Project</a>".</p>
+	<p>The lastest version numbers could be obtain from the <a href="http://search.maven.org">Maven Central Repository</a>, or from the Maven repositories of SARL and Janus: <ul>
+		<li><a href="http://maven.sarl.io/VERSION.txt">SARL lastest version</a>,</li>
+		<li><a href="http://maven.janusproject.io/VERSION.txt">Janus lastest version</a>.</li></ul></p>
+	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full working example of <code>pom.xml</code>.</p>
 </div>
 
 
