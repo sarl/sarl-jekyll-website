@@ -120,24 +120,24 @@ def fixing_documentation_page(source, navbar_file="_includes/navbar.html", foote
   favicon['rel'] = 'shortcut icon'
   favicon['href'] = '{{ page.relative }}images/favicon.ico'
   html_doc.at_css("head").children.first.add_previous_sibling(favicon)
-  # Grab the section titles
-  outline = []
-  html_doc.css('h3.exampleGroup').each { |link|
-    secid = link.attr('id')
-    sectitle = link.content.to_s
-    secentry = { :id => secid, :label => sectitle }
-    outline.push(secentry)
-  }
-  # Create the HTML for outline
-  if (outline)
-    html_outline = '<ul class="page_outline" id="page_outline">'
-    outline.each { |secentry|
-      html_outline = html_outline << '<li><a href="#' << secentry[:id] << '">' << secentry[:label] << '</a></li>'
-    }
-    html_outline = html_outline << '</ul>'
-  else
-    html_outline = ''
-  end
+#  # Grab the section titles
+#  outline = []
+#  html_doc.css('h3.exampleGroup').each { |link|
+#    secid = link.attr('id')
+#    sectitle = link.content.to_s
+#    secentry = { :id => secid, :label => sectitle }
+#    outline.push(secentry)
+#  }
+#  # Create the HTML for outline
+#  if (outline)
+#    html_outline = '<ul class="page_outline" id="page_outline">'
+#    outline.each { |secentry|
+#      html_outline = html_outline << '<li><a href="#' << secentry[:id] << '">' << secentry[:label] << '</a></li>'
+#    }
+#    html_outline = html_outline << '</ul>'
+#  else
+#    html_outline = ''
+#  end
   # Building the string representation of the page
   raw_html_code = html_doc.to_html
   # Retreive the path to the root of the website
@@ -146,10 +146,10 @@ def fixing_documentation_page(source, navbar_file="_includes/navbar.html", foote
   if rel_url
     raw_html_code.gsub!(/%7[Bb]%7[Bb](\s|(%20))*page\.relative(\s|(%20))*%7[Dd]%7[Dd]\/*/, rel_url[1].to_s)
   end
-  # Add the outline
-  if (html_outline)
-    raw_html_code.gsub!(/<!--\s*OUTPUT\s+OUTLINE\s*-->/, html_outline)
-  end
+#  # Add the outline
+#  if (html_outline)
+#    raw_html_code.gsub!(/<!--\s*OUTPUT\s+OUTLINE\s*-->/, html_outline)
+#  end
   # Force to return the raw HTML code
   raw_html_code
 end
@@ -322,7 +322,8 @@ task :build_doc, :option do |t, args|
 
   puts "Compiling documentation ..."
   execute("mvn -f #{sarl_copy}/pom.xml #{option} clean test")
-  execute("mvn -f #{sarl_copy}/#{SARL_DOC_SUITE}/pom.xml org.jnario:report:generate")
+  #execute("mvn -f #{sarl_copy}/#{SARL_DOC_SUITE}/pom.xml org.jnario:report:generate")
+  execute("mvn -f #{sarl_copy}/#{SARL_DOC_SUITE}/pom.xml io.sarl.maven:io.sarl.maven.docs.generator:generate")
   puts "Documentation generated"
 
   puts "Compiling the javadoc ..."
