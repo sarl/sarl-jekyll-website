@@ -54,7 +54,7 @@ h1 {
 }
 .jumbotron .btn {
   padding: 14px 24px;
-  margin-left: 50px;
+/*  margin-left: 50px;*/
   min-width: 200px;
   font-size: 21px;
 }
@@ -364,6 +364,10 @@ body {
   color: #f0f0f0;
 }
 
+.marketing .col-lg-4 p {
+  text-align: center;
+}
+
 .nav-pills>li>a {
   color: #333333;
 }
@@ -376,3 +380,16 @@ body {
 .btn-note {
   font-size: 75%;
 }
+
+.jumbotron .btn-left {
+  margin-right: 25px;
+}
+
+.jumbotron .btn-right {
+  margin-left: 25px;
+}
+
+img {
+  max-width: 95%;
+}
+
