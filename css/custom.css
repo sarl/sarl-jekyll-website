@@ -382,11 +382,17 @@ body {
 }
 
 .jumbotron .btn-left {
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-right: 25px;
+  margin-left: 25px;
 }
 
 .jumbotron .btn-right {
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: 25px;
+  margin-right: 25px;
 }
 
 img {
