@@ -357,8 +357,11 @@ task :build_doc, :option do |t, args|
   jnario_generator = CONFIG["jnario"]["generator"]
   sarl_copy = ensure_git_sarl_repository(true)
   puts "Compiling documentation ..."
-  execute("mvn -f #{sarl_copy}/pom.xml #{option}")
+  execute("mvn -f #{sarl_copy}/#{sarl_doc_suite}/pom.xml #{option}")
   execute("mvn -f #{sarl_copy}/#{sarl_doc_suite}/pom.xml #{jnario_generator}")
+  Dir.glob("./classes*") do |tmp_folder|
+    FileUtils.rm_rf(tmp_folder)
+  end
   puts "Documentation generated"
 end
 
@@ -369,6 +372,9 @@ task :build_javadoc do
   javadoc_source_path = CONFIG["sarl"]["apidoc_modules"]
   puts "Compiling the javadoc ..."
   execute("mvn -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true javadoc:aggregate")
+  Dir.glob("./classes*") do |tmp_folder|
+    FileUtils.rm_rf(tmp_folder)
+  end
   puts "Javadoc generated"
 end
 
@@ -454,6 +460,14 @@ task :generate_changelog, :version, :force do |t, args|
   end
   create_file(changelog_dir, filename, content, title, editor, true)
 end
+
+desc "Full build of the Jnario part of the site : build_doc, copy_sarl_doc, build"
+task :build_jnario_only do
+    Rake::Task[:build_doc].invoke
+    Rake::Task[:copy_sarl_doc].invoke
+    Rake::Task[:build].invoke
+end
+
 
 desc "Full build of site : build_doc, build_javadoc, copy_sarl_doc, copy_javadoc, build"
 task :build_full do
