@@ -399,6 +399,13 @@ img {
   max-width: 95%;
 }
 
+table.table-bordered {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
 .table-bordered > tfoot > tr > th,
@@ -409,3 +416,4 @@ img {
   padding-left: 5px;
   padding-right: 5px;
 }
+
