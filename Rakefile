@@ -106,6 +106,13 @@ def fixing_documentation_page(source)
   html_doc = Nokogiri::HTML(f)
   # Extract the documentation as html (not the jnario spec source)
   info = html_doc.css("div#spec")
+  # Force the CSS style for tables
+  html_doc.xpath("//table").each do |table_element|
+    type = table_element["class"]
+    if type.nil? or type.empty? then
+      table_element["class"] = "table-bordered"
+    end
+  end
   # Extract the documentation title
   title_tag = html_doc.css("body").css('h1')
   title = title_tag.children.to_html
