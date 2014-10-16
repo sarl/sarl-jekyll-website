@@ -3,11 +3,11 @@ INSTALL ON UBUNTU
 -----------------
 1)  apt-get install rake
 2)  apt-get install nodejs
-3)  apt-get install ruby-dev
+3)  apt-get install ruby-all-dev
 4)  apt-get install ruby-nokogiri
-5)  gem install --no-rdoc --no-ri jekyll-scholar
+5)  apt-get install ruby-stringex
+6)  gem install -v 4.0.4 --no-rdoc --no-ri jekyll-scholar
     (the dependencies should be installed also)
-6)  gem install --no-rdoc --no-ri stringex
 
 -----------------------
 FAST GENERATION PROCESS
