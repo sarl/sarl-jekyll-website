@@ -3,9 +3,13 @@ layout: default
 title: Changes in 0.1.0
 ---
 
+# Changes in 0.1.0
+
+Release date: 2014-10-16.
+
 ### [lang]
 
-* Provide SARL language definition based on Xtexr 2.7.2.
+* Provide SARL language definition based on Xtext 2.7.2.
 
 ### [core]
 * Provide CORE library for SARL.
