@@ -6,7 +6,8 @@ INSTALL ON UBUNTU
 3)  apt-get install ruby-all-dev
 4)  apt-get install ruby-nokogiri
 5)  apt-get install ruby-stringex
-6)  gem install -v 4.0.4 --no-rdoc --no-ri jekyll-scholar
+6)  apt-get install jekyll
+7)  gem install -v 4.0.4 --no-rdoc --no-ri jekyll-scholar
     (the dependencies should be installed also)
 
 -----------------------
