@@ -3,7 +3,11 @@ layout: default
 title: Publications and Presentations
 ---
 
-# Citing SARL
+This page lists publications that have used or cited SARL (or Janus 2.x) software and/or models.
+
+This list is by no means complete or exhaustive. If you are using and/or citing SARL in your work, or you know of work that is not listed, please send the relevant citations to (stephane.galland@utbm.fr)[mailto:stephane.galland@utbm.fr].
+
+# 1. Citing SARL
 
 If you use SARL in your research and want to cite it (in a paper, presentation, whatever), please use this reference:
 
@@ -15,9 +19,9 @@ Or, you can choose to cite the website instead:
 
 A list of references (papers and PhD theses on or using SARL) is available below.
 
-# Publications
+# 2. Publications
 {% bibliography --file publications %}
 
-# Presentations
+# 3. Presentations
 
 {% bibliography --file presentations %}
