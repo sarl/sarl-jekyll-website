@@ -417,3 +417,9 @@ table.table-bordered {
   padding-right: 5px;
 }
 
+textarea {
+  max-width: 100%;
+  min-width: 50%;
+  min-height: 200px;
+}
+
