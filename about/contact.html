@@ -14,5 +14,8 @@ title: Contact Us
 	Your message:<br/>
 	<textarea name="message"></textarea><br/>
 	<input type="submit" value="Send"/>
+	<input type="hidden" name="_next" value="{{ page.relative }}about/thankyou.html"/>
+	<input type="hidden" name="_subject" value="Message from the SARL website" />
+	<input type="text" name="_gotcha" style="display:none" />
 </form>
 </p>
