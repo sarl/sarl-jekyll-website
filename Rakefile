@@ -409,6 +409,13 @@ task :copy_sarl_doc do
     puts "Copying to #{dest_path}"
     FileUtils.copy(image_file, dest_path)
   end
+  puts "Scanning : #{doc_base}/js/lang-*.js"
+  Dir.glob("#{doc_base}/js/lang-*.js") do |js_file|
+    puts "Found #{js_file.to_s}"
+    dest_path = js_file.to_s.gsub(doc_base, FileUtils.pwd)
+    puts "Copying to #{dest_path}"
+    FileUtils.copy(js_file, dest_path)
+  end
 end
 
 #rake copy_javadoc
