@@ -377,8 +377,9 @@ desc "Build Java documentation using maven"
 task :build_javadoc do
   sarl_copy = ensure_git_sarl_repository(false)
   javadoc_source_path = CONFIG["sarl"]["apidoc_modules"]
+  javadoc_cli_arguments = CONFIG["sarl"]["apidoc_cli_arguments"]
   puts "Compiling the javadoc ..."
-  execute("mvn -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true javadoc:aggregate")
+  execute("mvn #{javadoc_cli_arguments} -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true javadoc:aggregate")
   Dir.glob("./classes*") do |tmp_folder|
     FileUtils.rm_rf(tmp_folder)
   end

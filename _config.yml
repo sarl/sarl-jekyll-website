@@ -43,6 +43,7 @@ sarl:
   generated_doc: target/jnario-doc
   generated_apidoc: target/site/apidocs
   apidoc_modules: plugins/io.sarl.util/src/main/java:plugins/io.sarl.core/src/main/java:plugins/io.sarl.core/src/main/generated-sources/xtend:plugins/io.sarl.lang.core/src
+  apidoc_cli_arguments: -DperformRelease=true
 
 jnario:
   generator: io.sarl.maven:io.sarl.maven.docs.generator:generate
