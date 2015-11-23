@@ -34,6 +34,10 @@ page:
   template: _templates/_page.txt
   extension: md
 
+build:
+  files_to_ignore: Gemfile:Gemfile.lock:Rakefile:README
+  output_dir: _site
+
 sarl:
   git_name: sarl/sarl
   url: https://github.com/sarl/sarl.git

@@ -279,6 +279,13 @@ end
 desc "Build the site"
 task :build do
   execute("jekyll build")
+  # Remove unecessary files
+  output_dir = CONFIG["build"]["output_dir"]
+  files_to_ignore = CONFIG["build"]["files_to_ignore"].strip.split(/\s*:\s*/)
+  files_to_ignore.each do |fti|
+    puts "       Undeploying: #{fti}"
+    FileUtils.rm("#{output_dir}/#{fti}")
+  end
 end
 
 # rake watch
