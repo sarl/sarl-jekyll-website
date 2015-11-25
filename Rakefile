@@ -382,11 +382,26 @@ end
 #rake build_javadoc
 desc "Build Java documentation using maven"
 task :build_javadoc do
+  curdir = Dir.pwd
+
   sarl_copy = ensure_git_sarl_repository(false)
-  javadoc_source_path = CONFIG["sarl"]["apidoc_modules"]
+  javadoc_source_modules = CONFIG["sarl"]["apidoc_modules"]
   javadoc_cli_arguments = CONFIG["sarl"]["apidoc_cli_arguments"]
+  javadoc_cli_goals = CONFIG["sarl"]["apidoc_cli_goals"]
+
+  javadoc_source_paths = []
+  javadoc_source_modules.split(/\s*:\s*/).each do |src_module|
+    module_path = "#{src_module}/target/generated-sources/java"
+    javadoc_source_paths.push(module_path)
+  end
+  javadoc_source_path_str = javadoc_source_paths.join(":")
+
   puts "Compiling the javadoc ..."
-  execute("mvn #{javadoc_cli_arguments} -f #{sarl_copy}/pom.xml -Dsourcepath=#{javadoc_source_path} -Dmaven.test.skip=true javadoc:aggregate")
+  
+  Dir.chdir("#{sarl_copy}")
+  execute("mvn #{javadoc_cli_arguments} -Dsourcepath=#{javadoc_source_path_str} #{javadoc_cli_goals}")
+  Dir.chdir("#{curdir}")
+
   Dir.glob("./classes*") do |tmp_folder|
     FileUtils.rm_rf(tmp_folder)
   end

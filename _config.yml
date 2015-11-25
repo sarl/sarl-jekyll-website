@@ -46,8 +46,9 @@ sarl:
   doc_suite: docs/io.sarl.docs.suite
   generated_doc: target/jnario-doc
   generated_apidoc: target/site/apidocs
-  apidoc_modules: plugins/io.sarl.util/src/main/java:plugins/io.sarl.core/src/main/java:plugins/io.sarl.core/src/main/generated-sources/xtend:plugins/io.sarl.lang.core/src
-  apidoc_cli_arguments: -DperformRelease=true
+  apidoc_modules: plugins/io.sarl.util:plugins/io.sarl.core:plugins/io.sarl.lang.core
+  apidoc_cli_arguments: -Dmaven.test.skip=true -Dcheckstyle.skip=true -DpublicSarlApiModuleSet=true
+  apidoc_cli_goals: clean org.arakhne.afc.maven:tag-replacer:generatereplacesrc javadoc:aggregate
 
 jnario:
   generator: io.sarl.maven:io.sarl.maven.docs.generator:generate
