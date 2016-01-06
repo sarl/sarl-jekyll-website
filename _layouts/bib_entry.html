@@ -15,8 +15,12 @@
 		<li><a href="{{link}}"><span class="glyphicon glyphicon-download-alt"></span> Download</a></li>
 		{% endif %}
 
-		{% if entry.url %}
-		<li><a href="{{entry.url}}"><span class="glyphicon glyphicon-log-out"> External Download</a></li>
+		{% if entry.link %}
+		<li><a href="{{entry.link}}"><span class="glyphicon glyphicon-log-out"> Download</a></li>
+		{% endif %}
+
+		{% if entry.pdf %}
+		<li><a href="{{entry.pdf}}"><span class="glyphicon glyphicon-log-out"> Download PDF</a></li>
 		{% endif %}
 
 	</ul>
