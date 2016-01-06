@@ -19,8 +19,11 @@ Or, you can choose to cite the website instead:
 
 A list of references (papers and PhD theses on or using SARL) is available below.
 
-# 2. Publications
+# 2. Publications related to SARL
 {% bibliography --file publications %}
+
+# 3. Publications related to CRIO's and Janus's concepts
+{% bibliography --file oldpublications %}
 
 # 3. Presentations
 
