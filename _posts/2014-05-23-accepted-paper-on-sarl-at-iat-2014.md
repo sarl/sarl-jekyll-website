@@ -2,6 +2,7 @@
 title: "Accepted paper on SARL at IAT 2014"
 layout: post
 categories: Publications
+relative: ../../../../
 ---
 
 

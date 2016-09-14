@@ -2,6 +2,7 @@
 title: "SARL Course at WESAAC 2015"
 layout: post
 categories: Presentations
+relative: ../../../../
 ---
 
 A 4-hours course of Multiagent Systems programming with SARL will given at the "9th Software Agents, Environments and Applications School (WESAAC)".

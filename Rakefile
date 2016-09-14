@@ -283,8 +283,10 @@ task :build do
   output_dir = CONFIG["build"]["output_dir"]
   files_to_ignore = CONFIG["build"]["files_to_ignore"].strip.split(/\s*:\s*/)
   files_to_ignore.each do |fti|
-    puts "       Undeploying: #{fti}"
-    FileUtils.rm("#{output_dir}/#{fti}")
+    if File.exists?("#{output_dir}/#{fti}") then
+      puts "       Undeploying: #{fti}"
+      FileUtils.rm("#{output_dir}/#{fti}")
+    end
   end
 end
 
@@ -389,7 +391,7 @@ task :build_javadoc do
   puts "Compiling the javadoc ..."
   
   Dir.chdir("#{sarl_copy}")
-  execute("bash ./scripts/generate_aggregate_javadoc.sh")
+  execute("bash ./build-tools/scripts/generate_aggregate_javadoc.sh")
   Dir.chdir("#{curdir}")
 
   Dir.glob("./classes*") do |tmp_folder|

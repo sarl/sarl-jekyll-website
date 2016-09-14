@@ -2,6 +2,7 @@
 title: "Accepted paper with SARL at PAAMS15"
 layout: post
 categories: Publications
+relative: ../../../../
 ---
 
 An article using SARL has been accepted at the 2015 [International Conference on Practical Applications of Agents and Multi-Agent Systems (PAAMS)](http://www.paams.net/), 3rd-5th June 2015 / Salamanca, Spain.

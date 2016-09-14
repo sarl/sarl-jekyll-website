@@ -2,6 +2,7 @@
 title: "SARL Lectures at Doctoral School of Hasselt University"
 layout: post
 categories: Presentations
+relative: ../../../../
 ---
 
 Four lectures of 2 hours related to SARL and Janus will given to the PhD students of the Transport and Computer Science departments of the [Hasselt University](http://www.uhasselt.be/IMOB-EN) (Belgium).

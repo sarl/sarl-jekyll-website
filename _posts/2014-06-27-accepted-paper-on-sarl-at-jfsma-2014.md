@@ -2,6 +2,7 @@
 title: "Accepted paper on SARL at JFSMA 2014"
 layout: post
 categories: Publications
+relative: ../../../../
 ---
 
 An article presenting an environment model in SARL has been accepted at the 2014 JFSMA [Journées Francophones sur les Systèmes Multi-Agents](http://jfsma14.lcis.fr/), 8-10 Octobre 2014 / Loriol-sur-Drôme, France.

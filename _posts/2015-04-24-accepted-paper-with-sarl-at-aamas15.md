@@ -2,6 +2,7 @@
 title: "Accepted paper with SARL at AAMAS15"
 layout: post
 categories: Publications
+relative: ../../../../
 ---
 
 An article using SARL has been accepted at the 2015 [International Conference on Autonomous Agents and Multiagent Systems (AAMAS)](http://www.aamas2015.com/en/), 4-5 May 2015 / Istanbul, Turkey.
