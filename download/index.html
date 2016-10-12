@@ -2,8 +2,8 @@
 layout: default
 title: Download SARL
 ---
+<h1>Download Options</h1>
 <div class="row">
-	<h1>Download Options</h1>
 	<!--table one starts-->
 	<div class="col-md-1">&nbsp;</div>
 	<div class="col-md-4">
@@ -16,7 +16,7 @@ title: Download SARL
 				</tfoot>
 				<tbody>
 					<tr>
-						<td class="focus">Version 0.4.1<br/>(stable)<span>Just Download and Unzip<br/><a href="./changes_0.4.1.html">Changes in 0.4.1</a></span></td>
+						<td class="focus">SARL Development Environment<br/>Version 0.4.1<br/>(stable)<span>Just Download and Unzip<br/><a href="./changes_0.4.1.html">Changes in 0.4.1</a></span></td>
 					</tr>
 					<tr>
 						<td style="text-align: center; white-space: nowrap;">
@@ -75,7 +75,7 @@ title: Download SARL
 				</tfoot>
 				<tbody>
 					<tr>
-						<td class="focus">Version 0.5.0<br/>(unstable)<span>Just Download and Unzip</span></td>
+						<td class="focus">SARL Development Environment<br/>Version 0.5.0<br/>(unstable)<span>Just Download and Unzip</span></td>
 					</tr>
 					<tr>
 						<td style="text-align: center; white-space: nowrap;">
@@ -129,7 +129,7 @@ title: Download SARL
 <div class="row">
 	<h1>Installation Instructions</h1>
 	<p>
-		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment</a> installed in order to compile and execute.
+		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html">Java Runtime Environment 1.8 or higher</a> installed in order to compile and execute.
 	</p>
 
 
@@ -138,7 +138,9 @@ title: Download SARL
 		A pre-configured Eclipse distribution is available which has already all the necessary plug-ins installed. 
 		Alternatively, you can install SARL SDK into your existing Eclipse using the Eclipse update mechanism.
 	</p>
+</div>
 
+<div class="row">
 	<h2>Install Pre-Configured Eclipse with SARL SDK</h2>
 	<ol>
 		<li>Download the distribution from above that matches your OS.</li>
@@ -146,7 +148,29 @@ title: Download SARL
 		<li>Launch Eclipse and select the workspace location. A workspace location is the directory for your user data and project files.</li>
 
 	</ol>
+</div>
 
+<div class="row">
+	<h1>Maven Support</h1>
+	<p>You can also compile SARL code using <a href="http://maven.apache.org">Maven</a>.
+	   The configuration of Maven is given in the tutorial "<a href="{{ page.relative }}docs/suite/io/sarl/docs/gettingstarted/CreateFirstProjectSpec.html#Create_a_Maven_Project_with_SARL_Nature">Create First Project</a>".</p>
+	<p>The lastest version numbers could be obtain from the <a href="http://search.maven.org">Maven Central Repository</a>, or from the Maven repositories of SARL and Janus: <ul>
+		<li><a href="http://maven.sarl.io/VERSION.txt">SARL lastest version</a>,</li>
+		<li><a href="http://maven.janusproject.io/VERSION.txt">Janus lastest version</a>.</li></ul></p>
+</div>
+
+<div class="row">
+	<h2>Command line tools (COMING SOON)</h2>
+	<p>
+		Several command-line tools could be dowloaded with the following links.
+		<ul>
+		<li>SARL compiler : <a href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/0.5.0-SNAPSHOT/">Windows</a>, <a href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/0.5.0-SNAPSHOT/">Linux</a>, <a href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/0.5.0-SNAPSHOT/">OS X</a>.</li>
+		<li>Janus run-time environment : <a href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/0.5.0-SNAPSHOT/">Windows</a>, <a href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/0.5.0-SNAPSHOT/">Linux</a>, <a href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/0.5.0-SNAPSHOT/">OS X</a>.</li>
+		</ul>
+	</p>
+</div>
+
+<div class="row">
 	<h2>Install SARL SDK From Update Site (NOT RECOMMENDED)</h2>
 	
 	
@@ -159,20 +183,9 @@ title: Download SARL
 		<li>After a quick download and a restart of Eclipse, SARL is ready to use.</li>
 	</ol>
 
-	<p><span class="label label-info">Note</span> We recommend to use Eclipse Luna.</p>
+	<p><span class="label label-info">Note</span> We recommend to use Eclipse Neon.1.</p>
 
 </div>
-
-<div class="row">
-	<h1>Maven Support</h1>
-	<p>You can also compile SARL code using <a href="http://maven.apache.org">Maven</a>.
-	   The configuration of Maven is given in the tutorial "<a href="{{ page.relative }}docs/suite/io/sarl/docs/gettingstarted/CreateFirstProjectSpec.html#Create_a_Maven_Project_with_SARL_Nature">Create First Project</a>".</p>
-	<p>The lastest version numbers could be obtain from the <a href="http://search.maven.org">Maven Central Repository</a>, or from the Maven repositories of SARL and Janus: <ul>
-		<li><a href="http://maven.sarl.io/VERSION.txt">SARL lastest version</a>,</li>
-		<li><a href="http://maven.janusproject.io/VERSION.txt">Janus lastest version</a>.</li></ul></p>
-	<p><span class="label label-success">Demos Available</span> See <a href="http://github.com/sarl/sarl-demos">SARL Demos</a> for a full working example of <code>pom.xml</code>.</p>
-</div>
-
 
 <div class="row">
 	<h1>Getting the Source Code</h1>
