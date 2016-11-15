@@ -441,6 +441,7 @@ task :copy_javadoc do
   site_javadoc_base = FileUtils.pwd + "/" + CONFIG["apidoc_dir"]
   puts "Copying Java documentation to #{site_javadoc_base}"
   javadoc_base = "#{sarl_copy}/#{sarl_generated_apidoc}"
+  puts "    source: #{javadoc_base}"
   FileUtils.rm_rf(site_javadoc_base)
   Dir.glob("#{javadoc_base}/**/*") do |jdoc_file|
     if (not File.directory?(jdoc_file.to_s))
