@@ -365,19 +365,12 @@ end
 #rake build_doc["clean"]
 desc "Build sarl documentation using maven"
 task :build_doc, :option do |t, args|
-  option = args[:option]
-  if (option.blank?) then
-    option = "clean test install"
-  end
-  sarl_doc_suite = CONFIG["sarl"]["doc_suite"]
-  jnario_generator = CONFIG["jnario"]["generator"]
+  curdir = Dir.pwd
   sarl_copy = ensure_git_sarl_repository(true)
   puts "Compiling documentation ..."
-  execute("mvn -f #{sarl_copy}/#{sarl_doc_suite}/pom.xml #{option}")
-  execute("mvn -f #{sarl_copy}/#{sarl_doc_suite}/pom.xml #{jnario_generator}")
-  Dir.glob("./classes*") do |tmp_folder|
-    FileUtils.rm_rf(tmp_folder)
-  end
+  Dir.chdir("#{sarl_copy}")
+  execute("bash ./build-tools/scripts/generate_jnario_docs.sh")
+  Dir.chdir("#{curdir}")
   puts "Documentation generated"
 end
 
@@ -391,7 +384,7 @@ task :build_javadoc do
   puts "Compiling the javadoc ..."
   
   Dir.chdir("#{sarl_copy}")
-  execute("bash ./build-tools/scripts/generate_aggregate_javadoc.sh")
+  execute("bash ./build-tools/scripts/generate-aggregate-javadoc.sh")
   Dir.chdir("#{curdir}")
 
   Dir.glob("./classes*") do |tmp_folder|
