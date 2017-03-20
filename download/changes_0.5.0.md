@@ -21,25 +21,25 @@ Release date: 2017-03-18.
 
 ## [core]
 * Behaviors:
-** Upgrade Behaviors capacity with hasRegisteredBehavior and getRegisteredBehaviors. ([details](http://github.com/sarl/sarl/commit/52c0e5a31b3fb780eaca9ef0d70eaf8e1f6e8ac8))
-** Add filter for registerBehavior. ([details](http://github.com/sarl/sarl/commit/9f1fb9110c05e1bb1e6a9eb8b72adb9d2dda1e60))
-** Add scope parameter to the wake function. ([details](http://github.com/sarl/sarl/commit/3e69bfb743ea504d784b3aba549705144a6b0957))
+  * Upgrade Behaviors capacity with hasRegisteredBehavior and getRegisteredBehaviors. ([details](http://github.com/sarl/sarl/commit/52c0e5a31b3fb780eaca9ef0d70eaf8e1f6e8ac8))
+  * Add filter for registerBehavior. ([details](http://github.com/sarl/sarl/commit/9f1fb9110c05e1bb1e6a9eb8b72adb9d2dda1e60))
+  * Add scope parameter to the wake function. ([details](http://github.com/sarl/sarl/commit/3e69bfb743ea504d784b3aba549705144a6b0957))
 * DefaultContextInteractions:
-** Add [Inline](http://github.com/Inline) to the receive() function. ([details](http://github.com/sarl/sarl/commit/8f649b78c3c79cb65e3c2f9943ef5bc464a09d59))
-** Deprecate spawn() in DefaultContextInteractions ([details](http://github.com/sarl/sarl/commit/51461135b0c1a4758330bbc83ee01c2a69618aa1))
-** Allow null scope. ([details](http://github.com/sarl/sarl/commit/3f65b3283f8ee3508e98d70e9628f84997050da5))
+  * Add [Inline](http://github.com/Inline) to the receive() function. ([details](http://github.com/sarl/sarl/commit/8f649b78c3c79cb65e3c2f9943ef5bc464a09d59))
+  * Deprecate spawn() in DefaultContextInteractions ([details](http://github.com/sarl/sarl/commit/51461135b0c1a4758330bbc83ee01c2a69618aa1))
+  * Allow null scope. ([details](http://github.com/sarl/sarl/commit/3f65b3283f8ee3508e98d70e9628f84997050da5))
 * Lifecycle:
-** Enforce the agent killing process. ([details](http://github.com/sarl/sarl/commit/852d8c6622a84160731fb720c1f52a7966f4927f))
-** Add spawn() in Lifecycle. ([details](http://github.com/sarl/sarl/commit/50d3cf61ed43bb1aac2d191ea96e0fcc4163bba7))
-** Spawn more than one agent. ([details](http://github.com/sarl/sarl/commit/d110883fe11ea9555b6b822fd589ddcd83b50f6c))
+  * Enforce the agent killing process. ([details](http://github.com/sarl/sarl/commit/852d8c6622a84160731fb720c1f52a7966f4927f))
+  * Add spawn() in Lifecycle. ([details](http://github.com/sarl/sarl/commit/50d3cf61ed43bb1aac2d191ea96e0fcc4163bba7))
+  * Spawn more than one agent. ([details](http://github.com/sarl/sarl/commit/d110883fe11ea9555b6b822fd589ddcd83b50f6c))
 * Schedules:
-** Change AgentTask guard type for fitting the Xtext generated closures. ([details](http://github.com/sarl/sarl/commit/447b6856f50e934222939183eb14fb8b0102c73b))
-** Add the atFixedDelay() function in the Schedules capacity. ([details](http://github.com/sarl/sarl/commit/b4cf839483886c1c1177ebe3fa99d0506fd00844))
-** Add the execute() function in the Schedules capacity. ([details](http://github.com/sarl/sarl/commit/1e6cf1ce2dec2e92f92b43aa6be90e4ad425b7b4))
-** Add isCancelled for agent tasks. ([details](http://github.com/sarl/sarl/commit/06471f0c2b3a43bca6323b443d81fde22555941b))
+  * Change AgentTask guard type for fitting the Xtext generated closures. ([details](http://github.com/sarl/sarl/commit/447b6856f50e934222939183eb14fb8b0102c73b))
+  * Add the atFixedDelay() function in the Schedules capacity. ([details](http://github.com/sarl/sarl/commit/b4cf839483886c1c1177ebe3fa99d0506fd00844))
+  * Add the execute() function in the Schedules capacity. ([details](http://github.com/sarl/sarl/commit/1e6cf1ce2dec2e92f92b43aa6be90e4ad425b7b4))
+  * Add isCancelled for agent tasks. ([details](http://github.com/sarl/sarl/commit/06471f0c2b3a43bca6323b443d81fde22555941b))
 * Events:
-** Add spawner in the Initialize event. ([details](http://github.com/sarl/sarl/commit/79bd93c279fcbe6d5b022a124e62e8a7290887d1))
-** Standard events are final. ([details](http://github.com/sarl/sarl/commit/73ab01c851f5348ddf6d5e7e7296db89544cc46d))
+  * Add spawner in the Initialize event. ([details](http://github.com/sarl/sarl/commit/79bd93c279fcbe6d5b022a124e62e8a7290887d1))
+  * Standard events are final. ([details](http://github.com/sarl/sarl/commit/73ab01c851f5348ddf6d5e7e7296db89544cc46d))
 
 ## [lang.core]
 * Generate inner class for context aware capacity calls. ([details](http://github.com/sarl/sarl/commit/5113a2d7bb0af450fec13e2faf7be5f78a99cbf4))
@@ -49,9 +49,9 @@ Release date: 2017-03-18.
 * Add functions in Scopes. ([details](http://github.com/sarl/sarl/commit/7735eb517dbf753f5f2cdfe164791b7b9a6a7ac6))
 * Add SarlSpecificationChecker. ([details](http://github.com/sarl/sarl/commit/c8860d589edec7928fb1dbdc103948599ab1b7ff))
 * Internal Event Bus:
-** Move the guard evaluator detector from Janus to io.sarl.util. ([details](http://github.com/sarl/sarl/commit/7ed4b96dd514abca8b96b4db33e1b18b76aa24b4))
-** Remove the list of listeners in the internal event bus skill. ([details](http://github.com/sarl/sarl/commit/ccb5a508ebb9f95c90bd219fab96601c91272ad9))
-** Fire Initialize and Destroy in behaviors. ([details](http://github.com/sarl/sarl/commit/c10be5d84fff204a2686673db2bd9dee8048a510))
+  * Move the guard evaluator detector from Janus to io.sarl.util. ([details](http://github.com/sarl/sarl/commit/7ed4b96dd514abca8b96b4db33e1b18b76aa24b4))
+  * Remove the list of listeners in the internal event bus skill. ([details](http://github.com/sarl/sarl/commit/ccb5a508ebb9f95c90bd219fab96601c91272ad9))
+  * Fire Initialize and Destroy in behaviors. ([details](http://github.com/sarl/sarl/commit/c10be5d84fff204a2686673db2bd9dee8048a510))
 
 ## [eclipse] and [product]
 * Upgrade to Eclipse Neon.2. ([details](http://github.com/sarl/sarl/commit/8592c51779080d35607078e0451452e60eef4aaa))
