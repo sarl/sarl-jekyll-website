@@ -22,6 +22,9 @@ apidoc_dir: docs/api
 # Where to find the Suite docs
 suitedoc_dir: docs/official
 
+# Where to put the CSS file for pygments
+pygments_css_file: css/pygments.css
+
 # Where to find the Changelog files
 changelog_dir: download
 

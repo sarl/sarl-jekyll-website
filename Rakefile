@@ -464,3 +464,9 @@ task :build_full do
     Rake::Task[:build].invoke
 end
 
+desc "Generate the Pygments CSS"
+task :genpygmentscss do
+    execute("pygmentize -S borland -f html > " + FileUtils.pwd + "/" + CONFIG["pygments_css_file"])
+end
+
+
