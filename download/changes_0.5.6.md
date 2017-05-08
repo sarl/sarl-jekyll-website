@@ -11,7 +11,7 @@ Release date: 2017-05-07.
 * Do not include object fields in the generated equals and hashCode functions. ([details](http://github.com/sarl/sarl/commit/5923629621314412b10d640068b7c4fb511b6a28))
 * Use InheritedHelper in SARLLabelProvider. ([details](http://github.com/sarl/sarl/commit/98f656783ee9b6241b25acca7151ed4595aa32e3))
 * Automatic creation of temp directory in batch compiler. ([details](http://github.com/sarl/sarl/commit/b55a7992492f6078f013b1d24acedb068d50a6a9))
-* Mark generated elements with [SarlElementType](http://github.com/SarlElementType). ([details](http://github.com/sarl/sarl/commit/75efec9660f7fbaa6d9d44e2e605e0c601ed0b8b))
+* Mark generated elements with @SarlElementType. ([details](http://github.com/sarl/sarl/commit/75efec9660f7fbaa6d9d44e2e605e0c601ed0b8b))
 * Enable capacity calls in annonymous classes. ([details](http://github.com/sarl/sarl/commit/e6103743b06799e3cca6b0cf0d1564907b549ea2))
 * Internal errors in JVM inferrer must be output at DEBUG level. ([details](http://github.com/sarl/sarl/commit/d486178d51da64a39c360d9a5d9ad54efbec021f))
 * Add static default visibility computation from EClass. ([details](http://github.com/sarl/sarl/commit/4bc7c3efd4002cafa1fb549d7d520f2eedfda658))
