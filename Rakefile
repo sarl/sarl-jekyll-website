@@ -101,31 +101,6 @@ def write_with_path(dst, content)
   file.close unless file == nil
 end
 
-def fixing_documentation_page(source)
-  f = File.open(source)
-  html_doc = Nokogiri::HTML(f)
-  # Extract the documentation as html (not the jnario spec source)
-  info = html_doc.css("div#spec")
-  # Force the CSS style for tables
-  html_doc.xpath("//table").each do |table_element|
-    type = table_element["class"]
-    if type.nil? or type.empty? then
-      table_element["class"] = "table-bordered"
-    end
-  end
-  # Extract the documentation title
-  title_tag = html_doc.css("body").css('h1')
-  title = title_tag.children.to_html
-  # Acknowledge Jnario's great work
-  jnario = CONFIG["jnario"]["html_foot"]
-  # Reply the Jekyl template
-  template = CONFIG["page"]["template"]
-  content = read_file(template)
-  parsed_content = "#{content.sub("title:", "title: \"#{title}\"")}"
-  f.close
-  return "#{parsed_content}\n\n#{info.to_html}\n#{jnario}"
-end
-
 def generate_changelog_markdown(git_folder, project, revision='HEAD')
   rawlog = `cd #{git_folder} && git log "#{revision}" --pretty=format:"[[%H]]%s\n"`
   logs = {}
@@ -368,8 +343,8 @@ task :build_doc, :option do |t, args|
   curdir = Dir.pwd
   sarl_copy = ensure_git_sarl_repository(true)
   puts "Compiling documentation ..."
-  Dir.chdir("#{sarl_copy}")
-  execute("bash ./build-tools/scripts/generate_jnario_docs.sh")
+  Dir.chdir("#{sarl_copy}/docs/io.sarl.docs.markdown")
+  execute("mvn -Dmaven.test.skip=true clean install")
   Dir.chdir("#{curdir}")
   puts "Documentation generated"
 end
@@ -402,27 +377,15 @@ task :copy_sarl_doc do
   doc_base = "#{sarl_copy}/#{sarl_generated_doc}"
   site_docs_base = FileUtils.pwd + "/" + CONFIG["suitedoc_dir"]
   FileUtils.rm_rf(site_docs_base)
-  puts "Scanning : #{doc_base}/io/*.html"
-  Dir.glob("#{doc_base}/io/**/*.html") do |html_file|
-    puts "Found #{html_file.to_s}"
-    dest_path = html_file.to_s.gsub(doc_base, site_docs_base)
-    puts "Copying to #{dest_path}"
-    html_doc = fixing_documentation_page(html_file.to_s)
-    write_with_path(dest_path, html_doc)
-  end
-  puts "Scanning : #{doc_base}/io/*.png"
-  Dir.glob("#{doc_base}/io/**/*.png") do |image_file|
-    puts "Found #{image_file.to_s}"
-    dest_path = image_file.to_s.gsub(doc_base, site_docs_base)
-    puts "Copying to #{dest_path}"
-    FileUtils.copy(image_file, dest_path)
-  end
-  puts "Scanning : #{doc_base}/js/lang-*.js"
-  Dir.glob("#{doc_base}/js/lang-*.js") do |js_file|
-    puts "Found #{js_file.to_s}"
-    dest_path = js_file.to_s.gsub(doc_base, FileUtils.pwd)
-    puts "Copying to #{dest_path}"
-    FileUtils.copy(js_file, dest_path)
+  for docfileext in  [ '.md', '.html', '.png', '.js' ]
+	  puts "Scanning : #{doc_base}/**/*#{docfileext}"
+	  Dir.glob("#{doc_base}/**/*#{docfileext}") do |src_file|
+		puts "Found #{src_file.to_s}"
+		dest_path = src_file.to_s.gsub(doc_base, site_docs_base)
+		puts "Copying to #{dest_path}"
+		FileUtils.mkdir_p(File.dirname(dest_path))
+		FileUtils.copy(src_file, dest_path)
+	  end
   end
 end
 
@@ -484,8 +447,8 @@ task :generate_changelog, :version, :force do |t, args|
   create_file(changelog_dir, filename, content, title, editor, true)
 end
 
-desc "Full build of the Jnario part of the site : build_doc, copy_sarl_doc, build"
-task :build_jnario_only do
+desc "Full build of the SARL documentation part of the site : build_doc, copy_sarl_doc, build"
+task :build_sarl_only do
     Rake::Task[:build_doc].invoke
     Rake::Task[:copy_sarl_doc].invoke
     Rake::Task[:build].invoke

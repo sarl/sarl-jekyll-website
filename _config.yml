@@ -3,6 +3,9 @@ markdown: redcarpet
 highlighter: pygments
 permalink: /news/:year/:month/:day/:title.html
 
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "with_toc_data", "fenced_code_blocks", "prettify"]
+
 description: | 
   SARL is a general-purpose agent-oriented language.
   SARL aims at providing the fundamental abstractions for dealing with concurrency, distribution, interaction, decentralization, reactivity, autonomy and dynamic reconfiguration. These high-level features are now considered as the major requirements for an easy and practical implementation of modern complex software applications. We are convinced that the agent-oriented paradigm holds the keys to effectively meet this challenge.
@@ -16,8 +19,8 @@ category_dir: news/categories
 # Where to find the API docs
 apidoc_dir: docs/api
 
-# Where to find the Jnario Suite docs
-suitedoc_dir: docs/suite
+# Where to find the Suite docs
+suitedoc_dir: docs/official
 
 # Where to find the Changelog files
 changelog_dir: download
@@ -43,13 +46,9 @@ sarl:
   url: https://github.com/sarl/sarl.git
   workdir: /tmp
   branch: master
-  doc_suite: docs/io.sarl.docs.suite
-  generated_doc: target/jnario-doc
+  doc_suite: docs/io.sarl.docs.markdown
+  generated_doc: target/classes
   generated_apidoc: target/site/apidocs
-
-jnario:
-  generator: io.sarl.maven:io.sarl.maven.docs.generator:generate
-  html_foot: <hr/><p><small>The SARL Documentation is generated with <a href='http://www.jnario.org' target='_blank'>Jnario</a></small></p>
 
 git:
   branch: master

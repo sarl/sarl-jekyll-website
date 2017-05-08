@@ -14,10 +14,13 @@ INSTALL ON UBUNTU (14.04)
 -----------------------------
 INSTALL ON UBUNTU (16.04)
 -----------------------------
-1)  apt-get install ruby ruby-dev make gcc ruby-all-dev rake nodejs ruby-nokogiri ruby-bundler ruby-stringex
-7)  gem install --no-rdoc --no-ri jekyll
-8)  gem install --no-rdoc --no-ri jekyll-scholar
+1)  apt-get install ruby ruby-dev make gcc ruby-all-dev rake nodejs ruby-nokogiri ruby-bundler ruby-stringex python-setuptools
+2)  gem install --no-rdoc --no-ri jekyll
+3)  gem install --no-rdoc --no-ri jekyll-scholar
     (the dependencies should be installed also)
+4)  cd <sarl>/formatting-styles/pygments
+5)  python setup.py develop
+5)  python setup.py install
 
 -----------------------
 FAST GENERATION PROCESS
