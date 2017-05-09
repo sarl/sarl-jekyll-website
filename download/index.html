@@ -129,7 +129,7 @@ title: Download SARL
 <div class="row">
 	<h1>Installation Instructions</h1>
 	<p>
-		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html"><i class="fa fa-coffee"></i> Java Runtime Environment 1.8 or higher</a> installed in order to compile and execute.
+		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html" target="_blank"><i class="fa fa-coffee"></i> Java Runtime Environment 1.8 or higher</a> installed in order to compile and execute.
 	</p>
 
 
@@ -152,11 +152,11 @@ title: Download SARL
 
 <div class="row">
 	<h1>Maven Support</h1>
-	<p>You can also compile SARL code using <a href="http://maven.apache.org"><i class="fa fa-maxcdn"></i> Maven</a>.
+	<p>You can also compile SARL code using <a href="http://maven.apache.org" target="_blank"><i class="fa fa-maxcdn"></i> Maven</a>.
 	   The configuration of Maven is given in the tutorial "<a href="{{ page.relative }}docs/official/gettingstarted/CreateFirstProject.html#2-create-a-sarl-project-with-maven">Create First Project</a>".</p>
-	<p>The lastest version numbers could be obtain from the <a href="http://search.maven.org"><i class="fa fa-maxcdn"></i> Maven Central Repository</a>, or from the Maven repositories of SARL and Janus: <ul>
-		<li><a href="http://maven.sarl.io/VERSION.txt">SARL lastest version</a>,</li>
-		<li><a href="http://maven.janusproject.io/VERSION.txt">Janus lastest version</a>.</li></ul></p>
+	<p>The lastest version numbers could be obtain from the <a href="http://search.maven.org" target="_blank"><i class="fa fa-maxcdn"></i> Maven Central Repository</a>, or from the Maven repositories of SARL and Janus: <ul>
+		<li><a href="http://maven.sarl.io/VERSION.txt" target="_blank">SARL lastest version</a>,</li>
+		<li><a href="http://maven.janusproject.io/VERSION.txt" target="_blank">Janus lastest version</a>.</li></ul></p>
 </div>
 
 <div class="row">
@@ -171,14 +171,14 @@ title: Download SARL
 </div>
 
 <div class="row">
-	<h2>Install SARL SDK From Update Site (NOT RECOMMENDED)</h2>
+	<h2>Install SARL SDK From Update Site (not recommended)</h2>
 	
 	
 	<p>If you have an Eclipse running :</p>
 
 	<ol>
 
-		<li>Choose <b>Help -> Install New Software...</b> from the menu bar and <b>Add...</b> Insert one of the update site URLs (<a ahref="http://updates.sarl.io/composite/releases">http://updates.sarl.io/composite/releases</a>, or <a href="http://updates.sarl.io/composite/snapshots">http://updates.sarl.io/composite/snapshots</a>). This site aggregates all the necessary and optional components and dependencies of SARL.</li>
+		<li>Choose <b>Help -> Install New Software...</b> from the menu bar and <b>Add...</b> Insert one of the update site URLs (<a ahref="http://updates.sarl.io/composite/releases" target="_blank">http://updates.sarl.io/composite/releases</a>, or <a href="http://updates.sarl.io/composite/snapshots" target="_blank">http://updates.sarl.io/composite/snapshots</a>). This site aggregates all the necessary and optional components and dependencies of SARL.</li>
 		<li>Select the <b>SARL Language Definition</b> and the <b>SARL Development Kit</b> from the category SARL, and complete the wizard by clicking the Next button until you can click Finish.</li>
 		<li>After a quick download and a restart of Eclipse, SARL is ready to use.</li>
 	</ol>
@@ -187,12 +187,14 @@ title: Download SARL
 
 </div>
 
+{% if site.github_username %}
 <div class="row">
 	<h1>Getting the Source Code</h1>
-	<p>The source code of SARL is available on <a href="https://github.com/sarl/sarl"><i class="fa fa-github"></i> Github</a>.</p>
+	<p>The source code of SARL is available on <a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fa fa-github"></i> Github</a>.</p>
 	<p>You could get the source code by cloning the GIT repository:</p>
-	<pre class="prettyprint"><code>git clone https://github.com/sarl/sarl.git</code></pre>
+	<pre class="prettyprint"><code>git clone https://github.com/{{ site.github_username }}.git</code></pre>
 </div>
+{% endif %}
 
 
 
