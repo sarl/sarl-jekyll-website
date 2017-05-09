@@ -17,31 +17,84 @@
     <div class="col-lg-3">
       <div class="well well-sm">
       <h2><i class="glyphicon glyphicon-th-large"></i> Quick Links </h2> 
-      <ul>
-        <li><a href="{{ page.relative }}news/index.html">SARL News</a></li>
-        <li><a href="{{ page.relative }}about/index.html">About SARL</a></li>
-        <li><a href="{{ page.relative }}about/index.html">License</a></li>
+      <ul class="fa-ul">
+		  <li>
+			<a href="{{ page.relative }}news/index.html">
+			  <i class="fa-li fa fa-feed"></i> News
+			</a>
+		  </li>
+		  <li>
+			<a href="{{ page.relative }}about/index.html">
+			  <i class="fa-li fa fa-info"></i> About
+			</a>
+		  </li>
+		  <li>
+			<a href="{{ page.relative }}about/index.html">
+			  <i class="fa-li fa fa-legal"></i> License
+			</a>
+		  </li>
       </ul>
       </div> 
     </div>
     <div class="col-lg-3">
       <div class="well well-sm">
       <h2><i class="glyphicon glyphicon-cog"></i> Support</h2>
-      <ul>
-        <li><a href="{{ page.relative }}community/forums.html">User Forums</a></li>
-        <li><a href="https://www.facebook.com/sarllanguage">On Facebook</a></li>
-        <li><a href="http://github.com/sarl/sarl">View on Github</a></li>
-        <li><a href="http://github.com/sarl/sarl/issues">Report an Issue</a></li>
+      <ul class="fa-ul">
+		  <li>
+			<a href="{{ page.relative }}community/forums.html">
+			  <i class="fa-li fa fa-comments"></i> User Forums
+			</a>
+		  </li>
+		{% if site.github_username %}
+		  <li>
+			<a href="https://github.com/{{ site.github_username }}">
+			  <i class="fa-li fa fa-github"></i> GitHub
+			</a>
+		  </li>
+		  <li>
+			<a href="https://github.com/{{ site.github_username }}/issues">
+			  <i class="fa-li fa fa-bug"></i> Report an Issue
+			</a>
+		  </li>
+		{% endif %}
+		{% if site.linkedin_username %}
+		  <li>
+			<a href="https://linkedin.com/in/{{ site.linkedin_username }}">
+			  <i class="fa-li fa fa-linkedin"></i> LinkedIn
+			</a>
+		  </li>
+		{% endif %}
+		{% if site.facebook_username %}
+		  <li>
+			<a href="https://www.facebook.com/{{ site.facebook_username }}">
+			  <i class="fa-li fa fa-facebook"></i> Facebook
+			</a>
+		  </li>
+		{% endif %}
+		{% if site.twitter_username %}
+		  <li>
+			<a href="https://twitter.com/{{ site.twitter_username }}">
+			  <i class="fa-li fa fa-twitter"></i> Twitter
+			</a>
+		  </li>
+		{% endif %}
+		{% if site.dribbble_username %}
+		  <li>
+		    <a href="https://dribbble.com/{{ site.dribbble_username }}">
+			  <i class="fa-li fa fa-dribbble"></i> Dribbble
+			</a>
+		  </li>
+		{% endif %}
       </ul>
       </div> 
     </div>
     <div class="col-lg-3">
       <div class="well well-sm">
       <h2><i class="glyphicon glyphicon-link"></i> Links</h2>
-      <ul>
-        <li><a href="http://www.janusproject.io">Janus Project</a></li>
-        <li><a href="http://www.gitia.org">GITIA - FRT - UTN</a></li>
-        <li><a href="http://www.multiagent.fr">MAS Group - LE2I - UBFC</a></li>
+      <ul class="fa-ul">
+        <li><a href="http://www.janusproject.io"><i class="fa-li fa fa-gears"></i>Janus Project</a></li>
+        <li><a href="http://www.gitia.org"><i class="fa-li fa fa-university"></i>GITIA - FRT - UTN</a></li>
+        <li><a href="http://www.multiagent.fr"><i class="fa-li fa fa-university"></i>MAS Group - LE2I - UBFC</a></li>
       </ul>
       </div> 
     </div>

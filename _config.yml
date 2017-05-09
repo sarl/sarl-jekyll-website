@@ -2,6 +2,8 @@ name: SARL Site
 markdown: redcarpet
 highlighter: pygments
 permalink: /news/:year/:month/:day/:title.html
+facebook_username: sarllanguage
+github_username: sarl/sarl
 
 redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "with_toc_data", "fenced_code_blocks", "prettify"]
