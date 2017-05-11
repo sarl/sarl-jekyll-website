@@ -31,6 +31,7 @@ layout: default
   <li><a href="#2-3-why-does-sarl-display-an-error-on-startup">2.3. Why does SARL display an error on startup?</a></li>
   <li><a href="#2-4-why-does-sarl-eclipse-fail-on-windows-10">2.4. Why does SARL Eclipse fail on Windows 10?</a></li>
   <li><a href="#2-5-why-does-the-sarl-product-launch-but-not-contain-any-features-related-to-sarl">2.5. Why does the SARL product launch but not contain any features related to SARL?</a></li>
+  <li><a href="#2-6-why-does-the-content-assistant-not-propose-any-suggestion-on-macos">2.6. Why does the content assistant not propose any suggestion on MacOS?</a></li>
 </ul>
 <li><a href="#3-contribute-to-sarl">3. Contribute to SARL</a></li>
 <ul>
@@ -244,6 +245,21 @@ Two ways are available for solving this issue:
 
 
 
+###2.6. Why does the content assistant not propose any suggestion on MacOS?
+
+By default in the SARL product, the shortcut key for invoking the content assistant is `Ctrl+Space` or `Apple+Space`.
+But, the Spotlight tool on MacOS is also using the same shortcut key.
+
+For enabling the SARL product content assist, we recommend to change its shortcut in the SARL product. Go to:
+
+* Window > Preferences
+* General > Keys
+* Content Assist
+* Change the shortcut key
+
+![Content assist shortcut change](./ctrlspaceprefs.png)
+
+
 ##3. Contribute to SARL
 
 ###3.1. Where are the sources for SARL?
@@ -271,7 +287,7 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

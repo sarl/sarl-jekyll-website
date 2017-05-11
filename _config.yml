@@ -26,6 +26,7 @@ suitedoc_dir: docs/official
 
 # Where to put the CSS file for pygments
 pygments_css_file: css/pygments.css
+pygments_style: default
 
 # Where to find the Changelog files
 changelog_dir: download

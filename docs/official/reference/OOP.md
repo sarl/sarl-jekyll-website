@@ -147,7 +147,7 @@ The members of the class, i.e. the fields, methods and constructors must be writ
 following the class declaration.
 
 ```sarl
-	class MyClass {  }
+class MyClass {  }
 ```
 
 
@@ -166,23 +166,23 @@ method `getFullName`. These will also be available in class Employee, which migh
 The definition of the inheritance relationship between two classes is done with the `extends` keyword.
 
 ```sarl
-	class Person {
-		
-		var firstName : String
-		var lastName : String
-		
-		def getFullName : String {
-			this.firstName + " " + this.lastName
-		}
-	}
+class Person {
 	
-	class Employee extends Person {
-		
-		var position : String
-		
-		var salary : float
+	var firstName : String
+	var lastName : String
 	
+	def getFullName : String {
+		this.firstName + " " + this.lastName
 	}
+}
+
+class Employee extends Person {
+	
+	var position : String
+	
+	var salary : float
+
+}
 ```
 
 
@@ -207,33 +207,33 @@ To declare a bounded type parameter, list the type parameter's name, followed by
 Example:
 
 ```sarl
-	class AType<T> {
-	
-		var t : T
-	
-		def add(t : T) {
-			this.t = t
-		}
-	
-		def get : T {
-			return this.t
-		}
-	
+class AType<T> {
+
+	var t : T
+
+	def add(t : T) {
+		this.t = t
 	}
-	
-	class Vector<T extends Number> {
-	
-		var x : T
-		var y : T
-	
-		def norm : Vector<? extends Number> {
-			var v = new Vector
-			var n = Math::sqrt(this.x.floatValue**2 + this.y.floatValue**2)
-			v.x = this.x.floatValue / n
-			v.y = this.y.floatValue / n
-			return v
-		}
+
+	def get : T {
+		return this.t
 	}
+
+}
+
+class Vector<T extends Number> {
+
+	var x : T
+	var y : T
+
+	def norm : Vector<? extends Number> {
+		var v = new Vector
+		var n = Math::sqrt(this.x.floatValue**2 + this.y.floatValue**2)
+		v.x = this.x.floatValue / n
+		v.y = this.y.floatValue / n
+		return v
+	}
+}
 ```
 
 
@@ -249,15 +249,15 @@ If the super class does not define a no-argument constructor, you have to explic
 one using ```super(args...)``` as the first expression in the body of the constructor.
 
 ```sarl
-	class MyClass extends AnotherClass {
-	  new (s : String) {
-	    super(s)
-	  }
-	
-	  new() {
-	    this("default")
-	  }
-	}
+class MyClass extends AnotherClass {
+  new (s : String) {
+    super(s)
+  }
+
+  new() {
+    this("default")
+  }
+}
 ```
 
 
@@ -285,16 +285,16 @@ A top class may be declared with one or more modifiers, which affect its runtime
 Examples:
 
 ```sarl
-	public class TopClass1 {
-	}
-	package class TopClass2 {
-	}
-	abstract class TopClass3 {
-	}
-	final class TopClass4 {
-	}
-	strictfp class TopClass5 {
-	}
+public class TopClass1 {
+}
+package class TopClass2 {
+}
+abstract class TopClass3 {
+}
+final class TopClass4 {
+}
+strictfp class TopClass5 {
+}
 ```
 
 
@@ -323,22 +323,22 @@ Non-static nested classes are called <i>inner classes</i>.</note>
 versions.</caution>
 
 ```sarl
-	class EnclosingClass {
-		public static class NestedClass1 {
-		}
-		protected static class NestedClass2 {
-		}
-		package static class NestedClass3 {
-		}
-		private static class NestedClass4 {
-		}
-		abstract static class NestedClass5 {
-		}
-		final static class NestedClass6 {
-		}
-		strictfp static class NestedClass7 {
-		}
+class EnclosingClass {
+	public static class NestedClass1 {
 	}
+	protected static class NestedClass2 {
+	}
+	package static class NestedClass3 {
+	}
+	private static class NestedClass4 {
+	}
+	abstract static class NestedClass5 {
+	}
+	final static class NestedClass6 {
+	}
+	strictfp static class NestedClass7 {
+	}
+}
 ```
 
 
@@ -359,13 +359,13 @@ The modifiers for the fields in a class are:
 Examples:
 
 ```sarl
-	public var a : Object
-	protected var b : Object
-	package var c : Object
-	private var d : Object
-	static var e : Object
-	transient var h : Object
-	volatile var g : Object
+public var a : Object
+protected var b : Object
+package var c : Object
+private var d : Object
+static var e : Object
+transient var h : Object
+volatile var g : Object
 ```
 
 
@@ -390,19 +390,19 @@ The modifiers for the methods in a class are:
 Examples:
 
 ```sarl
-	public def fct1 { }
-	protected def fct2 { }
-	package def fct3 { }
-	private def fct4 { }
-	abstract def fct5
-	final def fct6 { }
-	native def fct7
-	static def fct8 { }
-	strictfp def fct9 { }
-	synchronized def fct10 { }
-	// Dispatch functions
-	dispatch def fct11(p : Integer) { }
-	dispatch def fct11(p : Float) { }
+public def fct1 { }
+protected def fct2 { }
+package def fct3 { }
+private def fct4 { }
+abstract def fct5
+final def fct6 { }
+native def fct7
+static def fct8 { }
+strictfp def fct9 { }
+synchronized def fct10 { }
+// Dispatch functions
+dispatch def fct11(p : Integer) { }
+dispatch def fct11(p : Float) { }
 ```
 
 
@@ -420,10 +420,10 @@ The modifiers for the constructors of a class are:
 Examples:
 
 ```sarl
-	public new(p : int) { }
-	protected new(p : float) { }
-	package new(p : char) { }
-	private new(p : boolean) { }
+public new(p : int) { }
+protected new(p : float) { }
+package new(p : char) { }
+private new(p : boolean) { }
 ```
 
 
@@ -460,14 +460,14 @@ For preventing a function to be overridden, you should add the `final` modifier 
 the method (as in Java).
 
 ```sarl
-	class PersonEx extends Person {
-		
-		var title : String
-		
-		override getFullName {
-			return title + " " + super.fullName
-		} 
-	}
+class PersonEx extends Person {
+	
+	var title : String
+	
+	override getFullName {
+		return title + " " + super.fullName
+	} 
+}
 ```
 
 
@@ -479,22 +479,22 @@ the `static` modifier. It means that a nested class cannot have access to the
 fields and methods of the instance of the enclosing type. Only accesses to static members are allowed.
 
 ```sarl
-	class EnclosingClass {
-		static var field1 : int
-		static def fct1 {
+class EnclosingClass {
+	static var field1 : int
+	static def fct1 {
+	}
+	static class NestedClass {
+		def fct2 : int {
+			// Explicit type specification for the field access
+			EnclosingClass::field1
 		}
-		static class NestedClass {
-			def fct2 : int {
-				// Explicit type specification for the field access
-				EnclosingClass::field1
-			}
-	
-			def fct3 {
-				// Implicit type specification for the function's call
-				fct1
-			}
+
+		def fct3 {
+			// Implicit type specification for the function's call
+			fct1
 		}
 	}
+}
 ```
 
 
@@ -520,10 +520,10 @@ is) must have functions called X,Y,Z, etc.
 In the following example, the `Light` interface is defined with the two methods `turnOn` and `turnOff`.
 
 ```sarl
-	interface Light {
-		def turnOn
-		def turnOff
-	}
+interface Light {
+	def turnOn
+	def turnOff
+}
 ```
 
 
@@ -534,10 +534,10 @@ It is possible to specialize the definition of an interface. In the following ex
 interface that is refining the previous `Light` interface and add specific functions.
 
 ```sarl
-	interface VariableIntensityLight extends Light {
-		def setLightIntensity(intensity : float)
-		def getLightIntensity : float
-	}
+interface VariableIntensityLight extends Light {
+	def setLightIntensity(intensity : float)
+	def getLightIntensity : float
+}
 ```
 
 
@@ -562,15 +562,15 @@ To declare a bounded type parameter, list the type parameter's name, followed by
 Examples:
 
 ```sarl
-	interface AnInterface<T> {
-		def add(t : T)
-	
-		def get : T
-	}
-	
-	interface Vector<T extends Number> {
-		def norm : Vector<? extends Number>
-	}
+interface AnInterface<T> {
+	def add(t : T)
+
+	def get : T
+}
+
+interface Vector<T extends Number> {
+	def norm : Vector<? extends Number>
+}
 ```
 
 
@@ -584,15 +584,15 @@ The only one exception is when the class is abstract. In this case, the derived 
 functions of the interface.
 
 ```sarl
-	class TheLight implements Light {
-		var isSwitchedOn = false
-		def turnOn {
-			this.isSwitchedOn = true
-		}
-		def turnOff {
-			this.isSwitchedOn = false
-		}
+class TheLight implements Light {
+	var isSwitchedOn = false
+	def turnOn {
+		this.isSwitchedOn = true
 	}
+	def turnOff {
+		this.isSwitchedOn = false
+	}
+}
 ```
 
 
@@ -606,21 +606,21 @@ In the following example, two default implementations of the `turnOn` and `turnO
 The implementing class needs to provide a function code only for the `switchLight` function:
  
 ```sarl
-	interface Light {
-		def turnOn {
-			switchLight(true)
-		}
-		def turnOff {
-			switchLight(false)
-		}
-		def switchLight(state : boolean)
+interface Light {
+	def turnOn {
+		switchLight(true)
 	}
-	class TheLight implements Light {
-		var isSwitchedOn = false
-		def switchLight(state : boolean) {
-			this.isSwitchedOn = state
-		}
+	def turnOff {
+		switchLight(false)
 	}
+	def switchLight(state : boolean)
+}
+class TheLight implements Light {
+	var isSwitchedOn = false
+	def switchLight(state : boolean) {
+		this.isSwitchedOn = state
+	}
+}
 ```
 
 
@@ -647,14 +647,14 @@ A top interface may be declared with one or more modifiers, which affect its run
 Examples:
 
 ```sarl
-	public interface TopInterface1 {
-	}
-	package interface TopInterface2 {
-	}
-	abstract interface TopInterface3 {
-	}
-	strictfp interface TopInterface4 {
-	}
+public interface TopInterface1 {
+}
+package interface TopInterface2 {
+}
+abstract interface TopInterface3 {
+}
+strictfp interface TopInterface4 {
+}
 ```
 
 
@@ -679,22 +679,22 @@ Non-static nested interfaces are called <i>inner interfaces</i>.</note>
 <note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
 
 ```sarl
-	class EnclosingClass {
-		public interface NestedInterface1 {
-		}
-		protected interface NestedInterface2 {
-		}
-		package interface NestedInterface3 {
-		}
-		private interface NestedInterface4 {
-		}
-		abstract interface NestedInterface5 {
-		}
-		static interface NestedInterface6 {
-		}
-		strictfp interface NestedInterface7 {
-		}
+class EnclosingClass {
+	public interface NestedInterface1 {
 	}
+	protected interface NestedInterface2 {
+	}
+	package interface NestedInterface3 {
+	}
+	private interface NestedInterface4 {
+	}
+	abstract interface NestedInterface5 {
+	}
+	static interface NestedInterface6 {
+	}
+	strictfp interface NestedInterface7 {
+	}
+}
 ```
 
 
@@ -710,8 +710,8 @@ The modifiers for the fields in an interface are:
 <caution>Only fields defined with `val` can be put in an interface.</caution>
 
 ```sarl
-	public val a : Object;
-	static val e : Object;
+public val a : Object;
+static val e : Object;
 ```
 
 
@@ -727,8 +727,8 @@ The modifiers for the methods in an interface are:
 Examples:
 
 ```sarl
-	public def fct1
-	abstract def fct5
+public def fct1
+abstract def fct5
 ```
 
 
@@ -747,10 +747,10 @@ For defining an enumeration, you could use the `enum` keyword.
 The following example defines the enumeration `MyEnum` with two constants: 
 
 ```sarl
-	enum MyEnum {
-		CONSTANT_1,
-		CONSTANT_2
-	}
+enum MyEnum {
+	CONSTANT_1,
+	CONSTANT_2
+}
 ```
 
 
@@ -774,12 +774,12 @@ A top enumeration may be declared with one or more modifiers, which affect its r
 Examples:
 
 ```sarl
-	public enum TopEnumeration1 {
-		CST1, CST2
-	}
-	package enum TopEnumeration2 {
-		CST3, CST4
-	}
+public enum TopEnumeration1 {
+	CST1, CST2
+}
+package enum TopEnumeration2 {
+	CST3, CST4
+}
 ```
 
 
@@ -802,23 +802,23 @@ Non-static nested enumerations are called <i>inner enumerations</i>.</note>
 <note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
 
 ```sarl
-	class EnclosingClass {
-		public enum NestedClass1 {
-			CST1, CST2
-		}
-		protected enum NestedClass2 {
-			CST3, CST4
-		}
-		package enum NestedClass3 {
-			CST5, CST6
-		}
-		private enum NestedClass4 {
-			CST7, CST8
-		}
-		static enum NestedClass5 {
-			CST9, CST10
-		}
+class EnclosingClass {
+	public enum NestedClass1 {
+		CST1, CST2
 	}
+	protected enum NestedClass2 {
+		CST3, CST4
+	}
+	package enum NestedClass3 {
+		CST5, CST6
+	}
+	private enum NestedClass4 {
+		CST7, CST8
+	}
+	static enum NestedClass5 {
+		CST9, CST10
+	}
+}
 ```
 
 
@@ -844,11 +844,11 @@ This annotation defines three parameters:
 Examples:
 
 ```sarl
-	annotation MyAnnotation {
-	  val value : String[]
-	  val isTricky : boolean = false
-	  val lotteryNumbers : int[] = #[ 42, 137 ]
-	}
+annotation MyAnnotation {
+  val value : String[]
+  val isTricky : boolean = false
+  val lotteryNumbers : int[] = #[ 42, 137 ]
+}
 ```
 
 
@@ -874,12 +874,12 @@ A top annotation type may be declared with one or more modifiers, which affect i
 Examples:
 
 ```sarl
-	public annotation TopAnnotationType1 {
-	}
-	package annotation TopAnnotationType2 {
-	}
-	abstract annotation TopAnnotationType3 {
-	}
+public annotation TopAnnotationType1 {
+}
+package annotation TopAnnotationType2 {
+}
+abstract annotation TopAnnotationType3 {
+}
 ```
 
 
@@ -903,20 +903,20 @@ Non-static nested annotation types are called <i>inner annotation types</i>.</no
 <note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
 
 ```sarl
-	class EnclosingClass {
-		public annotation NestedAnnotationType1 {
-		}
-		protected annotation NestedAnnotationType2 {
-		}
-		package annotation NestedAnnotationType3 {
-		}
-		private annotation NestedAnnotationType4 {
-		}
-		abstract annotation NestedAnnotationType5 {
-		}
-		static annotation NestedAnnotationType6 {
-		}
+class EnclosingClass {
+	public annotation NestedAnnotationType1 {
 	}
+	protected annotation NestedAnnotationType2 {
+	}
+	package annotation NestedAnnotationType3 {
+	}
+	private annotation NestedAnnotationType4 {
+	}
+	abstract annotation NestedAnnotationType5 {
+	}
+	static annotation NestedAnnotationType6 {
+	}
+}
 ```
 
 
@@ -932,8 +932,8 @@ The modifiers for the values in an annotation type are:
 Examples:
 
 ```sarl
-	public val val1 : int
-	static val val2 : int
+public val val1 : int
+static val val2 : int
 ```
 
 
@@ -954,30 +954,30 @@ The following example, `HelloWorldAnonymousClasses`, uses anonymous classes in t
 initialization statements of the local variables `frenchGreeting` and `spanishGreeting`:
 
 ```sarl
-	interface HelloWorld {
-	    def greetSomeone(someone : String)
-	}
-	class HelloWorldAnonymousClasses {
-	    def sayHello {
-	        var frenchGreeting = new HelloWorld {
-	            var name = "tout le monde"
-	            def greetSomeone(someone : String) {
-	                name = someone
-	                println("Salut " + name)
-	            }
-	        }
-	
-	        var spanishGreeting = new HelloWorld {
-	            var name = "mundo"
-	            def greetSomeone(someone : String) {
-	                name = someone
-	                println("Hola, " + name)
-	            }
-	        }
-	        frenchGreeting.greetSomeone("Marc")
-	        spanishGreeting.greetSomeone("Marco")
-	    }
-	}
+interface HelloWorld {
+    def greetSomeone(someone : String)
+}
+class HelloWorldAnonymousClasses {
+    def sayHello {
+        var frenchGreeting = new HelloWorld {
+            var name = "tout le monde"
+            def greetSomeone(someone : String) {
+                name = someone
+                println("Salut " + name)
+            }
+        }
+
+        var spanishGreeting = new HelloWorld {
+            var name = "mundo"
+            def greetSomeone(someone : String) {
+                name = someone
+                println("Hola, " + name)
+            }
+        }
+        frenchGreeting.greetSomeone("Marc")
+        spanishGreeting.greetSomeone("Marco")
+    }
+}
 ```
 
 
@@ -1002,13 +1002,13 @@ In this example, the anonymous class expression is part of the statement that in
 the `frenchGreeting` object.
 
 ```sarl
-	var frenchGreeting = new HelloWorld {
-	    var name = "tout le monde"
-	    def greetSomeone(someone : String) {
-	        name = someone
-	        println("Salut " + name)
-	    }
-	}
+var frenchGreeting = new HelloWorld {
+    var name = "tout le monde"
+    def greetSomeone(someone : String) {
+        name = someone
+        println("Salut " + name)
+    }
+}
 ```
 
 
@@ -1032,17 +1032,17 @@ Anonymous classes have restrictions with respect to their members:
 local classes. However, you cannot declare constructors in an anonymous class.</note>
 
 ```sarl
-	class HelloWorldAnonymousClasses {
-		var name : String
-		def sayHello {
-			var frenchGreeting = new HelloWorld {
-				def greetSomeone(someone : String) {
-					name = someone
-					println("Salut " + name)
-				}
+class HelloWorldAnonymousClasses {
+	var name : String
+	def sayHello {
+		var frenchGreeting = new HelloWorld {
+			def greetSomeone(someone : String) {
+				name = someone
+				println("Salut " + name)
 			}
 		}
 	}
+}
 ```
 
 
@@ -1062,7 +1062,7 @@ An abstract method is a method that is declared without an implementation
 (without braces, and followed by a semicolon), like this:
 
 ```sarl
-	abstract def moveTo(deltaX : double, deltaY : double)
+abstract def moveTo(deltaX : double, deltaY : double)
 ```
 
 
@@ -1070,11 +1070,11 @@ An abstract method is a method that is declared without an implementation
 If a type includes abstract methods, then the type itself must be declared abstract, as in:
 
 ```sarl
-	abstract class GraphicObject {
-		// declare fields
-		// declare nonabstract methods
-		abstract def draw
-	}
+abstract class GraphicObject {
+	// declare fields
+	// declare nonabstract methods
+	abstract def draw
+}
 ```
 
 
@@ -1125,33 +1125,33 @@ The fourth column indicates whether all types have access to the member.
 Examples:
 
 ```sarl
-	class C1 {
-	   public def pubfct {}
-	   protected def protfct {}
-	   package def packfct {}
-	   private def privfct {}
-	
-	   def test0 {
-	   	pubfct;
-	   	protfct;
-	   	packfct;
-	    privfct;
-	   }
-	}
-	class C2 extends C1 {
-	   def test1 {
-	   	pubfct;
-	   	protfct;
-	   	packfct;
-	   }
-	}
-	class C3 {
-	   def test3(obj : C1) {
-	   	obj.pubfct;
-	   	obj.protfct;
-	   	obj.packfct;
-	   }
-	}
+class C1 {
+   public def pubfct {}
+   protected def protfct {}
+   package def packfct {}
+   private def privfct {}
+
+   def test0 {
+   	pubfct;
+   	protfct;
+   	packfct;
+    privfct;
+   }
+}
+class C2 extends C1 {
+   def test1 {
+   	pubfct;
+   	protfct;
+   	packfct;
+   }
+}
+class C3 {
+   def test3(obj : C1) {
+   	obj.pubfct;
+   	obj.protfct;
+   	obj.packfct;
+   }
+}
 ```
 
 
@@ -1175,17 +1175,17 @@ defined as public methods.
 Client code always binds to the synthesized dispatcher method.
 
 ```sarl
-	def dispatch printType(x : Number) { 
-	  "it's a number" 
-	}
-	 
-	def dispatch printType(x : Integer) { 
-	  "it's an int" 
-	}
-	def clientCode {
-		System.out.println(printType(4.5)) // Print "it's a number"
-		System.out.println(printType(4))   // Print "it's an int"
-	}
+def dispatch printType(x : Number) { 
+  "it's a number" 
+}
+ 
+def dispatch printType(x : Integer) { 
+  "it's an int" 
+}
+def clientCode {
+	System.out.println(printType(4.5)) // Print "it's a number"
+	System.out.println(printType(4))   // Print "it's an int"
+}
 ```
 
 
@@ -1200,9 +1200,9 @@ helpful as they can greatly improve the readability. They use a simple syntactic
 can either be passed in after opening the parentheses or before the method call. For example, given a method:
 
 ```sarl
-	def removeVowels(s : String) { 
-		s.replaceAll("[aeiouAEIOU]", "") 
-	}
+def removeVowels(s : String) { 
+	s.replaceAll("[aeiouAEIOU]", "") 
+}
 ```
 
 
@@ -1210,7 +1210,7 @@ can either be passed in after opening the parentheses or before the method call.
 We can call this method either like in Java:
 
 ```sarl
-	removeVowels("Hello")
+removeVowels("Hello")
 ```
 
 
@@ -1218,7 +1218,7 @@ We can call this method either like in Java:
 or as an extension method of String:
 
 ```sarl
-	"Hello".removeVowels
+"Hello".removeVowels
 ```
 
 
@@ -1230,31 +1230,31 @@ In the following example, three functions are defined for illustrating the three
 extension providers.
 
 ```sarl
-	class Examples {
-		//
-		// Example of an extension provider on a class field.
-		//
-		extension var list : ArrayList<String> = newArrayList
-		
-		def extensionFieldExample(value : String) : boolean {
-			value.contains // calls this.list.contains(value)
-		}
-		
-		//
-		// Example of an extension provider on a method parameter.
-		//
-		def extensionParameterExample(value : String, extension o : ArrayList<String>) : boolean {
-			value.contains // calls o.contains(value)
-		}
-		
-		//
-		// Example of an extension provider on a local variable.
-		//
-		def extensionLocalVariableExample(value : String) : boolean {
-			extension var o : ArrayList<String> = newArrayList
-			value.contains // calls o.contains(value)
-		}
+class Examples {
+	//
+	// Example of an extension provider on a class field.
+	//
+	extension var list : ArrayList<String> = newArrayList
+	
+	def extensionFieldExample(value : String) : boolean {
+		value.contains // calls this.list.contains(value)
 	}
+	
+	//
+	// Example of an extension provider on a method parameter.
+	//
+	def extensionParameterExample(value : String, extension o : ArrayList<String>) : boolean {
+		value.contains // calls o.contains(value)
+	}
+	
+	//
+	// Example of an extension provider on a local variable.
+	//
+	def extensionLocalVariableExample(value : String) : boolean {
+		extension var o : ArrayList<String> = newArrayList
+		value.contains // calls o.contains(value)
+	}
+}
 ```
 
 
@@ -1285,21 +1285,21 @@ of the Java standard library classes are final, such as `java.lang.System` and
 `java.lang.String`. All methods in a final type are implicitly final.
 
 ```sarl
-	class A {
-		//
-		// Final field
-		//
-		val field = 4
-		
-		//
-		// Final method
-		//
-		final def cannotBeOverriden {
-		}
+class A {
+	//
+	// Final field
+	//
+	val field = 4
+	
+	//
+	// Final method
+	//
+	final def cannotBeOverriden {
 	}
-	final class B {
-		// This class cannot be derived
-	}
+}
+final class B {
+	// This class cannot be derived
+}
 ```
 
 
@@ -1314,9 +1314,9 @@ are not supported by the Java API. You should not use this modifier if you can u
 a higher-level API in place of.</note>
 
 ```sarl
-	class A {
-		native def fct
-	}
+class A {
+	native def fct
+}
 ```
 
 
@@ -1339,21 +1339,21 @@ Static methods, which have the `static` modifier in their declarations, should b
 type name, without the need for creating an instance of the type. 
 
 ```sarl
-	class A {
-		//
-		// Static field
-		//
-		static var field : int
-		//
-		// Constant
-		//
-		static val constant = 4
-		//
-		// Static method
-		//
-		static def aMethod {
-		}
+class A {
+	//
+	// Static field
+	//
+	static var field : int
+	//
+	// Constant
+	//
+	static val constant = 4
+	//
+	// Static method
+	//
+	static def aMethod {
 	}
+}
 ```
 
 
@@ -1390,9 +1390,9 @@ The `strictfp` modifier accomplishes this by truncating all intermediate values 
 double precision, as occurred in earlier versions of the JVM.
 
 ```sarl
-	class A {
-		strictfp def fct { }
-	}
+class A {
+	strictfp def fct { }
+}
 ```
 
 
@@ -1416,21 +1416,21 @@ can be safely read through non-synchronized methods, once the object is construc
 This strategy is effective, but can present problems with liveness.
 
 ```sarl
-	class SynchronizedCounter {
-		var c = 0
-	
-		synchronized def increment {
-			c++
-		}
-	
-		synchronized def decrement {
-			c--
-		}
-	
-		synchronized def value {
-			return c
-		}
+class SynchronizedCounter {
+	var c = 0
+
+	synchronized def increment {
+		c++
 	}
+
+	synchronized def decrement {
+		c--
+	}
+
+	synchronized def value {
+		return c
+	}
+}
 ```
 
 
@@ -1446,9 +1446,9 @@ When a field is declared transient, it would not be serialized even if the type 
 is serialized.
 
 ```sarl
-	class A {
-		transient var field : int = 4
-	}
+class A {
+	transient var field : int = 4
+}
 ```
 
 
@@ -1480,9 +1480,9 @@ always reads the variable from memory (or from a shared cache), never from a loc
 in place of volatile variables.</note>
 
 ```sarl
-	class A {
-		volatile var field : int = 4
-	}
+class A {
+	volatile var field : int = 4
+}
 ```
 
 
@@ -1503,7 +1503,7 @@ Thank you to the contributors to these documents.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

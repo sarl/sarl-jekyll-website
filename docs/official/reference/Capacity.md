@@ -52,12 +52,12 @@ is defined. This Capacity enables an Agent to log information and debugging mess
 <note>Defining a Capacity without Actions is a symptom of a design problem.</note>
 
 ```sarl
-	capacity Logging {
-		// Log an information message
-		def info(text : String)
-		// Log a debugging message
-		def debug(text : String)
-	}
+capacity Logging {
+	// Log an information message
+	def info(text : String)
+	// Log a debugging message
+	def debug(text : String)
+}
 ```
 
 
@@ -76,10 +76,10 @@ This is similar to the implementation of interfaces in the Java language.</veryi
 In the following code, the `Logging` Capacity (defined above) is extended to enabling the output of error messages.
 
 ```sarl
-	capacity ErrorLogging extends Logging {
-		// Log a error message
-		def error(text : String)
-	}
+capacity ErrorLogging extends Logging {
+	// Log a error message
+	def error(text : String)
+}
 ```
 
 
@@ -90,15 +90,15 @@ In some situations, it is useful to define a Capacity by extending more than one
 Below, the `Cap3` Capacity is defined as an extension of the Capacities `Cap1` and `Cap2`.
 
 ```sarl
-	capacity Cap1 {
-		def action1
-	}
-	capacity Cap2 {
-		def action2
-	}
-	capacity Cap3 extends Cap1, Cap2 {
-		def action3
-	}
+capacity Cap1 {
+	def action1
+}
+capacity Cap2 {
+	def action2
+}
+capacity Cap3 extends Cap1, Cap2 {
+	def action3
+}
 ```
 
 
@@ -123,10 +123,10 @@ A Capacity may be declared with one or more modifiers, which affect its runtime 
 Examples:
 
 ```sarl
-	public capacity Example1 {
-	}
-	package capacity Example2 {
-	}
+public capacity Example1 {
+}
+package capacity Example2 {
+}
 ```
 
 
@@ -141,8 +141,8 @@ The modifiers for the Actions (methods) in a Capacity are:
 Example:
 
 ```sarl
-	// Public access function
-	public def example1
+// Public access function
+public def example1
 ```
 
 
@@ -181,7 +181,7 @@ Details on the use of the Capacities may be found in the following:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

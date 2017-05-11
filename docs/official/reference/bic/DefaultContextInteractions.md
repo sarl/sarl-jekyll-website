@@ -31,7 +31,7 @@ are illustrated by the top-left context in the figure above.
 For instance, the `emit` action is a shortcut for:
 
 ```sarl
-	defaultContext.defaultSpace.emit(^event)
+defaultContext.defaultSpace.emit(^event)
 ```
 
 
@@ -46,7 +46,7 @@ Therefore, it is actually created on top of the other built-in capacities.
 For retrieving the default context of an agent, this built-in capacity provides the following function:
 
 ```sarl
-	def getDefaultContext : AgentContext
+def getDefaultContext : AgentContext
 ```
 
 
@@ -55,14 +55,14 @@ For retrieving the default space in the default context of an agent, this built-
 the following function:
 
 ```sarl
-	def getDefaultSpace : EventSpace
+def getDefaultSpace : EventSpace
 ```
 
 
 For obtaining the address of the agent in the default space, the following function is provided:
 
 ```sarl
-	def getDefaultAddress : EventSpace
+def getDefaultAddress : EventSpace
 ```
 
 
@@ -73,7 +73,7 @@ The core mechanism for information exchanges among agents is [event-based](../Ev
 For sending an event in the default space of the default context, the following function is provided:
 
 ```sarl
-	def emit(^event : Event)
+def emit(^event : Event)
 ```
 
 
@@ -84,13 +84,13 @@ event) in the default space of the default context.
 Example:
 
 ```sarl
-	agent A {
-		uses DefaultContextInteractions
-		def myaction {
-			var ^event : Event = new MyEvent
-			emit(^event)
-		}
+agent A {
+	uses DefaultContextInteractions
+	def myaction {
+		var ^event : Event = new MyEvent
+		emit(^event)
 	}
+}
 ```
 
 		
@@ -98,7 +98,7 @@ Example:
 The call to `emit` is equivalent to:
 
 ```sarl
-	defaultContext.defaultSpace.emit(^event)
+defaultContext.defaultSpace.emit(^event)
 ```
 
 
@@ -111,16 +111,16 @@ The previous sending function assumes that there is no restriction on the set of
 It is possible to specify a `Scope` for applying a restriction.
 
 ```sarl
-	def emit(e : Event, scope : Scope<Address>)
+def emit(e : Event, scope : Scope<Address>)
 ```
 
 
 
 A scope is a predicates that is evaluated against the addresses of the receivers. It is defined as:
 ```sarl
-	interface Scope<T> extends Serializable {
-		def matches(element : T) : boolean
-	}
+interface Scope<T> extends Serializable {
+	def matches(element : T) : boolean
+}
 ```
 
 
@@ -131,7 +131,7 @@ They are defined in the class `io.sarl.util.Scopes`.
 The following example is equivalent to the feature call of `emit` without the scoping parameter:
 
 ```sarl
-	emit(new MyEvent, Scopes::allParticipants)
+emit(new MyEvent, Scopes::allParticipants)
 ```
 
 
@@ -140,7 +140,7 @@ A default implementation of a scope using addresses is implemented in the class 
 The utility class `Scopes` provides the `addresses` function for creating an instance of `AddressScope`.
 
 ```sarl
-	emit(new MyEvent, Scopes::addresses(a1, a2))
+emit(new MyEvent, Scopes::addresses(a1, a2))
 ```
 
 
@@ -154,7 +154,7 @@ event according to your own criteria. The easier approach is to write a lambda e
 The previous line of code becomes:
 
 ```sarl
-	emit(new MyEvent) [ it == a1 || it == a2 ]
+emit(new MyEvent) [ it == a1 || it == a2 ]
 ```
 
 
@@ -171,14 +171,14 @@ the `emit` function with the event instance as the receiver expression. The prev
 example becomes:
 
 ```sarl
-	agent A {
-		uses DefaultContextInteractions
-	
-		def myaction(receiverId : UUID) {
-			var ^event : Event = new MyEvent
-			^event.emit [ it.UUID == receiverId ] 
-		}
+agent A {
+	uses DefaultContextInteractions
+
+	def myaction(receiverId : UUID) {
+		var ^event : Event = new MyEvent
+		^event.emit [ it.UUID == receiverId ] 
 	}
+}
 ```
 
 
@@ -192,23 +192,23 @@ Sometimes, the developer would like to write a code that corresponds to the sent
 In order to enable this approach to the developer, the SARL API provides the function:
 
 ```sarl
-	def willReceive(receiverId : UUID, ^event : Event) {
-		emit(^event) [ it.UUID == receiverId ]
-	}
+def willReceive(receiverId : UUID, ^event : Event) {
+	emit(^event) [ it.UUID == receiverId ]
+}
 ```
 
 
 The initial example in this section becomes:
 
 ```sarl
-	agent A {
-		uses DefaultContextInteractions
-	
-		def myaction(receiverId : UUID) {
-			var ^event : Event = new MyEvent
-			receiverId.willReceive(^event) 
-		}
+agent A {
+	uses DefaultContextInteractions
+
+	def myaction(receiverId : UUID) {
+		var ^event : Event = new MyEvent
+		receiverId.willReceive(^event) 
 	}
+}
 ```
 
 
@@ -238,9 +238,9 @@ was emitted in the default space.
 the `event.isInDefaultSpace` is equivalent to `isInDefaultSpace(event)`.</note>
 
 ```sarl
-	on AnEvent [ occurrence.inDefaultSpace ] {
-		// Do something with the event when it was emitted in the default space
-	}
+on AnEvent [ occurrence.inDefaultSpace ] {
+	// Do something with the event when it was emitted in the default space
+}
 ```
 
 
@@ -251,7 +251,7 @@ the `event.isInDefaultSpace` is equivalent to `isInDefaultSpace(event)`.</note>
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

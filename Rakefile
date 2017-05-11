@@ -466,7 +466,7 @@ end
 
 desc "Generate the Pygments CSS"
 task :genpygmentscss do
-    execute("pygmentize -S borland -f html > " + FileUtils.pwd + "/" + CONFIG["pygments_css_file"])
+    execute("pygmentize -S " + CONFIG["pygments_style"] + " -f html > " + FileUtils.pwd + "/" + CONFIG["pygments_css_file"])
 end
 
 

@@ -32,32 +32,20 @@ Shadowing variables from outer scopes is not allowed, the only exception is the 
 
 A variable declaration starting with the keyword `val` denotes a value, which is essentially a final, unsettable variable.
 
-```sarl
-	
-```
 
 
 The variable needs to be declared with the keyword `var`, which stands for 'variable', if its value can change.
 
-```sarl
-	
-```
 
 
 Variables declared outside a lambda expression using the `var` or `val` keyword are accessible from within the
 lambda expressions.
 
-```sarl
-	
-```
 
 
 Fields declared outside a lambda expression using the `var` keyword or the `val` keyword are
 accessible from within the lambda expressions.
 
-```sarl
-	
-```
 
 
 
@@ -68,14 +56,14 @@ The type of the variable itself can either be explicitly declared or it can be i
 In the following example, the type of the variable is explicitly given:
 
 ```sarl
-	var a : String = "abc"
+var a : String = "abc"
 ```
 
 
 In the following example, the type of the variable is inferred to `String`:
 
 ```sarl
-	var a = "abc"
+var a = "abc"
 ```
 
 
@@ -104,7 +92,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -87,9 +87,6 @@ The `index` attribute is a _value_, for making it unmodifiable after its initial
 
 For setting the value of the `index` value, it is mandatory to define a constructor. 
 
-```sarl
-	
-```
 
 
 
@@ -101,12 +98,12 @@ The `Pong` is an event that contains the index of the `Ping` event for which the
 The `index` attribute is also a _value_, and it must be set in a constructor. 
 
 ```sarl
-	event Pong {
-		val index : int
-		new(i : int) {
-			this.index = i
-		}
+event Pong {
+	val index : int
+	new(i : int) {
+		this.index = i
 	}
+}
 ```
 
 
@@ -123,8 +120,8 @@ agent that is waiting for `Ping` events, and replying
 The initial definition of the pong agent is:
 
 ```sarl
-	agent PongAgent {
-	}
+agent PongAgent {
+}
 ```
 
 
@@ -141,10 +138,10 @@ This handler will be invoked by the runtime environment
 each time the agent is receiving a `Ping` event.
 
 ```sarl
-	agent PongAgent {
-		on Ping {
-		}
+agent PongAgent {
+	on Ping {
 	}
+}
 ```
 
 
@@ -173,12 +170,12 @@ In the following example, the `Pong` event is built with the index argument
 stored in the received `Ping` event.
 
 ```sarl
-	agent PongAgent {
-		uses DefaultContextInteractions
-		on Ping {
-			emit( new Pong( occurrence.index ) )
-		}
+agent PongAgent {
+	uses DefaultContextInteractions
+	on Ping {
+		emit( new Pong( occurrence.index ) )
 	}
+}
 ```
 
 
@@ -207,13 +204,13 @@ which is getting a collection of addresses for building the matching predicate i
 If you have to scope to a single address or a single identifier, you should prefer the lambda expression notation, as illustrated in the followig code. In this code, the scope permits to restrict to the initial sender of the `Ping` event. 
 
 ```sarl
-	agent PongAgent {
-		uses DefaultContextInteractions
-		on Ping {
-			emit(new Pong( occurrence.index ))
-				[ it == occurrence.source ]
-		}
+agent PongAgent {
+	uses DefaultContextInteractions
+	on Ping {
+		emit(new Pong( occurrence.index ))
+			[ it == occurrence.source ]
 	}
+}
 ```
 
 
@@ -229,8 +226,8 @@ The third step of this tutorial is the definition of the agent that is sending `
 The initial definition of the ping agent is:
 
 ```sarl
-	agent PingAgent {
-	}
+agent PingAgent {
+}
 ```
 
 
@@ -241,10 +238,10 @@ The ping agent needs to handle the `Pong` events. For that, a "behavior unit" mu
 agent.
 
 ```sarl
-	agent PingAgent {
-		on Pong {
-		}
+agent PingAgent {
+	on Pong {
 	}
+}
 ```
 
 
@@ -259,13 +256,13 @@ The receiving of the `Ping` event is restricted to the sender of the
 `Pong` event.
 
 ```sarl
-	agent PingAgent {
-		uses DefaultContextInteractions
-		on Pong {
-			emit(new Ping( occurrence.index + 1 ))
-				[ it == occurrence.source ]
-		}
+agent PingAgent {
+	uses DefaultContextInteractions
+	on Pong {
+		emit(new Ping( occurrence.index + 1 ))
+			[ it == occurrence.source ]
 	}
+}
 ```
 
 
@@ -278,16 +275,16 @@ This emit is done when the ping agent is started, i.e. when the agent is
 receiving the `Initialize` event.
 
 ```sarl
-	agent PingAgent {
-		uses DefaultContextInteractions
-		on Pong {
-			emit(new Ping( occurrence.index + 1 ))
-				[ it == occurrence.source ]
-		}
-		on Initialize {
-			emit( new Ping(0) )
-		}
+agent PingAgent {
+	uses DefaultContextInteractions
+	on Pong {
+		emit(new Ping( occurrence.index + 1 ))
+			[ it == occurrence.source ]
 	}
+	on Initialize {
+		emit( new Ping(0) )
+	}
+}
 ```
 
 
@@ -314,22 +311,22 @@ one agent belonging to the default space. If not, the agent is sending the initi
 `Ping` event, and stopping the periodic task.
 
 ```sarl
-	agent PingAgent {
-		uses DefaultContextInteractions, Schedules
-		on Pong {
-			emit(new Ping( occurrence.index + 1 ))
-				[ it == occurrence.source ]
-		}
-		on Initialize {
-			val task = task("waiting_for_partner")
-			task.every(1000) [
-				if (defaultSpace.participants.size > 1) {
-					emit( new Ping(0) )
-					task.cancel
-				}
-			]
-		}
+agent PingAgent {
+	uses DefaultContextInteractions, Schedules
+	on Pong {
+		emit(new Ping( occurrence.index + 1 ))
+			[ it == occurrence.source ]
 	}
+	on Initialize {
+		val task = task("waiting_for_partner")
+		task.every(1000) [
+			if (defaultSpace.participants.size > 1) {
+				emit( new Ping(0) )
+				task.cancel
+			}
+		]
+	}
+}
 ```
 
 
@@ -439,14 +436,14 @@ function, which is provided by the `Lifecycle` capacity too.
 
 
 ```sarl
-	agent BootAgent {
-		uses Lifecycle
-		on Initialize {
-			spawn(PongAgent)
-			spawn(PingAgent)
-			killMe
-		}
+agent BootAgent {
+	uses Lifecycle
+	on Initialize {
+		spawn(PongAgent)
+		spawn(PingAgent)
+		killMe
 	}
+}
 ```
 
 
@@ -491,7 +488,7 @@ The first argument after the bootstrap is the qualified name of the agent to lau
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

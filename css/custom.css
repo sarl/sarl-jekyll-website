@@ -405,27 +405,33 @@ img {
   max-width: 95%;
 }
 
-table.table-bordered {
+table {
   margin-top: 10px;featurette-image
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  border-collapse: collapse !important;
 }
 
-.table-bordered > thead > tr > th,
-.table-bordered > tbody > tr > th,
-.table-bordered > tfoot > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > td {
+thead > tr > th,
+tbody > tr > th,
+tfoot > tr > th,
+thead > tr > td,
+tbody > tr > td {
+  font-size: 1.1em;
   padding-top: 2px;
   padding-bottom: 2px;
   padding-left: 5px;
   padding-right: 5px;
+  border:1px solid #bbb !important;
 }
+
 
 textarea {
   max-width: 100%;
   min-width: 50%;
   min-height: 200px;
 }
+
+.highlight .err { color: #000000; font-weight: bold; background-color: inherit } /* Error becomes operator */
 

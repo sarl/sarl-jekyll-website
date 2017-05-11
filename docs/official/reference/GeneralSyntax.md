@@ -61,7 +61,7 @@ cannot be one of the keywords of SARL or Java.
 For example, since `event` is a keyword in SARL, the following is illegal:
 
 ```sarl
-	import io.sarl.event.ActionEvent
+import io.sarl.event.ActionEvent
 ```
 
 
@@ -70,7 +70,7 @@ this language has different keywords than SARL), it
 is possible to prefix the name fragment with the character `^`:
 
 ```sarl
-	import io.sarl.^event.ActionEvent
+import io.sarl.^event.ActionEvent
 ```
 
 
@@ -89,12 +89,12 @@ line, you end the line with the `\` character.
 For instance, the two following lines are equivalent:
 
 ```sarl
-	var myVariable : int = 5
+var myVariable : int = 5
 ```
 
 
 ```sarl
-	var myVariable : int = 5;
+var myVariable : int = 5;
 ```
 
 
@@ -137,7 +137,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

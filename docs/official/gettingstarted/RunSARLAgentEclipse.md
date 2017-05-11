@@ -201,12 +201,12 @@ For retrieving the values passed on the command line, you must handle the `Initi
 by the following example:
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		on Initialize {
-			println("Command line parameters: " + occurrence.parameters)
-		}
+agent MyAgent {
+	uses Logging
+	on Initialize {
+		println("Command line parameters: " + occurrence.parameters)
 	}
+}
 ```
 
 
@@ -224,7 +224,7 @@ In the next section, we will learn how to launch your SARL project from the comm
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

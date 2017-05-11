@@ -45,12 +45,12 @@ or double quotes. Special characters can be quoted with a backslash or defined u
 notation.
 
 ```sarl
-	var a = 'Hello World!'
-	var b = "Hello World!"
-	var c = 'Hello "World!"'
-	var d = "Hello "World!""
-	var e = "Hello 
-				World!"
+var a = 'Hello World!'
+var b = "Hello World!"
+var c = 'Hello "World!"'
+var d = "Hello "World!""
+var e = "Hello 
+			World!"
 ```
 
 
@@ -65,8 +65,8 @@ used in a context where a primitive char or the wrapper type `Character` or `cha
 the compiler will treat the literal as a `Character` or `char` value.
 
 ```sarl
-	var a : char = 'a'
-	var b : char = "b"
+var a : char = 'a'
+var b : char = "b"
 ```
 
 
@@ -80,11 +80,11 @@ for specifying octal numbers, and if you put the dot character in a number, you 
 specify both the integer and fractional parts.
 
 ```sarl
-	var a = 42		// Decimal
-	var b = 0xbeef	// Hexadecimal
-	var c = 077		// Decimal 77, NOT octal
-	var d = 0.1		// The leading zero must be specified
-	var e = 1.0		// The trailing zero must be specified
+var a = 42		// Decimal
+var b = 0xbeef	// Hexadecimal
+var c = 077		// Decimal 77, NOT octal
+var d = 0.1		// The leading zero must be specified
+var e = 1.0		// The trailing zero must be specified
 ```
 
 
@@ -109,11 +109,11 @@ Post-fixing an integer literal may change its type:
 Examples:
 
 ```sarl
-	var anInteger = 1234
-	
-	var aLong = 1234L
-	
-	var aBigInteger = 1234bi
+var anInteger = 1234
+
+var aLong = 1234L
+
+var aBigInteger = 1234bi
 ```
 
 
@@ -130,15 +130,15 @@ Post-fixing a floating-point literal may change its type:
 Examples:
 
 ```sarl
-	var aDouble = 1234.0
-	
-	var anotherDouble = 5678d
-	
-	var aFloat = 1234.0f
-	
-	var anotherFloat = 5678f
-	
-	var aBigDecimal = 1234bd
+var aDouble = 1234.0
+
+var anotherDouble = 5678d
+
+var aFloat = 1234.0f
+
+var anotherFloat = 5678f
+
+var aBigDecimal = 1234bd
 ```
 
 
@@ -148,8 +148,8 @@ Examples:
 As in Java 7, you can separate digits using `_` for better readability of large numbers.
 
 ```sarl
-	// underscore is ignored, L for long
-	var a = 12_345_678L
+// underscore is ignored, L for long
+var a = 12_345_678L
 ```
 
 
@@ -171,7 +171,7 @@ The syntax for type literals is generally the plain name of the type. Nested typ
 The following example is the type literal for the `Agent` type.
 
 ```sarl
-	io.sarl.lang.core.Agent
+io.sarl.lang.core.Agent
 ```
 
 
@@ -179,7 +179,7 @@ To disambiguate the type expression with the `.` operator for invoking a functio
 also be specified using the `typeof` operator.
 
 ```sarl
-	typeof(io.sarl.lang.core.Agent)
+typeof(io.sarl.lang.core.Agent)
 ```
 
 
@@ -187,7 +187,7 @@ Consequently, it is possible to access the members of a type reflectively by usi
 In the following example, the fields declared in the `String` class are provided:
 
 ```sarl
-	String.getDeclaredFields
+String.getDeclaredFields
 ```
 
 
@@ -203,30 +203,30 @@ It is easy to create instances of collections since the methods in `CollectionLi
 They permit you to create instances of collections from the JDK.
 
 ```sarl
-	interface CollectionLiterals {
-		def newHashMap(Pair<Object, Object>[]*) : HashMap<Object, Object>
-		def newArrayList(Object[]*) : ArrayList<Object>
-		def newHashSet(Object[]*) : HashSet<Object>
-		def newLinkedHashSet(Object[]*) : LinkedHashSet<Object>
-		def newTreeSet(Comparator<Object>, Object[]) : TreeSet<Object>
-		def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
-		def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
-		def newLinkedList(Object[]*) : LinkedList<Object>
-		def newImmutableList(Object[]*) : List<Object>
-		def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
-		def newImmutableSet(Object[]*) : Set<Object>
-		def emptySet : Set<Object>
-		def emptyList : List<Object>
-		def emptyMap : Map<Object, Object>
-	}
+interface CollectionLiterals {
+	def newHashMap(Pair<Object, Object>[]*) : HashMap<Object, Object>
+	def newArrayList(Object[]*) : ArrayList<Object>
+	def newHashSet(Object[]*) : HashSet<Object>
+	def newLinkedHashSet(Object[]*) : LinkedHashSet<Object>
+	def newTreeSet(Comparator<Object>, Object[]) : TreeSet<Object>
+	def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
+	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
+	def newLinkedList(Object[]*) : LinkedList<Object>
+	def newImmutableSet(Object[]*) : Set<Object>
+	def newImmutableList(Object[]*) : List<Object>
+	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
+	def emptySet : Set<Object>
+	def emptyList : List<Object>
+	def emptyMap : Map<Object, Object>
+}
 ```
 
 
 In the following example, an array-based list with two strings of characters and a linked hash map with two pairs are created. 
 
 ```sarl
-	var myList = newArrayList('Hello', 'world')
-	var myMap = newLinkedHashMap('a' -> 1, 'b' -> 2)
+var myList = newArrayList('Hello', 'world')
+var myMap = newLinkedHashMap('a' -> 1, 'b' -> 2)
 ```
 
 
@@ -241,17 +241,17 @@ Java arrays can be created either using a literal as described in the next secti
 The methods from `ArrayLiterals` are automatically included.
 
 ```sarl
-	interface ArrayLiterals {
-		def newArrayOfSize(int) : Object[]
-		def newCharArrayOfSize(int) : char[]
-		def newIntArrayOfSize(int) : int[]
-		def newBooleanArrayOfSize(int) : boolean[]
-		def newShortArrayOfSize(int) : short[]
-		def newLongArrayOfSize(int) : long[]
-		def newFloatArrayOfSize(int) : float[]
-		def newDoubleArrayOfSize(int) : double[]
-		def newByteArrayOfSize(int) : byte[]
-	}
+interface ArrayLiterals {
+	def newCharArrayOfSize(int) : char[]
+	def newIntArrayOfSize(int) : int[]
+	def newBooleanArrayOfSize(int) : boolean[]
+	def newShortArrayOfSize(int) : short[]
+	def newLongArrayOfSize(int) : long[]
+	def newFloatArrayOfSize(int) : float[]
+	def newDoubleArrayOfSize(int) : double[]
+	def newArrayOfSize(int) : Object[]
+	def newByteArrayOfSize(int) : byte[]
+}
 ```
 
 
@@ -259,10 +259,10 @@ The methods from `ArrayLiterals` are automatically included.
  for creating array literals.
 
 ```sarl
-	// variable a contains a array of size 400 which contains Objects.
-	var a : String[] = newArrayOfSize(400)
-	// variable b contains a array of size 200 which contains int values.
-	var b : int[] = newIntArrayOfSize(200)
+// variable a contains a array of size 400 which contains Objects.
+var a : String[] = newArrayOfSize(400)
+// variable b contains a array of size 200 which contains int values.
+var b : int[] = newIntArrayOfSize(200)
 ```
 
 
@@ -278,16 +278,16 @@ The second parameter of set is the value to put at the specified position in the
 The method `length` is available for retrieving the size of the array.
 
 ```sarl
-	var a = #['Hello', 'world', '!']
-	
-	// variable b contains the second element of the array a: 'world'.
-	var b = a.get(1)
-	
-	// change the first element in the array a.
-	a.set(0, 'New Element')
-	
-	// variable c contains the size of the array a: 3.
-	var c = a.length
+var a = #['Hello', 'world', '!']
+
+// variable b contains the second element of the array a: 'world'.
+var b = a.get(1)
+
+// change the first element in the array a.
+a.set(0, 'New Element')
+
+// variable c contains the size of the array a: 3.
+var c = a.length
 ```
 
 
@@ -305,8 +305,8 @@ This method is similar to the `Arrays.asList` function provided by the Java API.
 In the following example, an array is defined and converted to a list.
 
 ```sarl
-	val myArray : int[] = #[1,2,3]
-	val myList : List<Integer> = myArray
+val myArray : int[] = #[1,2,3]
+val myList : List<Integer> = myArray
 ```
 
 
@@ -320,7 +320,7 @@ collections: array, set, and hash table.
 An immutable array of values is specified with the `#[` and `]` delimiters.  
 
 ```sarl
-	var a = #[ 'Hello', 'World' ]
+var a = #[ 'Hello', 'World' ]
 ```
 
 
@@ -328,7 +328,7 @@ An immutable array of values is specified with the `#[` and `]` delimiters.
 An immutable set of values is specified with the `#{` and `}` delimiters.  
 
 ```sarl
-	var b = #{ 'Hello', 'World' }
+var b = #{ 'Hello', 'World' }
 ```
 
 
@@ -337,7 +337,7 @@ An immutable map of pairs is specified with the `#{` and `}` delimiters, as for 
 the values are pairs, using the `->`.  
 
 ```sarl
-	var c = #{ 'a' -> 1 ,'b' -> 2 }
+var c = #{ 'a' -> 1 ,'b' -> 2 }
 ```
 
 
@@ -354,7 +354,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

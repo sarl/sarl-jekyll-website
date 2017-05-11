@@ -90,9 +90,6 @@ The `index` attribute is a _value_, for making it unmodifiable after its initial
 
 For setting the value of the `index` value, it is mandatory to define a constructor. 
 
-```sarl
-	
-```
 
 
 
@@ -104,12 +101,12 @@ The `Pong` is an event that contains the index of the `Ping` event for which the
 The `index` attribute is also a _value_, and it must be set in a constructor. 
 
 ```sarl
-	event Pong {
-		val index : int
-		new(i : int) {
-			this.index = i
-		}
+event Pong {
+	val index : int
+	new(i : int) {
+		this.index = i
 	}
+}
 ```
 
 
@@ -124,8 +121,8 @@ for `Ping` events, and replying `Ping` events.
 The initial definition of the pong agent is:
 
 ```sarl
-	agent PongAgent {
-	}
+agent PongAgent {
+}
 ```
 
 
@@ -146,19 +143,19 @@ the `Behaviors` capacity).
 
 
 ```sarl
-	agent PongAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+}
 ```
 
 
@@ -172,21 +169,21 @@ This handler will be invoked by the runtime environment each time the agent is
 receiving a `Ping` event.
 
 ```sarl
-	agent PongAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Ping {
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Ping {
+	}
+}
 ```
 
 
@@ -217,24 +214,24 @@ event by yourself. The source of the event is the address of the pong agent in
 the sub-space. This address is replied by the `getAddress` function.
 
 ```sarl
-	agent PongAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Ping {
-			var evt = new Pong( occurrence.index )
-			evt.source = ^space.getAddress(getID)
-			^space.emit( evt )
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Ping {
+		var evt = new Pong( occurrence.index )
+		evt.source = ^space.getAddress(getID)
+		^space.emit( evt )
+	}
+}
 ```
 
 
@@ -264,25 +261,25 @@ which is getting a collection of addresses for building the matching predicate i
 In the following code, the scope permits to restrict to the initial sender of the `Ping` event. 
 
 ```sarl
-	agent PongAgent {
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Ping {
-			var evt = new Pong( occurrence.index )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(
-				evt,
-				Scopes.addresses( occurrence.source ))
-		}
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Ping {
+		var evt = new Pong( occurrence.index )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(
+			evt,
+			Scopes.addresses( occurrence.source ))
+	}
+}
 ```
 
 
@@ -298,19 +295,19 @@ events, and waiting for `Pong` events.
 The initial definition of the ping agent is:
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+}
 ```
 
 
@@ -321,21 +318,21 @@ The ping agent needs to handle the `Pong` events. For that, a "behavior unit" mu
 defined in the agent.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Pong {
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Pong {
+	}
+}
 ```
 
 
@@ -351,24 +348,24 @@ The receiving of the `Ping` event is restricted to the sender of the
 `Pong` event.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Pong {
-			var evt = new Ping( occurrence.index + 1 )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(evt) [ it == occurrence.source ]
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Pong {
+		var evt = new Ping( occurrence.index + 1 )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(evt) [ it == occurrence.source ]
+	}
+}
 ```
 
 
@@ -382,27 +379,27 @@ This emit is done when the ping agent is started, i.e. when the agent is
 receiving the `Initialize` event.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-			var evt = new Ping(0)
-			evt.source = ^space.getAddress(getID)
-			^space.emit( evt )
-		}
-		on Pong {
-			var evt = new Ping( occurrence.index + 1 )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(evt) [ it == occurrence.source ]
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
+		var evt = new Ping(0)
+		evt.source = ^space.getAddress(getID)
+		^space.emit( evt )
 	}
+	on Pong {
+		var evt = new Ping( occurrence.index + 1 )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(evt) [ it == occurrence.source ]
+	}
+}
 ```
 
 
@@ -429,33 +426,33 @@ one agent belonging to the default space. If not, the agent is sending the initi
 `Ping` event, and stopping the periodic task.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors, Schedules
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-			val task = task("waiting_for_partner")
-			task.every(1000) [
-				if (defaultSpace.participants.size > 1) {
-					var evt = new Ping(0)
-					evt.source = ^space.getAddress(getID)
-					^space.emit( evt )
-					task.cancel
-				}
-			]
-		}
-		on Pong {
-			var evt = new Ping( occurrence.index + 1 )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(evt) [ it == occurrence.source ]
-		}
+	uses DefaultContextInteractions, Behaviors, Schedules
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
+		val task = task("waiting_for_partner")
+		task.every(1000) [
+			if (defaultSpace.participants.size > 1) {
+				var evt = new Ping(0)
+				evt.source = ^space.getAddress(getID)
+				^space.emit( evt )
+				task.cancel
+			}
+		]
 	}
+	on Pong {
+		var evt = new Ping( occurrence.index + 1 )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(evt) [ it == occurrence.source ]
+	}
+}
 ```
 
 
@@ -554,14 +551,14 @@ it is killing itself. This is done with the `killMe` function, which is provided
 by the `Lifecycle` capacity too.
 
 ```sarl
-	agent BootAgent {
-		uses Lifecycle
-		on Initialize {
-			spawn( PongAgent )
-			spawn( PingAgent )
-			killMe
-		}
+agent BootAgent {
+	uses Lifecycle
+	on Initialize {
+		spawn( PongAgent )
+		spawn( PingAgent )
+		killMe
 	}
+}
 ```
 
 
@@ -601,7 +598,7 @@ The first argument after the bootstrap is the qualified name of the agent to lau
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

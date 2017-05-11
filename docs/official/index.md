@@ -23,8 +23,13 @@ layout: default
   <li><a href="#5-2-agent-oriented-programming">5.2. Agent-Oriented Programming</a></li>
   <li><a href="#5-3-object-oriented-programming">5.3. Object-Oriented Programming</a></li>
 </ul>
-<li><a href="#6-documentation-contributions">6. Documentation Contributions</a></li>
-<li><a href="#7-legal-notice">7. Legal Notice</a></li>
+<li><a href="#6-other-tools">6. Other Tools</a></li>
+<ul>
+  <li><a href="#6-1-syntax-highlightning">6.1. Syntax Highlightning</a></li>
+  <li><a href="#6-2-command-line-tools">6.2. Command Line Tools</a></li>
+</ul>
+<li><a href="#7-documentation-format">7. Documentation Format</a></li>
+<li><a href="#8-legal-notice">8. Legal Notice</a></li>
 
 </ul>
 
@@ -69,6 +74,26 @@ layout: default
 ###5.1. General Syntax
 
 * [General Syntax Reference](./reference/GeneralSyntax.html)
+* Structural elements;
+	* [Script format](./reference/general/Script.html)
+	* [Function declaration](./reference/general/FuncDecls.html)
+* Constant expressions:
+	* [Numerical, string, and collection literals](./reference/general/Literals.html)
+* Structuring expressions:
+	* [Block expression](./reference/general/Block.html)
+	* [If-then-else expression](./reference/general/IfExpression.html)
+	* [Switch expression](./reference/general/SwitchExpression.html)
+	* [Loops](./reference/general/LoopExpression.html)
+	* [Lambda expressions](./reference/general/Lambda.html)
+* Standard expressions:
+	* [Variable and attribute declarations](./reference/general/VarDecls.html)
+	* [Operators](./reference/general/Operators.html)
+	* [Type casting](./reference/general/Cast.html)
+	* [Access to object members](./reference/general/MemberAccess.html)
+	* [Extension methods](./reference/general/Extension.html)
+	* [Synchronization expression](./reference/general/Synchronization.html)
+* Errors and exceptions:
+	* [Exceptions](./reference/general/Exception.html)
 
 ###5.2. Agent-Oriented Programming
 
@@ -84,17 +109,28 @@ layout: default
 
 * [Basic Object-Oriented Programming Support](./reference/OOP.html)
 
-##6. Documentation Contributions
+##6. Other Tools
+
+###6.1. Syntax Highlightning
+
+* [Syntax highlighting styles for SARL inside other tools](./tools/SyntaxHighlightning.html)
+
+###6.2. Command Line Tools
+
+* [sarlc](./tools/Sarlc.html): command-line SARL compiler.
+* [janus](./tools/Janus.html): launching SARL agents with the Janus platform.
+
+##7. Documentation Format
 
 * [Specific Markdown format for the documentation](./DocumentationContribution.html)
 
 
-##7. Legal Notice
+##8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

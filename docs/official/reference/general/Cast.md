@@ -13,8 +13,8 @@ The typecasting of an expression to a specific type must be done with the `as` k
 be typed after the expression and before the casting type.
 
 ```sarl
-	something as Integer
-	56 as Integer
+something as Integer
+56 as Integer
 ```
 
 
@@ -34,7 +34,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -17,7 +17,7 @@ Throwing objects of type `Throwable` and the `throw` keyword have the same seman
 [Java Language Specification](http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.18). 
 
 ```sarl
-	throw new IllegalArgumentException("explanation")
+throw new IllegalArgumentException("explanation")
 ```
 
 
@@ -29,16 +29,16 @@ Checked exceptions are treated like runtime exceptions and only optionally
 validated. You can, but do not have to, catch them as they will be silently thrown. 
 
 ```sarl
-	try {
-		throw new RuntimeException()
-	} catch(e : Exception) {
-		// Handle the exception
-	} finally {
-		// Do this block after the try block (if no exception thrown), 
-		// the matched catch block (if an exception was catched),
-		// or before exiting the function (if an exception was thrown
-		// but not catched).
-	}
+try {
+	throw new RuntimeException()
+} catch(e : Exception) {
+	// Handle the exception
+} finally {
+	// Do this block after the try block (if no exception thrown), 
+	// the matched catch block (if an exception was catched),
+	// or before exiting the function (if an exception was thrown
+	// but not catched).
+}
 ```
 
 
@@ -50,15 +50,15 @@ write code like the following and do not have to rely on
 non-final variables: 
 
 ```sarl
-	def readFromFile : String { } 
-	def example {
-		val name =	try {
-						readFromFile
-					} catch (e : IOException) {
-						"unknown"
-					}
-		println(name)
-	}
+def readFromFile : String { } 
+def example {
+	val name =	try {
+					readFromFile
+				} catch (e : IOException) {
+					"unknown"
+				}
+	println(name)
+}
 ```
 
 
@@ -75,7 +75,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

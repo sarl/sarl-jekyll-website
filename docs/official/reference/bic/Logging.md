@@ -31,8 +31,8 @@ For printing an error or a warning message, the two following functions
 are provided:
 
 ```sarl
-	def error(message : Object, exception : Throwable = null, arguments : Object*)
-	def warning(message : Object, exception : Throwable = null, arguments : Object*)
+def error(message : Object, exception : Throwable = null, arguments : Object*)
+def warning(message : Object, exception : Throwable = null, arguments : Object*)
 ```
 
 
@@ -43,15 +43,15 @@ The `exception` parameter may be given for printing an exception that is the cau
 Examples:
 
 ```sarl
-	agent A {
-		uses Logging
-		def myaction {
-			error("mymessage")
-			error("mymessage", new Exception)
-			warning("mymessage")
-			warning("mymessage", new Exception)
-		}
+agent A {
+	uses Logging
+	def myaction {
+		error("mymessage")
+		error("mymessage", new Exception)
+		warning("mymessage")
+		warning("mymessage", new Exception)
 	}
+}
 ```
 
 
@@ -61,7 +61,7 @@ Examples:
 For printing an information message, the following function is provided:
 
 ```sarl
-	def info(message : Object, arguments : Object*)
+def info(message : Object, arguments : Object*)
 ```
 
 
@@ -71,12 +71,12 @@ The message is built from the parsing of the message in which parameter constant
 Example:
 
 ```sarl
-	agent A {
-		uses Logging
-		def myaction {
-			info("mymessage")
-		}
+agent A {
+	uses Logging
+	def myaction {
+		info("mymessage")
 	}
+}
 ```
 
 
@@ -86,7 +86,7 @@ Example:
 For printing a debugging message, the following function is provided:
 
 ```sarl
-	def debug(message : Object, arguments : Object*)
+def debug(message : Object, arguments : Object*)
 ```
 
 
@@ -96,12 +96,12 @@ The message is built from the parsing of the message in which parameter constant
 Example:
 
 ```sarl
-	agent A {
-		uses Logging
-		def myaction {
-			debug("mymessage")
-		}
+agent A {
+	uses Logging
+	def myaction {
+		debug("mymessage")
 	}
+}
 ```
 
 
@@ -115,7 +115,7 @@ than the message's level, then the message is not output.
 For retrieving the current logging level, the following function is provided:
 
 ```sarl
-	def getLogLevel : int
+def getLogLevel : int
 ```
 
 
@@ -125,20 +125,20 @@ The replied value is 0 when no message is printed, 1 if only error messages are 
 For changing the current logging level, the following function is provided:
 
 ```sarl
-	def setLogLevel(level : int)
+def setLogLevel(level : int)
 ```
 
 
 Example:
 
 ```sarl
-	agent A {
-		uses Logging
-		def myaction {
-			var l = getLogLevel
-			setLogLevel( l + 1 )
-		}
+agent A {
+	uses Logging
+	def myaction {
+		var l = getLogLevel
+		setLogLevel( l + 1 )
 	}
+}
 ```
 
 
@@ -148,25 +148,25 @@ Example:
 The following functions permits testing if a specific logging level is enabled:
 
 ```sarl
-	def isErrorLogEnabled : boolean
-	def isWarningLogEnabled : boolean
-	def isInfoLogEnabled : boolean
-	def isDebugLogEnabled : boolean
+def isErrorLogEnabled : boolean
+def isWarningLogEnabled : boolean
+def isInfoLogEnabled : boolean
+def isDebugLogEnabled : boolean
 ```
 
 
 Example:
 
 ```sarl
-	agent A {
-		uses Logging
-		def myaction : boolean {
-			   isErrorLogEnabled
-			|| isWarningLogEnabled
-			|| isInfoLogEnabled
-			|| isDebugLogEnabled
-		}
+agent A {
+	uses Logging
+	def myaction : boolean {
+		   isErrorLogEnabled
+		|| isWarningLogEnabled
+		|| isInfoLogEnabled
+		|| isDebugLogEnabled
 	}
+}
 ```
 
 
@@ -179,19 +179,19 @@ Sometimes, it is helpful to change the printed name of the agent.
 The following function gives the opportunity to change this name.
 
 ```sarl
-	def setLoggingName(name : String)
+def setLoggingName(name : String)
 ```
 
 
 Example:
 
 ```sarl
-	agent A {
-		uses Logging
-		def myaction {
-			setLoggingName("the name of the agent")
-		}
+agent A {
+	uses Logging
+	def myaction {
+		setLoggingName("the name of the agent")
 	}
+}
 ```
 
 
@@ -202,7 +202,7 @@ Example:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

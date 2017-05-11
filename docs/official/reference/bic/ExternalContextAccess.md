@@ -20,7 +20,7 @@ top-right context in the figure above.
 For retrieving the context with a particular ID, this built-in capacity provides the following function:
 
 ```sarl
-	def getContext(contextID : UUID) : AgentContext
+def getContext(contextID : UUID) : AgentContext
 ```
 
 
@@ -31,15 +31,15 @@ may use its `getParentID` for accessing the context in which it is located (the 
 
 
 ```sarl
-	agent A {
-		uses ExternalContextAccess
-		var id : UUID
-		var c : AgentContext
-		def myaction {
-			id = getParentID
-			c = getContext(id)
-		}
+agent A {
+	uses ExternalContextAccess
+	var id : UUID
+	var c : AgentContext
+	def myaction {
+		id = getParentID
+		c = getContext(id)
 	}
+}
 ```
 
 
@@ -49,7 +49,7 @@ may use its `getParentID` for accessing the context in which it is located (the 
 The following function enables an agent to retrieve all the contexts in which it is involved:
 
 ```sarl
-	def getAllContexts : SynchronizedCollection<AgentContext>
+def getAllContexts : SynchronizedCollection<AgentContext>
 ```
 
 
@@ -57,13 +57,13 @@ The following function enables an agent to retrieve all the contexts in which it
 The default context is included in the replied collection.
 
 ```sarl
-	agent A {
-		uses ExternalContextAccess
-		var c : SynchronizedCollection<AgentContext>
-		def myaction {
-			c = getAllContexts
-		}
+agent A {
+	uses ExternalContextAccess
+	var c : SynchronizedCollection<AgentContext>
+	def myaction {
+		c = getAllContexts
 	}
+}
 ```
 
 
@@ -73,7 +73,7 @@ The default context is included in the replied collection.
 Agents must be able to join a new parent context. The following function gives this capability to them:
 
 ```sarl
-	def join(contextID : UUID, expectedDefaultSpaceID : UUID)
+def join(contextID : UUID, expectedDefaultSpaceID : UUID)
 ```
 
 
@@ -99,16 +99,16 @@ This action fires two events:
 Example:
 
 ```sarl
-	agent A {
-		uses ExternalContextAccess
-			var idc : UUID
-			var ids : UUID
-		def myaction {
-			idc = UUID::randomUUID
-			ids = UUID::randomUUID
-			join(idc, ids)
-		}
+agent A {
+	uses ExternalContextAccess
+		var idc : UUID
+		var ids : UUID
+	def myaction {
+		idc = UUID::randomUUID
+		ids = UUID::randomUUID
+		join(idc, ids)
 	}
+}
 ```
 
 
@@ -118,7 +118,7 @@ Example:
 When an agent wants to leave a context, it must invoke:
 
 ```sarl
-	def leave(contextID : UUID)
+def leave(contextID : UUID)
 ```
 
 
@@ -133,14 +133,14 @@ This action fires two events:
 Example:
 
 ```sarl
-	agent A {
-		uses ExternalContextAccess
-		var idc : UUID
-		def myaction {
-			idc = UUID::randomUUID
-			leave(idc)
-		}
+agent A {
+	uses ExternalContextAccess
+	var idc : UUID
+	def myaction {
+		idc = UUID::randomUUID
+		leave(idc)
 	}
+}
 ```
 
 
@@ -164,9 +164,9 @@ of type `AnEvent` was emitted in the space `myspace` (declared as attribute in
 the container).
 
 ```sarl
-	on AnEvent [ isInSpace(occurrence, myspace) ] {
-		// Do something with the event when it was emitted in the space myspace
-	}
+on AnEvent [ isInSpace(occurrence, myspace) ] {
+	// Do something with the event when it was emitted in the space myspace
+}
 ```
 
 
@@ -177,7 +177,7 @@ the container).
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

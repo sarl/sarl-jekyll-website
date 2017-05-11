@@ -61,8 +61,8 @@ The following code illustrates the definition of a behavior named [:behaviortype
 Basically, this behavior does nothing, and does not react on events.
 
 ```sarl
-	behavior MyBehavior {
-	}
+behavior MyBehavior {
+}
 ```
 
 
@@ -77,12 +77,12 @@ modifiable (when declared with the `var` keyword), or unmodifiable (when declare
 `val` keyword).
 
 ```sarl
-	behavior MyBehavior {
-		// Defining a modifiable element of the mental state
-		var mentalStateElement1 : String
-		// Defining an unmodifiable element of the mental state
-		val mentalStateElement2 : boolean = true
-	}
+behavior MyBehavior {
+	// Defining a modifiable element of the mental state
+	var mentalStateElement1 : String
+	// Defining an unmodifiable element of the mental state
+	val mentalStateElement2 : boolean = true
+}
 ```
 
 
@@ -95,17 +95,17 @@ It is allowed to define actions (methods) in the behavior. The syntax described 
 The example below illustrates the creation of type actions.
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		// Defining an action without parameter nor return type
-		def myAction1 {
-			info("Hello world")
-		}
-		// Defining an action with a variadic parameter and no return type
-		def myAction2(param : int*) {
-			info("params are " + param)
-		}
+behavior MyBehavior {
+	uses Logging
+	// Defining an action without parameter nor return type
+	def myAction1 {
+		info("Hello world")
 	}
+	// Defining an action with a variadic parameter and no return type
+	def myAction2(param : int*) {
+		info("params are " + param)
+	}
+}
 ```
 
 
@@ -126,15 +126,15 @@ A second behavior MySubBehavior is defined as the extension of the first behavio
 `action`, which is displaying the inherited attribute.
 
 ```sarl
-	behavior MyBehavior {
-		protected var attr : String
+behavior MyBehavior {
+	protected var attr : String
+}
+behavior MySubBehavior extends MyBehavior {
+	uses Logging
+	def action {
+		info(attr)
 	}
-	behavior MySubBehavior extends MyBehavior {
-		uses Logging
-		def action {
-			info(attr)
-		}
-	}
+}
 ```
 
 
@@ -149,17 +149,17 @@ owner/parameter). This new behavior is then registered into the agent for enabli
 the events in the behavior.
 
 ```sarl
-	agent MyAgent {
-		uses Behaviors
-		on Initialize {
-			// Create the instance of the behavior
-			var beh = new MyBehavior(this) // <- the parameter is the agent
-			
-			// Register the behavior for receiving the events.
-			// This function is given by the Behaviors capacity
-			registerBehavior(beh)
-		}
+agent MyAgent {
+	uses Behaviors
+	on Initialize {
+		// Create the instance of the behavior
+		var beh = new MyBehavior(this) // <- the parameter is the agent
+		
+		// Register the behavior for receiving the events.
+		// This function is given by the Behaviors capacity
+		registerBehavior(beh)
 	}
+}
 ```
 
 
@@ -187,14 +187,14 @@ A behavior may be declared with one or more modifiers, which affect its runtime 
 Examples:
 
 ```sarl
-	public behavior Example1 {
-	}
-	package behavior Example2 {
-	}
-	abstract behavior Example3 {
-	}
-	final behavior Example4 {
-	}
+public behavior Example1 {
+}
+package behavior Example2 {
+}
+abstract behavior Example3 {
+}
+final behavior Example4 {
+}
 ```
 
 
@@ -211,9 +211,9 @@ The modifiers for the fields in a behavior are:
 Examples:
 
 ```sarl
-	protected var example1 : Object
-	package var example2 : Object
-	private var example3 : Object
+protected var example1 : Object
+package var example2 : Object
+private var example3 : Object
 ```
 
 
@@ -234,21 +234,21 @@ The modifiers for the methods in a behavior are:
 Examples:
 
 ```sarl
-	// Public access function
-	public def example0 { }
-	// Protected access function
-	protected def example1 { }
-	// Package access function
-	package def example2 { }
-	// Private access function
-	private def example3 { }
-	// Abstract function
-	abstract def example4
-	// Not-overridable function
-	final def example5 { }
-	// Dispatch functions
-	dispatch def example7(p : Integer) { }
-	dispatch def example7(p : Float) { }
+// Public access function
+public def example0 { }
+// Protected access function
+protected def example1 { }
+// Package access function
+package def example2 { }
+// Private access function
+private def example3 { }
+// Abstract function
+abstract def example4
+// Not-overridable function
+final def example5 { }
+// Dispatch functions
+dispatch def example7(p : Integer) { }
+dispatch def example7(p : Float) { }
 ```
 
 
@@ -272,9 +272,9 @@ A behavior may indicate that it is interesting for receiving an event by specify
 an event handler using the following syntax:
 
 ```sarl
-	on EventName [ Guard ] {
-		Statements
-	}
+on EventName [ Guard ] {
+	Statements
+}
 ```
 
 
@@ -295,8 +295,8 @@ is registered in its owning agent, it receives the `Initialize` event.
 This event is defined as:
 
 ```sarl
-	interface Initialize extends Event {
-	}
+interface Initialize extends Event {
+}
 ```
 
 
@@ -304,12 +304,12 @@ This event is defined as:
 It contains the list of the parameters given that are never set for behaviors.
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		on Initialize {
-			info("I'm initializing my behavior")
-		}
+behavior MyBehavior {
+	uses Logging
+	on Initialize {
+		info("I'm initializing my behavior")
 	}
+}
 ```
 
 
@@ -323,15 +323,15 @@ In the following example, the first event handler is executed when the `Initiali
 no parameter. The second event handler is executed when the event has at least one parameter.
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		on Initialize [ occurrence.parameters.empty ] {
-			info("First initialization")
-		}
-		on Initialize [ ! occurrence.parameters.empty ] {
-			info("First initialization")
-		}
+behavior MyBehavior {
+	uses Logging
+	on Initialize [ occurrence.parameters.empty ] {
+		info("First initialization")
 	}
+	on Initialize [ ! occurrence.parameters.empty ] {
+		info("First initialization")
+	}
+}
 ```
 
 
@@ -341,8 +341,8 @@ no parameter. The second event handler is executed when the event has at least o
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
 ```sarl
-	interface Destroy extends Event {
-	}
+interface Destroy extends Event {
+}
 ```
 
 
@@ -350,12 +350,12 @@ The counterpart of `Initialize` is the event `Destroy`. This event is defined as
 Example:
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		on Destroy {
-			info("Destroying the behavior")
-		}
+behavior MyBehavior {
+	uses Logging
+	on Destroy {
+		info("Destroying the behavior")
 	}
+}
 ```
 
 
@@ -369,16 +369,16 @@ and there is resource stored in the corresponding field. The second event handle
 when there is no resource.
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		var resource : Object
-		on Destroy [ resource !== null ] {
-			info("Destroying the behavior when there is a resource")
-		}
-		on Destroy [ resource === null ] {
-			info("Destroying the behavior when there is no resource")
-		}
+behavior MyBehavior {
+	uses Logging
+	var resource : Object
+	on Destroy [ resource !== null ] {
+		info("Destroying the behavior when there is a resource")
 	}
+	on Destroy [ resource === null ] {
+		info("Destroying the behavior when there is no resource")
+	}
+}
 ```
 
 
@@ -393,12 +393,12 @@ In the following example, the behavior is reacting to the reception of the `Some
 As for all the event handlers, it could be guarded by a predicate.
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		on SomethingChanged {
-			info("Reactive behavior")
-		}
+behavior MyBehavior {
+	uses Logging
+	on SomethingChanged {
+		info("Reactive behavior")
 	}
+}
 ```
 
 
@@ -411,15 +411,15 @@ When multiple event handlers are triggered at the same time, they are all execut
 In the following example, the two handlers for the `SomethingChanged` event are executed in parallel.
 
 ```sarl
-	behavior MyBehavior {
-		uses Logging
-		on SomethingChanged {
-			info("First reactive behavior")
-		}
-		on SomethingChanged {
-			info("Second reactive behavior")
-		}
+behavior MyBehavior {
+	uses Logging
+	on SomethingChanged {
+		info("First reactive behavior")
 	}
+	on SomethingChanged {
+		info("Second reactive behavior")
+	}
+}
 ```
 
 
@@ -438,14 +438,14 @@ by the agent or one of its behaviors. The schedule mechanism is provided by the
 In the following example, the agent execute its proactive behavior every second.
 
 ```sarl
-	behavior MyBehavior {
-		uses Schedules, Logging
-		on Initialize {
-			every(1000) [
-				info("Run a pro-active behavior")
-			]
-		}
+behavior MyBehavior {
+	uses Schedules, Logging
+	on Initialize {
+		every(1000) [
+			info("Run a pro-active behavior")
+		]
 	}
+}
 ```
 
 
@@ -467,16 +467,16 @@ the [Capacity Reference](./Capacity.html), and the [Skill Reference](./Skill.htm
 In the rest of this section, it is assumed that the following capacity and skill are defined:
 
 ```sarl
-	capacity Cap {
-		def action
+capacity Cap {
+	def action
+}
+
+skill Ski implements Cap {
+	uses Logging
+	def action {
+		info("Action")
 	}
-	
-	skill Ski implements Cap {
-		uses Logging
-		def action {
-			info("Action")
-		}
-	}
+}
 ```
 
 
@@ -486,9 +486,6 @@ In the rest of this section, it is assumed that the following capacity and skill
 When a behavior must use a capacity, its agent must own an implementation of this capacity: a skill.
 It is possible for a behavior to assign a skill to its agent.
 
-```sarl
-	
-```
 
 
 
@@ -503,14 +500,14 @@ For invoking a function implemented by a skill, the two following steps must be 
 You should prefer the use of the extension methods (see below).</note>
 
 ```sarl
-	behavior MyBehavior {
-		on SomeEvent {
-			// Retreive the capacity implementation
-			var s = getSkill(Cap)
-			// Run the action of the skill
-			s.action
-		}
+behavior MyBehavior {
+	on SomeEvent {
+		// Retreive the capacity implementation
+		var s = getSkill(Cap)
+		// Run the action of the skill
+		s.action
 	}
+}
 ```
 
 
@@ -529,13 +526,13 @@ After a capacity was "imported", it is possible to directly call the functions o
 with the name `action` is invoked. This action is defined in the `Cap` capacity. 
 
 ```sarl
-	behavior MyBehavior {
-		uses Cap
-		on SomeEvent {
-			// Run the action of the skill
-			action
-		}
+behavior MyBehavior {
+	uses Cap
+	on SomeEvent {
+		// Run the action of the skill
+		action
 	}
+}
 ```
 
 
@@ -546,7 +543,7 @@ with the name `action` is invoked. This action is defined in the `Cap` capacity.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

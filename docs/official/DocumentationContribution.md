@@ -15,8 +15,9 @@ layout: default
   <li><a href="#1-3-changing-the-visibility-of-the-sarl-code">1.3. Changing the visibility of the SARL code</a></li>
   <li><a href="#1-4-evaluating-a-sarl-expression">1.4. Evaluating a SARL expression</a></li>
   <li><a href="#1-5-capture-sarl-code-into-the-documentation">1.5. Capture SARL code into the documentation</a></li>
-  <li><a href="#1-6-generate-code-from-java-type">1.6. Generate code from Java type</a></li>
-  <li><a href="#1-7-generating-an-outline">1.7. Generating an Outline</a></li>
+  <li><a href="#1-6-dynamic-generation-of-the-markdown-text">1.6. Dynamic generation of the Markdown text</a></li>
+  <li><a href="#1-7-generate-code-from-java-type">1.7. Generate code from Java type</a></li>
+  <li><a href="#1-8-generating-an-outline">1.8. Generating an Outline</a></li>
 </ul>
 <li><a href="#2-syntax-extensions">2. Syntax Extensions</a></li>
 <ul>
@@ -143,7 +144,22 @@ If you want to avoid the generation of a Markdown block around the captured text
 This protection is implicit in the parameters and the content of the other macros that are described on this page.
 
 
-###1.6. Generate code from Java type
+###1.6. Dynamic generation of the Markdown text
+
+Sometimes, it is useful to create the Markdown text via a script in order to introduce dynamic building of the documentation.
+The following macro provides you the ability to run a SARL script for generating the documentation.
+
+
+```text
+[:Dynamic:](expression)
+```
+
+
+The `Dynamic` macro is supposed to replies a value that could be interpreted as a string of characters.
+The given string of characters will replace the `Dynamic` macro into the generated Markdown text.
+
+
+###1.7. Generate code from Java type
 
 You could generate a piece of code from a Java type with the following macro:
 
@@ -158,7 +174,7 @@ This macro extracts the type definition with the reflection mechanism for the gi
 The output of this macro is a formatted SARL code that corresponds to the extracted information.
 
 
-###1.7. Generating an Outline
+###1.8. Generating an Outline
 
 By default, Markdown does not include a specific tag for generating the outline.
 If you put the `Outline` macro, it will be replaced by a generated outline.
@@ -252,7 +268,7 @@ The other resources, such as images should be in the `src/main/resources` folder
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

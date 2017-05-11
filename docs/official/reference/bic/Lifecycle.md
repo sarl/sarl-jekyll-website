@@ -33,7 +33,7 @@ this query.
 The `Lifecycle` capacity provides the following function for committing a suicide:
 
 ```sarl
-	def killMe
+def killMe
 ```
 
 
@@ -55,12 +55,12 @@ This action fires two events:
 Example:
 
 ```sarl
-	agent A {
-		uses Lifecycle
-		def myaction {
-			killMe
-		}
+agent A {
+	uses Lifecycle
+	def myaction {
+		killMe
 	}
+}
 ```
 
 
@@ -71,8 +71,8 @@ Many time, it is useful for agent to create a new agent into the default context
 functions are provided for this task:
 
 ```sarl
-	def spawn(agentType : Class<? extends Agent>, parameters : Object*) : UUID
-	def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object*) : Collection<UUID>
+def spawn(agentType : Class<? extends Agent>, parameters : Object*) : UUID
+def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object*) : Collection<UUID>
 ```
 
 
@@ -96,21 +96,21 @@ This action fires two events:
 Example:
 
 ```sarl
-	agent A {
-		uses Lifecycle
-		def myaction {
-			var aid : UUID
-			var listaid : Collection<UUID>
-			var type : Class<? extends Agent>
-			var p1 : Object
-			var p2 : Object
-			type = typeof(A)
-			p1 = new Object
-			p2 = new Object
-			aid = spawn(type, p1, p2)
-			listaid = spawn(5, type, p1, p2)
-		}
+agent A {
+	uses Lifecycle
+	def myaction {
+		var aid : UUID
+		var listaid : Collection<UUID>
+		var type : Class<? extends Agent>
+		var p1 : Object
+		var p2 : Object
+		type = typeof(A)
+		p1 = new Object
+		p2 = new Object
+		aid = spawn(type, p1, p2)
+		listaid = spawn(5, type, p1, p2)
 	}
+}
 ```
 
 
@@ -121,13 +121,13 @@ When one or more agents should be spawned into a specific agent context, the two
 could be used for launching the agents:
 
 ```sarl
-	def spawnInContext(agentType : Class<? extends Agent>,
-	                   context : AgentContext,
-	                   parameters : Object*) : UUID
-	def spawnInContext(nbAgents : int,
-	                   agentType : Class<? extends Agent>,
-	                   context : AgentContext,
-	                   parameters : Object*) : UUID
+def spawnInContext(agentType : Class<? extends Agent>,
+                   context : AgentContext,
+                   parameters : Object*) : UUID
+def spawnInContext(nbAgents : int,
+                   agentType : Class<? extends Agent>,
+                   context : AgentContext,
+                   parameters : Object*) : UUID
 ```
 
 
@@ -148,22 +148,22 @@ This action fires two events:
 Example:
 
 ```sarl
-	agent A {
-		uses Lifecycle
-		def myaction {
-			var c : AgentContext
-			var aid : UUID
-			var listaid : Collection<UUID>
-			var type : Class<? extends Agent>
-			var p1 : Object
-			var p2 : Object
-			type = typeof(A)
-			p1 = new Object
-			p2 = new Object
-			aid = spawnInContext(type, c, p1, p2)
-			listaid = spawnInContext(5, type, c, p1, p2)
-		}
+agent A {
+	uses Lifecycle
+	def myaction {
+		var c : AgentContext
+		var aid : UUID
+		var listaid : Collection<UUID>
+		var type : Class<? extends Agent>
+		var p1 : Object
+		var p2 : Object
+		type = typeof(A)
+		p1 = new Object
+		p2 = new Object
+		aid = spawnInContext(type, c, p1, p2)
+		listaid = spawnInContext(5, type, c, p1, p2)
 	}
+}
 ```
 
 
@@ -174,10 +174,10 @@ Some time, it is useful to create an agent with a specific identifier. The follo
 with a given identifier in a specific context:
 
 ```sarl
-	def spawnInContextWithID(agentType : Class<? extends Agent>,
-	agentId : UUID,
-	context : AgentContext,
-	parameters : Object*) : UUID
+def spawnInContextWithID(agentType : Class<? extends Agent>,
+agentId : UUID,
+context : AgentContext,
+parameters : Object*) : UUID
 ```
 
 
@@ -193,20 +193,20 @@ This action fires two events:
 Example:
 
 ```sarl
-	agent A {
-		uses Lifecycle
-		def myaction {
-			var c : AgentContext
-			var aid : UUID
-			var type : Class<? extends Agent>
-			var p1 : Object
-			var p2 : Object
-			type = typeof(A)
-			p1 = new Object
-			p2 = new Object
-			aid = spawnInContextWithID(type, aid, c, #[p1, p2])
-		}
+agent A {
+	uses Lifecycle
+	def myaction {
+		var c : AgentContext
+		var aid : UUID
+		var type : Class<? extends Agent>
+		var p1 : Object
+		var p2 : Object
+		type = typeof(A)
+		p1 = new Object
+		p2 = new Object
+		aid = spawnInContextWithID(type, aid, c, #[p1, p2])
 	}
+}
 ```
 
 
@@ -216,7 +216,7 @@ Example:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

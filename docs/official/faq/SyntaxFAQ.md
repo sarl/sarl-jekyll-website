@@ -40,21 +40,9 @@ to zero.  Consequently:
 * `123.` is correct;
 * `.123` is incorrect.
 
-```sarl
-	
-```
 
-```sarl
-	
-```
 
-```sarl
-	
-```
 
-```sarl
-	
-```
 
 
 
@@ -68,9 +56,6 @@ that corresponds to a keyword, then it is possible
 to obtain a package name with one of its components
 equals to a SARL keyword:
 
-```sarl
-	
-```
 
 
 
@@ -88,8 +73,8 @@ The reference is constant, *but* the referred object is not. Consequently, it is
 possible to call the setters of `b`. 
 
 ```sarl
-	val a : int = 4
-	val b : Object = new Object
+val a : int = 4
+val b : Object = new Object
 ```
 
 
@@ -103,10 +88,10 @@ SARL considers that the each array is a list of something.
 Consequently, retrieving the values of the array must be done with `get(int)`.
 
 ```sarl
-	var a : Integer[] = #[1, 2, 3]
-	var b : List<Integer> = newArrayList(1, 2, 3)
-	
-	a.get(0) == b.get(0)
+var a : Integer[] = #[1, 2, 3]
+var b : List<Integer> = newArrayList(1, 2, 3)
+
+a.get(0) == b.get(0)
 ```
 
 
@@ -116,17 +101,14 @@ Consequently, retrieving the values of the array must be done with `get(int)`.
 In SARL, the empty generic parameter list, written `<>` is
 not supported: a generic type expression must be written between them.
 
-```sarl
-	
-```
 
 
 For solving this problem, two choices: i) add a type expression between
 < and >; ii) remove the generic parameter list.
 
 ```sarl
-	var firstSolution : List<Integer> = new ArrayList<Integer>
-	var secondSolution : List<Integer> = new ArrayList
+var firstSolution : List<Integer> = new ArrayList<Integer>
+var secondSolution : List<Integer> = new ArrayList
 ```
 
 
@@ -139,9 +121,9 @@ must be done with a closure.
 Consider the definition of the following interface:
 
 ```sarl
-	interface MyInterface {
-	     def myfunction(parameter : Object) : void
-	}
+interface MyInterface {
+     def myfunction(parameter : Object) : void
+}
 ```
 
 
@@ -150,8 +132,8 @@ a.k.a. anonymous class definition in the Java community, could be written is SAR
 with the following closure:
 
 ```sarl
-	var instance : MyInterface
-	instance = [ parameter | /* The code of myfunction() */ ]
+var instance : MyInterface
+instance = [ parameter | /* The code of myfunction() */ ]
 ```
 
 
@@ -165,11 +147,11 @@ The Java-based syntax for defining an anonymous class's instance is allowed, but
 in the SARL language. It means that the following code is valid:
 
 ```sarl
-	var instance = new MyInterface() {
-		def myfunction(parameter : Object) {
-			/* The code of myfunction() */
-		}
+var instance = new MyInterface() {
+	def myfunction(parameter : Object) {
+		/* The code of myfunction() */
 	}
+}
 ```
 
 
@@ -181,22 +163,22 @@ In the code below, the function `myfunction` is defined in the capacities `C1` a
 The call to `myfunction` in the agent definition is the place where the error occurs.
 
 ```sarl
-	capacity C1 {
-		def myfunction
-		def myfunction2
+capacity C1 {
+	def myfunction
+	def myfunction2
+}
+capacity C2 {
+	def myfunction
+	def myfunction3
+}
+agent MyAgent {
+	uses C1, C2
+	on Initialize {
+	    myfunction
+	    myfunction2
+	    myfunction3
 	}
-	capacity C2 {
-		def myfunction
-		def myfunction3
-	}
-	agent MyAgent {
-		uses C1, C2
-		on Initialize {
-		    myfunction
-		    myfunction2
-		    myfunction3
-		}
-	}
+}
 ```
 
 
@@ -210,7 +192,7 @@ getting the capacity. The following code is the correct call to the function if 
 capacity `C1` should be called:
 
 ```sarl
-	getSkill(C1).myfunction
+getSkill(C1).myfunction
 ```
 
 
@@ -220,7 +202,7 @@ capacity `C1` should be called:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

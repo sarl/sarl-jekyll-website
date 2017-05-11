@@ -36,9 +36,9 @@ A lambda expression is code surrounded by square brackets (inspired from Smallta
 Like a method declaration, a lambda expression may declare parameters.
 
 ```sarl
-	[ e : ActionEvent |
-		textField.text = "Something happened!" + e.toString
-	]
+[ e : ActionEvent |
+	textField.text = "Something happened!" + e.toString
+]
 ```
 
 
@@ -52,9 +52,9 @@ You do not have to specify the type explicitly because it can be inferred from t
 For example, when using inferred type, the code in the previous section becomes:
 
 ```sarl
-	[ e |
-		textField.text = "Something happened!" + e.toString
-	]
+[ e |
+	textField.text = "Something happened!" + e.toString
+]
 ```
 
 
@@ -69,9 +69,9 @@ for these parameters, which is to leave the declaration including the vertical b
 The name of the single parameter becomes `it`.
 
 ```sarl
-	[
-		textField.text = "Something happened!" + it.toString
-	]
+[
+	textField.text = "Something happened!" + it.toString
+]
 ```
 
 
@@ -81,9 +81,9 @@ The name of the single parameter becomes `it`.
 A lambda expression with zero arguments is written with a bar after the opening bracket:
 
 ```sarl
-	val runnable : Runnable = [ |
-		println("Hello I'm executed!")
-	]
+val runnable : Runnable = [ |
+	println("Hello I'm executed!")
+]
 ```
 
 
@@ -96,18 +96,18 @@ For instance if you want to sort some strings by their length, you could use eit
 The first example uses the notation with the lambda expression inside the argument list.
 
 ```sarl
-	var t : List<String>
-	// Lambda expression is written outside the parenthesis
-	Collections.sort(t, [ a, b | a.length - b.length ])
+var t : List<String>
+// Lambda expression is written outside the parenthesis
+Collections.sort(t, [ a, b | a.length - b.length ])
 ```
 
 
 The second example uses the notation with the lambda expression outside the argument list.
 
 ```sarl
-	var t : List<String>
-	// Lambda expression is written outside the parenthesis
-	Collections.sort(t) [ a, b | a.length - b.length ]
+var t : List<String>
+// Lambda expression is written outside the parenthesis
+Collections.sort(t) [ a, b | a.length - b.length ]
 ```
 
 
@@ -123,7 +123,7 @@ The following example defines a variable `f`, which is a lambda taking one param
 returning a value of `Boolean`. 
 
 ```sarl
-	var f : (String) => Boolean
+var f : (String) => Boolean
 ```
 
 
@@ -141,8 +141,8 @@ different numbers of parameters.
 For example, the SARL erasure `(String) => Boolean` may be written with the Java notation:
 
 ```sarl
-	// Same type of function.
-	var f2 : Functions.Function1<? super String,? extends Boolean>
+// Same type of function.
+var f2 : Functions.Function1<? super String,? extends Boolean>
 ```
 
 
@@ -164,7 +164,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

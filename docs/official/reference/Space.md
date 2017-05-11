@@ -82,10 +82,10 @@ SARL provides a collection of Java interfaces that are representing different ty
 SARL provides a Java interface that is representing all the spaces:
 
 ```sarl
-	interface Space {
-		def getParticipants : SynchronizedSet<UUID>
-		def getSpaceID : SpaceID
-	}
+interface Space {
+	def getParticipants : SynchronizedSet<UUID>
+	def getSpaceID : SpaceID
+}
 ```
 
 
@@ -101,11 +101,11 @@ of the agents belonging to the space.
 Spaces that are based on event propagation mechanism are defined as:
 
 ```sarl
-	interface EventSpace {
-		def emit(Event, Scope<Address>)
-		def emit(Event)
-		def getAddress(UUID) : Address
-	}
+interface EventSpace {
+	def emit(Event, Scope<Address>)
+	def emit(Event)
+	def getAddress(UUID) : Address
+}
 ```
 
 
@@ -122,10 +122,10 @@ The `emit` functions permits fire of an event in the space.
 Event spaces that are allowing the agents to be register and unregister are "open event spaces":
 
 ```sarl
-	interface OpenEventSpace {
-		def unregister(EventListener) : Address
-		def register(EventListener) : Address
-	}
+interface OpenEventSpace {
+	def unregister(EventListener) : Address
+	def register(EventListener) : Address
+}
 ```
 
 
@@ -139,11 +139,11 @@ The functions `register` and `unregister` permit an agent to be involved or not.
 When an event space needs to control the registration access, it should be a "restricted access event space":
 
 ```sarl
-	interface RestrictedAccessEventSpace {
-		def unregister(EventListener) : Address
-		def register(Object) : Address
-		def register(EventListener, Principal) : Address
-	}
+interface RestrictedAccessEventSpace {
+	def unregister(EventListener) : Address
+	def register(Object) : Address
+	def register(EventListener, Principal) : Address
+}
 ```
 
 
@@ -172,11 +172,11 @@ The new space type must extend one of the predefined types. In the following exa
 the physic environment in which the agents may evolve.
 
 ```sarl
-	interface PhysicSpace extends Space {
-		def moveObject(identifier : UUID, x : float, y : float, z : float)
-		def bindBody(^agent : EventListener)
-		def unbindBody(^agent : EventListener)
-	}
+interface PhysicSpace extends Space {
+	def moveObject(identifier : UUID, x : float, y : float, z : float)
+	def bindBody(^agent : EventListener)
+	def unbindBody(^agent : EventListener)
+}
 ```
 
 
@@ -200,27 +200,27 @@ that you will be notified about any major changes on this part of the API.</caut
 Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
 
 ```sarl
-	class PhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
-		val entities = <UUID, PhysicObject>newHashMap
-		def moveObject(identifier : UUID, x : float, y : float, z : float) {
-			synchronized (this.entities) {
-				var o = this.entities.get(identifier)
-				if (o !== null) {
-					o.move(x, y, z)
-				}
-			}
-		}
-		def bindBody(listener : EventListener) {
-			synchronized (this.entities) {
-				entities.put(listener.ID, new PhysicObject)
-			}
-		}
-		def unbindBody(listener : EventListener) {
-			synchronized (this.entities) {
-				entities.remove(listener.ID)
+class PhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
+	val entities = <UUID, PhysicObject>newHashMap
+	def moveObject(identifier : UUID, x : float, y : float, z : float) {
+		synchronized (this.entities) {
+			var o = this.entities.get(identifier)
+			if (o !== null) {
+				o.move(x, y, z)
 			}
 		}
 	}
+	def bindBody(listener : EventListener) {
+		synchronized (this.entities) {
+			entities.put(listener.ID, new PhysicObject)
+		}
+	}
+	def unbindBody(listener : EventListener) {
+		synchronized (this.entities) {
+			entities.remove(listener.ID)
+		}
+	}
+}
 ```
 
 
@@ -250,37 +250,37 @@ about any major changes on this part of the API.</caution>
 Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
 
 ```sarl
-	class NetworkPhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
-		val entities : Map<UUID,PhysicObject>
-		
-		public new(id : SpaceID, factory : DistributedDataStructureService) {
-			super(id, factory)
-			this.entities = factory.getMap(id.toString + "-physicObjects")
-		}
-		
-		def bindBody(entity : EventListener) {
-			this.entities.put(entity.ID, new PhysicObject)
-			var a = new Address(ID, entity.ID)
-			synchronized (this.participantInternalDataStructure) {
-				return this.participantInternalDataStructure.registerParticipant(a, entity)
-			}
-		}
-		
-		def unbindBody(entity : EventListener) {
-			this.entities.remove(entity.ID)
-			synchronized (this.participantInternalDataStructure) {
-				return this.participantInternalDataStructure.unregisterParticipant(entity)
-			}
-		}
-		
-		def moveObject(identifier : UUID, x : float, y : float, z : float) {
-			var o = this.entities.remove(identifier)
-			if (o !== null) {
-				o.move(x, y, z)
-				this.entities.put(identifier, o)
-			}
+class NetworkPhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
+	val entities : Map<UUID,PhysicObject>
+	
+	public new(id : SpaceID, factory : DistributedDataStructureService) {
+		super(id, factory)
+		this.entities = factory.getMap(id.toString + "-physicObjects")
+	}
+	
+	def bindBody(entity : EventListener) {
+		this.entities.put(entity.ID, new PhysicObject)
+		var a = new Address(ID, entity.ID)
+		synchronized (this.participantInternalDataStructure) {
+			return this.participantInternalDataStructure.registerParticipant(a, entity)
 		}
 	}
+	
+	def unbindBody(entity : EventListener) {
+		this.entities.remove(entity.ID)
+		synchronized (this.participantInternalDataStructure) {
+			return this.participantInternalDataStructure.unregisterParticipant(entity)
+		}
+	}
+	
+	def moveObject(identifier : UUID, x : float, y : float, z : float) {
+		var o = this.entities.remove(identifier)
+		if (o !== null) {
+			o.move(x, y, z)
+			this.entities.put(identifier, o)
+		}
+	}
+}
 ```
 
 
@@ -295,24 +295,24 @@ For creating instances of spaces, it is necessary to define a space specificatio
 This specification may create the space instance according to rules, or provide information and rules to the spaces.
 
 ```sarl
-	class PhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
-		def create(id : SpaceID, params : Object*) : PhysicSpace {
-			return new PhysicSpaceImpl(id)
-		}
+class PhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
+	def create(id : SpaceID, params : Object*) : PhysicSpace {
+		return new PhysicSpaceImpl(id)
 	}
+}
 ```
 
 
 The example above is the specification related to the first implementation of the `PhysicSpace`.
 
 ```sarl
-	class NetworkPhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
-		@Inject
-		var factory : DistributedDataStructureService
-		def create(id : SpaceID, params : Object*) : PhysicSpace {
-			return new NetworkPhysicSpaceImpl(id, factory)
-		}
+class NetworkPhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
+	@Inject
+	var factory : DistributedDataStructureService
+	def create(id : SpaceID, params : Object*) : PhysicSpace {
+		return new NetworkPhysicSpaceImpl(id, factory)
 	}
+}
 ```
 
 
@@ -326,7 +326,7 @@ by injection the factory of distributed data structures provided by the Janus pl
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

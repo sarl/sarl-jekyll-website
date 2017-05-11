@@ -30,7 +30,7 @@ it may be the operating system time, or a simulator time.
 For obtaining the current time, the `getTime` function is provides by the `Time` capacity:
 
 ```sarl
-	def getTime(timeUnit : TimeUnit = null) : double
+def getTime(timeUnit : TimeUnit = null) : double
 ```
 
 
@@ -40,14 +40,14 @@ value (hours, seconds, milliseconds, etc.). If it is not provided,
 the values will be expressed in seconds.
 
 ```sarl
-	agent A {
-		uses Time
-		def myaction {
-			var ct = getTime
-			var ct2 = getTime(null)
-			var ct3 = getTime(TimeUnit::HOURS)
-		}
+agent A {
+	uses Time
+	def myaction {
+		var ct = getTime
+		var ct2 = getTime(null)
+		var ct3 = getTime(TimeUnit::HOURS)
 	}
+}
 ```
 
 
@@ -59,14 +59,14 @@ In order to map the time replied by the `getTime` function and the operating-sys
 `getOSTimeFactor` function replies a factor that could be applied so that:
 
 ```sarl
-	operatingSystemTime = getOSTimeFactor * getTime
+operatingSystemTime = getOSTimeFactor * getTime
 ```
 
 
 The provided function is:
 
 ```sarl
-	def getOSTimeFactor : double
+def getOSTimeFactor : double
 ```
 
 
@@ -77,7 +77,7 @@ The provided function is:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

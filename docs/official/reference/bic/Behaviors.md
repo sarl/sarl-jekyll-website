@@ -39,7 +39,7 @@ Please read the [Behavior Reference](../Behavior.html) for details.
 Assuming that a behavior was already defined, it is possible for an agent to register this behavior:
 
 ```sarl
-	def registerBehavior(attitude : Behavior) : Behavior
+def registerBehavior(attitude : Behavior) : Behavior
 ```
 
 
@@ -50,8 +50,8 @@ the inner context of the agent, or received by the agent itself.
 An example of call to the registration function is:
 
 ```sarl
-	var beh = new MyBehavior
-	registerBehavior(beh)
+var beh = new MyBehavior
+registerBehavior(beh)
 ```
 
 
@@ -59,8 +59,8 @@ An example of call to the registration function is:
 According to the SARL syntax reference, the example could be also written as: 
 
 ```sarl
-	var beh = new MyBehavior
-	beh.registerBehavior
+var beh = new MyBehavior
+beh.registerBehavior
 ```
 
 
@@ -70,7 +70,7 @@ According to the SARL syntax reference, the example could be also written as:
 Assuming that a behavior was already registered, it is possible for an agent to unregister it:
 
 ```sarl
-	def unregisterBehavior(attitude : Behavior) : Behavior
+def unregisterBehavior(attitude : Behavior) : Behavior
 ```
 
 
@@ -81,15 +81,15 @@ in the default space of the inner context of the agent, and the ones received by
 agent itself.
 
 ```sarl
-	agent A {
-		uses Behaviors
-		var b : MyBehavior
-		var c : Behavior
-		def myaction {
-			b = new MyBehavior
-			c = unregisterBehavior(b)
-		}
+agent A {
+	uses Behaviors
+	var b : MyBehavior
+	var c : Behavior
+	def myaction {
+		b = new MyBehavior
+		c = unregisterBehavior(b)
 	}
+}
 ```
 
 
@@ -102,7 +102,7 @@ filtering function. For registering such a behavior with its filter, the
 following function could be used:
 
 ```sarl
-	def registerBehavior(attitude : Behavior, filter : (Event) => boolean) : Behavior
+def registerBehavior(attitude : Behavior, filter : (Event) => boolean) : Behavior
 ```
 
 
@@ -118,8 +118,8 @@ If the function replies `false`, the event is discarded to the behavior.
 An example of call to the registration function is:
 
 ```sarl
-	var beh = new MyBehavior
-	registerBehavior(beh, [^event | ^event instanceof MyEvent])
+var beh = new MyBehavior
+registerBehavior(beh, [^event | ^event instanceof MyEvent])
 ```
 
 
@@ -127,8 +127,8 @@ An example of call to the registration function is:
 According to the SARL syntax reference, the example could be also written as: 
 
 ```sarl
-	var beh = new MyBehavior
-	beh.registerBehavior [^event | ^event instanceof MyEvent]
+var beh = new MyBehavior
+beh.registerBehavior [^event | ^event instanceof MyEvent]
 ```
 
 
@@ -139,7 +139,7 @@ A behavior is executed through its event handlers. Consequently, for running a b
 to wake it with an event. This particular feature is supported by:
 
 ```sarl
-	def wake(evt : Event, scope : Scope<Address> = null)
+def wake(evt : Event, scope : Scope<Address> = null)
 ```
 
 
@@ -155,12 +155,12 @@ filtered by the scope. All the agent's behaviors that are waiting for a given ev
 be executed.</importantnote>
 
 ```sarl
-	var e : Event
-	e = new MyEvent
-	wake(e)
-	wake(e, null)
-	var scope : Scope<Address> = [ it.UUID !== null ]
-	wake(e, scope)
+var e : Event
+e = new MyEvent
+wake(e)
+wake(e, null)
+var scope : Scope<Address> = [ it.UUID !== null ]
+wake(e, scope)
 ```
 
 
@@ -172,7 +172,7 @@ given space. The following function permits retrieving the event listener of
 the agent:
 
 ```sarl
-	def asEventListener : EventListener
+def asEventListener : EventListener
 ```
 
 
@@ -181,8 +181,8 @@ The listener replied by this function is the one used by the agent (and its beha
 for listening events related to all the contexts (default, external, and inner).
 
 ```sarl
-	var l : EventListener
-	l = asEventListener
+var l : EventListener
+l = asEventListener
 ```
 
 
@@ -192,8 +192,8 @@ for listening events related to all the contexts (default, external, and inner).
 Two functions are provided for accessing to the collection of the registered behaviors:
 
 ```sarl
-	def hasRegisteredBehavior : boolean
-	def getRegisteredBehaviors : Collection<Behavior>
+def hasRegisteredBehavior : boolean
+def getRegisteredBehaviors : Collection<Behavior>
 ```
 
 
@@ -203,8 +203,8 @@ a behavior is registered.
 The getRegisteredBehaviors replies an unmodifiable collection of the registered behaviors.
 
 ```sarl
-	var b : boolean = hasRegisteredBehavior
-	var c : Collection<Behavior> = getRegisteredBehaviors
+var b : boolean = hasRegisteredBehavior
+var c : Collection<Behavior> = getRegisteredBehaviors
 ```
 
 
@@ -215,7 +215,7 @@ The getRegisteredBehaviors replies an unmodifiable collection of the registered 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

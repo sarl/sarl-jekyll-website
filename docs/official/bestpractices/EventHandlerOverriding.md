@@ -41,20 +41,20 @@ event handlers are runs. It means that the CODE1 is run and the message "hello w
 These two event handlers are run in parallel.
 
 ```sarl
-	event MyEvent
-	
-	agent MySuperAgent {
-	  uses Logging
-	  on MyEvent {
-		info("hello world")
-	  }
-	}
-	
-	agent MyAgent extends MySuperAgent {
-	  on MyEvent {
-		// CODE1
-	  }
-	}
+event MyEvent
+
+agent MySuperAgent {
+  uses Logging
+  on MyEvent {
+	info("hello world")
+  }
+}
+
+agent MyAgent extends MySuperAgent {
+  on MyEvent {
+	// CODE1
+  }
+}
 ```
 
 
@@ -69,17 +69,17 @@ In the following example, the function is named `myEventBehavior`. The code of t
 of the event handler from the previous section. The event handler invokes the defined function.
 
 ```sarl
-	event MyEvent
-	
-	agent MySuperAgent {
-	  uses Logging
-	  on MyEvent {
-		myEventBehavior
-	  }
-	  def myEventBehavior {
-		info("hello world")
-	  }
-	}
+event MyEvent
+
+agent MySuperAgent {
+  uses Logging
+  on MyEvent {
+	myEventBehavior
+  }
+  def myEventBehavior {
+	info("hello world")
+  }
+}
 ```
 
 
@@ -90,11 +90,11 @@ For overriding the behavior, the function `myEventBehavior` could be overridden 
 With the example below, the message "hello world" is no more printed out because of the function overriding.
 
 ```sarl
-	agent MyAgent extends MySuperAgent {
-	  def myEventBehavior {
-		// CODE1
-	  }
-	}
+agent MyAgent extends MySuperAgent {
+  def myEventBehavior {
+	// CODE1
+  }
+}
 ```
 
 
@@ -104,7 +104,7 @@ With the example below, the message "hello world" is no more printed out because
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-04-21
+* Release: 2017-05-11
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
