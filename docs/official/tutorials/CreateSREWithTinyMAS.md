@@ -97,8 +97,9 @@ external contexts and inner contexts is not implemented.
 Before reading this document, it is recommended reading the
 [General Syntax Reference](../reference/GeneralSyntax.html).
 
+
 <div class="bt-download">
-<a href="https://github.com/gallandarakhneorg/tinymas"><img alt="Download the Source Code" src="http://www.sarl.io/images/download-icon.png"/></a>
+<a href="https://github.com/gallandarakhneorg/tinymas"><img alt="See the source" src="http://www.sarl.io/images/download-icon.png"/></a>
 </div>
 The elements that are explained in this tutorial are:
 

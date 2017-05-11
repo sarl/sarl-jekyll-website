@@ -83,8 +83,8 @@ SARL provides a Java interface that is representing all the spaces:
 
 ```sarl
 interface Space {
-	def getParticipants : SynchronizedSet<UUID>
 	def getSpaceID : SpaceID
+	def getParticipants : SynchronizedSet<UUID>
 }
 ```
 

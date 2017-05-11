@@ -242,14 +242,14 @@ interface IterableExtensions {
 	def sortBy(Iterable<Object>, (Object) => Object) : List<Object>
 	def fold(Iterable<Object>, Object, (Object, Object) => Object) : Object
 	def toInvertedMap(Iterable<Object>, (Object) => Object) : Map<Object, Object>
-	def drop(Iterable<Object>, int) : Iterable<Object>
-	def findLast(Iterable<Object>, (Object) => Boolean) : Object
 	def sortWith(Iterable<Object>, Comparator<Object>) : List<Object>
 	def takeWhile(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def dropWhile(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def indexed(Iterable<Object>) : Iterable<Pair<Integer, Object>>
 	def minBy(Iterable<Object>, (Object) => Object) : Object
 	def maxBy(Iterable<Object>, (Object) => Object) : Object
+	def findLast(Iterable<Object>, (Object) => Boolean) : Object
+	def drop(Iterable<Object>, int) : Iterable<Object>
 	def min(Iterable<Object>, Comparator<Object>) : Object
 	def min(Iterable<Object>) : Object
 	def max(Iterable<Object>, Comparator<Object>) : Object
@@ -296,13 +296,13 @@ interface IteratorExtensions {
 	def operator_plus(Iterator<Object>, Iterator<Object>) : Iterator<Object>
 	def fold(Iterator<Object>, Object, (Object, Object) => Object) : Object
 	def toInvertedMap(Iterator<Object>, (Object) => Object) : Map<Object, Object>
-	def drop(Iterator<Object>, int) : Iterator<Object>
-	def findLast(Iterator<Object>, (Object) => Boolean) : Object
 	def takeWhile(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
 	def dropWhile(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
 	def indexed(Iterator<Object>) : Iterator<Pair<Integer, Object>>
 	def minBy(Iterator<Object>, (Object) => Object) : Object
 	def maxBy(Iterator<Object>, (Object) => Object) : Object
+	def findLast(Iterator<Object>, (Object) => Boolean) : Object
+	def drop(Iterator<Object>, int) : Iterator<Object>
 	def min(Iterator<Object>) : Object
 	def min(Iterator<Object>, Comparator<Object>) : Object
 	def max(Iterator<Object>) : Object

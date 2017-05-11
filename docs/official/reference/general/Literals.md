@@ -213,8 +213,8 @@ interface CollectionLiterals {
 	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
 	def newLinkedList(Object[]*) : LinkedList<Object>
 	def newImmutableSet(Object[]*) : Set<Object>
-	def newImmutableList(Object[]*) : List<Object>
 	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
+	def newImmutableList(Object[]*) : List<Object>
 	def emptySet : Set<Object>
 	def emptyList : List<Object>
 	def emptyMap : Map<Object, Object>
