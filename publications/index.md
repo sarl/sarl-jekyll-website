@@ -21,6 +21,9 @@ If you use SARL in your research and want to cite it (in a paper, presentation, 
 
 > {% reference iat2014 %}
 
+
+> {% bibliography --max 1 -T bibtexraw -q @*[id=iat2014] %}
+
 Or, you can choose to cite the website instead:
 
 > SARL agent-oriented language website, [http://www.sarl.io](http://www.sarl.io).
