@@ -31,7 +31,7 @@ The built-in capacity `Schedules` enables the agent to schedule tasks for future
 A named task may be created with:
 
 ```sarl
-def task(name : String) : AgentTask
+	def task(name : String) : AgentTask
 ```
 
 
@@ -40,15 +40,15 @@ The replied task may be used for future execution, or controlling the execution.
 Example:
 
 ```sarl
-agent A {
-	uses Schedules
-
-	var t : AgentTask
-
-	def action {
-		t = task("abc")
+	agent A {
+		uses Schedules
+	
+		var t : AgentTask
+	
+		def action {
+			t = task("abc")
+		}
 	}
-}
 ```
 
 
@@ -58,7 +58,7 @@ agent A {
 For running a task once time, the following function is provided:
 
 ```sarl
-def execute(task : AgentTask = null, procedure : (Agent) => void) : AgentTask
+	def execute(task : AgentTask = null, procedure : (Agent) => void) : AgentTask
 ```
 
 
@@ -75,21 +75,21 @@ the task given as parameter.
 Example:
 
 ```sarl
-agent A {
-	uses Schedules, Logging
-
-	var t1 : AgentTask
-	var t2 : AgentTask
-
-	def action {
-		t1 = execute [ a : Agent |
-			info(a)
-		]
-		t1 = t2.execute [ a : Agent |
-			info(a)
-		]
+	agent A {
+		uses Schedules, Logging
+	
+		var t1 : AgentTask
+		var t2 : AgentTask
+	
+		def action {
+			t1 = execute [ a : Agent |
+				info(a)
+			]
+			t1 = t2.execute [ a : Agent |
+				info(a)
+			]
+		}
 	}
-}
 ```
 
 
@@ -99,7 +99,7 @@ agent A {
 For running a task in a given delay, the following function is provided:
 
 ```sarl
-def in(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
+	def in(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
 ```
 
 
@@ -116,20 +116,20 @@ is the same as the task given as parameter.
 Example:
 
 ```sarl
-agent A {
-	uses Schedules, Logging
-	var t1 : AgentTask
-	var t2 : AgentTask
-	def myaction {
-		t1 = in(1000) [ a : Agent |
-			info(a)
-		]
-		
-		t1 = t2.in(1000) [ a : Agent |
-			info(a)
-		]
+	agent A {
+		uses Schedules, Logging
+		var t1 : AgentTask
+		var t2 : AgentTask
+		def myaction {
+			t1 = in(1000) [ a : Agent |
+				info(a)
+			]
+			
+			t1 = t2.in(1000) [ a : Agent |
+				info(a)
+			]
+		}
 	}
-}
 ```
 
 
@@ -139,7 +139,7 @@ agent A {
 For running a periodic task with a fixed starting rate, the following function is provided:
 
 ```sarl
-def every(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
+	def every(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
 ```
 
 
@@ -159,7 +159,7 @@ multiple task's instances will be run in parallel.
 For example, consider the following code:
 
 ```sarl
-every(500) [ sleep(2000) ]
+	every(500) [ sleep(2000) ]
 ```
 
 
@@ -183,7 +183,7 @@ At a given time, four instances of the task are run in parallel (A, B, C, D for 
 For running a periodic task with a fixed duration between the runs, the following function is provided:
 
 ```sarl
-def atFixedDelay(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
+	def atFixedDelay(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
 ```
 
 
@@ -204,7 +204,7 @@ The `atFixedDelay` function ensures that only one run of the procedure will be e
 For example, the following code may be illustrated by the table below.
 
 ```sarl
-atFixedDelay(500) [ sleep(2000) ]
+	atFixedDelay(500) [ sleep(2000) ]
 ```
 
 
@@ -223,8 +223,8 @@ It may be useful to cancel a running task, e.g. a periodic task. The `Schedules`
 provides the following functions for managing the execution cancellation of an agent task:
 
 ```sarl
-def cancel(task : AgentTask, mayInterruptIfRunning : boolean = true) : boolean
-def isCanceled(task : AgentTask) : boolean
+	def cancel(task : AgentTask, mayInterruptIfRunning : boolean = true) : boolean
+	def isCanceled(task : AgentTask) : boolean
 ```
 
 
@@ -240,27 +240,27 @@ The `isCanceled` function enables to test if a task was canceled or not.
 Example:
 
 ```sarl
-agent A {
-	uses Schedules
-	
-	var t1 : AgentTask
-	var t2 : AgentTask
-	var t3 : AgentTask
-	def myaction {
-		t1 = in(1000) [ ]
-		t2 = in(5000) [ ]
-		t2 = in(10000) [ ]
-		if (!t1.isCanceled) {
-			t1.cancel
-		}
-		if (!t2.isCanceled) {
-			t2.cancel(true)
-		}
-		if (!t3.isCanceled) {
-			t3.cancel(false)
+	agent A {
+		uses Schedules
+		
+		var t1 : AgentTask
+		var t2 : AgentTask
+		var t3 : AgentTask
+		def myaction {
+			t1 = in(1000) [ ]
+			t2 = in(5000) [ ]
+			t2 = in(10000) [ ]
+			if (!t1.isCanceled) {
+				t1.cancel
+			}
+			if (!t2.isCanceled) {
+				t2.cancel(true)
+			}
+			if (!t3.isCanceled) {
+				t3.cancel(false)
+			}
 		}
 	}
-}
 ```
 
 
@@ -272,8 +272,8 @@ Sometimes, it may be useful to execute a task if a condition is `true` or `false
 the functions for assosiating a condition, named the guard, to the task:
 
 ```sarl
-def getGuard : (Agent) => boolean
-def setGuard(condition : (Agent) => boolean)
+	def getGuard : (Agent) => boolean
+	def setGuard(condition : (Agent) => boolean)
 ```
 
 
@@ -287,8 +287,8 @@ there is no associated guard. The second function enables you to change the asso
 Additionaly, the `AgentTask` type provides utility functions for easier guard association:  
 
 ```sarl
-def ifTrue(condition : (Agent) => boolean) : AgentTask
-def unless(condition : (Agent) => boolean) : AgentTask
+	def ifTrue(condition : (Agent) => boolean) : AgentTask
+	def unless(condition : (Agent) => boolean) : AgentTask
 ```
 
 
@@ -305,7 +305,7 @@ Indeed, if you call these two function on the value replied by `execute` for exa
 could have launched the task before the guard is set. Consider the following code
 
 ```sarl
-execute [ doSomething ].unless [ myVar > 5 ]
+	execute [ doSomething ].unless [ myVar > 5 ]
 ```
 
 
@@ -315,12 +315,12 @@ already checked if a guard is assosiated and `true`, before the `unless` functio
 The best practice for setting the task guards is to create a task, set the guard, and execute the task:
 
 ```sarl
-// Create the task instance
-var myTask = task(null)
-// Set the guard
-myTask.unless [ myVar > 5 ]
-// Execute the task
-myTask.execute [ doSomething ]
+	// Create the task instance
+	var myTask = task(null)
+	// Set the guard
+	myTask.unless [ myVar > 5 ]
+	// Execute the task
+	myTask.execute [ doSomething ]
 ```
 
 
@@ -330,7 +330,7 @@ myTask.execute [ doSomething ]
 The list of the active tasks may be retreived by invoking the following function:
 
 ```sarl
-def getActiveTasks : Collection<String>
+	def getActiveTasks : Collection<String>
 ```
 
 
@@ -339,9 +339,9 @@ The replied collection is unmodifiable and contains the names of the active task
 Example:
 
 ```sarl
-for (taskName : getActiveTasks) {
-	info("Active task: " + taskName)
-}
+	for (taskName : getActiveTasks) {
+		info("Active task: " + taskName)
+	}
 ```
 
 
@@ -349,9 +349,9 @@ for (taskName : getActiveTasks) {
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -361,4 +361,4 @@ for (taskName : getActiveTasks) {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

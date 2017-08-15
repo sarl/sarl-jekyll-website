@@ -25,7 +25,7 @@ A command-line compiler is a tool that could be invoked from the command-line sh
 The `sarlc` tool takes arguments:
 
 
-	sarlc --dir <output folder> [OPTIONS] <source folder>...
+	`sarlc` --dir <output folder> [OPTIONS] <source folder>...
 
 
 The `output folder` is the name of the folder in which the generated Java files should be created by the SARL compiler.
@@ -70,9 +70,9 @@ The complete list of the options is:
 ##3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -82,4 +82,4 @@ The complete list of the options is:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

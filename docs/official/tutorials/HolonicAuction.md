@@ -24,7 +24,13 @@ layout: default
   <li><a href="#5-4-definition-of-the-auctioneer">5.4. Definition of the auctioneer</a></li>
   <li><a href="#5-5-stop-the-agents">5.5. Stop the agents</a></li>
 </ul>
-<li><a href="#6-legal-notice">6. Legal Notice</a></li>
+<li><a href="#6-compile-and-launch-the-agents">6. Compile and Launch the agents</a></li>
+<ul>
+  <li><a href="#6-1-compile-the-code">6.1. Compile the code</a></li>
+  <li><a href="#6-2-execute-with-a-runnable-jar">6.2. Execute with a runnable JAR</a></li>
+  <li><a href="#6-3-execute-without-a-runnable-jar">6.3. Execute without a runnable JAR</a></li>
+</ul>
+<li><a href="#7-legal-notice">7. Legal Notice</a></li>
 
 </ul>
 
@@ -36,8 +42,9 @@ The architecture presented in this tutorial may be used for designing a system i
 taken after arbitration among components. 
 
 <div class="bt-download">
-<a href="https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-demos-holonicauction"><img alt="See the code" src="http://www.sarl.io/images/download-icon.png"/></a>
+<a href="http://maven.sarl.io/last-demos-release.jar"><img alt="Download the Binary JAR file" src="http://www.sarl.io/images/download-icon.png"/></a>
 </div>
+
 According to the vocabulary used in the SARL project, all the agents are holons. In the rest of this tutorial,
 the terms "agent" and "holon" are synonymous. 
 
@@ -53,7 +60,7 @@ The elements that are explained in this tutorial are:
 readers, the [Agent Reference](../reference/Agent.html) may be read.</note>
 
 The source code related to this tutorial may be found in the
-[Github of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-demos-holonicauction).
+[SARL demos](https://github.com/sarl/sarl-demos/tree/master/src/main/sarl/io/sarl/docs/tutorials/holonicauction).
 
 
 ##1. Principle of the English Auction
@@ -120,13 +127,13 @@ The `Price` event is the event sent by the auctioneer for notifying a bidder tha
 the price has changed. This event contains the new price.
 
 ```sarl
-package io.sarl.docs.tutorials.holonicauction
-event Price {
-	val price : float
-	new(price : float) {
-		this.price = price
+	package io.sarl.docs.tutorials.holonicauction
+	event Price {
+		val price : float
+		new(price : float) {
+			this.price = price
+		}
 	}
-}
 ```
 
 
@@ -137,12 +144,12 @@ The `Bid` event is the event sent by a bidder to the auctioneer.
 This event contains the value of the bid.
 
 ```sarl
-event Bid {
-	val value : float
-	new(value : float) {
-		this.value = value
+	event Bid {
+		val value : float
+		new(value : float) {
+			this.value = value
+		}
 	}
-}
 ```
 
 
@@ -161,14 +168,14 @@ of the price that the bidder will consider for bidding.
 The bidder selects the maximum price between 100 and 1000 randomly.
 
 ```sarl
-agent Bidder {
-	val random = new Random
-	var maxPrice : float
-	
-	on Initialize {
-		maxPrice = random.nextFloat() * 900f + 100f
+	agent Bidder {
+		val random = new Random
+		var maxPrice : float
+		
+		on Initialize {
+			maxPrice = random.nextFloat() * 900f + 100f
+		}
 	}
-}
 ```
 
 
@@ -192,38 +199,38 @@ restriction on the event's recipient. It means that the super-agent __and__ the
 other sub-agents will receive this event.</cautionnote>
 
 ```sarl
-agent Bidder {
-	val random = new Random
-	var maxPrice : float
-	var myLastBid : float
+	agent Bidder {
+		val random = new Random
+		var maxPrice : float
+		var myLastBid : float
+		
+		on Initialize {
+			maxPrice = random.nextFloat() * 900f + 100f
+		}
+		
+		uses DefaultContextInteractions, Logging
 	
-	on Initialize {
-		maxPrice = random.nextFloat() * 900f + 100f
-	}
-	
-	uses DefaultContextInteractions, Logging
-
-	on Price {
-		if(occurrence.price == myLastBid) {
-			println("I do not bet, I am the winner with :" + myLastBid)
-		} else {
-			if(occurrence.price < maxPrice) {
-				var priceIncrease = random.nextFloat() * 50f
-				if (priceIncrease > 0) {
-					var newPrice = occurrence.price + priceIncrease
-					if (newPrice <= maxPrice) {
-						emit(new Bid(newPrice))
-						myLastBid = newPrice
-					} else {
-						println(" I give up, this is beyond my resources : " + myLastBid)
-					}
-				}
+		on Price {
+			if(occurrence.price == myLastBid) {
+				println("I do not bet, I am the winner with :" + myLastBid)
 			} else {
-				println("I dropped to " + myLastBid)
+				if(occurrence.price < maxPrice) {
+					var priceIncrease = random.nextFloat() * 50f
+					if (priceIncrease > 0) {
+						var newPrice = occurrence.price + priceIncrease
+						if (newPrice <= maxPrice) {
+							emit(new Bid(newPrice))
+							myLastBid = newPrice
+						} else {
+							println(" I give up, this is beyond my resources : " + myLastBid)
+						}
+					}
+				} else {
+					println("I dropped to " + myLastBid)
+				}
 			}
 		}
 	}
-}
 ```
 
 
@@ -241,40 +248,40 @@ always the same.</note>
 Below, we update the bidding behavior by creating a scope, and providing it to the `emit` function.
 
 ```sarl
-agent Bidder {
-	val random = new Random
-	var maxPrice : float
-	var myLastBid : float
+	agent Bidder {
+		val random = new Random
+		var maxPrice : float
+		var myLastBid : float
+		
+		on Initialize {
+			maxPrice = random.nextFloat() * 900f + 100f
+		}
 	
-	on Initialize {
-		maxPrice = random.nextFloat() * 900f + 100f
-	}
-
-	uses DefaultContextInteractions, Logging
-
-	on Price {
-		if(occurrence.price == myLastBid) {
-			println("I do not bet, I am the winner with :" + myLastBid)
-		} else {
-			if(occurrence.price < maxPrice) {
-				var priceIncrease = random.nextFloat() * 50f
-				if (priceIncrease > 0) {
-					var newPrice = occurrence.price + priceIncrease
-					if (newPrice <= maxPrice) {
-						var superScope = Scopes.addresses(
-							defaultSpace.getAddress(defaultContext.ID))
-						emit(new Bid(newPrice), superScope)
-						myLastBid = newPrice
-					} else {
-						println(" I give up, this is beyond my resources : " + myLastBid)
-					}
-				}
+		uses DefaultContextInteractions, Logging
+	
+		on Price {
+			if(occurrence.price == myLastBid) {
+				println("I do not bet, I am the winner with :" + myLastBid)
 			} else {
-				println("I dropped to " + myLastBid)
+				if(occurrence.price < maxPrice) {
+					var priceIncrease = random.nextFloat() * 50f
+					if (priceIncrease > 0) {
+						var newPrice = occurrence.price + priceIncrease
+						if (newPrice <= maxPrice) {
+							var superScope = Scopes.addresses(
+								defaultSpace.getAddress(defaultContext.ID))
+							emit(new Bid(newPrice), superScope)
+							myLastBid = newPrice
+						} else {
+							println(" I give up, this is beyond my resources : " + myLastBid)
+						}
+					}
+				} else {
+					println("I dropped to " + myLastBid)
+				}
 			}
 		}
 	}
-}
 ```
 
 
@@ -303,19 +310,19 @@ of its inner context. The `wake` function is supporting this interaction.
 </importantnote>
 
 ```sarl
-agent Auctioneer {
-					
-	uses Behaviors
-	
-	var maxBid = 0f
-	var winner : Address
-	var hasBid = false 
-	var isAuctionOpened = true
-	
-	on Initialize {
-		wake(new Price(50))
+	agent Auctioneer {
+						
+		uses Behaviors
+		
+		var maxBid = 0f
+		var winner : Address
+		var hasBid = false 
+		var isAuctionOpened = true
+		
+		on Initialize {
+			wake(new Price(50))
+		}
 	}
-}
 ```
 
 
@@ -329,23 +336,23 @@ For obtaining the inner context, we need to use the `InnerContextAccess` capacit
 which provides the [:getinner:s] function. Below, we create the three bidders. 
 
 ```sarl
-agent Auctioneer {
-					
-	uses Behaviors, Lifecycle, InnerContextAccess
-	
-	var maxBid = 0f
-	var winner : Address
-	var hasBid = false 
-	var isAuctionOpened = true
-	
-	on Initialize {
-		for(i : 1..3) {
-			spawnInContext(typeof(Bidder), getInnerContext)
-		}
+	agent Auctioneer {
+						
+		uses Behaviors, Lifecycle, InnerContextAccess
 		
-		wake(new Price(50))
+		var maxBid = 0f
+		var winner : Address
+		var hasBid = false 
+		var isAuctionOpened = true
+		
+		on Initialize {
+			for(i : 1..3) {
+				spawnInContext(typeof(Bidder), getInnerContext)
+			}
+			
+			wake(new Price(50))
+		}
 	}
-}
 ```
 
 
@@ -359,30 +366,30 @@ the auction is closed. If the value of the received bid is greater than the curr
 price, the source of the `Bid` event becomes the new potential winner. 
 
 ```sarl
-agent Auctioneer {
-					
-	uses Behaviors, Lifecycle, InnerContextAccess
-	
-	var maxBid = 0f
-	var winner : Address
-	var hasBid = false 
-	var isAuctionOpened = true
-	
-	on Initialize {
-		for(i : 1..3) {
-			spawnInContext(Bidder, innerContext)
+	agent Auctioneer {
+						
+		uses Behaviors, Lifecycle, InnerContextAccess
+		
+		var maxBid = 0f
+		var winner : Address
+		var hasBid = false 
+		var isAuctionOpened = true
+		
+		on Initialize {
+			for(i : 1..3) {
+				spawnInContext(Bidder, innerContext)
+			}
+			
+			wake(new Price(50))
 		}
 		
-		wake(new Price(50))
-	}
-	
-	on Bid [ isAuctionOpened ] {
-		if (occurrence.value > maxBid) {
-			maxBid = occurrence.value
-			winner = occurrence.source
+		on Bid [ isAuctionOpened ] {
+			if (occurrence.value > maxBid) {
+				maxBid = occurrence.value
+				winner = occurrence.source
+			}
 		}
 	}
-}
 ```
 
 
@@ -402,46 +409,46 @@ and outputs the appropriate message. To delay the task executor about the first 
 we use the `in` function provided by the capacity.
 
 ```sarl
-agent Auctioneer {
-					
-	uses Behaviors, Lifecycle, InnerContextAccess, Schedules, Logging
-	
-	var maxBid = 0f
-	var winner : Address
-	var hasBid = false 
-	var isAuctionOpened = true
-	
-	on Initialize {
-		for(i : 1..3) {
-			spawnInContext(Bidder, innerContext)
+	agent Auctioneer {
+						
+		uses Behaviors, Lifecycle, InnerContextAccess, Schedules, Logging
+		
+		var maxBid = 0f
+		var winner : Address
+		var hasBid = false 
+		var isAuctionOpened = true
+		
+		on Initialize {
+			for(i : 1..3) {
+				spawnInContext(Bidder, innerContext)
+			}
+			
+			wake(new Price(50))
+			in(10000) [
+				val waitTask = task("wait-task")
+				waitTask.every(10000) [
+					if (!hasBid) {
+						isAuctionOpened = false
+						if (winner === null) {
+							println("No winner")
+						} else {
+							println("The winner is " + winner
+								+ " with the bid of " + maxBid)
+						}
+					}
+					hasBid = false
+				]
+			]
 		}
 		
-		wake(new Price(50))
-		in(10000) [
-			val waitTask = task("wait-task")
-			waitTask.every(10000) [
-				if (!hasBid) {
-					isAuctionOpened = false
-					if (winner === null) {
-						println("No winner")
-					} else {
-						println("The winner is " + winner
-							+ " with the bid of " + maxBid)
-					}
-				}
-				hasBid = false
-			]
-		]
-	}
-	
-	on Bid [ isAuctionOpened ] {
-		hasBid = true
-		if (occurrence.value > maxBid) {
-			maxBid = occurrence.value
-			winner = occurrence.source
+		on Bid [ isAuctionOpened ] {
+			hasBid = true
+			if (occurrence.value > maxBid) {
+				maxBid = occurrence.value
+				winner = occurrence.source
+			}
 		}
 	}
-}
 ```
 
 
@@ -460,50 +467,50 @@ same Object (the argument of the operator) cannot be
 executed in parallel by different threads.
 
 ```sarl
-agent Auctioneer {
-					
-	uses Behaviors, Lifecycle, InnerContextAccess, Schedules, Logging
-	
-	var maxBid = 0f
-	var winner : Address
-	var hasBid = false 
-	var isAuctionOpened = true
-	
-	on Initialize {
-		for(i : 1..3) {
-			spawnInContext(Bidder, innerContext)
+	agent Auctioneer {
+						
+		uses Behaviors, Lifecycle, InnerContextAccess, Schedules, Logging
+		
+		var maxBid = 0f
+		var winner : Address
+		var hasBid = false 
+		var isAuctionOpened = true
+		
+		on Initialize {
+			for(i : 1..3) {
+				spawnInContext(Bidder, innerContext)
+			}
+			
+			wake(new Price(50))
+			in(10000) [
+				val waitTask = task("wait-task")
+				waitTask.every(10000) [
+					synchronized(this) {
+						if (!hasBid) {
+							isAuctionOpened = false
+							if (winner === null) {
+								println("No winner")
+							} else {
+								println("The winner is " + winner
+									+ " with the bid of " + maxBid)
+							}
+						}
+						hasBid = false
+					}
+				]
+			]
 		}
 		
-		wake(new Price(50))
-		in(10000) [
-			val waitTask = task("wait-task")
-			waitTask.every(10000) [
-				synchronized(this) {
-					if (!hasBid) {
-						isAuctionOpened = false
-						if (winner === null) {
-							println("No winner")
-						} else {
-							println("The winner is " + winner
-								+ " with the bid of " + maxBid)
-						}
-					}
-					hasBid = false
+		on Bid [ isAuctionOpened ] {
+			synchronized(this) {
+				hasBid = true
+				if (occurrence.value > maxBid) {
+					maxBid = occurrence.value
+					winner = occurrence.source
 				}
-			]
-		]
-	}
-	
-	on Bid [ isAuctionOpened ] {
-		synchronized(this) {
-			hasBid = true
-			if (occurrence.value > maxBid) {
-				maxBid = occurrence.value
-				winner = occurrence.source
 			}
 		}
 	}
-}
 ```
 
 
@@ -529,7 +536,7 @@ this last must notify its sub-agents that it is time to commit a suicide.
 We introduce the `StopAuction` event that is used for this particular notification task.
 
 ```sarl
-event StopAuction
+	event StopAuction
 ```
 
 
@@ -542,34 +549,34 @@ When it is received, the bidder agent is killing itself by calling the `killMe` 
 This function is provided by the `Lifecycle` capacity.
 
 ```sarl
-agent Bidder {
-	val random = new Random()
-	var maxPrice : float
+	agent Bidder {
+		val random = new Random()
+		var maxPrice : float
+		
+		on Initialize {
+			maxPrice = random.nextFloat() * 900f + 100f
+		}
 	
-	on Initialize {
-		maxPrice = random.nextFloat() * 900f + 100f
-	}
-
-	uses DefaultContextInteractions
-
-	on Price {
-		var priceIncrease = random.nextFloat() * 50f
-		if (priceIncrease > 0) {
-			var newPrice = occurrence.price + priceIncrease
-			if (newPrice <= maxPrice) {
-				var superScope = Scopes.addresses(
-					defaultSpace.getAddress(defaultContext.ID))
-				emit(new Bid(newPrice), superScope)
+		uses DefaultContextInteractions
+	
+		on Price {
+			var priceIncrease = random.nextFloat() * 50f
+			if (priceIncrease > 0) {
+				var newPrice = occurrence.price + priceIncrease
+				if (newPrice <= maxPrice) {
+					var superScope = Scopes.addresses(
+						defaultSpace.getAddress(defaultContext.ID))
+					emit(new Bid(newPrice), superScope)
+				}
 			}
 		}
+		
+		uses Lifecycle
+		
+		on StopAuction {
+			killMe
+		}
 	}
-	
-	uses Lifecycle
-	
-	on StopAuction {
-		killMe
-	}
-}
 ```
 
 
@@ -587,68 +594,127 @@ The periodic task must also be stopped. The `cancel` function is invoked on the 
 to stop its execution.
 
 ```sarl
-agent Auctioneer {
-					
-	uses Behaviors, Lifecycle, InnerContextAccess, Schedules, Logging
-	
-	var maxBid = 0f
-	var winner : Address
-	var hasBid = false 
-	var isAuctionOpened = true
-	
-	on Initialize {
-		for(i : 1..3) {
-			spawnInContext(Bidder, innerContext)
+	agent Auctioneer {
+						
+		uses Behaviors, Lifecycle, InnerContextAccess, Schedules, Logging
+		
+		var maxBid = 0f
+		var winner : Address
+		var hasBid = false 
+		var isAuctionOpened = true
+		
+		on Initialize {
+			for(i : 1..3) {
+				spawnInContext(Bidder, innerContext)
+			}
+			
+			wake(new Price(50))
+			in(10000) [
+				val waitTask = task("wait-task")
+				waitTask.every(10000) [
+					synchronized(this) {
+						if (!isAuctionOpened) {
+							if (!hasMemberAgent) {
+								waitTask.cancel
+								killMe
+							}
+						} else {
+							if (!hasBid) {
+								isAuctionOpened = false
+								if (winner === null) {
+									println("No winner")
+								} else {
+									println("The winner is " + winner
+										+ " with the bid of " + maxBid)
+								}
+								wake(new StopAuction)
+							}
+							hasBid = false
+						}
+					}
+				]
+			]
 		}
 		
-		wake(new Price(50))
-		in(10000) [
-			val waitTask = task("wait-task")
-			waitTask.every(10000) [
-				synchronized(this) {
-					if (!isAuctionOpened) {
-						if (!hasMemberAgent) {
-							waitTask.cancel
-							killMe
-						}
-					} else {
-						if (!hasBid) {
-							isAuctionOpened = false
-							if (winner === null) {
-								println("No winner")
-							} else {
-								println("The winner is " + winner
-									+ " with the bid of " + maxBid)
-							}
-							wake(new StopAuction)
-						}
-						hasBid = false
-					}
+		on Bid [ isAuctionOpened ] {
+			synchronized(this) {
+				hasBid = true
+				if (occurrence.value > maxBid) {
+					maxBid = occurrence.value
+					winner = occurrence.source
 				}
-			]
-		]
-	}
-	
-	on Bid [ isAuctionOpened ] {
-		synchronized(this) {
-			hasBid = true
-			if (occurrence.value > maxBid) {
-				maxBid = occurrence.value
-				winner = occurrence.source
 			}
 		}
 	}
-}
 ```
 
 
 
-##6. Legal Notice
+##6. Compile and Launch the agents
+
+The last step of this tutorial is the definition of the launching process.
+In the rest of this section, we discuss the use of the
+[Janus runtime environment](http://www.janusproject.io) for running the agents.
+
+The Janus platform is designed to launch a single agent at start-up.
+Then, this launched agent must spawn the other agents in the system.
+This is typically the case in the auction application.
+
+<importantnote>In this section, we explain how to launch the agents from the command line interface.
+For launching the agents from the Eclipse IDE, please read
+[Run SARL Agent in the Eclipse IDE](../gettingstarted/RunSARLAgentEclipse.html).</importantnote>
+
+
+###6.1. Compile the code
+
+You must have a file that contains the compiled files of the tutorial, the Janus platform,
+and all the needed libraries by SARL and Janus.
+
+You could directly download this file by clicking on
+the download icon at the top of this page; or by compiling the source code yourself.
+
+If you download the source code of the [SARL demos](https://github.com/sarl/sarl-demos/), and
+compile them with [Maven](http://maven.apache.org), you will obtain a JAR file with all
+the mandatory elements inside. This file is located in the `target` folder,
+and it has a name similar to `sarl-demos-0.1.0-with-dependencies.jar`.
+
+
+###6.2. Execute with a runnable JAR
+
+Here, there is two assumptions:
+
+1. The file `sarl-demos-0.1.0-with-dependencies.jar` is execuable, i.e. it can be directly launched by the Java Virtual Machine.
+2. From this file, the JVM is launching the Janus bootstrap automatically, i.e. it has a Main-Class set to `io.janusproject.Boot`.
+
+On the command line, you must launch Janus with:
+
+	java -jar sarl-demos-0.1.0-with-dependencies.jar
+	     io.sarl.docs.tutorials.holonicauction.Auctioneer
+
+The file `sarl-demos-0.1.0-with-dependencies.jar` is explained above.
+The third argument is the qualified name of the agent to launch.
+
+
+###6.3. Execute without a runnable JAR
+
+In opposite to the previous section, we assume that the file `sarl-demos-0.1.0-with-dependencies.jar`
+is not executable. On the command line, you must launch Janus with:
+
+	java -cp sarl-demos-0.1.0-with-dependencies.jar
+	     io.janusproject.Boot
+	     io.sarl.docs.tutorials.holonicauction.Auctioneer
+
+The file `sarl-demos-0.1.0-with-dependencies.jar` is explained above.
+The string `io.janusproject.Boot` specifies the Java class to launch: the Janus bootstrap.
+The first argument after the bootstrap is the qualified name of the agent to launch.
+
+
+##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -658,4 +724,4 @@ agent Auctioneer {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

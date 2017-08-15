@@ -43,15 +43,15 @@ pass with the `Initialize` event to the launched agent.
 If you want to launch more agents, please read the next section.</importantnote>
 
 ```sarl
-import io.janusproject.Boot
-import myprogram.MyAgent
-class MyProgram {
- 	static def main(args : String*) {
-		Boot::startJanus(
-			typeof(MyAgent),
-			args)
+	import io.janusproject.Boot
+	import myprogram.MyAgent
+	class MyProgram {
+	 	static def main(args : String*) {
+			Boot::startJanus(
+				typeof(MyAgent),
+				args)
+		}
 	}
-}
 ```
 
 
@@ -79,15 +79,15 @@ second agent is launched by the `spawn` function.</important>
 
 
 ```sarl
-import io.janusproject.Boot
-class MyProgram {
-	static def main(args : String*) {
-		var janusKernel = Boot::startJanus(
-			typeof(MyAgent),
-			args)
-		janusKernel.spawn(typeof(MyAgent), args)
+	import io.janusproject.Boot
+	class MyProgram {
+		static def main(args : String*) {
+			var janusKernel = Boot::startJanus(
+				typeof(MyAgent),
+				args)
+			janusKernel.spawn(typeof(MyAgent), args)
+		}
 	}
-}
 ```
 
 
@@ -103,9 +103,9 @@ Please read the rest of the documentation for obtaining more details.
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -115,4 +115,4 @@ Please read the rest of the documentation for obtaining more details.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

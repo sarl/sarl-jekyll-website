@@ -36,11 +36,8 @@ The SARL default editor will open.
 
 Agents are defined using the `agent` keyword.
 
-```sarl
-agent MyAgent {
-}
-```
-
+`agent MyAgent {
+			}`
 
 ##2. Package definition
 
@@ -52,6 +49,8 @@ The character `^` in the package name permits to use a SARL keyword into a packa
 <importantnote>The package keyword defines the package for all elements in the same SARL file (see the
 [General Syntax Reference](../reference/GeneralSyntax.html) for details).
 Therefore FirstAgent and SecondAgent belong to the same package, i.e. `io.sarl.docs.gettingstarted.^agent`.</importantnote>
+
+
 
 ##3. Agent Perceptions
 
@@ -74,13 +73,13 @@ To define this event handler, we must use the `on` keyword, and provide the asso
 on the log output.</note>
 
 ```sarl
-import io.sarl.core.Logging
-agent MyAgent {
-	uses Logging
-	on MyEvent {
-		println("Received MyEvent")
+	import io.sarl.core.Logging
+	agent MyAgent {
+		uses Logging
+		on MyEvent {
+			println("Received MyEvent")
+		}
 	}
-}
 ```
 
 
@@ -99,18 +98,18 @@ Likewise, when the agent is going to stop its execution (we will see how to stop
 a `Destroy` Event. The purpose of this event is to release any system resource properly.
 
 ```sarl
-import io.sarl.core.Logging
-import io.sarl.core.Initialize
-import io.sarl.core.Destroy
-agent MyAgent {
-	uses Logging
-	on Initialize {
-		println("MyAgent spawned")
+	import io.sarl.core.Logging
+	import io.sarl.core.Initialize
+	import io.sarl.core.Destroy
+	agent MyAgent {
+		uses Logging
+		on Initialize {
+			println("MyAgent spawned")
+		}
+		on Destroy {
+			println("MyAgent destroyed")
+		}
 	}
-	on Destroy {
-		println("MyAgent destroyed")
-	}
-}
 ```
 
 
@@ -124,19 +123,19 @@ This instance is called an `occurrence`.
 In the case of an Initialize events you can access the arguments for the agent spawn using `occurrence.parameters`).
 
 ```sarl
-import io.sarl.core.Logging
-import io.sarl.core.Initialize
-import io.sarl.core.Destroy
-agent MyAgent {
-	uses Logging
-	on Initialize {
-		println("MyAgent spawned")
-		println("My Parameters are :" + occurrence.parameters.toString)
+	import io.sarl.core.Logging
+	import io.sarl.core.Initialize
+	import io.sarl.core.Destroy
+	agent MyAgent {
+		uses Logging
+		on Initialize {
+			println("MyAgent spawned")
+			println("My Parameters are :" + occurrence.parameters.toString)
+		}
+		on Destroy {
+			println("MyAgent destroyed")
+		}
 	}
-	on Destroy {
-		println("MyAgent destroyed")
-	}
-}
 ```
 
 
@@ -159,10 +158,10 @@ For sending an event in the default space, the `DefaultContextInteractions` buil
 Below, we define an agent that is using this capacity.
 
 ```sarl
-import io.sarl.core.DefaultContextInteractions
-agent MyAgent {
-	uses DefaultContextInteractions
-}
+	import io.sarl.core.DefaultContextInteractions
+	agent MyAgent {
+		uses DefaultContextInteractions
+	}
 ```
 
 
@@ -175,13 +174,13 @@ Below, we define an action in which an instance of `MyEvent` is created, and the
 call `emit(e)`.
 
 ```sarl
-agent MyAgent {
-	uses DefaultContextInteractions
-	def doSomething {
-		var e = new MyEvent
-		emit(e)
+	agent MyAgent {
+		uses DefaultContextInteractions
+		def doSomething {
+			var e = new MyEvent
+			emit(e)
+		}
 	}
-}
 ```
 
 
@@ -194,9 +193,9 @@ In the next section, we will learn how to start a SARL agent on the command line
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -206,4 +205,4 @@ In the next section, we will learn how to start a SARL agent on the command line
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

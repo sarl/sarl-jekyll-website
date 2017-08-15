@@ -29,7 +29,7 @@ bottom context in the figure above.
 For retrieving the inner context of an agent, this built-in capacity provides the following function:
 
 ```sarl
-def getInnerContext : AgentContext
+	def getInnerContext : AgentContext
 ```
 
 
@@ -37,13 +37,13 @@ def getInnerContext : AgentContext
 Example:
 
 ```sarl
-agent A {
-	uses InnerContextAccess
-	var c : AgentContext
-	def myaction {
-		c = getInnerContext
+	agent A {
+		uses InnerContextAccess
+		var c : AgentContext
+		def myaction {
+			c = getInnerContext
+		}
 	}
-}
 ```
 
 
@@ -58,7 +58,7 @@ one space of the inner context.
 The first function replies if the calling agent has other agents as members of its inner context:
 
 ```sarl
-def hasMemberAgent : boolean
+	def hasMemberAgent : boolean
 ```
 
 
@@ -66,7 +66,7 @@ def hasMemberAgent : boolean
 The second function replies the number of agents that are members of the inner context of the calling agent:
 
 ```sarl
-def getMemberAgentCount : int
+	def getMemberAgentCount : int
 ```
 
 
@@ -74,7 +74,7 @@ def getMemberAgentCount : int
 The third function replies all the member agents in the inner context:
 
 ```sarl
-def getMemberAgents : SynchronizedSet<UUID>
+	def getMemberAgents : SynchronizedSet<UUID>
 ```
 
 
@@ -82,17 +82,17 @@ def getMemberAgents : SynchronizedSet<UUID>
 Examples:
 
 ```sarl
-agent A {
-	uses InnerContextAccess
-	var b : boolean
-	var n : int
-	var m : SynchronizedSet<UUID>
-	def myaction {
-		b = hasMemberAgent
-		n = getMemberAgentCount
-		m = getMemberAgents
+	agent A {
+		uses InnerContextAccess
+		var b : boolean
+		var n : int
+		var m : SynchronizedSet<UUID>
+		def myaction {
+			b = hasMemberAgent
+			n = getMemberAgentCount
+			m = getMemberAgents
+		}
 	}
-}
 ```
 
 
@@ -119,9 +119,9 @@ of type `AnEvent` was emitted in the default space of the inner context.
 the `event.isInnerDefaultSpace` is equivalent to `isInnerDefaultSpace(event)`.</note>
 
 ```sarl
-on AnEvent [ occurrence.inInnerDefaultSpace ] {
-	// Do something with the event when it was emitted in the inner default space
-}
+	on AnEvent [ occurrence.inInnerDefaultSpace ] {
+		// Do something with the event when it was emitted in the inner default space
+	}
 ```
 
 
@@ -130,9 +130,9 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -142,4 +142,4 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

@@ -43,39 +43,39 @@ The standard function declaration follows the following syntax:
 The following code gives examples of function declarations:
 
 ```sarl
-// No parameter.
-// Return type: void
-def action1 {
-}
-
-// No parameter.
-// Return type: int
-def action2 : int {
-	return 0
-}
-
-// Parameter 1, named 'a', of type int.
-// Return type: void
-def action3(a : int) {
-}
-
-// Parameter 1, named 'a', of type int.
-// Parameter 2, named 'b', of type String.
-// Return type: void
-def action4(a : int, b : String) {
-}
-
-// Parameter 1, named 'a', of type int.
-// Return type: double
-def action5(a : int) : double {
-	return 0
-}
-
-// Parameter 1, named 'a', of type int.
-// Parameter 2, named 'b', of type String.
-// Return type: String
-def action6(a : int, b : String) : String {
-}
+	// No parameter.
+	// Return type: void
+	def action1 {
+	}
+	
+	// No parameter.
+	// Return type: int
+	def action2 : int {
+		return 0
+	}
+	
+	// Parameter 1, named 'a', of type int.
+	// Return type: void
+	def action3(a : int) {
+	}
+	
+	// Parameter 1, named 'a', of type int.
+	// Parameter 2, named 'b', of type String.
+	// Return type: void
+	def action4(a : int, b : String) {
+	}
+	
+	// Parameter 1, named 'a', of type int.
+	// Return type: double
+	def action5(a : int) : double {
+		return 0
+	}
+	
+	// Parameter 1, named 'a', of type int.
+	// Parameter 2, named 'b', of type String.
+	// Return type: String
+	def action6(a : int, b : String) : String {
+	}
 ```
 
 
@@ -104,8 +104,8 @@ This function indicates to its caller that it could throw an exception of
 type `IllegalStateException`. 
 
 ```sarl
-def myaction throws IllegalStateException {
-}
+	def myaction throws IllegalStateException {
+	}
 ```
 
 
@@ -143,10 +143,10 @@ In the following example, the function specifies a type `T`, which is used both
 as type for the element parameter and the generic type of the Collection.
 
 ```sarl
-def addAndReturn(element : T, collection : Collection<T>) : T with T {
-    collection.add(element)
-    return element
-}
+	def addAndReturn(element : T, collection : Collection<T>) : T with T {
+	    collection.add(element)
+	    return element
+	}
 ```
 
 
@@ -160,10 +160,10 @@ In the following example, the function specifies a type `T`, which is used both
 as type for the element parameter and the generic type of the Collection.
 
 ```sarl
-def <T> addAndReturn(element : T, collection : Collection<T>) : T {
-    collection.add(element)
-    return element
-}
+	def <T> addAndReturn(element : T, collection : Collection<T>) : T {
+	    collection.add(element)
+	    return element
+	}
 ```
 
 
@@ -179,10 +179,10 @@ To declare a bounded type parameter, list the type parameter's name, followed by
 must be a subtype of the following type.
 
 ```sarl
-def print(value : T) with T extends Number {
-    System.out.println("Type = " + value.getClass)
-    System.out.println("Value = " + value)
-}
+	def print(value : T) with T extends Number {
+	    System.out.println("Type = " + value.getClass)
+	    System.out.println("Value = " + value)
+	}
 ```
 
 
@@ -203,33 +203,33 @@ In other languages, such as Java and C++, the variadic operator is `...`.
 In the following example, two variadic functions are defined:
  
 ```sarl
-// Function with indefinite number of integers as parameters
-def action1(v : int*) {
-	for (value : v) {
-		info(value)
+	// Function with indefinite number of integers as parameters
+	def action1(v : int*) {
+		for (value : v) {
+			info(value)
+		}
 	}
-}
-// Function which takes a boolean, a double and an indefinite 
-// number of integers as parameters
-def action2(a : boolean, b : double, c : int*) {
-	info(a)
-	info(b)
-	for (value : c) {
-		info(value)
+	// Function which takes a boolean, a double and an indefinite 
+	// number of integers as parameters
+	def action2(a : boolean, b : double, c : int*) {
+		info(a)
+		info(b)
+		for (value : c) {
+			info(value)
+		}
 	}
-}
 ```
 
 
 Examples of calls to the two previous variadic functions are:
  
 ```sarl
-action1()
-action1(1)
-action1(1, 3)
-action2(true, 3.0)
-action2(true, 3.0, 1)
-action2(true, 3.0, 1, 5)
+	action1()
+	action1(1)
+	action1(1, 3)
+	action2(true, 3.0)
+	action2(true, 3.0, 1)
+	action2(true, 3.0, 1, 5)
 ```
 
 
@@ -248,17 +248,17 @@ parameters do not need to have default values as well. This is a major
 difference with the default values in other languages, such as C++.</importantnote>
  
 ```sarl
-// Function with one parameter with a default value.
-def action1(v : int = 5) {
-	info("v == " + v)
-}
-// Function which takes a boolean, a double and an integer as parameters.
-// The first and third parameters have default values. 
-def action2(a : boolean=true, b : double, c : int=7) {
-	info("a == " + a)
-	info("b == " + b)
-	info("c == " + c)
-}
+	// Function with one parameter with a default value.
+	def action1(v : int = 5) {
+		info("v == " + v)
+	}
+	// Function which takes a boolean, a double and an integer as parameters.
+	// The first and third parameters have default values. 
+	def action2(a : boolean=true, b : double, c : int=7) {
+		info("a == " + a)
+		info("b == " + b)
+		info("c == " + c)
+	}
 ```
 
 
@@ -266,23 +266,23 @@ def action2(a : boolean=true, b : double, c : int=7) {
 Examples of calls to the two previous functions are:
  
 ```sarl
-// v == 1
-action1(1)
-
-// v == 5
-action1()
-
-// a == true, b == 3.0, c == 1
-action2(true, 3.0, 1)
-
-// a == false, b == 4.0, c == 7
-action2(false, 4.0)
-
-// a == true, b == 7.0, c == 56
-action2(7.0, 56)
-
-// a == true, b == 9.0, c == 7
-action2(9.0)
+	// v == 1
+	action1(1)
+	
+	// v == 5
+	action1()
+	
+	// a == true, b == 3.0, c == 1
+	action2(true, 3.0, 1)
+	
+	// a == false, b == 4.0, c == 7
+	action2(false, 4.0)
+	
+	// a == true, b == 7.0, c == 56
+	action2(7.0, 56)
+	
+	// a == true, b == 9.0, c == 7
+	action2(9.0)
 ```
 
 
@@ -293,7 +293,7 @@ It is possible to mix the variadic parameter and the default values,
 except that the variadic parameter cannot have a default value. 
 
 ```sarl
-def action(v : int = 5, a : float*) { }
+	def action(v : int = 5, a : float*) { }
 ```
 
 
@@ -308,9 +308,9 @@ This documentation is inspired by the documentations from the
 ##8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -320,4 +320,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

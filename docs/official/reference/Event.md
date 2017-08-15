@@ -81,8 +81,8 @@ The first event is defined with the "empty block" syntax.
 The second event is defined with the "nothing" syntax.
 
 ```sarl
-event Event1 {  }
-event Event2
+	event Event1 {  }
+	event Event2
 ```
 
 
@@ -107,11 +107,11 @@ According to the type inference mechanism used by SARL, the attribute `something
 <note> Because of the use of the `var` keyword, the values of these attributes can be modified.</note>
 
 ```sarl
-event MyEvent {
-	var number : Integer
-	var string = "abc"
-	var something : Object
-}
+	event MyEvent {
+		var number : Integer
+		var string = "abc"
+		var something : Object
+	}
 ```
 
 
@@ -133,14 +133,14 @@ The initial value can be specified at the end of the `val`
 directive or by specifying a constructor.
 
 ```sarl
-event MyEvent {
-	val string = "abcd"
-	val number : Integer
-	
-	new(nb : Integer) {
-		number = nb
+	event MyEvent {
+		val string = "abcd"
+		val number : Integer
+		
+		new(nb : Integer) {
+			number = nb
+		}
 	}
-}
 ```
 
 
@@ -167,12 +167,12 @@ is available. For `Event2`, two attributes are available (`Event2` inherits one 
 `Event2` and defines one field).
 
 ```sarl
-event Event1 {
-	var string : String
-}
-event Event2 extends Event1 {
-	var number : int
-}
+	event Event1 {
+		var string : String
+	}
+	event Event2 extends Event1 {
+		var number : int
+	}
 ```
 
 
@@ -182,13 +182,13 @@ event Event2 extends Event1 {
 The following code illustrates the use of event instances.
 
 ```sarl
-// Create an instance of Event1 and set its attribute.
-var e1 = new Event1
-e1.string = "abc"
-// Create an instance of Event2 and set its attributes.
-var e2 = new Event2
-e2.string = "abc"
-e2.number = 345
+	// Create an instance of Event1 and set its attribute.
+	var e1 = new Event1
+	e1.string = "abc"
+	// Create an instance of Event2 and set its attributes.
+	var e2 = new Event2
+	e2.string = "abc"
+	e2.number = 345
 ```
 
 
@@ -215,12 +215,12 @@ An event may be declared with one or more modifiers, which affect its behavior:
 Examples:
 
 ```sarl
-public event Example1 {
-}
-package event Example2 {
-}
-final event Example3 {
-}
+	public event Example1 {
+	}
+	package event Example2 {
+	}
+	final event Example3 {
+	}
 ```
 
 
@@ -235,7 +235,7 @@ The modifiers for the fields in an event are:
 Example:
 
 ```sarl
-public var example1 : Object
+	public var example1 : Object
 ```
 
 
@@ -258,9 +258,9 @@ Two types of reserved events exist:
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -270,4 +270,4 @@ Two types of reserved events exist:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>

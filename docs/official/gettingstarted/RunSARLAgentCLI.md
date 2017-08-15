@@ -46,7 +46,7 @@ Three methods could be used for launching an agent with Janus:
 
 ##1. Use the janus command-line tool
 
-The SARL project provides a [command-line tool for launching agents](../tools/Janus.html) on the Janus runtime environment.
+The SARL project provides a command-line tool for launching agents on the Janus runtime environment.
 
 
 ###1.1. Download the janus command-line tool
@@ -192,9 +192,9 @@ In the next section, we will learn how to launch your SARL project from a Java p
 ##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Draft Release
-* Release: 2017-05-11
+* Version: 0.5
+* Status: Stable Release
+* Release: 2017-08-15
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -204,4 +204,4 @@ In the next section, we will learn how to launch your SARL project from a Java p
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
