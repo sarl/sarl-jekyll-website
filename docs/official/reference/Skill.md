@@ -56,14 +56,14 @@ Note that all the Actions defined in the Capacity must
 have a definition (with a body containing code) in the Skill.
 
 ```sarl
-	skill ConsoleLogging implements Logging {
-		def info(text : String) {
-			System.out.println(text)
-		}
-		def debug(text : String) {
-			System.err.println(text)
-		}
+skill ConsoleLogging implements Logging {
+	def info(text : String) {
+		System.out.println(text)
 	}
+	def debug(text : String) {
+		System.err.println(text)
+	}
+}
 ```
 
 
@@ -78,16 +78,16 @@ To avoid creating an instance of the Java logger each time the Capacity's Action
 of the Java logger is created and stored in a field of the Skill.
 
 ```sarl
-	skill StandardJavaLogging implements Logging {
-		// A field is defined in the Skill
-		val logger = Logger.anonymousLogger
-		def info(text : String) {
-			logger.info(text)
-		}
-		def debug(text : String) {
-			logger.fine(text)
-		}
+skill StandardJavaLogging implements Logging {
+	// A field is defined in the Skill
+	val logger = Logger.anonymousLogger
+	def info(text : String) {
+		logger.info(text)
 	}
+	def debug(text : String) {
+		logger.fine(text)
+	}
+}
 ```
 
 
@@ -97,19 +97,19 @@ of the Java logger is created and stored in a field of the Skill.
 It is possible to declare methods in the Skill in addition to those specified by the Capacity. 
 
 ```sarl
-	skill MyLogging implements Logging {
-		def info(text : String) {
-			output(text)
-		}
-		def debug(text : String) {
-			output(text)
-		}
-		// Define an utility function
-		// that is outputting the text
-		def output(t : String) {
-			System.err.println(t)
-		}
+skill MyLogging implements Logging {
+	def info(text : String) {
+		output(text)
 	}
+	def debug(text : String) {
+		output(text)
+	}
+	// Define an utility function
+	// that is outputting the text
+	def output(t : String) {
+		System.err.println(t)
+	}
+}
 ```
 
 
@@ -121,8 +121,8 @@ It is not necessary to specify a constructor for Skills unless a value will be i
 Two constructors are defined in the abstract `Skill` class: 
 
 ```sarl
-	interface Skill extends AgentTrait {
-	}
+interface Skill extends AgentTrait {
+}
 ```
 
 
@@ -130,14 +130,20 @@ Two constructors are defined in the abstract `Skill` class:
 Example of constructor definition:
 
 ```sarl
-	// The constructor is mandatory
-	// for defining the field "logger"
-	new (l : Logger) {
-		super() // Call the super's constructor
-		logger = l
-	}
+// The constructor is mandatory
+// for defining the field "logger"
+new (l : Logger) {
+	super() // Call the super's constructor
+	logger = l
+}
 ```
 
+
+
+If no constructor is defined in the skill type and a super-type is declared, implicit constructors will be assumed.
+Implicit constructors has the same prototypes as the constructors of the super type.
+Details on implicit constructors are given in the reference documentation related to the
+[synthetic functions](./general/SyntheticFunctions.html).
 
 
 ###1.5. Multiple Capacity Implementation
@@ -150,26 +156,26 @@ All the Actions defined in a Capacity must have an implementation in the related
 If two implemented Capacities include the same Action signature, it must be implemented only once in the Skill.
 
 ```sarl
-	capacity LogReader {
-		def open(filename : String) : int
-		def info(t : String)
-		def close(fid : int)
+capacity LogReader {
+	def open(filename : String) : int
+	def info(t : String)
+	def close(fid : int)
+}
+skill MyLogging implements Logging, LogReader {
+	// Shared implementation for the methods
+	// defind in the two Capacities.
+	def info(text : String) {
+		System.out.println(text)
 	}
-	skill MyLogging implements Logging, LogReader {
-		// Shared implementation for the methods
-		// defind in the two Capacities.
-		def info(text : String) {
-			System.out.println(text)
-		}
-		def debug(text : String) {
-			System.out.println(text)
-		}
-		def open(filename : String) : int {
-			return 0
-		}
-		def close(fid : int) {
-		}
+	def debug(text : String) {
+		System.out.println(text)
 	}
+	def open(filename : String) : int {
+		return 0
+	}
+	def close(fid : int) {
+	}
+}
 ```
 
 
@@ -186,11 +192,11 @@ to the constraint on the extension of classes in the Java language.</veryimporta
 In the following code, the `StandardJavaLogging` Skill (defined above) is extended to override the info output.
 
 ```sarl
-	skill ExtendedLogging extends StandardJavaLogging {
-		def info(text : String) {
-			super.info("INFO: "+text)
-		}
+skill ExtendedLogging extends StandardJavaLogging {
+	def info(text : String) {
+		super.info("INFO: "+text)
 	}
+}
 ```
 
 
@@ -217,14 +223,14 @@ A Skill may be declared with one or more modifiers, which affect its runtime beh
 Examples:
 
 ```sarl
-	public skill Example1 implements CapacityExample {
-	}
-	package skill Example2 implements CapacityExample {
-	}
-	abstract skill Example3 implements CapacityExample {
-	}
-	final skill Example4 implements CapacityExample {
-	}
+public skill Example1 implements CapacityExample {
+}
+package skill Example2 implements CapacityExample {
+}
+abstract skill Example3 implements CapacityExample {
+}
+final skill Example4 implements CapacityExample {
+}
 ```
 
 
@@ -242,10 +248,10 @@ The modifiers for the fields in a Skill are:
 Examples:
 
 ```sarl
-	public var example1 : Object
-	protected var example2 : Object
-	package var example3 : Object
-	private var example4 : Object
+public var example1 : Object
+protected var example2 : Object
+package var example3 : Object
+private var example4 : Object
 ```
 
 
@@ -266,21 +272,21 @@ The modifiers for the methods in a Skill are:
 Examples:
 
 ```sarl
-	// Public access function
-	public def example1 { }
-	// Protected access function
-	protected def example2 { }
-	// Package access function
-	package def example3 { }
-	// Private access function
-	private def example4 { }
-	// Abstract function
-	abstract def example5
-	// Not-overridable function
-	final def example6 { }
-	// Dispatch functions
-	dispatch def example7(p : Integer) { }
-	dispatch def example7(p : Float) { }
+// Public access function
+public def example1 { }
+// Protected access function
+protected def example2 { }
+// Package access function
+package def example3 { }
+// Private access function
+private def example4 { }
+// Abstract function
+abstract def example5
+// Not-overridable function
+final def example6 { }
+// Dispatch functions
+dispatch def example7(p : Integer) { }
+dispatch def example7(p : Float) { }
 ```
 
 
@@ -305,9 +311,9 @@ Details on the use of Skills may be found in the following:
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -317,4 +323,4 @@ Details on the use of Skills may be found in the following:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

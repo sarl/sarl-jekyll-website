@@ -97,8 +97,9 @@ external contexts and inner contexts is not implemented.
 Before reading this document, it is recommended reading the
 [General Syntax Reference](../reference/GeneralSyntax.html).
 
+
 <div class="bt-download">
-<a href="https://github.com/gallandarakhneorg/tinymas"><img alt="Download the Source Code" src="http://www.sarl.io/images/download-icon.png"/></a>
+<a href="https://github.com/gallandarakhneorg/tinymas"><img alt="See the source" src="http://www.sarl.io/images/download-icon.png"/></a>
 </div>
 The elements that are explained in this tutorial are:
 
@@ -168,88 +169,19 @@ The first column of the table gives the key point to consider for creating a SRE
 The second column provides the key SARL concepts.
 And the third column describes the basics of the implementation for tinyMAS.
 
-<table><thead>
-<tr><th>SARL Element</th><th>SARL Concept</th><th>tinyMAS Implementation</th></tr>
-</thead><tbody>
-<tr><td>Identifying the agents</td>
-			<td>`Address`</td>
-			<td>tinyMAS provides the concept of `AgentIdentifier`.
-				This identifier contains a reference to the kernel identifier, and
-				the UUID of the agent. The SARL Address is for a specific interaction
-				space. It contains the space identifier, and the UUID of the agent.
-				For making the implementation simple, we assume that there is
-				only the SARL default space available. The other spaces will not
-				be supported by a tinyMAS implementation.</td></tr>
-<tr><td>Agent abstraction</td>
-			<td>`Agent`</td>
-			<td>A specific implementation of the tinyMAS `Agent` should be coded.
-				This implementation must have a reference to the SARL `Agent`.
-				Additionally, the tinyMAS `Agent` will be the place to write
-				the support for the agent life-cycle and the built-in capacities.</td></tr>
-<tr><td>Exchanged information format for direct interaction</td>
-			<td>`Event`</td>
-			<td>The interaction in the tinyMAS platform is based on the concept of `Message`.
-				tinyMAS provides all the features for routing and delivering the messages.
-				Because the SARL agents are exchanging events by default, the tinyMAS
-				cannot be directly delivered to the SARL agents. Linking the `Message`
-				and `Event` concepts is done by considering that each `Event` occurrence
-				must be enveloped by a `Message`, i.e. the content of a tinyMAS message
-				is a SARL event.</td></tr>
-<tr><td>Receiving SARL events</td>
-			<td>Behavior units `on`</td>
-			<td>A specific module in tinyMAS must be written for invoking the
-				SARL behavior units on each SARL event that are in the received
-				tinyMAS messages.</td></tr>
-<tr><td>Default context definition</td>
-			<td>`Context`</td>
-			<td>In SARL, every agent exists in a context, named the default context.
-				It is mandatory for tinyMAS to provide an implementation for the
-				default context.</td></tr>
-<tr><td>Default space definition</td>
-			<td>`EventSpace`</td>
-			<td>In SARL, every agent could interact through the default interaction
-				space. It is mandatory for tinyMAS to provide an implementation for the
-				default space.</td></tr>
-<tr><td>Agent life-cycle</td>
-			<td></td>
-			<td>The agent life-cycle in tinyMAS is based on the calls to the functions
-				`start` for initialization, `live` for running the agent behavior, and
-				`end` for destroying the agent.
-				The agent life-cycle in SARL is different. It is based on the receiving
-				of events. The `Initialize` event represents the initialization of the agent.
-				The `Destroy` event represents the agent destruction. The other events
-				enable to create the agent behavior.
-				Because the tinyMAS agent is the one that will be executed by tinyMAS,
-				it is mandatory to generates the SARL events in the three tinyMAS life-cycle
-				functions, a.k.a. `start`, `live`, `end`.</td></tr>
-<tr><td>Managing platform events</td>
-			<td>`AgentSpawned`, `AgentKilled`</td>
-			<td>Several SARL events are assumed to be fired by the SRE. The two events
-				that will be supported by tinyMAS are `AgentSpawned` for agent spawning,
-				and `AgentKilled` for agent destruction.
-				The other SARL platform events are ignored by tinyMAS, e.g. `ContextJoined`,
-				`ContextLeft`, `MemberJoined`, `MemberLeft`.</td></tr>
-<tr><td>Agent Spawning</td>
-			<td>`spawn` functions</td>
-			<td>A specific agent spawning function must be written for creating
-				a tinyMAS agent that is embedding a SARL agent definition.
-				This spawning functions will be invoked by the built-in capacities
-				(see below).</td></tr>
-<tr><td>Built-in capacity implementation</td>
-			<td><a href="../reference/BuiltinCapacityReferenceSpec.html">BICs</a></td>
-			<td>It is assumed that every SARL agent always contains the skills for a
-			specific set of capacities, named the built-in capacities. These
-			skills are supposed to be provided by the SRE.
-			Consequently, each built-in capacity must have an implementation based
-			on the tinyMAS features.</td></tr>
-<tr><td>SRE Booting</td>
-			<td></td>
-			<td>An utility class for booting the tinyMAS SRE must be provided.
-				Usually, this boot class takes the fully qualified name of the
-				agent to launch, and the parameters to give to this agent.
-				The boot class is supposed to set up the tinyMAS platform for
-				being used as a SRE, and to launch SARL agents.</td></tr>
-</tbody></table>
+| SARL Element | SARL Concept | tinyMAS Implementation |
+| ------------ | ------------ | ---------------------- |
+| Identifying the agents | `Address` | tinyMAS provides the concept of `AgentIdentifier`. This identifier contains a reference to the kernel identifier, and the UUID of the agent. The SARL Address is for a specific interaction space. It contains the space identifier, and the UUID of the agent. For making the implementation simple, we assume that there is only the SARL default space available. The other spaces will not be supported by a tinyMAS implementation.                                      |
+| Agent abstraction | `Agent` | A specific implementation of the tinyMAS `Agent` should be coded. This implementation must have a reference to the SARL `Agent`. Additionally, the tinyMAS `Agent` will be the place to write the support for the agent life-cycle and the built-in capacities.  |
+| Exchanged information format for direct interaction | `Event` | The interaction in the tinyMAS platform is based on the concept of `Message`. tinyMAS provides all the features for routing and delivering the messages. Because the SARL agents are exchanging events by default, the tinyMAS cannot be directly delivered to the SARL agents. Linking the `Message` and `Event` concepts is done by considering that each `Event` occurrence must be enveloped by a `Message`, i.e. the content of a tinyMAS message is a SARL event.                                       |
+| Receiving SARL events | Behavior units `on` | A specific module in tinyMAS must be written for invoking the SARL behavior units on each SARL event that are in the received tinyMAS messages.                                                             |
+| Default context definition | `Context` | In SARL, every agent exists in a context, named the default context. It is mandatory for tinyMAS to provide an implementation for the default context.                                                                   |
+| Default space definition | `EventSpace` | In SARL, every agent could interact through the default interaction space. It is mandatory for tinyMAS to provide an implementation for the default space.                                                                    |
+| Agent life-cycle |  | The agent life-cycle in tinyMAS is based on the calls to the functions `start` for initialization, `live` for running the agent behavior, and `end` for destroying the agent. The agent life-cycle in SARL is different. It is based on the receiving of events. The `Initialize` event represents the initialization of the agent. The `Destroy` event represents the agent destruction. The other events enable to create the agent behavior. Because the tinyMAS agent is the one that will be executed by tinyMAS, it is mandatory to generates the SARL events in the three tinyMAS life-cycle functions, a.k.a. `start`, `live`, `end`.         |
+| Managing platform events | `AgentSpawned`, `AgentKilled` | Several SARL events are assumed to be fired by the SRE. The two events that will be supported by tinyMAS are `AgentSpawned` for agent spawning, and `AgentKilled` for agent destruction. The other SARL platform events are ignored by tinyMAS, e.g. `ContextJoined`, `ContextLeft`, `MemberJoined`, `MemberLeft`.                            |
+| Agent Spawning | `spawn` functions | A specific agent spawning function must be written for creating a tinyMAS agent that is embedding a SARL agent definition. This spawning functions will be invoked by the built-in capacities (see below).                             |
+| Built-in capacity implementation | [BICs](../reference/BIC.html) | It is assumed that every SARL agent always contains the skills for a specific set of capacities, named the built-in capacities. These skills are supposed to be provided by the SRE. Consequently, each built-in capacity must have an implementation based on the tinyMAS features.      |
+ | SRE Booting |  | An utility class for booting the tinyMAS SRE must be provided. Usually, this boot class takes the fully qualified name of the agent to launch, and the parameters to give to this agent. The boot class is supposed to set up the tinyMAS platform for being used as a SRE, and to launch SARL agents. |
 
 
 ##2. Mapping of the identifiers
@@ -265,15 +197,15 @@ This utility class will be used for extracting the UUID of the tinyMAS agent ide
 in order to create SARL address on the fly.
 
 ```sarl
-	final class Identifiers {
-	
-		static def toUUID(aid : AgentIdentifier) : UUID {
-			val aidstr = aid.toString
-			val index = aidstr.indexOf(":")
-			return UUID::fromString(aidstr.substring(0, index))
-		}
-	
+final class Identifiers {
+
+	static def toUUID(aid : AgentIdentifier) : UUID {
+		val aidstr = aid.toString
+		val index = aidstr.indexOf(":")
+		return UUID::fromString(aidstr.substring(0, index))
 	}
+
+}
 ```
 
 
@@ -300,9 +232,9 @@ implementation must be provided upon the tinyMAS API.
 A SARL context must be a class that is implementing the `AgentContext` type (provided in the SARL API).
 
 ```sarl
-	class TMAgentContext implements io.sarl.lang.core.AgentContext {
-		// The code in the rest of this section will appear here
-	}
+class TMAgentContext implements io.sarl.lang.core.AgentContext {
+	// The code in the rest of this section will appear here
+}
 ```
 
 
@@ -317,10 +249,10 @@ In order to retrieve easy the UUID of the default (root) context,
 we define the identifier as a public constant.
 
 ```sarl
-	public static val TINYMAS_AGENT_CONTEXT_ID = UUID::fromString("cdb0d568-4059-40cf-96c4-d078fee91cb1")
-	def getID : UUID {
-		TINYMAS_AGENT_CONTEXT_ID
-	}
+public static val TINYMAS_AGENT_CONTEXT_ID = UUID::fromString("cdb0d568-4059-40cf-96c4-d078fee91cb1")
+def getID : UUID {
+	TINYMAS_AGENT_CONTEXT_ID
+}
 ```
 
 
@@ -333,10 +265,10 @@ We declare the default space in the context class `TMAgentContext`.
 The concrete definition of the default space class named `TMDefaultSpace` is done later in this document.
 
 ```sarl
-	var defaultSpace : TMDefaultSpace
-	def getDefaultSpace : EventSpace {
-		this.defaultSpace
-	}
+var defaultSpace : TMDefaultSpace
+def getDefaultSpace : EventSpace {
+	this.defaultSpace
+}
 ```
 
 
@@ -365,24 +297,24 @@ The `getSpace(UUID)` function replies the default space only if the given UUID i
 identifier of the default space. In the other cases, the function replies nothing.
 
 ```sarl
-	def getSpaces : SynchronizedCollection<? extends Space> {
-		Collections3::synchronizedCollection(Collections::singleton(this.defaultSpace), this)
+def getSpaces : SynchronizedCollection<? extends Space> {
+	Collections3::synchronizedCollection(Collections::singleton(this.defaultSpace), this)
+}
+def getSpaces(spec : Class<? extends SpaceSpecification<S>>)
+		: SynchronizedCollection<S>
+		with S extends Space {
+	if (spec !== null && spec == typeof(EventSpaceSpecification)) {
+		return Collections3::synchronizedCollection(Collections::singleton(this.defaultSpace as S), this);
 	}
-	def getSpaces(spec : Class<? extends SpaceSpecification<S>>)
-			: SynchronizedCollection<S>
-			with S extends Space {
-		if (spec !== null && spec == typeof(EventSpaceSpecification)) {
-			return Collections3::synchronizedCollection(Collections::singleton(this.defaultSpace as S), this);
-		}
-		return Collections3::synchronizedCollection(Collections::emptyList, this)
+	return Collections3::synchronizedCollection(Collections::emptyList, this)
+}
+def getSpace(spaceUUID : UUID) : S
+ 		with S extends Space {
+	if (spaceUUID == this.defaultSpace.spaceID.ID) {
+		return this.defaultSpace as S
 	}
-	def getSpace(spaceUUID : UUID) : S
-	 		with S extends Space {
-		if (spaceUUID == this.defaultSpace.spaceID.ID) {
-			return this.defaultSpace as S
-		}
-		return null
-	}
+	return null
+}
 ```
 
 
@@ -393,25 +325,25 @@ The context provides functions for creating spaces. Because we assume that no ad
 SRE implementation, all these functions generates an "unsupported operation" exception.
 
 ```sarl
-	def createSpace(spec : Class<? extends SpaceSpecification<S>>,
-			spaceUUID : UUID, creationParams : Object*)
-			: S
-			with S extends Space {
-		throw new UnsupportedOperationException
-	}
-	def getOrCreateSpaceWithSpec(spec : Class<? extends SpaceSpecification<S>>,
-			spaceUUID : UUID,creationParams : Object*)
-			: S
-			with S extends Space {
-		throw new UnsupportedOperationException
-	}
-	def getOrCreateSpaceWithID(spaceUUID : UUID,
-			spec : Class<? extends SpaceSpecification<S>>,
-			creationParams : Object*)
-			: S
-			with S extends Space {
-		throw new UnsupportedOperationException
-	}
+def createSpace(spec : Class<? extends SpaceSpecification<S>>,
+		spaceUUID : UUID, creationParams : Object*)
+		: S
+		with S extends Space {
+	throw new UnsupportedOperationException
+}
+def getOrCreateSpaceWithSpec(spec : Class<? extends SpaceSpecification<S>>,
+		spaceUUID : UUID,creationParams : Object*)
+		: S
+		with S extends Space {
+	throw new UnsupportedOperationException
+}
+def getOrCreateSpaceWithID(spaceUUID : UUID,
+		spec : Class<? extends SpaceSpecification<S>>,
+		creationParams : Object*)
+		: S
+		with S extends Space {
+	throw new UnsupportedOperationException
+}
 ```
 
 
@@ -426,10 +358,10 @@ Additionally, the default space instance must be linked to the context (see the 
 class below). In the constructor, the `setAgentContext` is invoked on the default space. 
 
 ```sarl
-	new (defaultSpace : TMDefaultSpace) {
-		this.defaultSpace = defaultSpace
-		this.defaultSpace.setAgentContext(this);
-	}
+new (defaultSpace : TMDefaultSpace) {
+	this.defaultSpace = defaultSpace
+	this.defaultSpace.setAgentContext(this);
+}
 ```
 
 
@@ -448,9 +380,9 @@ Consequently, the default space class must implement the `EventSpace` interface
 that is provided by the SARL API.
 
 ```sarl
-	class TMDefaultSpace implements io.sarl.lang.core.EventSpace {
-		// The code in the rest of this section will appear here
-	}
+class TMDefaultSpace implements io.sarl.lang.core.EventSpace {
+	// The code in the rest of this section will appear here
+}
 ```
 
 
@@ -468,11 +400,11 @@ the context identifier is mandatory for building the space identifier.
 The space identifier creation is discussed in the following section.
 
 ```sarl
-	public static val TINYMAS_DEFAULT_SPACE_ID = UUID::fromString("1db39309-8be7-4809-ad76-1ede6e792296")
-	var spaceID : SpaceID
-	def getSpaceID : SpaceID {
-		this.spaceID
-	}
+public static val TINYMAS_DEFAULT_SPACE_ID = UUID::fromString("1db39309-8be7-4809-ad76-1ede6e792296")
+var spaceID : SpaceID
+def getSpaceID : SpaceID {
+	this.spaceID
+}
 ```
 
 
@@ -495,14 +427,14 @@ where the space's UUID and the context's identifier are known.
 Finally, the getter function for retrieving the agent context is defined too. 
 
 ```sarl
-	var context : WeakReference<TMAgentContext>
-	package def setAgentContext(context : TMAgentContext) {
-		this.context = new WeakReference(context)
-		this.spaceID = new SpaceID(context.ID, TINYMAS_DEFAULT_SPACE_ID, null)
-	}
-	def getAgentContext : TMAgentContext {
-		this.context.get
-	}
+var context : WeakReference<TMAgentContext>
+package def setAgentContext(context : TMAgentContext) {
+	this.context = new WeakReference(context)
+	this.spaceID = new SpaceID(context.ID, TINYMAS_DEFAULT_SPACE_ID, null)
+}
+def getAgentContext : TMAgentContext {
+	this.context.get
+}
 ```
 
 
@@ -530,18 +462,18 @@ A constructor is defined for initializing the `sarlAgent` field.
 <caution>The constructor will be refined and redefined in the rest of this document.</caution>
 
 ```sarl
-	class TMSarlAgent extends org.arakhne.tinyMAS.core.Agent {
-		val sarlAgent : io.sarl.lang.core.Agent
-		protected def getSarlAgent : io.sarl.lang.core.Agent {
-			this.sarlAgent
-		}
-		def getID : UUID {
-			this.sarlAgent.ID
-		}
-		new (sarlAgent : io.sarl.lang.core.Agent) {
-			this.sarlAgent = sarlAgent
-		}
+class TMSarlAgent extends org.arakhne.tinyMAS.core.Agent {
+	val sarlAgent : io.sarl.lang.core.Agent
+	protected def getSarlAgent : io.sarl.lang.core.Agent {
+		this.sarlAgent
 	}
+	def getID : UUID {
+		this.sarlAgent.ID
+	}
+	new (sarlAgent : io.sarl.lang.core.Agent) {
+		this.sarlAgent = sarlAgent
+	}
+}
 ```
 
 
@@ -574,19 +506,19 @@ it fills the given list of handlers with a call to the behavior unit's code.
 The third part of the `fireEvent` function invokes the behavior units' code that have a true guard.
 
 ```sarl
-	val evaluatorRegistry = new BehaviorGuardEvaluatorRegistry
-	
-	package def fireEvent(^event : Event) {
-		var evaluators = this.evaluatorRegistry.getBehaviorGuardEvaluators(^event)
-		var handlers : Collection<Runnable> = new ArrayList
-		for (evaluator : evaluators) {
-			evaluator.evaluateGuard(^event, handlers);
-		}
-	
-		for (handler : handlers) {
-			handler.run();
-		}
+val evaluatorRegistry = new BehaviorGuardEvaluatorRegistry
+
+package def fireEvent(^event : Event) {
+	var evaluators = this.evaluatorRegistry.getBehaviorGuardEvaluators(^event)
+	var handlers : Collection<Runnable> = new ArrayList
+	for (evaluator : evaluators) {
+		evaluator.evaluateGuard(^event, handlers);
 	}
+
+	for (handler : handlers) {
+		handler.run();
+	}
+}
 ```
 
 
@@ -603,14 +535,14 @@ These two life-cycle functions are supported by the `start` and [:stopfct] funct
 platform.
 
 ```sarl
-	def start {
-		super.start
-		this.evaluatorRegistry.register(getSarlAgent())
-	}
-	def stop {
-		this.evaluatorRegistry.unregister(getSarlAgent())
-		super.stop
-	}
+def start {
+	super.start
+	this.evaluatorRegistry.register(getSarlAgent())
+}
+def stop {
+	this.evaluatorRegistry.unregister(getSarlAgent())
+	super.stop
+}
 ```
 
 
@@ -639,23 +571,23 @@ default space of the agent.
 For initializing this field, we redefine the constructor.
 
 ```sarl
-	class TMSarlAgent extends org.arakhne.tinyMAS.core.Agent implements io.sarl.lang.core.EventListener {
-		// [...]
-		val defaultSpace : WeakReference<TMDefaultSpace>
-		protected def getDefaultSpace : TMDefaultSpace {
-			this.defaultSpace.get
-		}
-		def receiveEvent(^event : Event) {
-			if (^event.source === null) {
-				^event.source = getDefaultSpace.getAddress(getSarlAgent.ID)
-			}
-			fireEvent(^event)
-		}
-		new (defaultSpace : TMDefaultSpace, sarlAgent : io.sarl.lang.core.Agent) {
-			this.defaultSpace = new WeakReference(defaultSpace)
-			this.sarlAgent = sarlAgent
-		}
+class TMSarlAgent extends org.arakhne.tinyMAS.core.Agent implements io.sarl.lang.core.EventListener {
+	// [...]
+	val defaultSpace : WeakReference<TMDefaultSpace>
+	protected def getDefaultSpace : TMDefaultSpace {
+		this.defaultSpace.get
 	}
+	def receiveEvent(^event : Event) {
+		if (^event.source === null) {
+			^event.source = getDefaultSpace.getAddress(getSarlAgent.ID)
+		}
+		fireEvent(^event)
+	}
+	new (defaultSpace : TMDefaultSpace, sarlAgent : io.sarl.lang.core.Agent) {
+		this.defaultSpace = new WeakReference(defaultSpace)
+		this.sarlAgent = sarlAgent
+	}
+}
 ```
 
 
@@ -684,29 +616,29 @@ By symmetry, the `Destroy` event is initialize and fired in the `stop` function 
 agent type.
 
 ```sarl
-	var spawnerID : UUID
-	var parameters : Object[]
-	
-	new (defaultSpace : TMDefaultSpace, sarlAgent : io.sarl.lang.core.Agent, spawnerID : UUID, parameters : Object[]) {
-		this.defaultSpace = new WeakReference(defaultSpace)
-		this.sarlAgent = sarlAgent
-		this.spawnerID = spawnerID
-		this.parameters = parameters
-	}
-	def start {
-		super.start
-		this.evaluatorRegistry.register(getSarlAgent())
-	
-		var initializeEvent = new Initialize(this.spawnerID, this.parameters)
-		this.spawnerID = null
-		this.parameters = null
-		receiveEvent(initializeEvent)
-	}
-	def stop {
-		receiveEvent(new Destroy)
-		this.evaluatorRegistry.unregister(getSarlAgent())
-		super.stop
-	}
+var spawnerID : UUID
+var parameters : Object[]
+
+new (defaultSpace : TMDefaultSpace, sarlAgent : io.sarl.lang.core.Agent, spawnerID : UUID, parameters : Object[]) {
+	this.defaultSpace = new WeakReference(defaultSpace)
+	this.sarlAgent = sarlAgent
+	this.spawnerID = spawnerID
+	this.parameters = parameters
+}
+def start {
+	super.start
+	this.evaluatorRegistry.register(getSarlAgent())
+
+	var initializeEvent = new Initialize(this.spawnerID, this.parameters)
+	this.spawnerID = null
+	this.parameters = null
+	receiveEvent(initializeEvent)
+}
+def stop {
+	receiveEvent(new Destroy)
+	this.evaluatorRegistry.unregister(getSarlAgent())
+	super.stop
+}
 ```
 
 
@@ -755,27 +687,27 @@ the tinyMAS platform. For that, we introduce two tests:
 The obtained code is:
 
 ```sarl
-	static val SPECIFICATION_CHECKER : SarlSpecificationChecker = new SarlSpecificationChecker {}
-	
-	static def createAgent(
-			defaultSpace : TMDefaultSpace, 
-			agentType : Class<? extends io.sarl.lang.core.Agent>,
-			spawnerID : UUID,
-			parentID : UUID,
-			agentID : UUID,
-			params : Object*)
-			: TMSarlAgent {
-		if (typeof(io.sarl.lang.core.Agent).isAssignableFrom(agentType)
-			&& SPECIFICATION_CHECKER.isValidSarlElement(agentType)) {
-			var theAgentID = if (agentID === null) UUID::randomUUID else agentID
-			var theAgentType = agentType as Class<? extends io.sarl.lang.core.Agent>
-			var cons = theAgentType.getConstructor(typeof(BuiltinCapacitiesProvider), typeof(UUID), typeof(UUID))
-			var sarlAgent = cons.newInstance(null, parentID, theAgentID)
-			var tmAgent = new TMSarlAgent(defaultSpace, sarlAgent, spawnerID, params)
-			return tmAgent
-		}
-		return null
+static val SPECIFICATION_CHECKER : SarlSpecificationChecker = new SarlSpecificationChecker {}
+
+static def createAgent(
+		defaultSpace : TMDefaultSpace, 
+		agentType : Class<? extends io.sarl.lang.core.Agent>,
+		spawnerID : UUID,
+		parentID : UUID,
+		agentID : UUID,
+		params : Object*)
+		: TMSarlAgent {
+	if (typeof(io.sarl.lang.core.Agent).isAssignableFrom(agentType)
+		&& SPECIFICATION_CHECKER.isValidSarlElement(agentType)) {
+		var theAgentID = if (agentID === null) UUID::randomUUID else agentID
+		var theAgentType = agentType as Class<? extends io.sarl.lang.core.Agent>
+		var cons = theAgentType.getConstructor(typeof(BuiltinCapacitiesProvider), typeof(UUID), typeof(UUID))
+		var sarlAgent = cons.newInstance(null, parentID, theAgentID)
+		var tmAgent = new TMSarlAgent(defaultSpace, sarlAgent, spawnerID, params)
+		return tmAgent
 	}
+	return null
+}
 ```
 
 
@@ -794,12 +726,12 @@ the identifier of the kernel, and the SARL agent identifier.
 Finally, the function invokes the agent launching function of the tinyMAS kernel.
 
 ```sarl
-	static def spawn(
-			kernel : Kernel,
-			^agent : TMSarlAgent) {
-		var tmid = new AgentIdentifier(kernel.kernelId, ^agent.ID.toString)
-		kernel.addAgent(tmid, ^agent)
-	}
+static def spawn(
+		kernel : Kernel,
+		^agent : TMSarlAgent) {
+	var tmid = new AgentIdentifier(kernel.kernelId, ^agent.ID.toString)
+	kernel.addAgent(tmid, ^agent)
+}
 ```
 
 
@@ -810,21 +742,21 @@ Now, we could define a general spawning function that invokes the two previously
 defined functions.
 
 ```sarl
-	static def spawn(
-			kernel : Kernel,
-			defaultSpace : TMDefaultSpace, 
-			agentType : Class<? extends io.sarl.lang.core.Agent>,
-			spawnerID : UUID,
-			parentID : UUID,
-			agentID : UUID,
-			params : Object*) : UUID {
-		var ^agent = createAgent(defaultSpace, agentType, spawnerID, parentID, agentID, params)
-		if (^agent !== null) {
-			spawn(kernel, ^agent)
-			return ^agent.ID
-		}
-		return null
+static def spawn(
+		kernel : Kernel,
+		defaultSpace : TMDefaultSpace, 
+		agentType : Class<? extends io.sarl.lang.core.Agent>,
+		spawnerID : UUID,
+		parentID : UUID,
+		agentID : UUID,
+		params : Object*) : UUID {
+	var ^agent = createAgent(defaultSpace, agentType, spawnerID, parentID, agentID, params)
+	if (^agent !== null) {
+		spawn(kernel, ^agent)
+		return ^agent.ID
 	}
+	return null
+}
 ```
 
 
@@ -856,46 +788,46 @@ The code is self-explaining.
 
 
 ```sarl
-	class LoggingSkill extends Skill implements Logging {
-		def setLoggingName(message : String) {
-			getId.stringRepresentation = message
-		}
-		def isErrorLogEnabled : boolean {
-			true
-		}
-		def isWarningLogEnabled : boolean {
-			true
-		}
-		def isInfoLogEnabled : boolean {
-			true
-		}
-		def isDebugLogEnabled : boolean {
-			true
-		}
-		def getLogLevel : int {
-			0
-		}
-		def setLogLevel(level : int) {
-		}
-		def error(message : Object, exception : Throwable = null, parameters : Object*) {
-			System::out.println("[" + getId.getString + "] ERROR: " + message)
-			if (exception !== null) {
-				exception.printStackTrace(System::out)
-			}
-		}
-		def warning(message : Object, exception : Throwable = null, parameters : Object*) {
-			System::out.println("[" + getId.getString + "] WARNING: " + message)
-			if (exception !== null) {
-				exception.printStackTrace(System::out)
-			}
-		}
-		def info(message : Object, parameters : Object*) {
-			System::out.println("[" + getId.getString + "] INFO: " + message)
-		}
-		def debug(message : Object, parameters : Object*) {
-			System::out.println("[" + getId.getString + "] DEBUG: " + message)
+class LoggingSkill extends Skill implements Logging {
+	def setLoggingName(message : String) {
+		getId.stringRepresentation = message
+	}
+	def isErrorLogEnabled : boolean {
+		true
+	}
+	def isWarningLogEnabled : boolean {
+		true
+	}
+	def isInfoLogEnabled : boolean {
+		true
+	}
+	def isDebugLogEnabled : boolean {
+		true
+	}
+	def getLogLevel : int {
+		0
+	}
+	def setLogLevel(level : int) {
+	}
+	def error(message : Object, exception : Throwable = null, parameters : Object*) {
+		System::out.println("[" + getId.getString + "] ERROR: " + message)
+		if (exception !== null) {
+			exception.printStackTrace(System::out)
 		}
 	}
+	def warning(message : Object, exception : Throwable = null, parameters : Object*) {
+		System::out.println("[" + getId.getString + "] WARNING: " + message)
+		if (exception !== null) {
+			exception.printStackTrace(System::out)
+		}
+	}
+	def info(message : Object, parameters : Object*) {
+		System::out.println("[" + getId.getString + "] INFO: " + message)
+	}
+	def debug(message : Object, parameters : Object*) {
+		System::out.println("[" + getId.getString + "] DEBUG: " + message)
+	}
+}
 ```
 
 
@@ -911,12 +843,17 @@ It provides the support of the SARL agent life-cycle.
 Consider the agent execution mechanism in the tinyMAS platform: inside an infinite loop, each agent is run. This algorithmic
 principle may be described by the following algorithm:
 
-	while (true) {
-		for(a : whitePages.allAgents) {
-			a.live
-		}
-		refreshKernelState
-	} 
+
+```sarl
+while (true) {
+	for(a : whitePages.allAgents) {
+		a.live
+	}
+	refreshKernelState
+}
+```
+
+
 
 The tinyMAS platform is designed for updating the kernel state after all the agent have been ran.
 Consequently, the tinyMAS platform does not support the creation of agents during the execution of another agent.
@@ -944,28 +881,28 @@ The consumption of the spawn agent buffer is supported by the ``consumeAgentToLa
 function. This function replies the buffer content, and clears the buffer.
 
 ```sarl
-	var agentsToLaunch : List<TMSarlAgent> = new ArrayList
-	def spawn(
-			anAgent : Class<? extends io.sarl.lang.core.Agent>,
-			spawnerID : UUID,
-			agentID : UUID,
-			params : Object*)
-			: UUID {
-		val ^agent = Spawner::createAgent(
-				this,
-				anAgent,
-				spawnerID,
-				TINYMAS_DEFAULT_SPACE_ID,
-				agentID,
-				params)
-		this.agentsToLaunch += ^agent
-		return ^agent.ID
-	}
-	def consumeAgentToLaunch : Iterable<TMSarlAgent> {
-		var iterable = this.agentsToLaunch
-		this.agentsToLaunch = new ArrayList
-		return iterable
-	}
+var agentsToLaunch : List<TMSarlAgent> = new ArrayList
+def spawn(
+		anAgent : Class<? extends io.sarl.lang.core.Agent>,
+		spawnerID : UUID,
+		agentID : UUID,
+		params : Object*)
+		: UUID {
+	val ^agent = Spawner::createAgent(
+			this,
+			anAgent,
+			spawnerID,
+			TINYMAS_DEFAULT_SPACE_ID,
+			agentID,
+			params)
+	this.agentsToLaunch += ^agent
+	return ^agent.ID
+}
+def consumeAgentToLaunch : Iterable<TMSarlAgent> {
+	var iterable = this.agentsToLaunch
+	this.agentsToLaunch = new ArrayList
+	return iterable
+}
 ```
 
 
@@ -989,70 +926,70 @@ This specific exception is named `NoReturnCodeException`, and is defined
 in the next section.
 
 ```sarl
-	class LifecycleSkill extends Skill implements Lifecycle {
-		def spawn(
-				agentClass : Class<? extends io.sarl.lang.core.Agent>,
-				params : Object*)
-				: UUID {
-			return defaultSpace.spawn(agentClass, null, params)
+class LifecycleSkill extends Skill implements Lifecycle {
+	def spawn(
+			agentClass : Class<? extends io.sarl.lang.core.Agent>,
+			params : Object*)
+			: UUID {
+		return defaultSpace.spawn(agentClass, null, params)
+	}
+	def spawn(
+			nbAgents : int,
+			agentClass : Class<? extends io.sarl.lang.core.Agent>,
+			params : Object*)
+			: Collection<UUID> {
+		var list = newArrayList
+		for (i : 1..nbAgents) {
+			var id = defaultSpace.spawn(agentClass, null, params)
+			if (id !== null) {
+				list += id
+			}
 		}
-		def spawn(
-				nbAgents : int,
-				agentClass : Class<? extends io.sarl.lang.core.Agent>,
-				params : Object*)
-				: Collection<UUID> {
-			var list = newArrayList
+		return list
+	}
+	def spawnInContext(
+			agentClass : Class<? extends io.sarl.lang.core.Agent>,
+			context : AgentContext,
+			params : Object*)
+			: UUID {
+		if (context.ID == defaultSpace.agentContext.ID) {
+			return defaultSpace.spawn(agentClass, owner.ID, null, params)
+		}
+		return null
+	}
+	def spawnInContext(
+			nbAgents : int,
+			agentClass : Class<? extends io.sarl.lang.core.Agent>,
+			context : AgentContext,
+			params : Object*)
+			: Collection<UUID> {
+		var list = newArrayList
+		if (context.ID == defaultSpace.agentContext.ID) {
 			for (i : 1..nbAgents) {
 				var id = defaultSpace.spawn(agentClass, null, params)
 				if (id !== null) {
 					list += id
 				}
 			}
-			return list
 		}
-		def spawnInContext(
-				agentClass : Class<? extends io.sarl.lang.core.Agent>,
-				context : AgentContext,
-				params : Object*)
-				: UUID {
-			if (context.ID == defaultSpace.agentContext.ID) {
-				return defaultSpace.spawn(agentClass, owner.ID, null, params)
-			}
-			return null
-		}
-		def spawnInContext(
-				nbAgents : int,
-				agentClass : Class<? extends io.sarl.lang.core.Agent>,
-				context : AgentContext,
-				params : Object*)
-				: Collection<UUID> {
-			var list = newArrayList
-			if (context.ID == defaultSpace.agentContext.ID) {
-				for (i : 1..nbAgents) {
-					var id = defaultSpace.spawn(agentClass, null, params)
-					if (id !== null) {
-						list += id
-					}
-				}
-			}
-			return list
-		}
-		def spawnInContextWithID(
-				agentClass : Class<? extends io.sarl.lang.core.Agent>,
-				agentID : UUID,
-				context : AgentContext,
-				params : Object*)
-				: UUID {
-			if (context.ID == defaultSpace.agentContext.ID) {
-				return defaultSpace.spawn(agentClass, owner.ID, agentID, params)
-			}
-			return null
-		}
-		def killMe {
-			(owner as TMSarlAgent).killMe
-			throw new NoReturnCodeException
-		}
+		return list
 	}
+	def spawnInContextWithID(
+			agentClass : Class<? extends io.sarl.lang.core.Agent>,
+			agentID : UUID,
+			context : AgentContext,
+			params : Object*)
+			: UUID {
+		if (context.ID == defaultSpace.agentContext.ID) {
+			return defaultSpace.spawn(agentClass, owner.ID, agentID, params)
+		}
+		return null
+	}
+	def killMe {
+		(owner as TMSarlAgent).killMe
+		throw new NoReturnCodeException
+	}
+}
 ```
 
 
@@ -1062,8 +999,8 @@ in the next section.
 The exception that is simulating a no-return-code is defined as:
 
 ```sarl
-	class NoReturnCodeException extends RuntimeException {
-	}
+class NoReturnCodeException extends RuntimeException {
+}
 ```
 
 
@@ -1079,23 +1016,23 @@ Each call to a piece of SARL code is enclosing by a try-catch statement that
 is simply ignoring the `NoReturnCodeException` exception.
 
 ```sarl
-	package def fireEvent(^event : Event) {
-		var evaluators = this.evaluatorRegistry.getBehaviorGuardEvaluators(^event)
-		var handlers : Collection<Runnable> = new ArrayList
-		for (evaluator : evaluators) {
-			try {
-				evaluator.evaluateGuard(^event, handlers);
-			} catch (e : NoReturnCodeException) {
-			}
-		}
-	
-		for (handler : handlers) {
-			try {
-				handler.run()
-			} catch (e : NoReturnCodeException) {
-			}
+package def fireEvent(^event : Event) {
+	var evaluators = this.evaluatorRegistry.getBehaviorGuardEvaluators(^event)
+	var handlers : Collection<Runnable> = new ArrayList
+	for (evaluator : evaluators) {
+		try {
+			evaluator.evaluateGuard(^event, handlers);
+		} catch (e : NoReturnCodeException) {
 		}
 	}
+
+	for (handler : handlers) {
+		try {
+			handler.run()
+		} catch (e : NoReturnCodeException) {
+		}
+	}
+}
 ```
 
 
@@ -1130,36 +1067,36 @@ into the default space. The function behavior is delegated to the `isDefaultSpac
 with the event source identifier as argument.
 
 ```sarl
-	class DefaultContextInteractionsSkill extends Skill implements DefaultContextInteractions {
-		def getDefaultContext : AgentContext {
-			((owner as TMSarlAgent).defaultSpace as TMDefaultSpace).agentContext
-		}
-		def getDefaultSpace : EventSpace {
-			(owner as TMSarlAgent).defaultSpace
-		}
-		def getDefaultAddress : Address {
-			var o = owner as TMSarlAgent
-			o.defaultSpace.getAddress(o.sarlAgent.ID)
-		}
-		def isDefaultContext(context : AgentContext) : boolean {
-			context.ID == (defaultSpace as TMDefaultSpace).agentContext.ID
-		}
-		def isDefaultContext(contextID : UUID) : boolean {
-			contextID == (defaultSpace as TMDefaultSpace).agentContext.ID
-		}
-		def isDefaultSpace(^space : Space) : boolean {
-			^space.ID == defaultSpace.spaceID
-		}
-		def isDefaultSpace(^space : SpaceID) : boolean {
-			^space == defaultSpace.spaceID
-		}
-		def isDefaultSpace(^space : UUID) : boolean {
-			^space == defaultSpace.spaceID.ID
-		}
-		def isInDefaultSpace(^event : Event) : boolean {
-			isDefaultSpace(^event.source.spaceId)
-		}
+class DefaultContextInteractionsSkill extends Skill implements DefaultContextInteractions {
+	def getDefaultContext : AgentContext {
+		((owner as TMSarlAgent).defaultSpace as TMDefaultSpace).agentContext
 	}
+	def getDefaultSpace : EventSpace {
+		(owner as TMSarlAgent).defaultSpace
+	}
+	def getDefaultAddress : Address {
+		var o = owner as TMSarlAgent
+		o.defaultSpace.getAddress(o.sarlAgent.ID)
+	}
+	def isDefaultContext(context : AgentContext) : boolean {
+		context.ID == (defaultSpace as TMDefaultSpace).agentContext.ID
+	}
+	def isDefaultContext(contextID : UUID) : boolean {
+		contextID == (defaultSpace as TMDefaultSpace).agentContext.ID
+	}
+	def isDefaultSpace(^space : Space) : boolean {
+		^space.ID == defaultSpace.spaceID
+	}
+	def isDefaultSpace(^space : SpaceID) : boolean {
+		^space == defaultSpace.spaceID
+	}
+	def isDefaultSpace(^space : UUID) : boolean {
+		^space == defaultSpace.spaceID.ID
+	}
+	def isInDefaultSpace(^event : Event) : boolean {
+		isDefaultSpace(^event.source.spaceId)
+	}
+}
 ```
 
 
@@ -1192,15 +1129,15 @@ to a specific agent with the following syntax:
 The obtained code is:
 
 ```sarl
-	def emit(^event : Event, scope : Scope<Address> = null) {
-		if (^event.source === null) {
-			^event.source = defaultSpace.getAddress(owner.ID)
-		}
-		defaultSpace.emit(^event, scope)
+def emit(^event : Event, scope : Scope<Address> = null) {
+	if (^event.source === null) {
+		^event.source = defaultSpace.getAddress(owner.ID)
 	}
-	def willReceive(receiver : UUID, ^event : Event) {
-		emit(^event, Scopes::addresses(defaultSpace.getAddress(receiver)))
-	}
+	defaultSpace.emit(^event, scope)
+}
+def willReceive(receiver : UUID, ^event : Event) {
+	emit(^event, Scopes::addresses(defaultSpace.getAddress(receiver)))
+}
 ```
 
 
@@ -1213,9 +1150,9 @@ This function delegates its behavior to the `spawn` function that is already def
 in the tinyMAS-SARL default space class.
 
 ```sarl
-	def spawn(agentType : Class<? extends io.sarl.lang.core.Agent>, params : Object*) : UUID {
-		(defaultSpace as TMDefaultSpace).spawn(agentType, owner.ID, null, params)
-	}
+def spawn(agentType : Class<? extends io.sarl.lang.core.Agent>, params : Object*) : UUID {
+	(defaultSpace as TMDefaultSpace).spawn(agentType, owner.ID, null, params)
+}
 ```
 
 
@@ -1236,11 +1173,11 @@ interface in the `TMSarlAgent` class. In other word, the tinyMAS agent type is a
 Consequently, the `asEventListener` function replies the owner of the skill, i.e. the agent. 
 
 ```sarl
-	class BehaviorsSkill extends Skill implements Behaviors {
-		def asEventListener : EventListener {
-			owner as TMSarlAgent
-		}
+class BehaviorsSkill extends Skill implements Behaviors {
+	def asEventListener : EventListener {
+		owner as TMSarlAgent
 	}
+}
 ```
 
 
@@ -1256,13 +1193,13 @@ In order to store the list of the sub-behavior, we must define the
 function.
 
 ```sarl
-	val behaviors : List<Behavior> = new ArrayList
-	def registerBehavior(attitude : Behavior) : Behavior {
-		if (attitude !== null) {
-			this.behaviors += attitude
-		}
-		return attitude
+val behaviors : List<Behavior> = new ArrayList
+def registerBehavior(attitude : Behavior) : Behavior {
+	if (attitude !== null) {
+		this.behaviors += attitude
 	}
+	return attitude
+}
 ```
 
 
@@ -1275,12 +1212,12 @@ The content of the `behaviors` field defined in the previous section is decrease
 with the given attitude.
 
 ```sarl
-	def unregisterBehavior(attitude : Behavior) : Behavior {
-		if (attitude !== null) {
-			this.behaviors -= attitude
-		}
-		return attitude
+def unregisterBehavior(attitude : Behavior) : Behavior {
+	if (attitude !== null) {
+		this.behaviors -= attitude
 	}
+	return attitude
+}
 ```
 
 
@@ -1303,17 +1240,17 @@ Consequently, the scope is matched against the agent's address in its internal c
 The `getInnerAddress` function computes the agent's address in the agent internal context.
 
 ```sarl
-	def wake(^event : Event, scope : Scope<Address> = null) {
-		if (scope === null || scope.matches(innerAddress)) {
-			asEventListener.receiveEvent(^event)
-		}
+def wake(^event : Event, scope : Scope<Address> = null) {
+	if (scope === null || scope.matches(innerAddress)) {
+		asEventListener.receiveEvent(^event)
 	}
-	private def getInnerAddress : Address {
-		var id = (owner as TMSarlAgent).ID
-		return new Address(
-				new SpaceID(id, UUID.randomUUID, typeof(EventSpaceSpecification)),
-				id)
-	}
+}
+private def getInnerAddress : Address {
+	var id = (owner as TMSarlAgent).ID
+	return new Address(
+			new SpaceID(id, UUID.randomUUID, typeof(EventSpaceSpecification)),
+			id)
+}
 ```
 
 
@@ -1326,12 +1263,12 @@ Two functions must be implemented for accessing to the internal list of the beha
 * `getRegisteredBehaviors` replies an unmodifiable collection of the registered behaviors.
 
 ```sarl
-	def hasRegisteredBehavior : boolean {
-		!this.behaviors.isEmpty
-	}
-	def getRegisteredBehaviors : Collection<Behavior> {
-		new ArrayList(this.behaviors)
-	}
+def hasRegisteredBehavior : boolean {
+	!this.behaviors.isEmpty
+}
+def getRegisteredBehaviors : Collection<Behavior> {
+	new ArrayList(this.behaviors)
+}
 ```
 
 
@@ -1361,18 +1298,18 @@ for replying and consuming these subsets. These functions will be invoked later,
 from the tinyMAS agent living function. 
 
 ```sarl
-	var registrationWaiters : List<Object> = new ArrayList
-	var unregistrationWaiters : List<Object> = new ArrayList
-	def getRegistrationWaiters : Iterable<Object> {
-		val collection = this.unregistrationWaiters
-		this.unregistrationWaiters = new ArrayList
-		return collection
-	}
-	def getUnregistrationWaiters : Iterable<Object> {
-		val collection = this.registrationWaiters
-		this.registrationWaiters = new ArrayList
-		return collection
-	}
+var registrationWaiters : List<Object> = new ArrayList
+var unregistrationWaiters : List<Object> = new ArrayList
+def getRegistrationWaiters : Iterable<Object> {
+	val collection = this.unregistrationWaiters
+	this.unregistrationWaiters = new ArrayList
+	return collection
+}
+def getUnregistrationWaiters : Iterable<Object> {
+	val collection = this.registrationWaiters
+	this.registrationWaiters = new ArrayList
+	return collection
+}
 ```
 
 
@@ -1396,22 +1333,22 @@ is added into the set of behaviors that are waiting for SARL event listening
 unregistration. And, it is removed from the set of whose waiting for registration.
 
 ```sarl
-	def registerBehavior(attitude : Behavior) : Behavior {
-		if (attitude !== null) {
-			this.behaviors += attitude
-			this.registrationWaiters += attitude
-			this.unregistrationWaiters -= attitude
-		}
-		return attitude
+def registerBehavior(attitude : Behavior) : Behavior {
+	if (attitude !== null) {
+		this.behaviors += attitude
+		this.registrationWaiters += attitude
+		this.unregistrationWaiters -= attitude
 	}
-	def unregisterBehavior(attitude : Behavior) : Behavior {
-		if (attitude !== null) {
-			this.behaviors -= attitude
-			this.registrationWaiters -= attitude
-			this.unregistrationWaiters += attitude
-		}
-		return attitude
+	return attitude
+}
+def unregisterBehavior(attitude : Behavior) : Behavior {
+	if (attitude !== null) {
+		this.behaviors -= attitude
+		this.registrationWaiters -= attitude
+		this.unregistrationWaiters += attitude
 	}
+	return attitude
+}
 ```
 
 
@@ -1441,18 +1378,18 @@ are (un)registered at the beginning of each step of the agent's life, and not
 in parallel to the other agent's tasks.
 
 ```sarl
-	class TMSarlAgent extends Agent implements EventListener {
-		// [...]
-		var behaviorsSkill : BehaviorsSkill
-		def live {
-			for (beh : this.behaviorsSkill.registrationWaiters) {
-				this.evaluatorRegistry.register(beh)
-			}
-			for (beh : this.behaviorsSkill.unregistrationWaiters) {
-				this.evaluatorRegistry.unregister(beh)
-			}
+class TMSarlAgent extends Agent implements EventListener {
+	// [...]
+	var behaviorsSkill : BehaviorsSkill
+	def live {
+		for (beh : this.behaviorsSkill.registrationWaiters) {
+			this.evaluatorRegistry.register(beh)
+		}
+		for (beh : this.behaviorsSkill.unregistrationWaiters) {
+			this.evaluatorRegistry.unregister(beh)
 		}
 	}
+}
 ```
 
 
@@ -1470,17 +1407,17 @@ invokes the `unregister` function of the agent's event bus with each of them as
 argument.
 
 ```sarl
-	protected def uninstall(stage : UninstallationStage) {
-		switch (stage) {
-		case PRE_DESTROY_EVENT: {
-			}
-		case POST_DESTROY_EVENT: {
-				for (beh : this.behaviors) {
-					(owner as TMSarlAgent).evaluatorRegistry.unregister(beh)
-				}
+protected def uninstall(stage : UninstallationStage) {
+	switch (stage) {
+	case PRE_DESTROY_EVENT: {
+		}
+	case POST_DESTROY_EVENT: {
+			for (beh : this.behaviors) {
+				(owner as TMSarlAgent).evaluatorRegistry.unregister(beh)
 			}
 		}
 	}
+}
 ```
 
 
@@ -1508,27 +1445,27 @@ execution pool:
 * period of execution of the task.
 
 ```sarl
-	class Task extends AgentTask {
-		var isCanceled = false
-		
-		var period = 0l
-		
-		def isCanceled : boolean {
-			this.isCanceled
-		}
-		
-		def cancel {
-			this.isCanceled = true
-		}
-		
-		def getPeriod : long {
-			this.period
-		}
-		
-		def setPeriod(period : long) {
-			this.period = period
-		}
+class Task extends AgentTask {
+	var isCanceled = false
+	
+	var period = 0l
+	
+	def isCanceled : boolean {
+		this.isCanceled
 	}
+	
+	def cancel {
+		this.isCanceled = true
+	}
+	
+	def getPeriod : long {
+		this.period
+	}
+	
+	def setPeriod(period : long) {
+		this.period = period
+	}
+}
 ```
 
 
@@ -1544,13 +1481,13 @@ name. The implementation creates the task instance, and sets the name
 of the task with a unique value.
 
 ```sarl
-	class SchedulesSkill extends Skill implements Schedules {
-		def task(name : String) : AgentTask {
-			var theTask = new Task
-			theTask.name = name ?: UUID.randomUUID.toString
-			return theTask
-		}
+class SchedulesSkill extends Skill implements Schedules {
+	def task(name : String) : AgentTask {
+		var theTask = new Task
+		theTask.name = name ?: UUID.randomUUID.toString
+		return theTask
 	}
+}
 ```
 
 
@@ -1577,26 +1514,26 @@ The `tasks` field contains a map from the task starting time to the collection
 of tasks to be started at this time.
 
 ```sarl
-	def in(task : AgentTask = null, delay : long, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
-		var theTask = task
-		if (theTask === null) {
-			theTask = new Task
-			theTask.name = UUID.randomUUID.toString
-		}
-		var time = (owner as TMSarlAgent).getSimulationTime(TimeUnit::MILLISECONDS) as long + delay
-		theTask.procedure = procedure
-		scheduleTask(time, theTask)
-		return theTask
+def in(task : AgentTask = null, delay : long, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
+	var theTask = task
+	if (theTask === null) {
+		theTask = new Task
+		theTask.name = UUID.randomUUID.toString
 	}
-	val tasks : Map<Long, Collection<AgentTask>> = new TreeMap
-	private def scheduleTask(at : long, task : AgentTask) {
-		var list = this.tasks.get(at)
-		if (list === null) {
-			list = new ArrayList
-			this.tasks.put(at, list)
-		}
-		list += task
+	var time = (owner as TMSarlAgent).getSimulationTime(TimeUnit::MILLISECONDS) as long + delay
+	theTask.procedure = procedure
+	scheduleTask(time, theTask)
+	return theTask
+}
+val tasks : Map<Long, Collection<AgentTask>> = new TreeMap
+private def scheduleTask(at : long, task : AgentTask) {
+	var list = this.tasks.get(at)
+	if (list === null) {
+		list = new ArrayList
+		this.tasks.put(at, list)
 	}
+	list += task
+}
 ```
 
 
@@ -1608,12 +1545,12 @@ In the tinyMAs implementation, the `execute` function schedule the task for the
 next simulation step.
 
 ```sarl
-	def execute(task : AgentTask = null, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
-		return in(
-			task,
-			(owner as TMSarlAgent).getSimulationStepDuration(TimeUnit::MILLISECONDS) as long,
-			procedure)
-	}
+def execute(task : AgentTask = null, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
+	return in(
+		task,
+		(owner as TMSarlAgent).getSimulationStepDuration(TimeUnit::MILLISECONDS) as long,
+		procedure)
+}
 ```
 
 
@@ -1629,23 +1566,23 @@ The `atFixedDelay` function delegates to the `every` function because the task r
 algorithm implies that these two types of execution approach will be the same on tinyMAS.
 
 ```sarl
-	def every(task : AgentTask = null, period : long, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
-		var theTask = task
-		if (theTask === null) {
-			theTask = new Task
-			theTask.name = UUID.randomUUID.toString
-		}
-		var time = (owner as TMSarlAgent).getSimulationTime(TimeUnit::MILLISECONDS) as long + period
-		theTask.procedure = procedure
-		if (theTask instanceof Task) {
-			theTask.period = period
-		}
-		scheduleTask(time, theTask)
-		return theTask
+def every(task : AgentTask = null, period : long, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
+	var theTask = task
+	if (theTask === null) {
+		theTask = new Task
+		theTask.name = UUID.randomUUID.toString
 	}
-	def atFixedDelay(task : AgentTask = null, delay : long, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
-		return task.every(delay, procedure)
+	var time = (owner as TMSarlAgent).getSimulationTime(TimeUnit::MILLISECONDS) as long + period
+	theTask.procedure = procedure
+	if (theTask instanceof Task) {
+		theTask.period = period
 	}
+	scheduleTask(time, theTask)
+	return theTask
+}
+def atFixedDelay(task : AgentTask = null, delay : long, procedure : (io.sarl.lang.core.Agent) => void) : AgentTask {
+	return task.every(delay, procedure)
+}
 ```
 
 
@@ -1657,13 +1594,13 @@ the `cancel` function.
 This function delegates to the `cancel` function of the `Task` type.
 
 ```sarl
-	def cancel(task : AgentTask, mayInterruptIfRunning : boolean = true) : boolean {
-		if (task instanceof Task) {
-			task.cancel
-			return true
-		}
-		return false
+def cancel(task : AgentTask, mayInterruptIfRunning : boolean = true) : boolean {
+	if (task instanceof Task) {
+		task.cancel
+		return true
 	}
+	return false
+}
 ```
 
 
@@ -1686,32 +1623,32 @@ Finally, the `runTasks` function reschedules the task is its periodic execution
 period is greater than zero. 
 
 ```sarl
-	def runTasks {
-		var currentTime = (owner as TMSarlAgent).getSimulationTime(TimeUnit::MILLISECONDS) as long
-		var list = this.tasks.remove(currentTime)
-		if (list !== null) {
-			for (task : list) {
-				var canceled = false
-				if (task instanceof Task) {
-					canceled = task.canceled
-				}
-				if (!canceled) {
-					var guard = task.guard
-					if (guard === null || guard.apply((owner as TMSarlAgent).sarlAgent)) {
-						var code = task.procedure
-						if (code !== null) {
-							code.apply((owner as TMSarlAgent).sarlAgent)
-						}
-						if (task instanceof Task) {
-							if (task.period > 0) {
-								scheduleTask(currentTime + task.period, task)
-							}
+def runTasks {
+	var currentTime = (owner as TMSarlAgent).getSimulationTime(TimeUnit::MILLISECONDS) as long
+	var list = this.tasks.remove(currentTime)
+	if (list !== null) {
+		for (task : list) {
+			var canceled = false
+			if (task instanceof Task) {
+				canceled = task.canceled
+			}
+			if (!canceled) {
+				var guard = task.guard
+				if (guard === null || guard.apply((owner as TMSarlAgent).sarlAgent)) {
+					var code = task.procedure
+					if (code !== null) {
+						code.apply((owner as TMSarlAgent).sarlAgent)
+					}
+					if (task instanceof Task) {
+						if (task.period > 0) {
+							scheduleTask(currentTime + task.period, task)
 						}
 					}
 				}
 			}
 		}
 	}
+}
 ```
 
 
@@ -1729,19 +1666,19 @@ field is defined as a reference to the instance of `SchedulesSkill` built-in cap
 How this field is set will be described in a further section.
 
 ```sarl
-	class TMSarlAgent extends Agent implements EventListener {
-		// [...]
-		var schedulesSkill : SchedulesSkill
-		def live {
-			for (beh : this.behaviorsSkill.registrationWaiters) {
-				this.evaluatorRegistry.register(beh)
-			}
-			for (beh : this.behaviorsSkill.unregistrationWaiters) {
-				this.evaluatorRegistry.unregister(beh)
-			}
-			this.schedulesSkill.runTasks
+class TMSarlAgent extends Agent implements EventListener {
+	// [...]
+	var schedulesSkill : SchedulesSkill
+	def live {
+		for (beh : this.behaviorsSkill.registrationWaiters) {
+			this.evaluatorRegistry.register(beh)
 		}
+		for (beh : this.behaviorsSkill.unregistrationWaiters) {
+			this.evaluatorRegistry.unregister(beh)
+		}
+		this.schedulesSkill.runTasks
 	}
+}
 ```
 
 
@@ -1752,14 +1689,14 @@ The definition of the `Time` built-in capacity is based on the delegation to the
 tinyMAS time manager that is accessible from the agent owning the capacity.
 
 ```sarl
-	class TimeSkill extends Skill implements Time {
-		def getTime(timeUnit : TimeUnit = null) : double {
-			(owner as TMSarlAgent).getSimulationTime(timeUnit ?: TimeUnit::SECONDS)
-		}
-		def getOSTimeFactor : double {
-			(owner as TMSarlAgent).getSimulationStepDuration(TimeUnit::SECONDS)
-		}
+class TimeSkill extends Skill implements Time {
+	def getTime(timeUnit : TimeUnit = null) : double {
+		(owner as TMSarlAgent).getSimulationTime(timeUnit ?: TimeUnit::SECONDS)
 	}
+	def getOSTimeFactor : double {
+		(owner as TMSarlAgent).getSimulationStepDuration(TimeUnit::SECONDS)
+	}
+}
 ```
 
 
@@ -1782,15 +1719,15 @@ Because the built-in capacities' instances exist during the whole life of the as
 these instances must be stored in agent's fields.
 
 ```sarl
-	class TMSarlAgent extends Agent implements EventListener {
-		// [...]
-		var behaviorSkill : BehaviorsSkill
-		var loggingSkill : LoggingSkill
-		var spaceSkill : DefaultContextInteractionsSkill
-		var lifeSkill : LifecycleSkill
-		var scheduleSkill : SchedulesSkill
-		var timeSkill : TimeSkill
-	}
+class TMSarlAgent extends Agent implements EventListener {
+	// [...]
+	var behaviorSkill : BehaviorsSkill
+	var loggingSkill : LoggingSkill
+	var spaceSkill : DefaultContextInteractionsSkill
+	var lifeSkill : LifecycleSkill
+	var scheduleSkill : SchedulesSkill
+	var timeSkill : TimeSkill
+}
 ```
 
 
@@ -1810,31 +1747,31 @@ by reflection, and enabling the accessibility, allows to ignore the `protected` 
 the `setSkill` function.
 
 ```sarl
-	class TMSarlAgent extends Agent implements EventListener {
-		// [...]
-		def start {
-			super.start
-			this.evaluatorRegistry.register(sarlAgent)
-			this.behaviorSkill = new BehaviorsSkill
-			this.loggingSkill = new LoggingSkill
-			this.spaceSkill = new DefaultContextInteractionsSkill
-			this.lifeSkill = new LifecycleSkill
-			this.scheduleSkill = new SchedulesSkill
-			this.timeSkill = new TimeSkill
-			var method = typeof(io.sarl.lang.core.Agent).getDeclaredMethod("setSkill", typeof(Class), typeof(Skill))
-			method.accessible = true
-			method.invoke(sarlAgent, typeof(Behaviors), this.behaviorSkill)
-			method.invoke(sarlAgent, typeof(Logging), this.loggingSkill)
-			method.invoke(sarlAgent, typeof(DefaultContextInteractions), this.spaceSkill)
-			method.invoke(sarlAgent, typeof(Lifecycle), this.lifeSkill)
-			method.invoke(sarlAgent, typeof(Schedules), this.scheduleSkill)
-			method.invoke(sarlAgent, typeof(Time), this.timeSkill)
-			var initializeEvent = new Initialize(this.spawnerID, this.parameters)
-			this.spawnerID = null
-			this.parameters = null
-			receiveEvent(initializeEvent)
-		}
+class TMSarlAgent extends Agent implements EventListener {
+	// [...]
+	def start {
+		super.start
+		this.evaluatorRegistry.register(sarlAgent)
+		this.behaviorSkill = new BehaviorsSkill
+		this.loggingSkill = new LoggingSkill
+		this.spaceSkill = new DefaultContextInteractionsSkill
+		this.lifeSkill = new LifecycleSkill
+		this.scheduleSkill = new SchedulesSkill
+		this.timeSkill = new TimeSkill
+		var method = typeof(io.sarl.lang.core.Agent).getDeclaredMethod("setSkill", typeof(Class), typeof(Skill))
+		method.accessible = true
+		method.invoke(sarlAgent, typeof(Behaviors), this.behaviorSkill)
+		method.invoke(sarlAgent, typeof(Logging), this.loggingSkill)
+		method.invoke(sarlAgent, typeof(DefaultContextInteractions), this.spaceSkill)
+		method.invoke(sarlAgent, typeof(Lifecycle), this.lifeSkill)
+		method.invoke(sarlAgent, typeof(Schedules), this.scheduleSkill)
+		method.invoke(sarlAgent, typeof(Time), this.timeSkill)
+		var initializeEvent = new Initialize(this.spawnerID, this.parameters)
+		this.spawnerID = null
+		this.parameters = null
+		receiveEvent(initializeEvent)
 	}
+}
 ```
 
 
@@ -1852,22 +1789,22 @@ by reflection, and enabling the accessibility, allows to ignore the `protected` 
 the `clearSkill` function.
 
 ```sarl
-	class TMSarlAgent extends Agent implements EventListener {
-		// [...]
-		def stop {
-			receiveEvent(new Destroy)
-			var method = typeof(io.sarl.lang.core.Agent).getDeclaredMethod("clearSkill", typeof(Class))
-			method.accessible = true
-			method.invoke(sarlAgent, typeof(Time))
-			method.invoke(sarlAgent, typeof(Schedules))
-			method.invoke(sarlAgent, typeof(Lifecycle))
-			method.invoke(sarlAgent, typeof(DefaultContextInteractions))
-			method.invoke(sarlAgent, typeof(Logging))
-			method.invoke(sarlAgent, typeof(Behaviors))
-			this.evaluatorRegistry.unregister(sarlAgent)
-			super.stop
-		}
+class TMSarlAgent extends Agent implements EventListener {
+	// [...]
+	def stop {
+		receiveEvent(new Destroy)
+		var method = typeof(io.sarl.lang.core.Agent).getDeclaredMethod("clearSkill", typeof(Class))
+		method.accessible = true
+		method.invoke(sarlAgent, typeof(Time))
+		method.invoke(sarlAgent, typeof(Schedules))
+		method.invoke(sarlAgent, typeof(Lifecycle))
+		method.invoke(sarlAgent, typeof(DefaultContextInteractions))
+		method.invoke(sarlAgent, typeof(Logging))
+		method.invoke(sarlAgent, typeof(Behaviors))
+		this.evaluatorRegistry.unregister(sarlAgent)
+		super.stop
 	}
+}
 ```
 
 
@@ -1887,30 +1824,30 @@ For each message, the function gets its content, and if it is a SARL event, the 
 fires the event by calling the `receiveEvent` function.
 
 ```sarl
-	class TMSarlAgent extends Agent implements EventListener {
-	
-		// [...]
-	
-		def live {
-			for (beh : this.behaviorsSkill.registrationWaiters) {
-				this.evaluatorRegistry.register(beh)
-			}
-			for (beh : this.behaviorsSkill.unregistrationWaiters) {
-				this.evaluatorRegistry.unregister(beh)
-			}
-	
-			while (hasMessage) {
-				var message = nextMessage
-				var content = message.content
-				if (content instanceof Event) {
-					receiveEvent(content)
-				}
-			}
-	
-			this.schedulesSkill.runTasks
+class TMSarlAgent extends Agent implements EventListener {
+
+	// [...]
+
+	def live {
+		for (beh : this.behaviorsSkill.registrationWaiters) {
+			this.evaluatorRegistry.register(beh)
 		}
-	
+		for (beh : this.behaviorsSkill.unregistrationWaiters) {
+			this.evaluatorRegistry.unregister(beh)
+		}
+
+		while (hasMessage) {
+			var message = nextMessage
+			var content = message.content
+			if (content instanceof Event) {
+				receiveEvent(content)
+			}
+		}
+
+		this.schedulesSkill.runTasks
 	}
+
+}
 ```
 
 
@@ -1933,10 +1870,10 @@ We define the `Boot` class with a main function as the SRE entry point. It exten
 class provided by the tinyMAS platform for representing its kernel.
 
 ```sarl
-	class Boot extends Kernel {
-		def static main(args : String[]) {
-		}
+class Boot extends Kernel {
+	def static main(args : String[]) {
 	}
+}
 ```
 
 
@@ -1965,26 +1902,26 @@ In the constructor of the `Boot` class, the tinyMAS kernel identifier is given t
 Indeed, the tinyMAS kernel identifier is known only when the tinyMAS kernel instance is created.
 
 ```sarl
-	class Boot extends Kernel {
-		def static main(args : String[]) {
-			var whitePages = new WhitePages
-			var yellowPages = new YellowPages
-			var mts = new MessageTransportService
-			var defaultSpace = new TMDefaultSpace(whitePages, mts)
-	
-			var kernel = new Boot(defaultSpace, mts, whitePages, yellowPages)
-			
-			var context = new TMAgentContext(defaultSpace)
-			defaultSpace.agentContext = context
-		}
-		val defaultSpace : TMDefaultSpace
-		new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
-				whitePages : WhitePages, yellowPages : YellowPages) {
-			super(mts, whitePages, yellowPages)
-			this.defaultSpace = defaultSpace
-			this.defaultSpace.kernelID = kernelId
-		}
+class Boot extends Kernel {
+	def static main(args : String[]) {
+		var whitePages = new WhitePages
+		var yellowPages = new YellowPages
+		var mts = new MessageTransportService
+		var defaultSpace = new TMDefaultSpace(whitePages, mts)
+
+		var kernel = new Boot(defaultSpace, mts, whitePages, yellowPages)
+		
+		var context = new TMAgentContext(defaultSpace)
+		defaultSpace.agentContext = context
 	}
+	val defaultSpace : TMDefaultSpace
+	new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
+			whitePages : WhitePages, yellowPages : YellowPages) {
+		super(mts, whitePages, yellowPages)
+		this.defaultSpace = defaultSpace
+		this.defaultSpace.kernelID = kernelId
+	}
+}
 ```
 
 
@@ -1996,33 +1933,33 @@ the fully qualified name of the agent to launch (named `agentType`), and the
 agent initialization parameters, named `params`.
 
 ```sarl
-	class Boot extends Kernel {
-		def static main(args : String[]) {
-			var whitePages = new WhitePages
-			var yellowPages = new YellowPages
-			var mts = new MessageTransportService
-			var defaultSpace = new TMDefaultSpace(whitePages, mts)
-	
-			var kernel = new Boot(defaultSpace, mts, whitePages, yellowPages)
-			
-			var context = new TMAgentContext(defaultSpace)
-			defaultSpace.agentContext = context
-			
-			val agentName = args.get(0)
-			var agentType = Class::forName(agentName)
-			var params = Array.newInstance(typeof(Object), args.size - 1) as Object[]
-			for (var i = 0; i < params.length; i++) {
-				params.set(i, args.get(i + 1))
-			}
-		}
-		val defaultSpace : TMDefaultSpace
-		new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
-				whitePages : WhitePages, yellowPages : YellowPages) {
-			super(mts, whitePages, yellowPages)
-			this.defaultSpace = defaultSpace
-			this.defaultSpace.kernelID = kernelId
+class Boot extends Kernel {
+	def static main(args : String[]) {
+		var whitePages = new WhitePages
+		var yellowPages = new YellowPages
+		var mts = new MessageTransportService
+		var defaultSpace = new TMDefaultSpace(whitePages, mts)
+
+		var kernel = new Boot(defaultSpace, mts, whitePages, yellowPages)
+		
+		var context = new TMAgentContext(defaultSpace)
+		defaultSpace.agentContext = context
+		
+		val agentName = args.get(0)
+		var agentType = Class::forName(agentName)
+		var params = Array.newInstance(typeof(Object), args.size - 1) as Object[]
+		for (var i = 0; i < params.length; i++) {
+			params.set(i, args.get(i + 1))
 		}
 	}
+	val defaultSpace : TMDefaultSpace
+	new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
+			whitePages : WhitePages, yellowPages : YellowPages) {
+		super(mts, whitePages, yellowPages)
+		this.defaultSpace = defaultSpace
+		this.defaultSpace.kernelID = kernelId
+	}
+}
 ```
 
 
@@ -2037,44 +1974,44 @@ tinyMAS platform. For running the tinyMAS platform, the `run` function of the ti
 must be invoked.
 
 ```sarl
-	class Boot extends Kernel {
-		def static main(args : String[]) {
-			var whitePages = new WhitePages
-			var yellowPages = new YellowPages
-			var mts = new MessageTransportService
-			var defaultSpace = new TMDefaultSpace(whitePages, mts)
-	
-			var kernel = new Boot(defaultSpace, mts, whitePages, yellowPages)
-			
-			var context = new TMAgentContext(defaultSpace)
-			defaultSpace.agentContext = context
-			
-			val agentName = args.get(0)
-			var agentType = Class::forName(agentName)
-			var params = Array.newInstance(typeof(Object), args.size - 1) as Object[]
-			for (var i = 0; i < params.length; i++) {
-				params.set(i, args.get(i + 1))
-			}
-			if (typeof(io.sarl.lang.core.Agent).isAssignableFrom(agentType)) {
-				Spawner.spawn(
-					kernel,
-					defaultSpace,
-					agentType as Class<? extends io.sarl.lang.core.Agent>,
-					null,
-					TMDefaultSpace.TINYMAS_DEFAULT_SPACE_ID,
-					null,
-					params)
-			}
-			kernel.run
+class Boot extends Kernel {
+	def static main(args : String[]) {
+		var whitePages = new WhitePages
+		var yellowPages = new YellowPages
+		var mts = new MessageTransportService
+		var defaultSpace = new TMDefaultSpace(whitePages, mts)
+
+		var kernel = new Boot(defaultSpace, mts, whitePages, yellowPages)
+		
+		var context = new TMAgentContext(defaultSpace)
+		defaultSpace.agentContext = context
+		
+		val agentName = args.get(0)
+		var agentType = Class::forName(agentName)
+		var params = Array.newInstance(typeof(Object), args.size - 1) as Object[]
+		for (var i = 0; i < params.length; i++) {
+			params.set(i, args.get(i + 1))
 		}
-		val defaultSpace : TMDefaultSpace
-		new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
-				whitePages : WhitePages, yellowPages : YellowPages) {
-			super(mts, whitePages, yellowPages)
-			this.defaultSpace = defaultSpace
-			this.defaultSpace.kernelID = kernelId
+		if (typeof(io.sarl.lang.core.Agent).isAssignableFrom(agentType)) {
+			Spawner.spawn(
+				kernel,
+				defaultSpace,
+				agentType as Class<? extends io.sarl.lang.core.Agent>,
+				null,
+				TMDefaultSpace.TINYMAS_DEFAULT_SPACE_ID,
+				null,
+				params)
 		}
+		kernel.run
 	}
+	val defaultSpace : TMDefaultSpace
+	new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
+			whitePages : WhitePages, yellowPages : YellowPages) {
+		super(mts, whitePages, yellowPages)
+		this.defaultSpace = defaultSpace
+		this.defaultSpace.kernelID = kernelId
+	}
+}
 ```
 
 
@@ -2108,51 +2045,51 @@ Even for `AgentSpawned` and `AgentKilled`, the event firing follows the same ste
 The obtained code is:
 
 ```sarl
-	class Boot extends Kernel {
-		static class TinyMASKernelListener extends KernelAdapter {
-			val containingBoot : Boot
-			new(containingBoot : Boot) {
-				this.containingBoot = containingBoot
-			}
-			def kernelAgentAdded(kernel : Kernel, ^agent : Agent, id : AgentIdentifier) {
-				var source = new Address(
-						containingBoot.defaultSpace.spaceID,
-						TMDefaultSpace::TINYMAS_DEFAULT_SPACE_ID)
-				var agentType : String
-				if (^agent instanceof TMSarlAgent) {
-					agentType = ^agent.sarlAgent.class.name
-				} else {
-					agentType = null
-				}
-				var spawnEvent = new AgentSpawned(source,
-						Identifiers::toUUID(id),
-						agentType)
-				containingBoot.defaultSpace.emit(spawnEvent)
-			}
-			def kernelAgentRemoved(kernel : Kernel, ^agent : Agent, id : AgentIdentifier) {
-				var source = new Address(
-						containingBoot.defaultSpace.spaceID,
-						TMDefaultSpace::TINYMAS_DEFAULT_SPACE_ID)
-				var agentType : String
-				if (^agent instanceof TMSarlAgent) {
-					agentType = ^agent.sarlAgent.class.name
-				} else {
-					agentType = null
-				}
-				var spawnEvent = new AgentKilled(source,
-						Identifiers::toUUID(id),
-						agentType)
-				containingBoot.defaultSpace.emit(spawnEvent)
-			}
+class Boot extends Kernel {
+	static class TinyMASKernelListener extends KernelAdapter {
+		val containingBoot : Boot
+		new(containingBoot : Boot) {
+			this.containingBoot = containingBoot
 		}
-		new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
-				whitePages : WhitePages, yellowPages : YellowPages) {
-			super(mts, whitePages, yellowPages)
-			this.defaultSpace = defaultSpace
-			this.defaultSpace.kernelID = kernelId
-			addKernelListener(new TinyMASKernelListener(this))
+		def kernelAgentAdded(kernel : Kernel, ^agent : Agent, id : AgentIdentifier) {
+			var source = new Address(
+					containingBoot.defaultSpace.spaceID,
+					TMDefaultSpace::TINYMAS_DEFAULT_SPACE_ID)
+			var agentType : String
+			if (^agent instanceof TMSarlAgent) {
+				agentType = ^agent.sarlAgent.class.name
+			} else {
+				agentType = null
+			}
+			var spawnEvent = new AgentSpawned(source,
+					Identifiers::toUUID(id),
+					agentType)
+			containingBoot.defaultSpace.emit(spawnEvent)
+		}
+		def kernelAgentRemoved(kernel : Kernel, ^agent : Agent, id : AgentIdentifier) {
+			var source = new Address(
+					containingBoot.defaultSpace.spaceID,
+					TMDefaultSpace::TINYMAS_DEFAULT_SPACE_ID)
+			var agentType : String
+			if (^agent instanceof TMSarlAgent) {
+				agentType = ^agent.sarlAgent.class.name
+			} else {
+				agentType = null
+			}
+			var spawnEvent = new AgentKilled(source,
+					Identifiers::toUUID(id),
+					agentType)
+			containingBoot.defaultSpace.emit(spawnEvent)
 		}
 	}
+	new (defaultSpace : TMDefaultSpace, mts : MessageTransportService,
+			whitePages : WhitePages, yellowPages : YellowPages) {
+		super(mts, whitePages, yellowPages)
+		this.defaultSpace = defaultSpace
+		this.defaultSpace.kernelID = kernelId
+		addKernelListener(new TinyMASKernelListener(this))
+	}
+}
 ```
 
 
@@ -2177,11 +2114,11 @@ invoking the ``consumeAgentToLaunch` function. Each agent replied by the ``consu
 function is spawned in the tinyMAS platform by calling the `Spawner` utility class.
 
 ```sarl
-	def kernelRefreshAllowed(kernel : Kernel) {
-		for (^agent : containingBoot.defaultSpace.consumeAgentToLaunch) {
-			Spawner.spawn(kernel, ^agent)
-		}
+def kernelRefreshAllowed(kernel : Kernel) {
+	for (^agent : containingBoot.defaultSpace.consumeAgentToLaunch) {
+		Spawner.spawn(kernel, ^agent)
 	}
+}
 ```
 
 
@@ -2239,7 +2176,7 @@ The following manifest context gives an example of the tinyMAS SRE declaration:
 	
 	SARL-Runtime-Environment:
 	SRE-Name: TinyMAS
-	SARL-Spec-Version: 0.5
+	SARL-Spec-Version: 0.6
 	Standalone-SRE: true
 	VM-Arguments: -ea
 	Program-Arguments:
@@ -2273,50 +2210,51 @@ updates the existing manifest file with the SRE information.
 
 The following XML code gives an example of Maven configuration that enables to use the SRE Maven plugin.
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>io.sarl.maven</groupId>
-				<artifactId>io.sarl.maven.sre</artifactId>
-				<version>${sarl.version}</version>
-				<configuration>
-					<sreName>TinyMAS</sreName>
-					<commandLineOptions>
-						<hideInfo></hideInfo>
-						<hideLogo></hideLogo>
-						<showInfo></showInfo>
-						<showLogo></showLogo>
-						<defaultContextId></defaultContextId>
-						<randomContextId></randomContextId>
-						<bootAgentContextId></bootAgentContextId>
-						<offline></offline>
-						<embedded></embedded>
-						<noMoreOption></noMoreOption>
-						<standaloneSRE>true</standaloneSRE>
-					</commandLineOptions>
-					<mainClass>${cliRunnerMainClass}</mainClass>
-				</configuration>
-		
-				<executions>
-					<execution>
-						<id>update-manifest-standard</id>
-						<goals>
-							<goal>updatemanifest</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-	 	</plugins>
-	</build>
+```xml
+<build>
+	<plugins>
+		<plugin>
+			<groupId>io.sarl.maven</groupId>
+			<artifactId>io.sarl.maven.sre</artifactId>
+			<version>${sarl.version}</version>
+			<configuration>
+				<sreName>TinyMAS</sreName>
+				<commandLineOptions>
+					<hideInfo></hideInfo>
+					<hideLogo></hideLogo>
+					<showInfo></showInfo>
+					<showLogo></showLogo>
+					<defaultContextId></defaultContextId>
+					<randomContextId></randomContextId>
+					<bootAgentContextId></bootAgentContextId>
+					<offline></offline>
+					<embedded></embedded>
+					<noMoreOption></noMoreOption>
+					<standaloneSRE>true</standaloneSRE>
+				</commandLineOptions>
+				<mainClass>${cliRunnerMainClass}</mainClass>
+			</configuration>
 
+			<executions>
+				<execution>
+					<id>update-manifest-standard</id>
+					<goals>
+						<goal>updatemanifest</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+ 	</plugins>
+</build>
+```
 
 
 ##13. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -2326,4 +2264,4 @@ The following XML code gives an example of Maven configuration that enables to u
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

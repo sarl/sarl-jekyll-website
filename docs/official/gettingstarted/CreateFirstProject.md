@@ -86,44 +86,46 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.5.7` of SARL with the one you want to use. You could search on the
+Replace the version number `0.6.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://central.sonatype.org/) for the last available version.
 
-	 <project>
-	    ...
-	    <properties>
-	       ...
-	       <sarl.version>0.5.7</sarl.version>
-	    </properties>
-	    ...
-	    <build>
-	       <plugins>
-	          ...
-	          <plugin>
-	             <groupId>io.sarl.maven</groupId>
-	             <artifactId>sarl-maven-plugin</artifactId>
-	             <version>${sarl.version}</version>
-	             <extensions>true</extensions>
-	             <configuration>
-	                <source>1.8</source>
-	                <target>1.8</target>
-	                <encoding>UTF-8</encoding>
-	             </configuration>
-	          </plugin>
-	       </plugins>
-	    </build>
-	    ...
-	    <dependencies>
-	      ...
-	       <dependency>
-	          <groupId>io.sarl.maven</groupId>
-	          <artifactId>io.sarl.maven.sdk</artifactId>
-	          <version>${sarl.version}</version>
-	       </dependency>
-	       ...
-	    </dependencies>
-	    ...
-	 </project>
+```xml
+ <project>
+    ...
+    <properties>
+       ...
+       <sarl.version>0.6.0-SNAPSHOT</sarl.version>
+    </properties>
+    ...
+    <build>
+       <plugins>
+          ...
+          <plugin>
+             <groupId>io.sarl.maven</groupId>
+             <artifactId>sarl-maven-plugin</artifactId>
+             <version>${sarl.version}</version>
+             <extensions>true</extensions>
+             <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <encoding>UTF-8</encoding>
+             </configuration>
+          </plugin>
+       </plugins>
+    </build>
+    ...
+    <dependencies>
+      ...
+       <dependency>
+          <groupId>io.sarl.maven</groupId>
+          <artifactId>io.sarl.maven.sdk</artifactId>
+          <version>${sarl.version}</version>
+       </dependency>
+       ...
+    </dependencies>
+    ...
+ </project>
+```
 
 
 The Maven configuration is based on the use of `sarl-maven-plugin`. This plugin is in charge of compiling the SARL and
@@ -143,45 +145,47 @@ In several specific cases, you may want to include the runtime environment into 
 this case, you could replace the Maven dependency to the SARL sdk (as defined in the previous section) by a Maven dependency
 to the runtime environment.
 
-Replace the version number (`0.5.7`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`0.6.0-SNAPSHOT`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
 You could search on the [Maven Central Repository](http://central.sonatype.org/) for the last available version.
 
 
-	 <project>
-	   ...
-	    <properties>
-	       ...
-	       <janus.version>0.5.7</janus.version>
-	    </properties>
-	    ...
-	    <build>
-	       <plugins>
-	          ...
-	          <plugin>
-	             <groupId>io.sarl.maven</groupId>
-	             <artifactId>sarl-maven-plugin</artifactId>
-	             <version>${sarl.version}</version>
-	             <extensions>true</extensions>
-	             <configuration>
-	                <source>1.8</source>
-	                <target>1.8</target>
-	                <encoding>UTF-8</encoding>
-	             </configuration>
-	          </plugin>
-	       </plugins>
-	    </build>
-	    ...
-	    <dependencies>
-	       ...
-	       <dependency>
-	          <groupId>io.janusproject</groupId>
-	          <artifactId>io.janusproject.kernel</artifactId>
-	          <version>${janus.version}</version>
-	       </dependency>
-	       ...
-	    </dependencies>
-	    ...
-	 </project>
+```xml
+ <project>
+   ...
+    <properties>
+       ...
+       <janus.version>0.6.0-SNAPSHOT</janus.version>
+    </properties>
+    ...
+    <build>
+       <plugins>
+          ...
+          <plugin>
+             <groupId>io.sarl.maven</groupId>
+             <artifactId>sarl-maven-plugin</artifactId>
+             <version>${sarl.version}</version>
+             <extensions>true</extensions>
+             <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <encoding>UTF-8</encoding>
+             </configuration>
+          </plugin>
+       </plugins>
+    </build>
+    ...
+    <dependencies>
+       ...
+       <dependency>
+          <groupId>io.janusproject</groupId>
+          <artifactId>io.janusproject.kernel</artifactId>
+          <version>${janus.version}</version>
+       </dependency>
+       ...
+    </dependencies>
+    ...
+ </project>
+```
 
 
 <important>If you want to have the dependencies to both `io.sarl.maven.sdk` and `io.janusproject.kernel` in your
@@ -198,9 +202,9 @@ In the next section, we will learn how to create our first agent.
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -210,4 +214,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

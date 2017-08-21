@@ -192,8 +192,8 @@ The following code illustrates the definition of an agent named `MyAgent`, and t
 Basically, this agent does nothing, and does not react on events. 
 
 ```sarl
-	agent MyAgent {
-	}
+agent MyAgent {
+}
 ```
 
 
@@ -208,12 +208,12 @@ the attributes may be modifiable (when declared with the `var` keyword), or unmo
 declared with the `val` keyword).
 
 ```sarl
-	agent MyAgent {
-		// Defining a modifiable element of the mental state
-		var mentalStateElement1 : String
-		// Defining an unmodifiable element of the mental state
-		val mentalStateElement2 : boolean = true
-	}
+agent MyAgent {
+	// Defining a modifiable element of the mental state
+	var mentalStateElement1 : String
+	// Defining an unmodifiable element of the mental state
+	val mentalStateElement2 : boolean = true
+}
 ```
 
 
@@ -226,17 +226,17 @@ The syntax described is described in the [General Syntax Reference](./GeneralSyn
 The example below illustrates the creation of two actions in the agent.
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		// Defining an action without parameter nor return type
-		def myAction1 {
-			info("Hello world")
-		}
-		// Defining an action with a variadic parameter and no return type
-		def myAction2(param : int*) {
-			info("params are " + param)
-		}
+agent MyAgent {
+	uses Logging
+	// Defining an action without parameter nor return type
+	def myAction1 {
+		info("Hello world")
 	}
+	// Defining an action with a variadic parameter and no return type
+	def myAction2(param : int*) {
+		info("params are " + param)
+	}
+}
 ```
 
 
@@ -259,15 +259,15 @@ A second agent `MySubAgent` is defined as the extension of the first agent. It c
 `action`, which is displaying the inherited attribute.
 
 ```sarl
-	agent MyAgent {
-		protected var attr : String
+agent MyAgent {
+	protected var attr : String
+}
+agent MySubAgent extends MyAgent {
+	uses Logging
+	def action {
+		info(attr)
 	}
-	agent MySubAgent extends MyAgent {
-		uses Logging
-		def action {
-			info(attr)
-		}
-	}
+}
 ```
 
 
@@ -295,14 +295,14 @@ An agent may be declared with one or more modifiers, which affect its runtime be
 Examples:
 
 ```sarl
-	public agent Example1 {
-	}
-	package agent Example2 {
-	}
-	abstract agent Example3 {
-	}
-	final agent Example4 {
-	}
+public agent Example1 {
+}
+package agent Example2 {
+}
+abstract agent Example3 {
+}
+final agent Example4 {
+}
 ```
 
 
@@ -319,9 +319,9 @@ The modifiers for the fields in an agent are:
 Examples:
 
 ```sarl
-	protected var example1 : Object
-	package var example2 : Object
-	private var example3 : Object
+protected var example1 : Object
+package var example2 : Object
+private var example3 : Object
 ```
 
 
@@ -343,23 +343,23 @@ The modifiers for the methods in an agent are:
 Examples:
 
 ```sarl
-	// Protected access function
-	protected def example1 { }
-	// Package access function
-	package def example2 { }
-	// Private access function
-	private def example3 { }
-	// Abstract function
-	abstract def example4
-	// Not-overridable function
-	final def example5 { }
-	// Static function
-	static def example6 { }
-	// Synchronized function
-	synchronized def example7 { }
-	// Dispatch functions
-	dispatch def example8(p : Integer) { }
-	dispatch def example8(p : Float) { }
+// Protected access function
+protected def example1 { }
+// Package access function
+package def example2 { }
+// Private access function
+private def example3 { }
+// Abstract function
+abstract def example4
+// Not-overridable function
+final def example5 { }
+// Static function
+static def example6 { }
+// Synchronized function
+synchronized def example7 { }
+// Dispatch functions
+dispatch def example8(p : Integer) { }
+dispatch def example8(p : Float) { }
 ```
 
 
@@ -391,9 +391,9 @@ An agent may indicate that it is interesting for receiving an event by specifyin
 an event handler using the following syntax:
 
 ```sarl
-	on EventName [Guard] {
-		Statements
-	}
+on EventName [Guard] {
+	Statements
+}
 ```
 
 
@@ -413,8 +413,8 @@ When an agent is ready to be executed by the runtime environment, it receives th
 This event is defined as:
 
 ```sarl
-	interface Initialize extends Event {
-	}
+interface Initialize extends Event {
+}
 ```
 
 
@@ -423,15 +423,15 @@ It contains the list of the parameters given to the spawning function (as specif
 [built-in capacities](./BIC.html)).
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		on Initialize {
-			info("My spawner is " + occurrence.spawner)
-			info(
-				"My initialization parameters are: "
-				+ occurrence.parameters )
-		}
+agent MyAgent {
+	uses Logging
+	on Initialize {
+		info("My spawner is " + occurrence.spawner)
+		info(
+			"My initialization parameters are: "
+			+ occurrence.parameters )
 	}
+}
 ```
 
 
@@ -445,16 +445,16 @@ In the following example, the first event handler is executed when the `Initiali
 no parameter. The second event handler is executed when the event has at least one parameter.
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		on Initialize [ occurrence.parameters.empty ] {
-			info("Initialization without parameters")
-		}
-		on Initialize [ ! occurrence.parameters.empty ] {
-			info("Initialization with parameters: "
-				+ occurrence.parameters )
-		}
+agent MyAgent {
+	uses Logging
+	on Initialize [ occurrence.parameters.empty ] {
+		info("Initialization without parameters")
 	}
+	on Initialize [ ! occurrence.parameters.empty ] {
+		info("Initialization with parameters: "
+			+ occurrence.parameters )
+	}
+}
 ```
 
 
@@ -464,8 +464,8 @@ no parameter. The second event handler is executed when the event has at least o
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
 ```sarl
-	interface Destroy extends Event {
-	}
+interface Destroy extends Event {
+}
 ```
 
 
@@ -473,12 +473,12 @@ The counterpart of `Initialize` is the event `Destroy`. This event is defined as
 Example:
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		on Destroy {
-			info("Destroying the agent")
-		}
+agent MyAgent {
+	uses Logging
+	on Destroy {
+		info("Destroying the agent")
 	}
+}
 ```
 
 
@@ -492,16 +492,16 @@ is receivedand there is resource stored in the corresponding field. The second e
 is executed when there is no resource.
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		var resource : Object
-		on Destroy [ resource !== null ] {
-			info("Destroying the agent when there is a resource")
-		}
-		on Destroy [ resource === null ] {
-			info("Destroying the agent when there is no resource")
-		}
+agent MyAgent {
+	uses Logging
+	var resource : Object
+	on Destroy [ resource !== null ] {
+		info("Destroying the agent when there is a resource")
 	}
+	on Destroy [ resource === null ] {
+		info("Destroying the agent when there is no resource")
+	}
+}
 ```
 
 
@@ -517,12 +517,12 @@ In the following example, the agent is reacting to the reception of the `Somethi
 As for all the event handlers, it could be guarded by a predicate.
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		on SomethingChanged {
-			info("Reactive behavior")
-		}
+agent MyAgent {
+	uses Logging
+	on SomethingChanged {
+		info("Reactive behavior")
 	}
+}
 ```
 
 
@@ -536,15 +536,15 @@ When multiple event handlers are triggered at the same time, they are all execut
 In the following example, the two handlers for the `SomethingChanged` event are executed in parallel.
 
 ```sarl
-	agent MyAgent {
-		uses Logging
-		on SomethingChanged {
-			info("First reactive behavior")
-		}
-		on SomethingChanged {
-			info("Second reactive behavior")
-		}
+agent MyAgent {
+	uses Logging
+	on SomethingChanged {
+		info("First reactive behavior")
 	}
+	on SomethingChanged {
+		info("Second reactive behavior")
+	}
+}
 ```
 
 
@@ -562,14 +562,14 @@ mechanism is provided by the [`Schedules` built-in capacity](./BIC.html).
 In the following example, the agent execute its proactive behavior every second.
 
 ```sarl
-	agent MyAgent {
-		uses Schedules, Logging
-		on Initialize {
-			every(1000) [
-				info("Run a pro-active behavior")
-			]
-		}
+agent MyAgent {
+	uses Schedules, Logging
+	on Initialize {
+		every(1000) [
+			info("Run a pro-active behavior")
+		]
 	}
+}
 ```
 
 
@@ -589,16 +589,16 @@ the [Capacity Reference](./Capacity.html), and the [Skill Reference](./Skill.htm
 In the rest of this section, it is assumed that the following capacity and skill are defined:
 
 ```sarl
-	capacity Cap {
-		def action
+capacity Cap {
+	def action
+}
+
+skill Ski implements Cap {
+	uses Logging
+	def action {
+		info("Action")
 	}
-	
-	skill Ski implements Cap {
-		uses Logging
-		def action {
-			info("Action")
-		}
-	}
+}
 ```
 
 
@@ -615,12 +615,12 @@ the corresponding capacity `Cap` with the function `setSkill(Skill, Class<? exte
 When the function `setSkill` is returning, the agent becomes able to use the skill.
 
 ```sarl
-	agent MyAgent {
-		on Initialize {
-			var theSkill = new Ski
-			setSkill(theSkill)
-		}
+agent MyAgent {
+	on Initialize {
+		var theSkill = new Ski
+		setSkill(theSkill)
 	}
+}
 ```
 
 
@@ -648,18 +648,18 @@ For invoking a function implemented by a skill, the two following steps must be 
 prefer the use of the extension methods (see below).</note>
 
 ```sarl
-	agent MyAgent {
-		on Initialize {
-			var s = new Ski
-			setSkill( s, Cap )
-		}
-		on SomeEvent {
-			// Retreive the capacity implementation
-			var s = getSkill(Cap)
-			// Run the action of the skill
-			s.action
-		}
+agent MyAgent {
+	on Initialize {
+		var s = new Ski
+		setSkill( s, Cap )
 	}
+	on SomeEvent {
+		// Retreive the capacity implementation
+		var s = getSkill(Cap)
+		// Run the action of the skill
+		s.action
+	}
+}
 ```
 
 
@@ -669,14 +669,14 @@ prefer the use of the extension methods (see below).</note>
 The built-in capacities are accessible in the same way as the other capacities, with the getters.
 
 ```sarl
-	agent MyAgent {
-		on SomeEvent {
-			// Retreive the capacity implementation
-			var s = getSkill(Lifecycle)
-			// Run the action of the skill
-			s.killMe
-		}
+agent MyAgent {
+	on SomeEvent {
+		// Retreive the capacity implementation
+		var s = getSkill(Lifecycle)
+		// Run the action of the skill
+		s.killMe
 	}
+}
 ```
 
 
@@ -695,17 +695,17 @@ After a capacity was "imported", it is possible to directly call the functions o
 with the name `action` is invoked. This action is defined in the `Cap` capacity. 
 
 ```sarl
-	agent MyAgent {
-		uses Cap
-		on Initialize {
-			var s = new Ski
-			setSkill(s)
-		}
-		on SomeEvent {
-			// Run the action of the skill
-			action
-		}
+agent MyAgent {
+	uses Cap
+	on Initialize {
+		var s = new Ski
+		setSkill(s)
 	}
+	on SomeEvent {
+		// Run the action of the skill
+		action
+	}
+}
 ```
 
 
@@ -717,13 +717,13 @@ The built-in capacities are accessible in the same way as the other capacities, 
 Example:
 
 ```sarl
-	agent MyAgent {
-		uses Lifecycle
-		on SomeEvent {
-			// Run the action of the skill
-			killMe
-		}
+agent MyAgent {
+	uses Lifecycle
+	on SomeEvent {
+		// Run the action of the skill
+		killMe
 	}
+}
 ```
 
 
@@ -732,9 +732,9 @@ Example:
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -744,4 +744,4 @@ Example:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

@@ -36,10 +36,10 @@ used to compare the value in the case with the one you are switching over.</impo
 Consider the following example.
 
 ```sarl
-	switch myString {
-	case 'some' : "It's some string."
-	case 'other' : "another string."
-	}
+switch myString {
+case 'some' : "It's some string."
+case 'other' : "another string."
+}
 ```
 
 
@@ -66,11 +66,11 @@ If none of the cases is matching, the `default` case matches automatically if it
 in the code.
 
 ```sarl
-	switch myString {
-	case 'some' : "It's some string."
-	case 'other' : "another string."
-	default: "default string"
-	}
+switch myString {
+case 'some' : "It's some string."
+case 'other' : "another string."
+default: "default string"
+}
 ```
 
 
@@ -79,11 +79,11 @@ in the code.
 Consider the following example.
 
 ```sarl
-	switch myString {
-	case 'some' : "It's some string."
-	case 'other' : "another string."
-	case myString.length > 5 : "It's a long string."
-	}
+switch myString {
+case 'some' : "It's some string."
+case 'other' : "another string."
+case myString.length > 5 : "It's a long string."
+}
 ```
 
 
@@ -104,10 +104,10 @@ If the switch value is a field, parameter or variable, it is automatically caste
 to the given type within the predicate and the case body.
 
 ```sarl
-	switch myString {
-	String case myString.length == 5 : "It's string of length 5."
-	String : "a string."
-	}
+switch myString {
+String case myString.length == 5 : "It's string of length 5."
+String : "a string."
+}
 ```
 
 
@@ -121,11 +121,11 @@ In the following example, the value `a string` is replied if one of the two firs
 Otherwisen, the value associated to the default case is used.
 
 ```sarl
-	switch myString {
-	case myString.length==5,
-	case 'some' : "a string"
-	default: "Default"
-	}
+switch myString {
+case myString.length==5,
+case 'some' : "a string"
+default: "Default"
+}
 ```
 
 
@@ -139,9 +139,9 @@ This documentation is inspired by the documentations from the
 ##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -151,4 +151,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

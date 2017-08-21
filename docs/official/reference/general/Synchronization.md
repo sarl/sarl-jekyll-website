@@ -15,10 +15,10 @@ The only difference is that in SARL it is an expression and can therefore be use
 The synchronization statement can be used as in Java:
 
 ```sarl
-	var lock = new Object
-	synchronized (lock) {
-		println("Hello")
-	}
+var lock = new Object
+synchronized (lock) {
+	println("Hello")
+}
 ```
 
 
@@ -28,11 +28,11 @@ The synchronization statement can be used as in Java:
 Because the `synchronized` keyword is an expression, it is possible to write synchronized code inside another expression.
 
 ```sarl
-	var lock = new Object
-	val name = synchronized (lock) { 
-			"Hello" 
-	}
-	println(name)
+var lock = new Object
+val name = synchronized (lock) { 
+		"Hello" 
+}
+println(name)
 ```
 
 
@@ -47,9 +47,9 @@ This documentation is inspired by the documentations from the
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -59,4 +59,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

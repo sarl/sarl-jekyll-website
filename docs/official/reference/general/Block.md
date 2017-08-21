@@ -30,14 +30,14 @@ In the following example, the block type is `String` because the last expression
 possible execution paths are all of type `String`.
 
 ```sarl
-	{
-		var x = greeting
-		if (x == "Hello") {
-			x + " World!" 
-		} else {
-			x
-		}
+{
+	var x = greeting
+	if (x == "Hello") {
+		x + " World!" 
+	} else {
+		x
 	}
+}
 ```
 
 
@@ -52,9 +52,9 @@ This documentation is inspired by the documentations from the
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -64,4 +64,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

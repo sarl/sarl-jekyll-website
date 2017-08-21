@@ -32,19 +32,19 @@ The type of a for loop is `void`. The type of the local variable can be inferred
 iterable or array that is processed, e.g. in the following example `v` is of type `String`.
 
 ```sarl
-	var tab : String[]
-	for (v : tab) {
-		println(v)
-	}
+var tab : String[]
+for (v : tab) {
+	println(v)
+}
 ```
 
 
 You could specify the expected type for the local variable with the `as` following the local variable:
 
 ```sarl
-	for (v as String : tab) {
-		println(v)
-	}
+for (v as String : tab) {
+	println(v)
+}
 ```
 
 
@@ -59,9 +59,9 @@ is executed instead of the init-expression. This happens until the predicate
 returns `false`. The type of a for loop is `void`.
 
 ```sarl
-	for (var i = 0; i<123; i++) {
-		println(i)
-	}
+for (var i = 0; i<123; i++) {
+	println(i)
+}
 ```
 
 
@@ -72,11 +72,11 @@ A while loop is used to execute a certain expression unless the predicate is eva
 `false`. The type of a while loop is `void`.
 
 ```sarl
-	var i = 0
-	while (i<123) {
-		println(i)
-		i++
-	}
+var i = 0
+while (i<123) {
+	println(i)
+	i++
+}
 ```
 
 
@@ -89,12 +89,12 @@ executing the block once before evaluating the predicate for the first time.
 The type of a while loop is `void`.
 
 ```sarl
-	var i = 0
-	do {
-		println(i)
-		i++
-	}
-	while (i<123)
+var i = 0
+do {
+	println(i)
+	i++
+}
+while (i<123)
 ```
 
 
@@ -107,11 +107,11 @@ enclosing loop, and run the statement that is jsut following the loop
 expression in the sequence of instructions.
 
 ```sarl
-	for (v : tab) {
-		if (v == 1) {
-			break
-		}
+for (v : tab) {
+	if (v == 1) {
+		break
 	}
+}
 ```
 
 
@@ -126,9 +126,9 @@ This documentation is inspired by the documentations from the
 ##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -138,4 +138,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

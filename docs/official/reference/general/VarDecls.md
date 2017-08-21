@@ -56,14 +56,14 @@ The type of the variable itself can either be explicitly declared or it can be i
 In the following example, the type of the variable is explicitly given:
 
 ```sarl
-	var a : String = "abc"
+var a : String = "abc"
 ```
 
 
 In the following example, the type of the variable is inferred to `String`:
 
 ```sarl
-	var a = "abc"
+var a = "abc"
 ```
 
 
@@ -90,9 +90,9 @@ This documentation is inspired by the documentations from the
 ##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -102,4 +102,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

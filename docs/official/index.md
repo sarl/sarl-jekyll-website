@@ -74,6 +74,27 @@ layout: default
 ###5.1. General Syntax
 
 * [General Syntax Reference](./reference/GeneralSyntax.html)
+* Structural elements;
+	* [Script format](./reference/general/Script.html)
+	* [Function declaration](./reference/general/FuncDecls.html)
+	* [Synthetic Functions](./reference/general/SyntheticFunctions.html)
+* Constant expressions:
+	* [Numerical, string, and collection literals](./reference/general/Literals.html)
+* Structuring expressions:
+	* [Block expression](./reference/general/Block.html)
+	* [If-then-else expression](./reference/general/IfExpression.html)
+	* [Switch expression](./reference/general/SwitchExpression.html)
+	* [Loops](./reference/general/LoopExpression.html)
+	* [Lambda expressions](./reference/general/Lambda.html)
+* Standard expressions:
+	* [Variable and attribute declarations](./reference/general/VarDecls.html)
+	* [Operators](./reference/general/Operators.html)
+	* [Type casting](./reference/general/Cast.html)
+	* [Access to object members](./reference/general/MemberAccess.html)
+	* [Extension methods](./reference/general/Extension.html)
+	* [Synchronization expression](./reference/general/Synchronization.html)
+* Errors and exceptions:
+	* [Exceptions](./reference/general/Exception.html)
 
 ###5.2. Agent-Oriented Programming
 
@@ -108,9 +129,9 @@ layout: default
 ##8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -120,4 +141,4 @@ layout: default
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

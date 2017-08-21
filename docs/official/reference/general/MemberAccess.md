@@ -55,16 +55,16 @@ be defined to enable public scope access.
 In the example, only the getter and setter functions for `prop2` are defined.
 
 ```sarl
-	agent A {
-		var prop1 : Object
-		var prop2 : Object
-		def getProperty2 : Object {
-			return this.prop2
-		}
-		def setProperty2(o : Object) {
-			this.prop2 = o
-		}
+agent A {
+	var prop1 : Object
+	var prop2 : Object
+	def getProperty2 : Object {
+		return this.prop2
 	}
+	def setProperty2(o : Object) {
+		this.prop2 = o
+	}
+}
 ```
 
 
@@ -113,8 +113,8 @@ To access a static field or method you can use the recommended Java syntax or th
 That means, the following expressions are pairwise equivalent:
 
 ```sarl
-	var a = Integer::TYPE
-	var b = Integer.TYPE
+var a = Integer::TYPE
+var b = Integer.TYPE
 ```
 
 
@@ -125,7 +125,7 @@ Checking for null references can make code very unreadable.
 The variable `myRef` is assumed to be declared.
 
 ```sarl
-	if (myRef !== null) myRef.length() else 0
+if (myRef !== null) myRef.length() else 0
 ```
 
 
@@ -134,7 +134,7 @@ In many situations, it is correct for an expression to return a default value (`
 SARL includes the safe navigation operator `?.`. to do the null-check test and make such code better readable.
 
 ```sarl
-	myRef?.length()
+myRef?.length()
 ```
 
 
@@ -146,10 +146,10 @@ In this case, the `super` keyword invoks the inherited implementation of the met
 from the overriding method.
 
 ```sarl
-	def anAction {
-		// Call the inherited implementation
-		super.anAction
-	}
+def anAction {
+	// Call the inherited implementation
+	super.anAction
+}
 ```
 
 
@@ -166,9 +166,9 @@ If type arguments are omitted, they will be inferred from the current context si
 diamond operator on generic method and constructor call.
 
 ```sarl
-	var a = new Integer(345)
-	var b = new ArrayList<Integer>()
-	var c = new ArrayList<Integer>
+var a = new Integer(345)
+var b = new ArrayList<Integer>()
+var c = new ArrayList<Integer>
 ```
 
 
@@ -183,12 +183,12 @@ of the super type because, in some cases, typing `super` alone (without the pare
 has no effect, and that is an error.</importantnote>
 
 ```sarl
-	new {
-		super() // Call the inherited default constructor
-	}
-	new (param : Address) {
-		super(param) // Call the inherited constructor with a parameter
-	}
+new {
+	super() // Call the inherited default constructor
+}
+new (param : Address) {
+	super(param) // Call the inherited constructor with a parameter
+}
 ```
 
 
@@ -203,9 +203,9 @@ This documentation is inspired by the documentations from the
 ##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -215,4 +215,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

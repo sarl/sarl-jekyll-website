@@ -39,7 +39,7 @@ all the Java files are generated in a folder with the name of the package.
 In the following example, the qualified name of an agent defined in the file is `io.sarl.docs.reference.gsr`.
 
 ```sarl
-	package io.sarl.docs.reference.gsr
+package io.sarl.docs.reference.gsr
 ```
 
 
@@ -65,8 +65,8 @@ wildcard character `*`. The second import directive is an example of the inclusi
 all the classes defined in `java.net`.
 
 ```sarl
-	import java.util.List
-	import java.net.*
+import java.util.List
+import java.net.*
 ```
 
 
@@ -80,11 +80,11 @@ To do this, you may invoke the static function with the fully qualified name of 
 class. For example, the function `max` is invoked with this syntax in the example below.
 
 ```sarl
-	import java.util.Collections
-	//...
-	
-			var col : Collection<Integer>
-			Collections::max(col)
+import java.util.Collections
+//...
+
+		var col : Collection<Integer>
+		Collections::max(col)
 ```
 
 
@@ -99,11 +99,11 @@ Following this import, it is possible to invoke a static function with its unqua
 name, as the call to `max` below.
 
 ```sarl
-	import static java.util.Collections.*
-	//...
-	
-			var col : Collection<Integer>
-			max(col)
+import static java.util.Collections.*
+//...
+
+		var col : Collection<Integer>
+		max(col)
 ```
 
 
@@ -115,14 +115,14 @@ core concepts of SARL, such as `agent`, `event`, or `capacity`.
 All these top-level features are documented in their own reference documents.
 
 ```sarl
-	package io.sarl.docs.reference.gsr
-	agent MyAgent {
-	}
-	
-	event MyEvent
-	
-	capacity MyCapacity {
-	}
+package io.sarl.docs.reference.gsr
+agent MyAgent {
+}
+
+event MyEvent
+
+capacity MyCapacity {
+}
 ```
 
 
@@ -134,20 +134,20 @@ application with a single language: SARL. The object-oriented programmation supp
 is described in the [reference documentation](../OOP.html).
 
 ```sarl
-	package io.sarl.docs.reference.gsr
-	
-	class MyClass {
-	}
-	
-	interface MyInterface {
-	}
-	
-	enum MyEnum {
-		CONSTANT
-	}
-	
-	annotation MyAnnotation {
-	}
+package io.sarl.docs.reference.gsr
+
+class MyClass {
+}
+
+interface MyInterface {
+}
+
+enum MyEnum {
+	CONSTANT
+}
+
+annotation MyAnnotation {
+}
 ```
 
 
@@ -162,9 +162,9 @@ This documentation is inspired by the documentations from the
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -174,4 +174,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

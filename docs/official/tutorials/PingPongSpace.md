@@ -30,12 +30,7 @@ layout: default
   <li><a href="#4-4-sending-the-first-ping">4.4. Sending the first Ping</a></li>
   <li><a href="#4-5-delaying-the-sending-of-the-first-ping">4.5. Delaying the sending of the first Ping</a></li>
 </ul>
-<li><a href="#5-compile-and-launch-the-agents">5. Compile and Launch the agents</a></li>
-<ul>
-  <li><a href="#5-1-compile-the-code">5.1. Compile the code</a></li>
-  <li><a href="#5-2-method-1-execute-each-agent-in-their-own-instance-of-janus">5.2. Method 1: Execute each agent in their own instance of Janus</a></li>
-  <li><a href="#5-3-method-2-execute-all-the-agents-in-a-single-instance-of-janus">5.3. Method 2: Execute all the agents in a single instance of Janus</a></li>
-</ul>
+<li><a href="#5-launch-the-agents">5. Launch the agents</a></li>
 <li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
@@ -47,7 +42,7 @@ Before reading this document, it is recommended reading the
 [General Syntax Reference](../reference/GeneralSyntax.html).
 
 <div class="bt-download">
-<a href="http://maven.sarl.io/last-demos-release.jar"><img alt="Download the Binary JAR file" src="http://www.sarl.io/images/download-icon.png"/></a>
+<a href="https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-demos-pingpongspace"><img alt="See the code" src="http://www.sarl.io/images/download-icon.png"/></a>
 </div>
 The elements that are explained in this tutorial are:
 
@@ -59,7 +54,7 @@ The elements that are explained in this tutorial are:
 * the definition of a _proactive_ behavior: waiting for partners.
 
 The source code related to this tutorial may be found in the
-[SARL demos](https://github.com/sarl/sarl-demos/tree/master/src/main/sarl/io/sarl/docs/tutorials/pingpongspace).
+[GitHub of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-demos-pingpongspace).
 
 
 ##1. Principle of the Application
@@ -101,12 +96,12 @@ The `Pong` is an event that contains the index of the `Ping` event for which the
 The `index` attribute is also a _value_, and it must be set in a constructor. 
 
 ```sarl
-	event Pong {
-		val index : int
-		new(i : int) {
-			this.index = i
-		}
+event Pong {
+	val index : int
+	new(i : int) {
+		this.index = i
 	}
+}
 ```
 
 
@@ -121,8 +116,8 @@ for `Ping` events, and replying `Ping` events.
 The initial definition of the pong agent is:
 
 ```sarl
-	agent PongAgent {
-	}
+agent PongAgent {
+}
 ```
 
 
@@ -143,19 +138,19 @@ the `Behaviors` capacity).
 
 
 ```sarl
-	agent PongAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+}
 ```
 
 
@@ -169,21 +164,21 @@ This handler will be invoked by the runtime environment each time the agent is
 receiving a `Ping` event.
 
 ```sarl
-	agent PongAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Ping {
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Ping {
+	}
+}
 ```
 
 
@@ -214,24 +209,24 @@ event by yourself. The source of the event is the address of the pong agent in
 the sub-space. This address is replied by the `getAddress` function.
 
 ```sarl
-	agent PongAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Ping {
-			var evt = new Pong( occurrence.index )
-			evt.source = ^space.getAddress(getID)
-			^space.emit( evt )
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Ping {
+		var evt = new Pong( occurrence.index )
+		evt.source = ^space.getAddress(getID)
+		^space.emit( evt )
+	}
+}
 ```
 
 
@@ -261,25 +256,25 @@ which is getting a collection of addresses for building the matching predicate i
 In the following code, the scope permits to restrict to the initial sender of the `Ping` event. 
 
 ```sarl
-	agent PongAgent {
-		uses DefaultContextInteractions, Behaviors
+agent PongAgent {
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Ping {
-			var evt = new Pong( occurrence.index )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(
-				evt,
-				Scopes.addresses( occurrence.source ))
-		}
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Ping {
+		var evt = new Pong( occurrence.index )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(
+			evt,
+			Scopes.addresses( occurrence.source ))
+	}
+}
 ```
 
 
@@ -295,19 +290,19 @@ events, and waiting for `Pong` events.
 The initial definition of the ping agent is:
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+}
 ```
 
 
@@ -318,21 +313,21 @@ The ping agent needs to handle the `Pong` events. For that, a "behavior unit" mu
 defined in the agent.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Pong {
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Pong {
+	}
+}
 ```
 
 
@@ -348,24 +343,24 @@ The receiving of the `Ping` event is restricted to the sender of the
 `Pong` event.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-		}
-		on Pong {
-			var evt = new Ping( occurrence.index + 1 )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(evt) [ it == occurrence.source ]
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
 	}
+	on Pong {
+		var evt = new Ping( occurrence.index + 1 )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(evt) [ it == occurrence.source ]
+	}
+}
 ```
 
 
@@ -379,27 +374,27 @@ This emit is done when the ping agent is started, i.e. when the agent is
 receiving the `Initialize` event.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-			var evt = new Ping(0)
-			evt.source = ^space.getAddress(getID)
-			^space.emit( evt )
-		}
-		on Pong {
-			var evt = new Ping( occurrence.index + 1 )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(evt) [ it == occurrence.source ]
-		}
+	uses DefaultContextInteractions, Behaviors
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
+		var evt = new Ping(0)
+		evt.source = ^space.getAddress(getID)
+		^space.emit( evt )
 	}
+	on Pong {
+		var evt = new Ping( occurrence.index + 1 )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(evt) [ it == occurrence.source ]
+	}
+}
 ```
 
 
@@ -426,123 +421,51 @@ one agent belonging to the default space. If not, the agent is sending the initi
 `Ping` event, and stopping the periodic task.
 
 ```sarl
-	agent PingAgent {
-		
-		uses DefaultContextInteractions, Behaviors, Schedules
+agent PingAgent {
 	
-		var ^space : OpenEventSpace
-		
-		on Initialize {
-			^space = defaultContext.getOrCreateSpaceWithSpec(
-				typeof(OpenEventSpaceSpecification),
-				occurrence.parameters.get(0) as UUID)
-			^space.register(asEventListener())
-			val task = task("waiting_for_partner")
-			task.every(1000) [
-				if (defaultSpace.participants.size > 1) {
-					var evt = new Ping(0)
-					evt.source = ^space.getAddress(getID)
-					^space.emit( evt )
-					task.cancel
-				}
-			]
-		}
-		on Pong {
-			var evt = new Ping( occurrence.index + 1 )
-			evt.source = ^space.getAddress(getID)
-			^space.emit(evt) [ it == occurrence.source ]
-		}
+	uses DefaultContextInteractions, Behaviors, Schedules
+
+	var ^space : OpenEventSpace
+	
+	on Initialize {
+		^space = defaultContext.getOrCreateSpaceWithSpec(
+			typeof(OpenEventSpaceSpecification),
+			occurrence.parameters.get(0) as UUID)
+		^space.register(asEventListener())
+		val task = task("waiting_for_partner")
+		task.every(1000) [
+			if (defaultSpace.participants.size > 1) {
+				var evt = new Ping(0)
+				evt.source = ^space.getAddress(getID)
+				^space.emit( evt )
+				task.cancel
+			}
+		]
 	}
+	on Pong {
+		var evt = new Ping( occurrence.index + 1 )
+		evt.source = ^space.getAddress(getID)
+		^space.emit(evt) [ it == occurrence.source ]
+	}
+}
 ```
 
 
 
-##5. Compile and Launch the agents
+##5. Launch the agents
 
 The fourth step of this tutorial is the definition of the launching process.
 In the rest of this section, we discuss the use of the
 [Janus runtime environment](http://www.janusproject.io)
 for running the agents.
-
 The Janus platform is designed to launch a single agent at start-up.
 Then, this launched agent must spawn the other agents in the system.
 
-<importantnote> In this section, we explain how to launch the agents from the command line interface.
-For launching the agents from the Eclipse IDE, please read
-["Run SARL Agent in the Eclipse IDE"](../gettingstarted/RunSARLAgentEclipse.html).
-</importantnote>
-
-
-###5.1. Compile the code
-
-You must have a file that contains the compiled files of the tutorial, the Janus platform,
-and all the needed libraries by SARL and Janus.
-
-You could directly download this file by clicking on the download icon at the top of this
-page; or by compiling the source code yourself.
-
-If you download the source code of the [SARL demos](https://github.com/sarl/sarl-demos), and
-compile them with [Maven](http://maven.apache.org), you will obtain a JAR file with all
-the mandatory elements inside. This file is located in the `target` folder,
-and it has a name similar to `sarl-demos-0.1.0-with-dependencies.jar`.
-
-
-###5.2. Method 1: Execute each agent in their own instance of Janus
-
-The principle is to run each agent is a different instance of the  Janus platform.
-
-
-#### Execute with a runnable JAR
-
-Here, there are two assumptions:
-
-1. The file `sarl-demos-0.1.0-with-dependencies.jar` is executable, i.e. it can be directly launched by the Java Virtual Machine.
-2. From this file, the JVM is launching the Janus bootstrap automatically, i.e. it has a Main-Class set to `io.janusproject.Boot`.
-
-On the command line, you must launch the Janus instances with:
-
-	java -jar sarl-demos-0.1.0-with-dependencies.jar
-	     io.sarl.docs.tutorials.pingpongspace.PongAgent
-
-
-and:
-
-	java -jar sarl-demos-0.1.0-with-dependencies.jar
-	     io.sarl.docs.tutorials.pingpongspace.PingAgent
-
-
-The file `sarl-demos-0.1.0-with-dependencies.jar` is explained above. 
-The third arguments are the qualified names of the agents to launch.
-
-
-#### Execute without a runnable JAR
-
-In opposite to the previous section, we assume that the file `sarl-demos-0.1.0-with-dependencies.jar`
-is not executable. On the command line, you must launch Janus with:
-
-	java -cp sarl-demos-0.1.0-with-dependencies.jar
-	     io.janusproject.Boot
-	     io.sarl.docs.tutorials.pingpongspace.PongAgent
-
-and:
-
-	java -cp sarl-demos-0.1.0-with-dependencies.jar
-	     io.janusproject.Boot
-	     io.sarl.docs.tutorials.pingpongspace.PingAgent
-
-The file `sarl-demos-0.1.0-with-dependencies.jar` is explained above.
-The string `io.janusproject.Boot` specifies the Java class to launch: the Janus bootstrap.
-The first arguments after the bootstraps are the qualified name  of the agents to launch.
-
-
-###5.3. Method 2: Execute all the agents in a single instance of Janus
 
 The principle is to launch a single instance of Janus, and run all the agents inside.
 Because of the design of the Janus platform, we must define an agent that will launch
 the other agents. This agent is named `BootAgent`. It is defined below.
 
-
-#### Defining the Boot agent
 
 The boot agent uses the `Lifecycle` capacity for launching agents in the default context.
 This capacity provides the function `spawn(Class<? extends Agent>)` for launching an
@@ -551,54 +474,24 @@ it is killing itself. This is done with the `killMe` function, which is provided
 by the `Lifecycle` capacity too.
 
 ```sarl
-	agent BootAgent {
-		uses Lifecycle
-		on Initialize {
-			spawn( PongAgent )
-			spawn( PingAgent )
-			killMe
-		}
+agent BootAgent {
+	uses Lifecycle
+	on Initialize {
+		spawn( PongAgent )
+		spawn( PingAgent )
+		killMe
 	}
+}
 ```
 
-
-
-#### Execute with a runnable JAR
-
-Here, there are two assumptions:
-
-1. The file `sarl-demos-0.1.0-with-dependencies.jar` is executable, i.e. it can be directly launched by the Java Virtual Machine.
-2. From this file, the JVM is launching the Janus bootstrap automatically, i.e. it has a Main-Class set to `io.janusproject.Boot`.
-
-On the command line, you must launch the Janus instance with:
-
-	java -jar sarl-demos-0.1.0-with-dependencies.jar
-	     io.sarl.docs.tutorials.pingpongspace.BootAgent
-
-The file `sarl-demos-0.1.0-with-dependencies.jar` is explained above.
-The third argument is the qualified name of the agent to launch.
-
-
-#### Execute without a runnable JAR
-
-In opposite to the previous section, we assume that the file `sarl-demos-0.1.0-with-dependencies.jar`
-is not executable. On the command line, you must launch Janus with:
-
-	java -cp sarl-demos-0.1.0-with-dependencies.jar
-	     io.janusproject.Boot
-	     io.sarl.docs.tutorials.pingpongspace.BootAgent
-
-The file `sarl-demos-0.1.0-with-dependencies.jar` is explained above.
-The string `io.janusproject.Boot` specifies the Java class to launch: the Janus bootstrap.
-The first argument after the bootstrap is the qualified name of the agent to launch.
 
 
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -608,4 +501,4 @@ The first argument after the bootstrap is the qualified name of the agent to lau
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>

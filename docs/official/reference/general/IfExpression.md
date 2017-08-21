@@ -26,10 +26,10 @@ The following results in either the value e1 or e2 depending on whether the pred
 `true` or `false`.
 
 ```sarl
-	if (e1 !== null) 
-		e1
-	else
-		e2
+if (e1 !== null) 
+	e1
+else
+	e2
 ```
 
 
@@ -40,8 +40,7 @@ The else part is optional, which is a shorthand for an else branch that returns 
 default value of the current type.
 
 ```sarl
-	if (e1 !== null) 
-	e1
+if (e1 !== null) e1
 ```
 
 
@@ -52,7 +51,9 @@ This syntax is known as the [conditional operator, inline if, or ternary if](htt
 in many programming languages.
 In programming languages such as Java or C/C++, this conditional operator has the syntax:
 
-	a ? b : c
+```java
+a ? b : c
+```
 
 It evaluates to `b` if the value of `a` is true, otherwise to `c`.
 
@@ -62,7 +63,7 @@ Consequently, there is no need of a specific syntax for the conditional operator
 The following example is the SARL equivelant of the Java conditional operator:
 
 ```sarl
-	if (a) b else c
+if (a) b else c
 ```
 
 
@@ -70,7 +71,7 @@ The following example is the SARL equivelant of the Java conditional operator:
 You can use `if` expressions deeply nested within expressions:
 
 ```sarl
-	val name = if (e1 !== null) e1 + ' ' + e2 else e2
+val name = if (e1 !== null) e1 + ' ' + e2 else e2
 ```
 
 
@@ -84,9 +85,9 @@ This documentation is inspired by the documentations from the
 ##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.5
-* Status: Stable Release
-* Release: 2017-08-15
+* Version: 0.6
+* Status: Draft Release
+* Release: 2017-08-21
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -96,4 +97,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.5.7.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
