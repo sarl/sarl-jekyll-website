@@ -72,7 +72,7 @@ functions are provided for this task:
 
 ```sarl
 def spawn(agentType : Class<? extends Agent>, parameters : Object*) : UUID
-def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object*) : Collection<UUID>
+def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object*) : Iterable<UUID>
 ```
 
 
@@ -100,7 +100,7 @@ agent A {
 	uses Lifecycle
 	def myaction {
 		var aid : UUID
-		var listaid : Collection<UUID>
+		var listaid : Iterable<UUID>
 		var type : Class<? extends Agent>
 		var p1 : Object
 		var p2 : Object
@@ -153,7 +153,7 @@ agent A {
 	def myaction {
 		var c : AgentContext
 		var aid : UUID
-		var listaid : Collection<UUID>
+		var listaid : Iterable<UUID>
 		var type : Class<? extends Agent>
 		var p1 : Object
 		var p2 : Object
@@ -216,7 +216,7 @@ agent A {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

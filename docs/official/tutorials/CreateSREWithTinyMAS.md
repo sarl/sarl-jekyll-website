@@ -82,7 +82,7 @@ SRE executes or interprets compiled SARL code on an "hardware platform."
 The figure below illustrates the compilation process of a SARL program in which the
 run-time environment is involved.
 
-![SARL Generation Process](http://www.sarl.io/images/compilation-process.png)
+![SARL Generation Process](http://www.sarl.io/images/compilation_process.png)
 
 The Tiny Multiagent Platform (tinyMAS) is a very small software platform, which permits to implement
 and run agent-based systems. This platform was written by St&eacute;phane GALLAND and Nicolas GAUD for the
@@ -809,6 +809,9 @@ class LoggingSkill extends Skill implements Logging {
 	}
 	def setLogLevel(level : int) {
 	}
+	def getLogger : Logger {
+		null
+	}
 	def error(message : Object, exception : Throwable = null, parameters : Object*) {
 		System::out.println("[" + getId.getString + "] ERROR: " + message)
 		if (exception !== null) {
@@ -1266,11 +1269,13 @@ Two functions must be implemented for accessing to the internal list of the beha
 def hasRegisteredBehavior : boolean {
 	!this.behaviors.isEmpty
 }
-def getRegisteredBehaviors : Collection<Behavior> {
-	new ArrayList(this.behaviors)
+def getRegisteredBehaviors : SynchronizedIterable<Behavior> {
+	Collections3::unmodifiableSynchronizedIterable(this.behaviors, this)
 }
 ```
 
+		
+The function call `Collections3::unmodifiableSynchronizedIterable` is provided by the SARL Development Kit in order to create synchronized collections.
 
 
 #### Updating the tinyMAS agent life-cycle for (un)registering the behaviors
@@ -2254,7 +2259,7 @@ The following XML code gives an example of Maven configuration that enables to u
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

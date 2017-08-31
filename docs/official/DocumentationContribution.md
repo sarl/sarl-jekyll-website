@@ -268,7 +268,7 @@ The other resources, such as images should be in the `src/main/resources` folder
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

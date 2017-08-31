@@ -124,6 +124,7 @@ In the following pages, you could find details on the different elements of the 
 	* [Synchronization expression](./general/Synchronization.html)
 * Errors and exceptions:
 	* [Exceptions](./general/Exception.html)
+	* [Assertions](./general/Assertion.html)
 
 
 
@@ -138,7 +139,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

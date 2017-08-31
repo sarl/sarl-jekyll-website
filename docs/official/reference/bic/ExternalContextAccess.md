@@ -49,7 +49,7 @@ agent A {
 The following function enables an agent to retrieve all the contexts in which it is involved:
 
 ```sarl
-def getAllContexts : SynchronizedCollection<AgentContext>
+def getAllContexts : SynchronizedIterable<AgentContext>
 ```
 
 
@@ -59,7 +59,7 @@ The default context is included in the replied collection.
 ```sarl
 agent A {
 	uses ExternalContextAccess
-	var c : SynchronizedCollection<AgentContext>
+	var c : SynchronizedIterable<AgentContext>
 	def myaction {
 		c = getAllContexts
 	}
@@ -177,7 +177,7 @@ on AnEvent [ isInSpace(occurrence, myspace) ] {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

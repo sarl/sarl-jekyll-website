@@ -23,13 +23,14 @@ layout: default
   <li><a href="#5-2-agent-oriented-programming">5.2. Agent-Oriented Programming</a></li>
   <li><a href="#5-3-object-oriented-programming">5.3. Object-Oriented Programming</a></li>
 </ul>
-<li><a href="#6-other-tools">6. Other Tools</a></li>
+<li><a href="#6-compilation-and-generation-infrastructure">6. Compilation and Generation Infrastructure</a></li>
+<li><a href="#7-other-tools">7. Other Tools</a></li>
 <ul>
-  <li><a href="#6-1-syntax-highlightning">6.1. Syntax Highlightning</a></li>
-  <li><a href="#6-2-command-line-tools">6.2. Command Line Tools</a></li>
+  <li><a href="#7-1-syntax-highlightning">7.1. Syntax Highlightning</a></li>
+  <li><a href="#7-2-command-line-tools">7.2. Command Line Tools</a></li>
 </ul>
-<li><a href="#7-documentation-format">7. Documentation Format</a></li>
-<li><a href="#8-legal-notice">8. Legal Notice</a></li>
+<li><a href="#8-documentation-format">8. Documentation Format</a></li>
+<li><a href="#9-legal-notice">9. Legal Notice</a></li>
 
 </ul>
 
@@ -110,28 +111,33 @@ layout: default
 
 * [Basic Object-Oriented Programming Support](./reference/OOP.html)
 
-##6. Other Tools
+##6. Compilation and Generation Infrastructure
 
-###6.1. Syntax Highlightning
+* [Basics of the SARL Compilation Process](./compilation/Basics.html)
+* [Generation to the Python Language](./compilation/PythonGeneration.html)
+
+##7. Other Tools
+
+###7.1. Syntax Highlightning
 
 * [Syntax highlighting styles for SARL inside other tools](./tools/SyntaxHighlightning.html)
 
-###6.2. Command Line Tools
+###7.2. Command Line Tools
 
 * [sarlc](./tools/Sarlc.html): command-line SARL compiler.
 * [janus](./tools/Janus.html): launching SARL agents with the Janus platform.
 
-##7. Documentation Format
+##8. Documentation Format
 
 * [Specific Markdown format for the documentation](./DocumentationContribution.html)
 
 
-##8. Legal Notice
+##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -14,7 +14,8 @@ layout: default
 <li><a href="#4-retrieve-and-change-the-logging-level">4. Retrieve and change the logging level</a></li>
 <li><a href="#5-testing-the-logging-level">5. Testing the logging level</a></li>
 <li><a href="#6-change-the-name-of-the-logger">6. Change the name of the logger</a></li>
-<li><a href="#7-legal-notice">7. Legal Notice</a></li>
+<li><a href="#7-accessing-to-the-backend-logger">7. Accessing to the backend logger</a></li>
+<li><a href="#8-legal-notice">8. Legal Notice</a></li>
 
 </ul>
 
@@ -195,14 +196,24 @@ agent A {
 ```
 
 
+##7. Accessing to the backend logger
+
+The `Logging` capacity is based on the logging system of run-time virtual machine.
+The `getLogger` function provides you the access to the backend logger that is associated to the agent. 
+
+```sarl
+def getLogger : Logger
+```
 
 
-##7. Legal Notice
+
+
+##8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

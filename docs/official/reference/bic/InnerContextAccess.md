@@ -74,7 +74,7 @@ def getMemberAgentCount : int
 The third function replies all the member agents in the inner context:
 
 ```sarl
-def getMemberAgents : SynchronizedSet<UUID>
+def getMemberAgents : SynchronizedIterable<UUID>
 ```
 
 
@@ -86,7 +86,7 @@ agent A {
 	uses InnerContextAccess
 	var b : boolean
 	var n : int
-	var m : SynchronizedSet<UUID>
+	var m : SynchronizedIterable<UUID>
 	def myaction {
 		b = hasMemberAgent
 		n = getMemberAgentCount
@@ -132,7 +132,7 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

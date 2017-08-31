@@ -213,8 +213,8 @@ interface CollectionLiterals {
 	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
 	def newLinkedList(Object[]*) : LinkedList<Object>
 	def newImmutableSet(Object[]*) : Set<Object>
-	def newImmutableList(Object[]*) : List<Object>
 	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
+	def newImmutableList(Object[]*) : List<Object>
 	def emptySet : Set<Object>
 	def emptyList : List<Object>
 	def emptyMap : Map<Object, Object>
@@ -354,7 +354,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -226,12 +226,12 @@ The `IterableExtensions` class extends the class `Iterable` with the following f
 
 ```sarl
 interface IterableExtensions {
-	def reject(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
+	def findFirst(Iterable<Object>, (Object) => Boolean) : Object
 	def last(Iterable<Object>) : Object
 	def take(Iterable<Object>, int) : Iterable<Object>
 	def flatten(Iterable<Iterable<Object>>) : Iterable<Object>
 	def elementsEqual(Iterable<Object>, Iterable<Object>) : boolean
-	def findFirst(Iterable<Object>, (Object) => Boolean) : Object
+	def reject(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def toList(Iterable<Object>) : List<Object>
 	def toSet(Iterable<Object>) : Set<Object>
 	def forall(Iterable<Object>, (Object) => Boolean) : boolean
@@ -280,12 +280,12 @@ The `IteratorExtensions` class extends the class `Iterator` with the following f
 
 ```sarl
 interface IteratorExtensions {
-	def reject(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
+	def findFirst(Iterator<Object>, (Object) => Boolean) : Object
 	def last(Iterator<Object>) : Object
 	def take(Iterator<Object>, int) : Iterator<Object>
-	def elementsEqual(Iterator<Object>, Iterator<Object>) : boolean
 	def elementsEqual(Iterator<Object>, Iterable<Object>) : boolean
-	def findFirst(Iterator<Object>, (Object) => Boolean) : Object
+	def elementsEqual(Iterator<Object>, Iterator<Object>) : boolean
+	def reject(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
 	def toList(Iterator<Object>) : List<Object>
 	def toSet(Iterator<Object>) : Set<Object>
 	def forall(Iterator<Object>, (Object) => Boolean) : boolean
@@ -1336,20 +1336,20 @@ interface SARLTimeExtensions {
 	def seconds(float) : long
 	def seconds(double) : long
 	def seconds(long) : long
-	def days(byte) : long
-	def days(Number) : long
-	def days(double) : long
-	def days(short) : long
-	def days(int) : long
-	def days(float) : long
-	def days(long) : long
+	def milliseconds(int) : long
+	def milliseconds(short) : long
+	def milliseconds(byte) : long
+	def milliseconds(Number) : long
 	def milliseconds(double) : long
 	def milliseconds(float) : long
 	def milliseconds(long) : long
-	def milliseconds(byte) : long
-	def milliseconds(Number) : long
-	def milliseconds(int) : long
-	def milliseconds(short) : long
+	def days(byte) : long
+	def days(short) : long
+	def days(int) : long
+	def days(long) : long
+	def days(Number) : long
+	def days(double) : long
+	def days(float) : long
 	def weeks(int) : long
 	def weeks(long) : long
 	def weeks(float) : long
@@ -1376,7 +1376,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
 * Status: Draft Release
-* Release: 2017-08-21
+* Release: 2017-08-31
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
