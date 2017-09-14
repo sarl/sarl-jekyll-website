@@ -226,30 +226,30 @@ The `IterableExtensions` class extends the class `Iterable` with the following f
 
 ```sarl
 interface IterableExtensions {
+	def take(Iterable<Object>, int) : Iterable<Object>
+	def reject(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def findFirst(Iterable<Object>, (Object) => Boolean) : Object
 	def last(Iterable<Object>) : Object
-	def take(Iterable<Object>, int) : Iterable<Object>
 	def flatten(Iterable<Iterable<Object>>) : Iterable<Object>
 	def elementsEqual(Iterable<Object>, Iterable<Object>) : boolean
-	def reject(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def toList(Iterable<Object>) : List<Object>
 	def toSet(Iterable<Object>) : Set<Object>
 	def forall(Iterable<Object>, (Object) => Boolean) : boolean
 	def groupBy(Iterable<Object>, (Object) => Object) : Map<Object, List<Object>>
+	def sortBy(Iterable<Object>, (Object) => Object) : List<Object>
 	def isNullOrEmpty(Iterable<Object>) : boolean
 	def filterNull(Iterable<Object>) : Iterable<Object>
 	def operator_plus(Iterable<Object>, Iterable<Object>) : Iterable<Object>
-	def sortBy(Iterable<Object>, (Object) => Object) : List<Object>
 	def fold(Iterable<Object>, Object, (Object, Object) => Object) : Object
-	def findLast(Iterable<Object>, (Object) => Boolean) : Object
-	def drop(Iterable<Object>, int) : Iterable<Object>
-	def toInvertedMap(Iterable<Object>, (Object) => Object) : Map<Object, Object>
 	def sortWith(Iterable<Object>, Comparator<Object>) : List<Object>
 	def takeWhile(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def dropWhile(Iterable<Object>, (Object) => Boolean) : Iterable<Object>
 	def indexed(Iterable<Object>) : Iterable<Pair<Integer, Object>>
 	def minBy(Iterable<Object>, (Object) => Object) : Object
 	def maxBy(Iterable<Object>, (Object) => Object) : Object
+	def findLast(Iterable<Object>, (Object) => Boolean) : Object
+	def drop(Iterable<Object>, int) : Iterable<Object>
+	def toInvertedMap(Iterable<Object>, (Object) => Object) : Map<Object, Object>
 	def min(Iterable<Object>, Comparator<Object>) : Object
 	def min(Iterable<Object>) : Object
 	def max(Iterable<Object>, Comparator<Object>) : Object
@@ -280,12 +280,12 @@ The `IteratorExtensions` class extends the class `Iterator` with the following f
 
 ```sarl
 interface IteratorExtensions {
+	def take(Iterator<Object>, int) : Iterator<Object>
+	def reject(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
 	def findFirst(Iterator<Object>, (Object) => Boolean) : Object
 	def last(Iterator<Object>) : Object
-	def take(Iterator<Object>, int) : Iterator<Object>
-	def elementsEqual(Iterator<Object>, Iterable<Object>) : boolean
 	def elementsEqual(Iterator<Object>, Iterator<Object>) : boolean
-	def reject(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
+	def elementsEqual(Iterator<Object>, Iterable<Object>) : boolean
 	def toList(Iterator<Object>) : List<Object>
 	def toSet(Iterator<Object>) : Set<Object>
 	def forall(Iterator<Object>, (Object) => Boolean) : boolean
@@ -295,14 +295,14 @@ interface IteratorExtensions {
 	def filterNull(Iterator<Object>) : Iterator<Object>
 	def operator_plus(Iterator<Object>, Iterator<Object>) : Iterator<Object>
 	def fold(Iterator<Object>, Object, (Object, Object) => Object) : Object
-	def findLast(Iterator<Object>, (Object) => Boolean) : Object
-	def drop(Iterator<Object>, int) : Iterator<Object>
-	def toInvertedMap(Iterator<Object>, (Object) => Object) : Map<Object, Object>
 	def takeWhile(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
 	def dropWhile(Iterator<Object>, (Object) => Boolean) : Iterator<Object>
 	def indexed(Iterator<Object>) : Iterator<Pair<Integer, Object>>
 	def minBy(Iterator<Object>, (Object) => Object) : Object
 	def maxBy(Iterator<Object>, (Object) => Object) : Object
+	def findLast(Iterator<Object>, (Object) => Boolean) : Object
+	def drop(Iterator<Object>, int) : Iterator<Object>
+	def toInvertedMap(Iterator<Object>, (Object) => Object) : Map<Object, Object>
 	def min(Iterator<Object>) : Object
 	def min(Iterator<Object>, Comparator<Object>) : Object
 	def max(Iterator<Object>) : Object
@@ -1375,8 +1375,8 @@ This documentation is inspired by the documentations from the
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -1386,4 +1386,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

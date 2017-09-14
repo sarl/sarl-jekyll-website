@@ -48,24 +48,30 @@ layout: default
 
 ###1.1. What is SARL?
 
-SARL is a general-purpose agent-oriented language.
+SARL is a statically-typed agent-programming language. SARL aims at providing the fundamental abstractions for
+dealing with concurrency, distribution, interaction, decentralization, reactivity, autonomy and dynamic
+reconfiguration. These high-level features are now considered as the major requirements for an easy
+and practical implementation of modern complex software applications. We are convinced that the
+agent-oriented paradigm holds the keys to effectively meet this challenge.
 
-SARL aims to provide the fundamental abstractions 
-for dealing with concurrency, distribution, interaction, 
-decentralization, reactivity, autonomy, and dynamic 
-reconfiguration. These high-level features are now 
-considered the major requirements for an easy and 
-practical implementation of modern complex software 
-applications. We are convinced that the agent-oriented 
-paradigm holds the keys to effectively meet this challenge.
+Syntactically and semantically SARL has its roots in the Java programming language but improves on many aspects:
 
-Considering the variety of existing approaches and 
-meta-models in the field of agent-oriented engineering 
-and more generally multi-agent systems, our approach 
-remains as generic as possible and highly extensible 
-to easily integrate new concepts and features.
+* [Agent specific statements](../index.html#5-2-agent-oriented-programming) - provide specific statements for agent programming
+* [Type inference](../reference/GeneralSyntax.html) - you rarely need to write down type signatures anymore
+* [Lambda expressions](../reference/general/Lambda.html) - concise syntax for anonymous function literals
+* [Operator overloading](../reference/general/Operators.html) - make your libraries even more expressive
+* [Extension methods](../reference/general/Extension.html) - enhance closed types with new functionality
+* [Powerful switch expressions](../reference/general/SwitchExpression.html) - type based switching with implicit casts
+* [No statements](../reference/GeneralSyntax.html#4-details-on-the-sarl-language-elements) - everything is an expression
+* Full support for Java generics - including all conformance and conversion rules
+* Translates to Java not bytecode - understand what is going on and use your code for platforms such as Android or GWT
+
+Unlike other JVM languages, SARL has zero interoperability issues with Java: everything you write interacts with Java exactly as expected. At the same time, SARL is much more concise, readable and expressive.
 
 __The language is platform- and architecture-independent.__
+
+For a brief comparison between SARL, Java and Xtend languages, see the Section
+"[Comparison between SARL and other languages](../reference/OOP.html#1-comparison-between-sarl-and-other-languages)".
 
 
 ###1.2. Can I use SARL to make agent-based software?
@@ -286,8 +292,8 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -297,4 +303,4 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

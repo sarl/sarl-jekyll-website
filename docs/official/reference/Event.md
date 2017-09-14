@@ -205,7 +205,7 @@ This section introduces the modifiers for the event.
 The modifiers are usually written before the keyword for defining the event.
 
 The complete description of the modifiers' semantic is available in
-[this section](./OOP.html).
+[this section](./OOP.html#7-modifiers).
 
 
 #### Event Modifiers
@@ -255,7 +255,7 @@ events.</veryimportantnote>
 
 Two types of reserved events exist:
 
-* the events reserved in the SARL Core Specification for the [agent's life cycle](./Agent.html); and
+* the events reserved in the SARL Core Specification for the [agent's life cycle](./Agent.html#4-behaviors-of-an-agent); and
 * the events supported by the [Built-in Capacities](./BIC.html).
 
 
@@ -264,8 +264,8 @@ Two types of reserved events exist:
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -275,4 +275,4 @@ Two types of reserved events exist:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

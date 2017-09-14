@@ -171,7 +171,7 @@ This section introduces the modifiers for the behavior. The modifiers are usuall
 written before the keyword for defining the behavior.
 
 The complete description of the modifiers' semantic is available in
-[this section](./OOP.html).
+[this section](./OOP.html#7-modifiers).
 
 
 #### Behavior Modifiers
@@ -542,8 +542,8 @@ behavior MyBehavior {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -553,4 +553,4 @@ behavior MyBehavior {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

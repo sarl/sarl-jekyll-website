@@ -209,12 +209,12 @@ interface CollectionLiterals {
 	def newHashSet(Object[]*) : HashSet<Object>
 	def newLinkedHashSet(Object[]*) : LinkedHashSet<Object>
 	def newTreeSet(Comparator<Object>, Object[]) : TreeSet<Object>
-	def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
 	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
+	def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
 	def newLinkedList(Object[]*) : LinkedList<Object>
 	def newImmutableSet(Object[]*) : Set<Object>
-	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
 	def newImmutableList(Object[]*) : List<Object>
+	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
 	def emptySet : Set<Object>
 	def emptyList : List<Object>
 	def emptyMap : Map<Object, Object>
@@ -242,7 +242,7 @@ The methods from `ArrayLiterals` are automatically included.
 
 ```sarl
 interface ArrayLiterals {
-	def newArrayOfSize(int) : Object[]
+	def newByteArrayOfSize(int) : byte[]
 	def newCharArrayOfSize(int) : char[]
 	def newIntArrayOfSize(int) : int[]
 	def newBooleanArrayOfSize(int) : boolean[]
@@ -250,7 +250,7 @@ interface ArrayLiterals {
 	def newLongArrayOfSize(int) : long[]
 	def newFloatArrayOfSize(int) : float[]
 	def newDoubleArrayOfSize(int) : double[]
-	def newByteArrayOfSize(int) : byte[]
+	def newArrayOfSize(int) : Object[]
 }
 ```
 
@@ -353,8 +353,8 @@ This documentation is inspired by the documentations from the
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -364,4 +364,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

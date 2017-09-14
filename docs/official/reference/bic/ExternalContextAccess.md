@@ -170,14 +170,44 @@ on AnEvent [ isInSpace(occurrence, myspace) ] {
 ```
 
 
+##6. Helper for firing an event in a space
+
+Regarding the definition of the `EventSpace` type, the event emiting function takes at least two parameters:
+
+* the identifier of the entity, which is firing the event, and
+* the event to be fired.
+
+The first parameter is used for setting the event's source when it was not already done.
+
+The `ExternalContextAccess` provides functions for helping to fire events into an event space:
+```sarl
+^space.emit(^event)
+```
 
 
-##6. Legal Notice
+This function's call is takes two parameters:
+
+* `^space` is the variable which contains the reference to the space in which the event should be fired.
+* `^event` is the variable which contains the event to fire.
+
+This function call is equivalent to:
+```sarl
+^space.emit(getID, ^event)
+```
+
+
+The `getID` function is provided by the current entity, e.g. an agent, for obtaining the identifier of the emitter.
+
+From a syntactic point of view, the two calls look similar. But, the call to the `ExternalContextAccess` function uses
+the extension method syntax: the first argument to the function is written prior to the function's name.
+
+
+##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -187,4 +217,4 @@ on AnEvent [ isInSpace(occurrence, myspace) ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

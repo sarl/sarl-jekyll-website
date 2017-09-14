@@ -337,9 +337,9 @@ task :transfer do
   end
 end
 
-#rake build_doc["clean"]
-desc "Build sarl documentation using maven"
-task :build_doc, :option do |t, args|
+#rake build_generaldoc
+desc "Build general doc"
+task :build_generaldoc, :option do |t, args|
   curdir = Dir.pwd
   sarl_copy = ensure_git_sarl_repository(true)
   puts "Compiling documentation ..."
@@ -368,9 +368,9 @@ task :build_javadoc do
   puts "Javadoc generated"
 end
 
-#rake copy_sarl_doc
-desc "Copies SARL Documentation created with build_doc"
-task :copy_sarl_doc do
+#rake copy_generaldoc
+desc "Copy after build_generaldoc"
+task :copy_generaldoc do
   sarl_generated_doc = CONFIG["sarl"]["doc_suite"] + "/" + CONFIG["sarl"]["generated_doc"]
   sarl_copy = ensure_git_sarl_repository(false) 
   puts "Copying documentation to #{FileUtils.pwd}"
@@ -390,7 +390,7 @@ task :copy_sarl_doc do
 end
 
 #rake copy_javadoc
-desc "Copies Java Documentation created with build_javadoc"
+desc "Copy after build_javadoc"
 task :copy_javadoc do
   sarl_generated_apidoc = CONFIG["sarl"]["generated_apidoc"]
   sarl_copy = ensure_git_sarl_repository(false) 
@@ -411,7 +411,7 @@ task :copy_javadoc do
 end
 
 #rake generate_changelog["version number","force generation flag"]
-desc "Generate the changelog file for the current version"
+desc "Generate current version log"
 task :generate_changelog, :version, :force do |t, args|
   sarl_copy = ensure_git_sarl_repository(false)
   template = CONFIG["page"]["template"]
@@ -447,19 +447,25 @@ task :generate_changelog, :version, :force do |t, args|
   create_file(changelog_dir, filename, content, title, editor, true)
 end
 
-desc "Full build of the SARL documentation part of the site : build_doc, copy_sarl_doc, build"
-task :build_sarl_only do
-    Rake::Task[:build_doc].invoke
-    Rake::Task[:copy_sarl_doc].invoke
+desc "build_generaldoc, copy_generaldoc, build"
+task :refresh_generaldoc do
+    Rake::Task[:build_generaldoc].invoke
+    Rake::Task[:copy_generaldoc].invoke
     Rake::Task[:build].invoke
 end
 
-
-desc "Full build of site : build_doc, build_javadoc, copy_sarl_doc, copy_javadoc, build"
-task :build_full do
-    Rake::Task[:build_doc].invoke
+desc "build_javadoc, copy_javadoc, build"
+task :refresh_javadoc do
     Rake::Task[:build_javadoc].invoke
-    Rake::Task[:copy_sarl_doc].invoke
+    Rake::Task[:copy_javadoc].invoke
+    Rake::Task[:build].invoke
+end
+
+desc "refresh_generaldoc, refresh_javadoc"
+task :build_full do
+    Rake::Task[:build_generaldoc].invoke
+    Rake::Task[:build_javadoc].invoke
+    Rake::Task[:copy_generaldoc].invoke
     Rake::Task[:copy_javadoc].invoke
     Rake::Task[:build].invoke
 end

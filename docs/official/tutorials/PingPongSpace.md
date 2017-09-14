@@ -198,20 +198,21 @@ they were defined as actions in the agent.
 The `DefaultContextInteractions` capacity provides the function `emit(Event)` for
 sending an event in the default space of the default context.
 
+The `ExternalContextAccess` capacity provides the function `emit(EventSpace, Event)` for
+sending an event in the given space.
+
+This latest function is used for sending the events.
 
 The `Ping` event must be built with an index value as argument. This argument
 is the index stored in the `Ping` event. For accessing the occurrence of the
 `Ping` event, you must use the special keyword `occurrence`.
 In the following example, the `Pong` event is built with the index argument
-stored in the received `Ping` event. Because an event must always have a source
-and the space is not able to set this source for you, you must set the source of the
-event by yourself. The source of the event is the address of the pong agent in
-the sub-space. This address is replied by the `getAddress` function.
+stored in the received `Ping` event.
 
 ```sarl
 agent PongAgent {
 	
-	uses DefaultContextInteractions, Behaviors
+	uses DefaultContextInteractions, ExternalContextAccess, Behaviors
 
 	var ^space : OpenEventSpace
 	
@@ -223,7 +224,6 @@ agent PongAgent {
 	}
 	on Ping {
 		var evt = new Pong( occurrence.index )
-		evt.source = ^space.getAddress(getID)
 		^space.emit( evt )
 	}
 }
@@ -253,11 +253,20 @@ which is getting a collection of addresses for building the matching predicate i
 
 
 
-In the following code, the scope permits to restrict to the initial sender of the `Ping` event. 
+The SARL SDK contains also the class `IdentifierScope`. It is another implementation of a `Scope` on addresses. The creation
+of an instance of `IdentifierScope` is done with the utility function `Scopes.identifiers(UUID*)`,
+which is getting a collection of identifiers for building the matching predicate in the scope.
+
+
+
+
+In the following code, we select the first type of scope. It permits to restrict to the initial sender
+of the `Ping` event. Because, the address of the initial sender is known directly, it is easier to
+use `Scopes.addresses(Address*)` than Scopes.identifiers(UUID*)`.
 
 ```sarl
 agent PongAgent {
-	uses DefaultContextInteractions, Behaviors
+	uses DefaultContextInteractions, ExternalContextAccess, Behaviors
 
 	var ^space : OpenEventSpace
 	
@@ -269,10 +278,9 @@ agent PongAgent {
 	}
 	on Ping {
 		var evt = new Pong( occurrence.index )
-		evt.source = ^space.getAddress(getID)
 		^space.emit(
 			evt,
-			Scopes.addresses( occurrence.source ))
+			Scopes::addresses( occurrence.source ))
 	}
 }
 ```
@@ -345,7 +353,7 @@ The receiving of the `Ping` event is restricted to the sender of the
 ```sarl
 agent PingAgent {
 	
-	uses DefaultContextInteractions, Behaviors
+	uses DefaultContextInteractions, ExternalContextAccess, Behaviors
 
 	var ^space : OpenEventSpace
 	
@@ -357,7 +365,6 @@ agent PingAgent {
 	}
 	on Pong {
 		var evt = new Ping( occurrence.index + 1 )
-		evt.source = ^space.getAddress(getID)
 		^space.emit(evt) [ it == occurrence.source ]
 	}
 }
@@ -376,7 +383,7 @@ receiving the `Initialize` event.
 ```sarl
 agent PingAgent {
 	
-	uses DefaultContextInteractions, Behaviors
+	uses DefaultContextInteractions, ExternalContextAccess, Behaviors
 
 	var ^space : OpenEventSpace
 	
@@ -386,12 +393,10 @@ agent PingAgent {
 			occurrence.parameters.get(0) as UUID)
 		^space.register(asEventListener())
 		var evt = new Ping(0)
-		evt.source = ^space.getAddress(getID)
 		^space.emit( evt )
 	}
 	on Pong {
 		var evt = new Ping( occurrence.index + 1 )
-		evt.source = ^space.getAddress(getID)
 		^space.emit(evt) [ it == occurrence.source ]
 	}
 }
@@ -423,7 +428,7 @@ one agent belonging to the default space. If not, the agent is sending the initi
 ```sarl
 agent PingAgent {
 	
-	uses DefaultContextInteractions, Behaviors, Schedules
+	uses DefaultContextInteractions, ExternalContextAccess, Behaviors, Schedules
 
 	var ^space : OpenEventSpace
 	
@@ -436,7 +441,6 @@ agent PingAgent {
 		task.every(1000) [
 			if (defaultSpace.participants.size > 1) {
 				var evt = new Ping(0)
-				evt.source = ^space.getAddress(getID)
 				^space.emit( evt )
 				task.cancel
 			}
@@ -444,7 +448,6 @@ agent PingAgent {
 	}
 	on Pong {
 		var evt = new Ping( occurrence.index + 1 )
-		evt.source = ^space.getAddress(getID)
 		^space.emit(evt) [ it == occurrence.source ]
 	}
 }
@@ -490,8 +493,8 @@ agent BootAgent {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -501,4 +504,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

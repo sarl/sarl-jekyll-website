@@ -69,7 +69,12 @@ layout: default
   <li><a href="#12-2-how-to-update-the-jar-manifest-by-hand">12.2. How to update the Jar Manifest by hand</a></li>
   <li><a href="#12-3-maven-plugin-for-updating-the-manifest">12.3. Maven Plugin for Updating the Manifest</a></li>
 </ul>
-<li><a href="#13-legal-notice">13. Legal Notice</a></li>
+<li><a href="#13-configuration-of-a-sre-bootstrap">13. Configuration of a SRE Bootstrap</a></li>
+<ul>
+  <li><a href="#13-1-configuration-by-hand">13.1. Configuration by hand</a></li>
+  <li><a href="#13-2-configuration-with-maven-plugin">13.2. Configuration with Maven plugin</a></li>
+</ul>
+<li><a href="#14-legal-notice">14. Legal Notice</a></li>
 
 </ul>
 
@@ -82,7 +87,7 @@ SRE executes or interprets compiled SARL code on an "hardware platform."
 The figure below illustrates the compilation process of a SARL program in which the
 run-time environment is involved.
 
-![SARL Generation Process](http://www.sarl.io/images/compilation_process.png)
+![SARL Generation Process](../compilation/compilation_process.png)
 
 The Tiny Multiagent Platform (tinyMAS) is a very small software platform, which permits to implement
 and run agent-based systems. This platform was written by St&eacute;phane GALLAND and Nicolas GAUD for the
@@ -1088,7 +1093,7 @@ class DefaultContextInteractionsSkill extends Skill implements DefaultContextInt
 		contextID == (defaultSpace as TMDefaultSpace).agentContext.ID
 	}
 	def isDefaultSpace(^space : Space) : boolean {
-		^space.ID == defaultSpace.spaceID
+		^space.spaceID == defaultSpace.spaceID
 	}
 	def isDefaultSpace(^space : SpaceID) : boolean {
 		^space == defaultSpace.spaceID
@@ -1136,10 +1141,10 @@ def emit(^event : Event, scope : Scope<Address> = null) {
 	if (^event.source === null) {
 		^event.source = defaultSpace.getAddress(owner.ID)
 	}
-	defaultSpace.emit(^event, scope)
+	defaultSpace.emit(owner.ID, ^event, scope)
 }
 def willReceive(receiver : UUID, ^event : Event) {
-	emit(^event, Scopes::addresses(defaultSpace.getAddress(receiver)))
+	emit(^event, Scopes::identifiers(receiver))
 }
 ```
 
@@ -1617,8 +1622,8 @@ Executing the registered tasks must be supported by a specific function, named `
 This function determines the current time (`currentTime`) in the tinyMAS platform.
 Then, it retrieves the `list` of the tasks to start at the current time.
 
-For each task in the `list`, the function tests if the task was cancelled or not.
-If the task was not cancelled, the function retrieves the task's guard (the condition
+For each task in the `list`, the function tests if the task was canceled or not.
+If the task was not canceled, the function retrieves the task's guard (the condition
 of execution) and evaluates it.
 
 If the task's guard is evaluated to <code>true</code>, the function executes
@@ -2067,8 +2072,8 @@ class Boot extends Kernel {
 				agentType = null
 			}
 			var spawnEvent = new AgentSpawned(source,
-					Identifiers::toUUID(id),
-					agentType)
+					agentType,
+					Identifiers::toUUID(id))
 			containingBoot.defaultSpace.emit(spawnEvent)
 		}
 		def kernelAgentRemoved(kernel : Kernel, ^agent : Agent, id : AgentIdentifier) {
@@ -2237,7 +2242,7 @@ The following XML code gives an example of Maven configuration that enables to u
 					<noMoreOption></noMoreOption>
 					<standaloneSRE>true</standaloneSRE>
 				</commandLineOptions>
-				<mainClass>${cliRunnerMainClass}</mainClass>
+				<mainClass>org.arakhne.tinymas.sarl.Boot</mainClass>
 			</configuration>
 
 			<executions>
@@ -2253,13 +2258,92 @@ The following XML code gives an example of Maven configuration that enables to u
 </build>
 ```
 
+##13. Configuration of a SRE Bootstrap
 
-##13. Legal Notice
+An SRE bootstrap is a service that is provided by a SRE (here TinyMAS) for launching agents.
+
+A bootstrap service is a well-known interface, named `SREBootstrap` that enables to launch agents
+programmatically without having a specific SRE library into the *compilation classpath* of your project.
+
+The `SREBootstrap` service provides the following functions:
+
+```sarl
+interface SREBootstrap {
+	def isActive : boolean
+	def getBootAgentIdentifier : UUID
+	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
+	def startAgent(Class<Agent>, Object[]) : UUID
+}
+```
+
+
+
+###13.1. Configuration by hand
+
+A SRE library, e.g. [Janus](../tools/Janus.html) may provide an implementation of the `SREBootstrap` service.
+In order to found this implementation dynamically, the SRE library should declare the bootstrap implementation class.
+To do so, the file `META-INF/services/io.sarl.core.SREBootstrap` must be created.
+This file contains a single line, which is the fully qualified name of the bootstrap implementation class.
+
+As soon the SRE library is included into the *run-time classpath*, the SRE utility class is able to find the
+bootstrap implementation class. This SRE utility class is the major front-end for launching the agents programmatically.
+
+
+###13.2. Configuration with Maven plugin
+
+The above `io.sarl.maven.sre` Maven plugin provides a tool for created the service definition.
+First, you have to define the `bootstrap` property with the fully qualified name of the bootstrap implementation class.
+Second, you should run the `addbootstrap` goal.
+The resulting Mavne configuration becomes (after upadting the configuration above):
+
+```xml
+<build>
+	<plugins>
+		<plugin>
+			<groupId>io.sarl.maven</groupId>
+			<artifactId>io.sarl.maven.sre</artifactId>
+			<version>${sarl.version}</version>
+			<configuration>
+				<sreName>TinyMAS</sreName>
+				<commandLineOptions>
+					<hideInfo></hideInfo>
+					<hideLogo></hideLogo>
+					<showInfo></showInfo>
+					<showLogo></showLogo>
+					<defaultContextId></defaultContextId>
+					<randomContextId></randomContextId>
+					<bootAgentContextId></bootAgentContextId>
+					<offline></offline>
+					<embedded></embedded>
+					<noMoreOption></noMoreOption>
+					<standaloneSRE>true</standaloneSRE>
+				</commandLineOptions>
+				<mainClass>org.arakhne.tinymas.sarl.Boot</mainClass>
+				<bootstrap>$org.arakhne.tinymas.sarl.Bootstrap</bootstrap>
+			</configuration>
+
+			<executions>
+				<execution>
+					<id>update-manifest-standard</id>
+					<goals>
+						<goal>updatemanifest</goal>
+						<goal>addbootstrap</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+ 	</plugins>
+</build>
+```
+
+
+
+##14. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -2269,4 +2353,4 @@ The following XML code gives an example of Maven configuration that enables to u
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

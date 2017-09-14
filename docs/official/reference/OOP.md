@@ -8,16 +8,19 @@ layout: default
 
 <ul class="page_outline" id="page_outline">
 
-<li><a href="#1-comparison-between-sarl-java-and-xtend">1. Comparison between SARL, Java and Xtend</a></li>
+<li><a href="#1-comparison-between-sarl-and-other-languages">1. Comparison between SARL and Other Languages</a></li>
 <li><a href="#2-class">2. Class</a></li>
 <ul>
   <li><a href="#2-1-define-a-class">2.1. Define a Class</a></li>
   <li><a href="#2-2-class-inheritance">2.2. Class Inheritance</a></li>
   <li><a href="#2-3-define-a-generic-class">2.3. Define a Generic Class</a></li>
   <li><a href="#2-4-constructor-definition">2.4. Constructor Definition</a></li>
-  <li><a href="#2-5-modifiers">2.5. Modifiers</a></li>
-  <li><a href="#2-6-method-overriding">2.6. Method Overriding</a></li>
-  <li><a href="#2-7-accessing-local-variables-of-the-enclosing-scope">2.7. Accessing Local Variables of the Enclosing Scope</a></li>
+  <li><a href="#2-5-static-constructor-definition">2.5. Static Constructor Definition</a></li>
+  <li><a href="#2-6-field-definition">2.6. Field Definition</a></li>
+  <li><a href="#2-7-method-definition">2.7. Method Definition</a></li>
+  <li><a href="#2-8-modifiers">2.8. Modifiers</a></li>
+  <li><a href="#2-9-method-overriding">2.9. Method Overriding</a></li>
+  <li><a href="#2-10-accessing-local-variables-of-the-enclosing-scope">2.10. Accessing Local Variables of the Enclosing Scope</a></li>
 </ul>
 <li><a href="#3-interface">3. Interface</a></li>
 <ul>
@@ -75,60 +78,119 @@ The basics of OOP are enabled in the SARL scripts. If you need more complex or m
 complete support of the OOP, you should use a dedicated language, such as Java,
 [Xtend](https://eclipse.org/xtend/), or [Scala](http://www.scala-lang.org/).
 
-<note>The SARL Eclipse product includes the tools for programming with the Java and Xtend languages</note>
+<note>The SARL Eclipse product includes the tools for programming with the Java and Xtend languages.</note>
 
 
-##1. Comparison between SARL, Java and Xtend
+##1. Comparison between SARL and Other Languages
 
-Java and [Xtend](https://www.eclipse.org/xtend/) are both object-oriented programming languages.
+<a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>, [Xtend](https://www.eclipse.org/xtend/) and
+[Scala](http://scala-lang.org/) are object-oriented programming languages.
 As SARL, Xtend is based on the [Xtext](https://www.eclipse.org/Xtext/) libraries for compiling to the Java language.
 
 The main features coming from the Java language are supported by SARL too. The following table provides the major
-differences between the SARL, Java and Xtend languages regarding the supports of the object-oriented features.
+differences between the SARL, Java, Xtend and Scala languages, excluding any feature provided by the development
+environment (Eclipse, IntelliJ...)
 
 <table><thead>
-<tr><th></th><th>SARL</th><th>Java</th><th>Xtend</th></tr>
+<tr><th></th><th>SARL</th><th>Java</th><th>Xtend</th><th>Scala</th></tr>
 </thead><tbody>
-<tr><td>Object-oriented enumeration</td>
-			<td>No, only constants could be defined</td>
-			<td>Yes, constants and functions could be defined</td>
-			<td>No, only constants could be defined</td></tr>
-<tr><td>Definition of dispatching functions</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>Yes</td></tr>
-<tr><td>Extension methods</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>Yes</td></tr>
-<tr><td>Automatic generation of equals() and hashCode()</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>No</td></tr>
-<tr><td>Automatic generation of clone() when cloneable type</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>No</td></tr>
-<tr><td>Automatic generation of serialVersionUID when serializable type</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>No</td></tr>
-<tr><td>Definition of default values for the formal parameters</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>No</td></tr>
-<tr><td>Definition of lambda expressions</td>
-			<td>Yes</td>
-			<td>Yes</td>
-			<td>Yes</td></tr>
-<tr><td>Inference of types</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>Yes</td></tr>
-<tr><td>Operator overriding</td>
-			<td>Yes</td>
-			<td>No</td>
-			<td>Yes</td></tr>
+<tr><td colspan=5><strong>Agent-oriented programming</strong></td></tr>
+<tr><td><a href="../index.html#agent-oriented-programming">Agent, Capacity, Skill, Behavior...</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Partial: actor paradigm</td></tr>
+<tr><td colspan=5><strong>Object-oriented programming</strong></td></tr>
+<tr><td><a href="./OOP.html">Definition of class and interface types</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="#Enumeration">Object-oriented enumeration</a>
+			<td style="background: orange; color: white;">No, only constants could be defined</td>
+			<td style="background: green; color: white;">Yes, constants and functions could be defined</td>
+			<td style="background: orange; color: white;">No, only constants could be defined</td>
+			<td style="background: green; color: white;">Yes, constants and functions could be defined</td></tr>
+<tr><td><a href="#annotation-type">Definition of annotation types</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="#static-constructor-definition">Definition of static constructors</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">See companion object</td></tr>
+<tr><td>Automatic generation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-"><code>equals()</code></a>
+            and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--"><code>hashCode()</code></a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes, see case class</td></tr>
+<tr><td>Automatic generation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone--"><code>clone()</code></a>
+            when <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html">cloneable type</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td>Automatic generation of a serialVersionUID field when
+        <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html">serializable type</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Manual with <code>@SerialVersionUID</code></td></tr>
+<tr><td colspan=5><strong>Functions, Procedures and Operators</strong></td></tr>
+<tr><td><a href="./general/FuncDecls.html#7-dispatch-function">Definition of dispatch functions</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td></tr>
+<tr><td><a href="./general/Extension.html">Extension methods</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="./general/FuncDecls.html#variadic-function">Definition of variadic functions</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="./general/FuncDecls.html#default-value-for-the-formal-parameters">Definition of default values for the formal parameters</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="./general/Operators.html#operator-overloading">Operator overloading</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td>Automatic detection of <a href="http://download.eclipse.org/modeling/tmf/xtext/javadoc/2.9/org/eclipse/xtext/xbase/lib/Pure.html">pure functions</a> and marking</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td></tr>
+<tr><td colspan=5><strong>Expressions</strong></td></tr>
+<tr><td><a href="./general/Lambda.html">Definition of lambda expressions</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="./general/VarDecls.html#typing">Inference of types</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="./general/LoopExpression.html#breaking-a-loop">Support the <code>break</code> statement</a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html">Support the <code>continue</code> statement</a></td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: green; color: white;">Yes</td></tr>
 </tbody></table>
 
 
@@ -266,14 +328,64 @@ Implicit constructors has the same prototypes as the constructors of the super t
 Details on implicit constructors are given in the reference documentation related to the
 [synthetic functions](./general/SyntheticFunctions.html).
 
+###2.5. Static Constructor Definition
 
-###2.5. Modifiers
+A static constructor is used to initialize any static data, or to perform a particular action that needs to
+be performed once only. It is called automatically before the first instance is created or any static members are referenced.
+In the Java programming language, the static constructor is known as *static initialization block*.
+
+In the following example, the static field `staticField` is defined with the `final` modifier.
+It means the field must be intialized into the field declaration or into a static constructor.
+The static constructor is defined with the `new` prefixed by the `static`.
+The code block of the static constructor contains an assignment that is initializing the `staticField` field.
+
+```sarl
+class MyClass {
+  static val staticField : int
+  
+  static new {
+    staticField = 2
+  }
+}
+```
+
+
+Static constructors have the following properties:
+
+* A static constructor does not take access modifiers or have parameters.
+* A static constructor is called automatically to initialize the class before the first instance is created.
+* A static constructor cannot be called directly.
+* The user has no control on when the static constructor is executed in the program.
+* A static constructor cannot throw an exception, except an *unchecked exception* (instance of `RuntimeException` or `Error`).
+
+
+
+###2.6. Field Definition
+
+A field could be declared into a class following the [variable declaration syntax](./general/VarDecls.html).
+
+A field may be declared with the `static` modifier. In this case, it becomes a static field, or class variable.
+A static field is a variable defined in a class of which a single copy exists, regardless of how many instances of the class exist.
+A static field is not an instance variable. It is a special type of class attribute (or class property, field, or data member).
+
+
+###2.7. Method Definition
+
+A method could be declared into a class following the [function declaration syntax](./general/FuncDecls.html).
+The overriding of an inhertited method is explained in section ["Method Overriding"](#method-overriding).
+
+A method may be declared with the `static` modifier. In this case, it becomes a static method, or class method.
+A static method is a function that is not associated to a specific instance of the class.
+
+
+
+###2.8. Modifiers
 
 Modifiers are used to modify declarations of types and type members. This section introduces the modifiers for the class.
 The modifiers are usually written before the keyword for defining the class.
 
 The complete description of the modifiers' semantic is available in
-[this section](./OOP.html).
+[this section](#modifiers).
 
 
 #### Top Class Modifiers
@@ -433,7 +545,7 @@ private new(p : boolean) { }
 
 
 
-###2.6. Method Overriding
+###2.9. Method Overriding
 
 Method overriding is a language feature that allows a subclass or child class
 to provide a specific implementation of a method that is already provided by
@@ -458,7 +570,7 @@ its behavior. The `override` keyword is specified for clearly marking this
 implementation of `getFullName` as an override of the parent's implementation.
 
 <note>The return type of the `getFullName` method (called with the name `fullName`,
-according to the [property access syntax](./general/MemberAccess.html))
+according to the [property access syntax](./general/MemberAccess.html#1-property-syntax))
 is not specified in the overriding prototype since it could be inferred by the SARL compiler.</note>
 
 For preventing a function to be overridden, you should add the `final` modifier in the signature of
@@ -477,7 +589,7 @@ class PersonEx extends Person {
 
 
 
-###2.7. Accessing Local Variables of the Enclosing Scope
+###2.10. Accessing Local Variables of the Enclosing Scope
 
 Local classes (or nested classes, i.e. classes defined inside an other type) have
 the `static` modifier. It means that a nested class cannot have access to the
@@ -636,7 +748,7 @@ Modifiers are used to modify declarations of types and type members. This sectio
 The modifiers are usually written before the keyword for defining the interface.
 
 The complete description of the modifiers' semantic is available in
-[this section](./OOP.html).
+[this section](#modifiers).
 
 
 #### Top Interface Modifiers
@@ -766,7 +878,7 @@ Modifiers are used to modify declarations of types and type members. This sectio
 The modifiers are usually written before the keyword for defining the enumeration.
 
 The complete description of the modifiers' semantic is available in
-[this section](./OOP.html).
+[this section](#modifiers).
 
 
 #### Top Enumeration Modifiers
@@ -865,7 +977,7 @@ This section introduces the modifiers for the annotation types.
 The modifiers are usually written before the keyword for defining the annotation type.
 
 The complete description of the modifiers' semantic is available in
-[this section](./OOP.html).
+[this section](#modifiers).
 
 #### Top Annotation Type Modifiers
 
@@ -1169,27 +1281,26 @@ Method calls are bound based on the static types of arguments.
 Sometimes this is not what you want. Especially in the context of extension methods
 you would like to have polymorphic behavior.
 
-The `dispatch` modifier permits defining a dispatch method.
+The `dispatch` modifier permits defining a [dispatch method](./general/FuncDecls.html#7-dispatch-function).
 For a set of visible dispatch methods in the current type hierarchy with the same name and
 the same number of arguments, the compiler infers a synthetic dispatcher method.
 This dispatcher uses the common super type of all declared arguments.
-The method name of the actual dispatch cases is prepended with an underscore and the
-visibility of these methods is reducedBy adding the extension keyword to a field, a local variable or a
-parameter declaration, its instance methods become extension methods. to protected if they have been
-defined as public methods.
-Client code always binds to the synthesized dispatcher method.
 
 ```sarl
-def dispatch printType(x : Number) { 
+dispatch def getType(x : Number) { 
   "it's a number" 
 }
  
-def dispatch printType(x : Integer) { 
+dispatch def getType(x : Integer) { 
   "it's an int" 
 }
+dispatch def getType(x : String) { 
+  "it's a string" 
+}
 def clientCode {
-	System.out.println(printType(4.5)) // Print "it's a number"
-	System.out.println(printType(4))   // Print "it's an int"
+	getType(4.5).println
+	getType(4).println
+	getType("a string").println
 }
 ```
 
@@ -1198,7 +1309,7 @@ def clientCode {
 ###7.4. extension Modifier
 
 This modifier enables to mark a field, a formal parameter, or a local variable as
-an [extension provider](./GeneralSyntax.html).
+an [extension provider](./general/Extension.html).
 
 Extension methods allow adding new methods to existing  types without modifying them. This is really 
 helpful as they can greatly improve the readability. They use a simple syntactic trick: the first parameter of a method
@@ -1507,8 +1618,8 @@ Thank you to the contributors to these documents.
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -1518,4 +1629,4 @@ Thank you to the contributors to these documents.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

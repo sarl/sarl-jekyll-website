@@ -31,7 +31,7 @@ are illustrated by the top-left context in the figure above.
 For instance, the `emit` action is a shortcut for:
 
 ```sarl
-defaultContext.defaultSpace.emit(^event)
+defaultContext.defaultSpace.emit(getID, ^event)
 ```
 
 
@@ -98,7 +98,7 @@ agent A {
 The call to `emit` is equivalent to:
 
 ```sarl
-defaultContext.defaultSpace.emit(^event)
+defaultContext.defaultSpace.emit(getID, ^event)
 ```
 
 
@@ -136,11 +136,19 @@ emit(new MyEvent, Scopes::allParticipants)
 
 
 
-A default implementation of a scope using addresses is implemented in the class `io.sarl.util.AddressScope`.
+A default implementation of a scope using addresses, of `Address` type is implemented in the class `io.sarl.util.AddressScope`.
 The utility class `Scopes` provides the `addresses` function for creating an instance of `AddressScope`.
 
 ```sarl
 emit(new MyEvent, Scopes::addresses(a1, a2))
+```
+
+
+Another default implementation of a scope using identifiers, of `UUID` type is implemented in the class `io.sarl.util.IdentifierScope`.
+The utility class `Scopes` provides the `identifiers` function for creating an instance of `IdentifierScope`.
+
+```sarl
+emit(new MyEvent, Scopes::identifiers(id1, id2))
 ```
 
 
@@ -250,8 +258,8 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -261,4 +269,4 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

@@ -83,8 +83,8 @@ SARL provides a Java interface that is representing all the spaces:
 
 ```sarl
 interface Space {
-	def getParticipants : SynchronizedSet<UUID>
 	def getSpaceID : SpaceID
+	def getParticipants : SynchronizedSet<UUID>
 }
 ```
 
@@ -102,8 +102,8 @@ Spaces that are based on event propagation mechanism are defined as:
 
 ```sarl
 interface EventSpace {
-	def emit(Event, Scope<Address>)
-	def emit(Event)
+	def emit(UUID, Event, Scope<Address>)
+	def emit(UUID, Event)
 	def getAddress(UUID) : Address
 }
 ```
@@ -260,7 +260,7 @@ class NetworkPhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
 	
 	def bindBody(entity : EventListener) {
 		this.entities.put(entity.ID, new PhysicObject)
-		var a = new Address(ID, entity.ID)
+		var a = new Address(spaceID, entity.ID)
 		synchronized (this.participantInternalDataStructure) {
 			return this.participantInternalDataStructure.registerParticipant(a, entity)
 		}
@@ -325,8 +325,8 @@ by injection the factory of distributed data structures provided by the Janus pl
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -336,4 +336,4 @@ by injection the factory of distributed data structures provided by the Janus pl
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>

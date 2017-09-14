@@ -19,8 +19,9 @@ layout: default
 <li><a href="#4-variadic-function">4. Variadic Function</a></li>
 <li><a href="#5-default-value-for-the-formal-parameters">5. Default Value for the Formal Parameters</a></li>
 <li><a href="#6-mixing-variadic-parameter-and-default-values">6. Mixing Variadic Parameter and Default Values</a></li>
-<li><a href="#7-acknowledgements">7. Acknowledgements</a></li>
-<li><a href="#8-legal-notice">8. Legal Notice</a></li>
+<li><a href="#7-dispatch-function">7. Dispatch Function</a></li>
+<li><a href="#8-acknowledgements">8. Acknowledgements</a></li>
+<li><a href="#9-legal-notice">9. Legal Notice</a></li>
 
 </ul>
 
@@ -113,7 +114,7 @@ def myaction throws IllegalStateException {
 ##3. Generic Function
 
 Generic functions are methods that introduce their own type parameters. This is similar to declaring a
-[generic type](../OOP.html),
+[generic type](../OOP.html#2-3-define-a-generic-class),
 but the type parameter's scope is limited to the function where it is declared.
 Static and non-static generic functions are allowed.
 
@@ -298,19 +299,76 @@ def action(v : int = 5, a : float*) { }
 
 
 
+##7. Dispatch Function
 
-##7. Acknowledgements
+Generally, method resolution and binding is done statically at compile time.
+Method calls are bound based on the static types of arguments.
+
+Sometimes this is not what you want. Especially in the context of extension methods
+you would like to have polymorphic behavior.
+
+The `dispatch` modifier permits defining a dispatch method.
+
+```sarl
+dispatch def getType(x : Integer) { 
+  "it's an int" 
+}
+dispatch def getType(x : String) { 
+  "it's a string" 
+}
+dispatch def getType(x : Number) { 
+  "it's a number" 
+}
+ 
+def clientCode {
+	getType(4.5).println
+	getType(4).println
+	getType("a string").println
+}
+```
+
+
+
+For a set of visible dispatch methods in the current type hierarchy with the same name and
+the same number of arguments, the compiler infers a synthetic dispatcher method.
+From the example above, the SARL compiler infers the following function, named the synthesized dispatcher.
+
+```sarl
+def printType(x : Object) { 
+  if (x instanceof Integer) {
+    printType(x as Integer)
+  } else if (x instanceof Number) {
+    printType(x as Number)
+  } else if (x instanceof String) {
+    printType(x as String)
+  }
+}
+```
+
+
+This dispatcher uses the common super type of all declared arguments.
+Client code always binds to the synthesized dispatcher method.
+
+In the example, the calls to the `getType` functions produces the output:
+
+	it's a number
+	it's an int
+	it's a string
+
+
+
+##8. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##8. Legal Notice
+##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.6
-* Status: Draft Release
-* Release: 2017-08-31
+* Status: Stable Release
+* Release: 2017-09-14
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -320,4 +378,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
