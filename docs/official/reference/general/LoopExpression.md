@@ -13,8 +13,9 @@ layout: default
 <li><a href="#3-while-loop">3. While Loop</a></li>
 <li><a href="#4-do-while-loop">4. Do-While Loop</a></li>
 <li><a href="#5-breaking-a-loop">5. Breaking a loop</a></li>
-<li><a href="#6-acknowledgements">6. Acknowledgements</a></li>
-<li><a href="#7-legal-notice">7. Legal Notice</a></li>
+<li><a href="#6-jump-to-the-next-iteration">6. Jump to the next iteration</a></li>
+<li><a href="#7-acknowledgements">7. Acknowledgements</a></li>
+<li><a href="#8-legal-notice">8. Legal Notice</a></li>
 
 </ul>
 
@@ -102,8 +103,8 @@ while (i<123)
 ##5. Breaking a loop
 
 The `break` keyword is provides for breaking the enclosing loop.
-When this keyword is run, the control flow exists for the nearest
-enclosing loop, and run the statement that is jsut following the loop
+When this keyword is run, the control flow exits for the nearest
+enclosing loop, and run the statement that is just following the loop
 expression in the sequence of instructions.
 
 ```sarl
@@ -116,19 +117,37 @@ for (v : tab) {
 
 
 
+##6. Jump to the next iteration
 
-##6. Acknowledgements
+The `continue` keyword is provides for stopping the execution of the
+current iteration into loop, and jumping to the next iteration.
+When this keyword is run, the control flow jumps to the next iteration
+for the nearest enclosing loop, and run the statement that is just at
+the beginning of the loop's block expression.
+
+```sarl
+for (v : tab) {
+	if (v == 1) {
+		continue
+	}
+}
+```
+
+
+
+
+##7. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##7. Legal Notice
+##8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -138,4 +157,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

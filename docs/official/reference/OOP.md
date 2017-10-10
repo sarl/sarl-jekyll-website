@@ -47,7 +47,7 @@ layout: default
   <li><a href="#6-2-syntax-of-anonymous-classes">6.2. Syntax of Anonymous Classes</a></li>
   <li><a href="#6-3-accessing-local-variables-of-the-enclosing-scope-and-declaring-and-accessing-members-of-the-anonymous-class">6.3. Accessing Local Variables of the Enclosing Scope, and Declaring and Accessing Members of the Anonymous Class</a></li>
 </ul>
-<li><a href="#7-modifiers">7. Modifiers</a></li>
+<li><a href="#7-definition-of-all-the-supported-modifiers">7. Definition of all the supported modifiers</a></li>
 <ul>
   <li><a href="#7-1-abstract-modifier">7.1. abstract Modifier</a></li>
   <li><a href="#7-2-access-modifiers-public-protected-package-private">7.2. Access Modifiers: public, protected, package, private</a></li>
@@ -106,39 +106,64 @@ environment (Eclipse, IntelliJ...)
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="#Enumeration">Object-oriented enumeration</a>
+<tr><td><a href="#4-enumeration">Object-oriented enumeration</a>
 			<td style="background: orange; color: white;">No, only constants could be defined</td>
 			<td style="background: green; color: white;">Yes, constants and functions could be defined</td>
 			<td style="background: orange; color: white;">No, only constants could be defined</td>
 			<td style="background: green; color: white;">Yes, constants and functions could be defined</td></tr>
-<tr><td><a href="#annotation-type">Definition of annotation types</a></td>
+<tr><td><a href="#5-annotation-type">Definition of annotation types</a></td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="#static-constructor-definition">Definition of static constructors</a></td>
+<tr><td><a href="#2-5-static-constructor-definition">Definition of static constructors</a></td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: yellow; color: black;">See companion object</td></tr>
-<tr><td>Automatic generation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-"><code>equals()</code></a>
-            and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--"><code>hashCode()</code></a></td>
+<tr><td>Inheritance of constructors</td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td></tr>
+<tr><td><a href="./general/ActiveAnnotations.html#Data">Automatic creation of read-only data structure</a></td>
+			<td style="background: yellow; color: black;">Manual with <code>@Data</code> annotation</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Manual with <code>@Data</code> annotation</td>
+			<td style="background: orange; color: white;">No</td></tr>
+<tr><td><a href="./general/ActiveAnnotations.html#Accessors">Automatic creation of getters and setters</a></td>
+			<td style="background: yellow; color: black;">Manual with <code>@Accessors</code> annotation</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Manual with <code>@Accessors</code> annotation</td>
+			<td style="background: green; color: white;">Yes</td></tr>
+<tr><td>Automatic creation of final-field constructor</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Manual with <code>@FinalFieldsConstructor</code> annotation</td>
+			<td style="background: orange; color: white;">No</td></tr>
+<tr><td>Automatic creation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-"><code>equals()</code></a>
+            and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--"><code>hashCode()</code></a></td>
+			<td style="background: green; color: white;">Yes</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Manual with <code>@EqualsHashCode</code> annotation</td>
 			<td style="background: green; color: white;">Yes, see case class</td></tr>
-<tr><td>Automatic generation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone--"><code>clone()</code></a>
+<tr><td>Automatic creation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone--"><code>clone()</code></a>
             when <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html">cloneable type</a></td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td>Automatic generation of a serialVersionUID field when
+<tr><td>Automatic creation of a serialVersionUID field when
         <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html">serializable type</a></td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: yellow; color: black;">Manual with <code>@SerialVersionUID</code></td></tr>
+<tr><td><a href="./general/ActiveAnnotations.html#ToString">Automatic creation of the <code>toString()</code> function.</a></td>
+			<td style="background: yellow; color: black;">Manual with <code>@ToString</code> annotation</td>
+			<td style="background: orange; color: white;">No</td>
+			<td style="background: yellow; color: black;">Manual with <code>@ToString</code> annotation</td>
+			<td style="background: green; color: white;">Yes, see case class</td></tr>
 <tr><td colspan=5><strong>Functions, Procedures and Operators</strong></td></tr>
 <tr><td><a href="./general/FuncDecls.html#7-dispatch-function">Definition of dispatch functions</a></td>
 			<td style="background: green; color: white;">Yes</td>
@@ -186,8 +211,8 @@ environment (Eclipse, IntelliJ...)
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html">Support the <code>continue</code> statement</a></td>
-			<td style="background: orange; color: white;">No</td>
+<tr><td><a href="./general/LoopExpression.html#jump-to-the-next-iteration">Support the <code>continue</code> statement</a></td>
+			<td style="background: green; color: white;">Yes</td>
 			<td style="background: green; color: white;">Yes</td>
 			<td style="background: orange; color: white;">No</td>
 			<td style="background: green; color: white;">Yes</td></tr>
@@ -372,7 +397,7 @@ A static field is not an instance variable. It is a special type of class attrib
 ###2.7. Method Definition
 
 A method could be declared into a class following the [function declaration syntax](./general/FuncDecls.html).
-The overriding of an inhertited method is explained in section ["Method Overriding"](#method-overriding).
+The overriding of an inhertited method is explained in section ["Method Overriding"](#2-9-method-overriding).
 
 A method may be declared with the `static` modifier. In this case, it becomes a static method, or class method.
 A static method is a function that is not associated to a specific instance of the class.
@@ -384,8 +409,7 @@ A static method is a function that is not associated to a specific instance of t
 Modifiers are used to modify declarations of types and type members. This section introduces the modifiers for the class.
 The modifiers are usually written before the keyword for defining the class.
 
-The complete description of the modifiers' semantic is available in
-[this section](#modifiers).
+The complete description of the modifiers' semantic is available in [this section](#7-definition-of-all-the-supported-modifiers).
 
 
 #### Top Class Modifiers
@@ -747,8 +771,7 @@ class TheLight implements Light {
 Modifiers are used to modify declarations of types and type members. This section introduces the modifiers for the interface.
 The modifiers are usually written before the keyword for defining the interface.
 
-The complete description of the modifiers' semantic is available in
-[this section](#modifiers).
+The complete description of the modifiers' semantic is available in [this section](#7-definition-of-all-the-supported-modifiers).
 
 
 #### Top Interface Modifiers
@@ -877,8 +900,7 @@ enum MyEnum {
 Modifiers are used to modify declarations of types and type members. This section introduces the modifiers for the enumeration.
 The modifiers are usually written before the keyword for defining the enumeration.
 
-The complete description of the modifiers' semantic is available in
-[this section](#modifiers).
+The complete description of the modifiers' semantic is available in [this section](#7-definition-of-all-the-supported-modifiers).
 
 
 #### Top Enumeration Modifiers
@@ -976,8 +998,7 @@ Modifiers are used to modify declarations of types and type members.
 This section introduces the modifiers for the annotation types.
 The modifiers are usually written before the keyword for defining the annotation type.
 
-The complete description of the modifiers' semantic is available in
-[this section](#modifiers).
+The complete description of the modifiers' semantic is available in [this section](#7-definition-of-all-the-supported-modifiers).
 
 #### Top Annotation Type Modifiers
 
@@ -1165,7 +1186,7 @@ class HelloWorldAnonymousClasses {
 
 
 
-##7. Modifiers
+##7. Definition of all the supported modifiers
 
 In this section, the semantic of the different modifiers is explained.
 
@@ -1617,9 +1638,9 @@ Thank you to the contributors to these documents.
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -1629,4 +1650,4 @@ Thank you to the contributors to these documents.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

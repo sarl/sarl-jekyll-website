@@ -242,13 +242,13 @@ The methods from `ArrayLiterals` are automatically included.
 
 ```sarl
 interface ArrayLiterals {
-	def newByteArrayOfSize(int) : byte[]
 	def newCharArrayOfSize(int) : char[]
 	def newIntArrayOfSize(int) : int[]
 	def newBooleanArrayOfSize(int) : boolean[]
 	def newShortArrayOfSize(int) : short[]
 	def newLongArrayOfSize(int) : long[]
 	def newFloatArrayOfSize(int) : float[]
+	def newByteArrayOfSize(int) : byte[]
 	def newDoubleArrayOfSize(int) : double[]
 	def newArrayOfSize(int) : Object[]
 }
@@ -352,9 +352,9 @@ This documentation is inspired by the documentations from the
 ##10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -364,4 +364,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

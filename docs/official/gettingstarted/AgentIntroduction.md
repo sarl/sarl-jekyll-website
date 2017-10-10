@@ -194,9 +194,9 @@ In the next section, we will learn how to start a SARL agent on the command line
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -206,4 +206,4 @@ In the next section, we will learn how to start a SARL agent on the command line
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

@@ -69,6 +69,7 @@ layout: default
 
 * [Event Creation with a Builder](./bestpractices/EventBuilder.html)
 * [Event Handler Overriding](./bestpractices/EventHandlerOverriding.html)
+* [Creating Space with Operation User Accessibility](./bestpractices/SpaceWithCallerIdentity.html)
 
 ##5. Reference Documentation
 
@@ -79,6 +80,8 @@ layout: default
 	* [Script format](./reference/general/Script.html)
 	* [Function declaration](./reference/general/FuncDecls.html)
 	* [Synthetic Functions](./reference/general/SyntheticFunctions.html)
+* Type system:
+	* [Supported Types for Variables and Parameters](./reference/general/Types.html)
 * Constant expressions:
 	* [Numerical, string, and collection literals](./reference/general/Literals.html)
 * Structuring expressions:
@@ -96,6 +99,9 @@ layout: default
 	* [Synchronization expression](./reference/general/Synchronization.html)
 * Errors and exceptions:
 	* [Exceptions](./reference/general/Exception.html)
+	* [Assertions](./reference/general/Assertion.html)
+* Meta-programming:
+	* [Active annotations](./reference/general/ActiveAnnotations.html)
 
 ###5.2. Agent-Oriented Programming
 
@@ -135,9 +141,9 @@ layout: default
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -147,4 +153,4 @@ layout: default
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

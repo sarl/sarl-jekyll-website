@@ -86,7 +86,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.6.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.7.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://central.sonatype.org/) for the last available version.
 
 ```xml
@@ -94,7 +94,7 @@ Replace the version number `0.6.0` of SARL with the one you want to use. You cou
     ...
     <properties>
        ...
-       <sarl.version>0.6.0</sarl.version>
+       <sarl.version>0.7.0-SNAPSHOT</sarl.version>
     </properties>
     ...
     <build>
@@ -145,7 +145,7 @@ In several specific cases, you may want to include the runtime environment into 
 this case, you could replace the Maven dependency to the SARL sdk (as defined in the previous section) by a Maven dependency
 to the runtime environment.
 
-Replace the version number (`0.6.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`0.7.0-SNAPSHOT`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
 You could search on the [Maven Central Repository](http://central.sonatype.org/) for the last available version.
 
 
@@ -154,7 +154,7 @@ You could search on the [Maven Central Repository](http://central.sonatype.org/)
    ...
     <properties>
        ...
-       <janus.version>0.6.0</janus.version>
+       <janus.version>0.7.0-SNAPSHOT</janus.version>
     </properties>
     ...
     <build>
@@ -202,9 +202,9 @@ In the next section, we will learn how to create our first agent.
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -214,4 +214,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

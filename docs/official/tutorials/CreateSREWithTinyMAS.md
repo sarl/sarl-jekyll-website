@@ -1370,7 +1370,7 @@ instant during the tinyMAS agent life-cycle, we must define the
 agent living function (`live`) in the `TMSarlAgent` type.
 
 We assume that the `behaviorsSkill` field is defined and set
-(Section <a href="#Creating_built-in_capacity_instances_in_the_agent">Creating
+(Section <a href="#7-creating-built-in-capacity-instances-in-the-agent">Creating
 built-in capacity instances in the agent</a> explains how to proceed).
 This field contains a reference to the `BehaviorsSkill` skill owned by the agent.
 
@@ -2186,7 +2186,7 @@ The following manifest context gives an example of the tinyMAS SRE declaration:
 	
 	SARL-Runtime-Environment:
 	SRE-Name: TinyMAS
-	SARL-Spec-Version: 0.6
+	SARL-Spec-Version: 0.7
 	Standalone-SRE: true
 	VM-Arguments: -ea
 	Program-Arguments:
@@ -2270,9 +2270,10 @@ The `SREBootstrap` service provides the following functions:
 ```sarl
 interface SREBootstrap {
 	def isActive : boolean
+	def startWithoutAgent : AgentContext
 	def getBootAgentIdentifier : UUID
-	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
 	def startAgent(Class<Agent>, Object[]) : UUID
+	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
 }
 ```
 
@@ -2341,9 +2342,9 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 ##14. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -2353,4 +2354,4 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>

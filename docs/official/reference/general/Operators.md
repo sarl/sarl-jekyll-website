@@ -49,7 +49,7 @@ of a binary expression. They work automatically when the corresponding infix ope
 
 
 <note>The assignment operator is the only one operator that cannot be overridden yet.
-See the [operator overloading section](#operator_overloading) for details.</note>
+See the [operator overloading section](#10-operator-overloading) for details.</note>
 
 
 ##2. Arithmetic operators
@@ -74,7 +74,7 @@ There are either unary (one operand) or binary (two operands).
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 
 ##3. Comparison operators
@@ -100,7 +100,7 @@ The comparison operators on primitive types are listed below.
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-operator overloading section](#operator_overloading).
+operator overloading section](#operator-overloading).
 
 
 ###3.2. Comparison operators on objects
@@ -122,7 +122,7 @@ The comparison operators on objects are listed below.
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the
-operator overloading section](#operator_overloading).
+operator overloading section](#operator-overloading).
 
 
 ##4. Boolean Operators
@@ -141,7 +141,7 @@ replies the boolean value resulting from the operational semantic of the operato
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 
 ##5. Bitwise Operators
@@ -163,7 +163,7 @@ a numeric value.
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 Additional bitwise operators are available into the SARL library, but not associated to any operator:
 
@@ -191,7 +191,7 @@ The string operators are listed below. These operators are dedicated to strings 
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 
 ##7. Number Range operators
@@ -209,7 +209,7 @@ This section presents a collection of operators that define ranges of values.
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 
 ##8. Collection Operators
@@ -241,7 +241,7 @@ Most of the time, the first operand is the collection on which the operator must
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 
 ##9. Other operators
@@ -263,7 +263,7 @@ This section presents a collection of operators that are not related to the cate
 Each operator has an associated function name. This function contains
 the concrete implementation of the operational semantic of the
 operator. This function can be redefined as explained in the 
-[operator overloading section](#operator_overloading).
+[operator overloading section](#10-operator-overloading).
 
 For an example of the `=&gt;` operator, consider the class `Person` with two attributes inside: `firstName` and `lastName`.
 The creation of an instance of `Person` could be done with:
@@ -330,9 +330,9 @@ This documentation is inspired by the documentations from the
 ##12. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.6
-* Status: Stable Release
-* Release: 2017-09-14
+* Version: 0.7
+* Status: Draft Release
+* Release: 2017-10-08
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -342,4 +342,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.6.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
