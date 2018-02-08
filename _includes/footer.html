@@ -45,6 +45,13 @@
 			  <i class="fa-li fa fa-comments"></i> User Forums
 			</a>
 		  </li>
+		{% if site.gitter_room %}
+		  <li>
+			<a href="https://gitter.im/{{ site.gitter_room }}" target="_blank">
+			  <i class="fa-li fa fa-wechat"></i> Chat Room
+			</a>
+		  </li>
+		{% endif %}
 		{% if site.github_username %}
 		  <li>
 			<a href="https://github.com/{{ site.github_username }}" target="_blank">

@@ -94,6 +94,9 @@ github_repo_count: 3
 github_show_profile_link: true
 github_skip_forks: true
 
+# Gitter rooms
+gitter_room: sarl/Lobby
+
 # Download information for SARL products
 sarl_stable_download_win32_product: 1xIQ3D9pNrWlR8qQDDPufg_mMyHHOB42B
 sarl_stable_download:
