@@ -188,15 +188,9 @@ for sending an event with a specific scope.
 
 
 
-The SARL SDK contains the class `AddressScope`. It is an implementation of a `Scope` on addresses
-(an address is the identifier of an agent in the default space). The creation
-of an instance of `AddressScope` is done with the utility function `Scopes.addresses(Address*)`,
-which is getting a collection of addresses for building the matching predicate in the scope.
-
-
-
-
-If you have to scope to a single address or a single identifier, you should prefer the lambda expression notation, as illustrated in the followig code. In this code, the scope permits to restrict to the initial sender of the `Ping` event. 
+If you have to scope to a single address or a single identifier, you should use the lambda expression notation,
+as illustrated in the following code. In this code, the scope permits to restrict to the initial sender
+of the `Ping` event. 
 
 ```sarl
 agent PongAgent {
@@ -367,8 +361,8 @@ agent BootAgent {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -378,4 +372,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

@@ -38,11 +38,16 @@ The SARL API defines a SRE bootstrap as:
 
 ```sarl
 interface SREBootstrap {
-	def isActive : boolean
-	def startWithoutAgent : AgentContext
 	def getBootAgentIdentifier : UUID
+	def isActive : boolean
+	def setBootAgentTypeContextUUID
+	def setDefaultContextUUID
+	def setOffline(boolean)
+	def setRandomContextUUID
+	def setVerboseLevel(int)
 	def startAgent(Class<Agent>, Object[]) : UUID
 	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
+	def startWithoutAgent : AgentContext
 }
 ```
 
@@ -51,32 +56,31 @@ interface SREBootstrap {
 A run-time environment, such as [Janus](http://www.janusproject.io) must provide a service implementing this bootstrap interface.
 The standard Java service management feature is used. in other words, the SRE should
 [declare the service implementation](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) into
-its `META-INF/services/io.sarl.core.SREBootstrap` file.
+its `META-INF/services/io.sarl.bootstrap.SREBootstrap` file.
 
 
 ##2. Using the SRE Bootstrap
 
 In order to help you to use the bootstrap functions, the SARL API provides a static utility type, named `SRE`.
-In the following code, the `SRE` utility type is used for retrieving the bootstrap.
+In the following Java code, the `SRE` utility type is used for retrieving the bootstrap.
  
-```sarl
-class MyProgram {
 
-	static def main(arguments : String*) {
-		var bootstrap = SRE::getBootstrap
-	}
-
-}
-```
+		public class MyProgram {
+		
+			public static void main(String[] arguments) {
+				SREBootstrap bootstrap = SRE.getBootstrap();
+			}
+		
+		}
 
 
 Then, it is possible to use the bootstrap for launching an agent. In the following example, a agent of type
-`MyAgent` is launched.
+`MyAgent` is launched. Please note that you must not create an instance of an agent by yourself.
+It is the role of the SARL run-time environment to create this instance for you, with the proper initialization.
 
-```sarl
-var bootstrap = SRE::getBootstrap
-bootstrap.startAgent(typeof(MyAgent))
-```
+
+		SREBootstrap bootstrap = SRE.getBootstrap();
+		bootstrap.startAgent(MyAgent.class)
 
 
 In the case you want to launch more than one agent programmatically,
@@ -85,7 +89,7 @@ you could call the `startAgent` function the number of times you need.
 
 ##3.  Direct Access to the API of the Janus SRE
 
-Caution: using the API of Janus within your program is not recommended by the SARL team.
+Caution: using the API of Janus within your program is not recommended by the SARL team. Prefer to use the Bootstrap API.
 
 
 
@@ -108,18 +112,14 @@ pass with the `Initialize` event to the launched agent.
 <importantnode>The Janus platform enables to launch a single agent at start-up.
 If you want to launch more agents, please read the next section.</importantnote>
 
-```sarl
-import io.janusproject.Boot
-import myprogram.MyAgent
-class MyProgram {
- 	static def main(args : String*) {
-		Boot::startJanus(
-			typeof(MyAgent),
-			args)
-	}
-}
-```
 
+		import io.janusproject.Boot;
+		import myprogram.MyAgent;
+		public class MyProgram {
+		 	public static void main(String[] args) {
+				Boot.startJanus(MyAgent.class, args);
+			}
+		}
 
 
 In  the case you want to launch more than one agent programmatically,
@@ -142,18 +142,15 @@ pass with the [:initevent] event to the launched agent.
 second agent is launched by the `spawn` function.</important>
 
 
-```sarl
-import io.janusproject.Boot
-class MyProgram {
-	static def main(args : String*) {
-		var janusKernel = Boot::startJanus(
-			typeof(MyAgent),
-			args)
-		janusKernel.spawn(typeof(MyAgent), args)
-	}
-}
-```
 
+		import io.janusproject.Boot;
+		import myprogram.MyAgent;
+		public class MyProgram {
+		 	public static void main(String[] args) {
+				Boot.startJanus(MyAgent.class, args);
+				janusKernel.spawn(MyAgent.class, args);
+			}
+		}
 
 
 ##4. What's next?
@@ -168,8 +165,8 @@ Please read the rest of the documentation for obtaining more details.
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -179,4 +176,4 @@ Please read the rest of the documentation for obtaining more details.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

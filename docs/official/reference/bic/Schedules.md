@@ -9,14 +9,15 @@ layout: default
 <ul class="page_outline" id="page_outline">
 
 <li><a href="#1-creating-named-tasks">1. Creating Named Tasks</a></li>
-<li><a href="#2-launching-a-task-for-a-single-run">2. Launching a Task for a single run</a></li>
-<li><a href="#3-launching-a-delayed-task">3. Launching a Delayed Task</a></li>
-<li><a href="#4-launching-a-periodic-task-at-a-fixed-rate">4. Launching a Periodic Task at a Fixed Rate</a></li>
-<li><a href="#5-launching-a-periodic-task-with-a-fixed-delay-between-the-runs">5. Launching a Periodic Task with a Fixed Delay between the Runs</a></li>
-<li><a href="#6-cancelling-a-task">6. Cancelling a Task</a></li>
-<li><a href="#7-conditional-execution-of-a-task">7. Conditional Execution of a Task</a></li>
-<li><a href="#8-retreiving-the-active-tasks">8. Retreiving the active tasks</a></li>
-<li><a href="#9-legal-notice">9. Legal Notice</a></li>
+<li><a href="#2-changing-the-name-of-a-task">2. Changing the name of a task</a></li>
+<li><a href="#3-launching-a-task-for-a-single-run">3. Launching a Task for a single run</a></li>
+<li><a href="#4-launching-a-delayed-task">4. Launching a Delayed Task</a></li>
+<li><a href="#5-launching-a-periodic-task-at-a-fixed-rate">5. Launching a Periodic Task at a Fixed Rate</a></li>
+<li><a href="#6-launching-a-periodic-task-with-a-fixed-delay-between-the-runs">6. Launching a Periodic Task with a Fixed Delay between the Runs</a></li>
+<li><a href="#7-cancelling-a-task">7. Cancelling a Task</a></li>
+<li><a href="#8-conditional-execution-of-a-task">8. Conditional Execution of a Task</a></li>
+<li><a href="#9-retreiving-the-active-tasks">9. Retreiving the active tasks</a></li>
+<li><a href="#10-legal-notice">10. Legal Notice</a></li>
 
 </ul>
 
@@ -53,7 +54,35 @@ agent A {
 
 
 
-##2. Launching a Task for a single run
+##2. Changing the name of a task
+
+A task has a name that serves as its identifier. You could change the task name by calling the following function:
+
+```sarl
+def setName(task : AgentTask, name : String)
+```
+
+
+Example:
+
+```sarl
+agent A {
+	uses Schedules
+
+	var t : AgentTask
+
+	on Initialize {
+		t = task("abc")
+	}
+	def action {
+		this.t.setName("newName")
+	}
+	
+}
+```
+
+
+##3. Launching a Task for a single run
 
 For running a task once time, the following function is provided:
 
@@ -94,7 +123,7 @@ agent A {
 
 
 
-##3. Launching a Delayed Task
+##4. Launching a Delayed Task
 
 For running a task in a given delay, the following function is provided:
 
@@ -134,7 +163,7 @@ agent A {
 
 
 
-##4. Launching a Periodic Task at a Fixed Rate
+##5. Launching a Periodic Task at a Fixed Rate
 
 For running a periodic task with a fixed starting rate, the following function is provided:
 
@@ -178,7 +207,7 @@ At a given time, four instances of the task are run in parallel (A, B, C, D for 
 
 
 
-##5. Launching a Periodic Task with a Fixed Delay between the Runs
+##6. Launching a Periodic Task with a Fixed Delay between the Runs
 
 For running a periodic task with a fixed duration between the runs, the following function is provided:
 
@@ -217,7 +246,7 @@ atFixedDelay(500) [ sleep(2000) ]
 
 
 
-##6. Cancelling a Task
+##7. Cancelling a Task
 
 It may be useful to cancel a running task, e.g. a periodic task. The `Schedules` capacity
 provides the following functions for managing the execution cancellation of an agent task:
@@ -265,7 +294,7 @@ agent A {
 
 
 
-##7. Conditional Execution of a Task
+##8. Conditional Execution of a Task
 
 Sometimes, it may be useful to execute a task if a condition is `true` or `false`. The 
 `AgentTask` type, which is representing an instance of `AgentTask` provides
@@ -325,7 +354,7 @@ myTask.execute [ doSomething ]
 
 
 
-##8. Retreiving the active tasks
+##9. Retreiving the active tasks
 
 The list of the active tasks may be retreived by invoking the following function:
 
@@ -346,12 +375,12 @@ for (taskName : getActiveTasks) {
 
 
 
-##9. Legal Notice
+##10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -361,4 +390,4 @@ for (taskName : getActiveTasks) {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

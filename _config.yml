@@ -98,32 +98,29 @@ github_skip_forks: true
 gitter_room: sarl/Lobby
 
 # Download information for SARL products
-sarl_stable_download_win32_product: 1xIQ3D9pNrWlR8qQDDPufg_mMyHHOB42B
+sarl_stable_version: 0.7.0
+sarl_unstable_version: 0.8.0
+janus_stable_version: 2.0.7.0
 sarl_stable_download:
   win32:
-    product: 1xIQ3D9pNrWlR8qQDDPufg_mMyHHOB42B
-    confirm: -lTh
-    md5: 1p4CU-VQnhxnisEBuKbiug28lD5uh6kcM
-    sha1: 1ujBx3xFGh8GE0z7tg_-K-hGyCpClaQcD
+    product: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-win32.win32.x86.zip"
+    md5: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-win32.win32.x86.zip.md5"
+    sha1: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-win32.win32.x86.zip.sha1"
   win64:
-    product: 1XD8srdIu1NGySTBA8yx5uhgtt3xwTqar
-    confirm : yHYj
-    md5: 1R7PjmwxEAb7fiIL32adFSP7Uc39kbOcD
-    sha1: 1_LTTmbf4TodXkOeYeFoRSA8NDDzXmbEJ
+    product: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-win32.win32.x86_64.zip"
+    md5: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-win32.win32.x86_64.zip.md5"
+    sha1: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-win32.win32.x86_64.zip.sha1"
   linux32:
-    product: 1zd8PEZrgYfplDeFrAV87bANHvEeA_DKq
-    confirm: KOo6
-    md5: 1TFz2Ta9JEZXBD_3kWaOG28X6mdhLNX9P
-    sha1: 15rf285bJ3-FU1mnwjwomIVwjaTlwQHuh
+    product: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-linux.gtk.x86.zip
+    md5: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-linux.gtk.x86.zip.md5
+    sha1: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-linux.gtk.x86.zip.sha1
   linux64:
-    product: 1VxcJVMLz5WTpp6x61THWrMjg1OfNtyxc
-    confirm: kUI2
-    md5: 1vR7hsn4CYRXgAA-jkj65VuzCX4kT145P
-    sha1: 1wzaI6Rgxivw7ZTeRLxOSjFAO7RtC9f0a
+    product: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-linux.gtk.x86_64.zip
+    md5: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-linux.gtk.x86_64.zip.md5
+    sha1: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-linux.gtk.x86_64.zip.sha1
   mac64:
-    product: 1Bs97eGkgqWvvjZLElKbNINXiX8KQbcg_
-    confirm: rP1r
-    md5: 1rjgbBaOSEEFe8KtlQrfDqywu-7Z2zu_X
-    sha1: 1y1gj1JXPEk-ZZd9lNBt3rWKXudHSxsQN
+    product: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-macosx.cocoa.x86_64.zip
+    md5: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-macosx.cocoa.x86_64.zip.md5
+    sha1: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.7.0/io.sarl.lang.updatesite-0.7.0-macosx.cocoa.x86_64.zip.sha1
 
 

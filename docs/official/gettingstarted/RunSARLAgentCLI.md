@@ -68,6 +68,16 @@ The janus command-line tool provides options that will enable you to tune the la
 	janus --help
 
 
+One of the command-line options that is usually mandatory is the --jar option, which enables you to specify the jar files that contains your application:
+
+
+	janus --jar path/to/myapp.jar myapp.MyAgent
+
+
+If the `janus` script indicates to you an error "agent not found", most of the time it is because your application's jar file is not on the class path.
+The --jar option becomes mandatory for specifying the jar file.
+
+
 ##2. Use the standard java method
 
 ###2.1. Boot of Janus
@@ -193,8 +203,8 @@ In the next section, we will learn how to launch your SARL project from a Java p
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -204,4 +214,4 @@ In the next section, we will learn how to launch your SARL project from a Java p
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

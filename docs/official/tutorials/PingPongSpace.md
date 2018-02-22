@@ -245,24 +245,8 @@ for sending an event with a specific scope.
 
 
 
-The SARL SDK contains the class `AddressScope`. It is an implementation of a `Scope` on addresses
-(an address is the identifier of an agent in the default space). The creation
-of an instance of `AddressScope` is done with the utility function `Scopes.addresses(Address*)`,
-which is getting a collection of addresses for building the matching predicate in the scope.
-
-
-
-
-The SARL SDK contains also the class `IdentifierScope`. It is another implementation of a `Scope` on addresses. The creation
-of an instance of `IdentifierScope` is done with the utility function `Scopes.identifiers(UUID*)`,
-which is getting a collection of identifiers for building the matching predicate in the scope.
-
-
-
-
-In the following code, we select the first type of scope. It permits to restrict to the initial sender
-of the `Ping` event. Because, the address of the initial sender is known directly, it is easier to
-use `Scopes.addresses(Address*)` than Scopes.identifiers(UUID*)`.
+In the following code, we select the receiver of an event based on its address within the space.
+It permits to restrict to the initial sender of the `Ping` event: `[ it == occurrence.source ]`
 
 ```sarl
 agent PongAgent {
@@ -278,9 +262,7 @@ agent PongAgent {
 	}
 	on Ping {
 		var evt = new Pong( occurrence.index )
-		^space.emit(
-			evt,
-			Scopes::addresses( occurrence.source ))
+		^space.emit(evt) [ it == occurrence.source ]
 	}
 }
 ```
@@ -493,8 +475,8 @@ agent BootAgent {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -504,4 +486,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

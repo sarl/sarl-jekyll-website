@@ -13,9 +13,8 @@ layout: default
 <li><a href="#3-sending-an-event-to-specific-agents-in-the-default-space">3. Sending an Event to Specific Agents in the Default Space</a></li>
 <ul>
   <li><a href="#3-1-function-with-a-scoping-parameter">3.1. Function with a Scoping Parameter</a></li>
-  <li><a href="#3-2-creation-of-scopes-with-the-predefined-api">3.2. Creation of scopes with the predefined API</a></li>
-  <li><a href="#3-3-creation-of-developer-specific-scopes">3.3. Creation of developer-specific scopes</a></li>
-  <li><a href="#3-4-inverted-syntax-for-emiting-an-event">3.4. Inverted syntax for emiting an event.</a></li>
+  <li><a href="#3-2-creation-of-scopes-with-lambda-expressions">3.2. Creation of scopes with Lambda expressions</a></li>
+  <li><a href="#3-3-inverted-syntax-for-emitting-an-event">3.3. Inverted syntax for emitting an event.</a></li>
 </ul>
 <li><a href="#4-testing-if-an-element-is-related-to-the-default-context">4. Testing if an element is related to the default context</a></li>
 <li><a href="#5-legal-notice">5. Legal Notice</a></li>
@@ -124,55 +123,37 @@ interface Scope<T> extends Serializable {
 ```
 
 
-###3.2. Creation of scopes with the predefined API
+###3.2. Creation of scopes with Lambda expressions
 
-It is recommended using the SARL utility functions for creating scopes.
-They are defined in the class `io.sarl.util.Scopes`.
+It is recommended defining a lambda expression for creating a scope.
 The following example is equivalent to the feature call of `emit` without the scoping parameter:
 
 ```sarl
-emit(new MyEvent, Scopes::allParticipants)
+emit(new MyEvent) [ true ]
 ```
 
 
 
-A default implementation of a scope using addresses, of `Address` type is implemented in the class `io.sarl.util.AddressScope`.
-The utility class `Scopes` provides the `addresses` function for creating an instance of `AddressScope`.
-
-```sarl
-emit(new MyEvent, Scopes::addresses(a1, a2))
-```
-
-
-Another default implementation of a scope using identifiers, of `UUID` type is implemented in the class `io.sarl.util.IdentifierScope`.
-The utility class `Scopes` provides the `identifiers` function for creating an instance of `IdentifierScope`.
-
-```sarl
-emit(new MyEvent, Scopes::identifiers(id1, id2))
-```
-
-
-The complete list of the functions that are provided by the `Scopes` class is
-accessible on the [Scopes API documentation](http://www.sarl.io/docs/api/index.html?io/sarl/util/Scopes.html).
-
-###3.3. Creation of developer-specific scopes
-
-You are free to create new implementation of `Scope` in order to filter the receivers of an
-event according to your own criteria. The easier approach is to write a lambda expression for the scope.
-The previous line of code becomes:
+For scoping on the address of the receiving agent within the space, the first formal parameter, named `it`
+could be used for accessing to the value of the receiving agent's address.
+In the following code, the agents with addresses `a1` and `a2` will receive the event, and
+not the other agents.
 
 ```sarl
 emit(new MyEvent) [ it == a1 || it == a2 ]
 ```
 
 
-In the previous code, the lambda expression is written outside the list of the `emit` parameters.
-But it corresponds to the last formal parameter of type `Scope<Address>`.
-The `it` variable in the lambda expression is the default name given to the formal parameter of 
-the `matches` function, which is defined in the `Scope` interface.
+Another way to scope is based on the test of the agent identifiers of `UUID` type.
+In the following example,
+
+```sarl
+emit(new MyEvent) [ it.UUID == id1 || it.UUID == id2 ]
+```
 
 
-###3.4. Inverted syntax for emiting an event.
+
+###3.3. Inverted syntax for emitting an event.
 
 According to the [extension method mechanism](../general/Extension.html), it is possible to call
 the `emit` function with the event instance as the receiver expression. The previous
@@ -195,7 +176,7 @@ In the previous code, the receiver of the event is given by the formal parameter
 The scope restricts the receiver according to this identifier.
 
 
-For an abstract point of view, the previous emiting call may be explained with "the event is emited to the receiver".
+For an abstract point of view, the previous emitting call may be explained with "the event is emitted to the receiver".
 Sometimes, the developer would like to write a code that corresponds to the sentence "the receiver will receive the event".
 In order to enable this approach to the developer, the SARL API provides the function:
 
@@ -258,8 +239,8 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -269,4 +250,4 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

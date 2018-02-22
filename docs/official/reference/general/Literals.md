@@ -204,20 +204,28 @@ They permit you to create instances of collections from the JDK.
 
 ```sarl
 interface CollectionLiterals {
-	def newHashMap(Pair<Object, Object>[]*) : HashMap<Object, Object>
-	def newArrayList(Object[]*) : ArrayList<Object>
-	def newHashSet(Object[]*) : HashSet<Object>
-	def newLinkedHashSet(Object[]*) : LinkedHashSet<Object>
-	def newTreeSet(Comparator<Object>, Object[]) : TreeSet<Object>
-	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
-	def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
-	def newLinkedList(Object[]*) : LinkedList<Object>
-	def newImmutableSet(Object[]*) : Set<Object>
-	def newImmutableList(Object[]*) : List<Object>
-	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
-	def emptySet : Set<Object>
 	def emptyList : List<Object>
 	def emptyMap : Map<Object, Object>
+	def emptySet : Set<Object>
+	def newArrayList : ArrayList<Object>
+	def newArrayList(Object[]*) : ArrayList<Object>
+	def newHashMap : HashMap<Object, Object>
+	def newHashMap(Pair<Object, Object>[]*) : HashMap<Object, Object>
+	def newHashSet : HashSet<Object>
+	def newHashSet(Object[]*) : HashSet<Object>
+	def newImmutableList(Object[]*) : List<Object>
+	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
+	def newImmutableSet(Object[]*) : Set<Object>
+	def newLinkedHashMap : LinkedHashMap<Object, Object>
+	def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
+	def newLinkedHashSet : LinkedHashSet<Object>
+	def newLinkedHashSet(Object[]*) : LinkedHashSet<Object>
+	def newLinkedList : LinkedList<Object>
+	def newLinkedList(Object[]*) : LinkedList<Object>
+	def newTreeMap(Comparator<Object>) : TreeMap<Object, Object>
+	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
+	def newTreeSet(Comparator<Object>) : TreeSet<Object>
+	def newTreeSet(Comparator<Object>, Object[]) : TreeSet<Object>
 }
 ```
 
@@ -242,15 +250,15 @@ The methods from `ArrayLiterals` are automatically included.
 
 ```sarl
 interface ArrayLiterals {
-	def newCharArrayOfSize(int) : char[]
-	def newIntArrayOfSize(int) : int[]
-	def newBooleanArrayOfSize(int) : boolean[]
-	def newShortArrayOfSize(int) : short[]
-	def newLongArrayOfSize(int) : long[]
-	def newFloatArrayOfSize(int) : float[]
-	def newByteArrayOfSize(int) : byte[]
-	def newDoubleArrayOfSize(int) : double[]
 	def newArrayOfSize(int) : Object[]
+	def newBooleanArrayOfSize(int) : boolean[]
+	def newByteArrayOfSize(int) : byte[]
+	def newCharArrayOfSize(int) : char[]
+	def newDoubleArrayOfSize(int) : double[]
+	def newFloatArrayOfSize(int) : float[]
+	def newIntArrayOfSize(int) : int[]
+	def newLongArrayOfSize(int) : long[]
+	def newShortArrayOfSize(int) : short[]
 }
 ```
 
@@ -353,8 +361,8 @@ This documentation is inspired by the documentations from the
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -364,4 +372,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

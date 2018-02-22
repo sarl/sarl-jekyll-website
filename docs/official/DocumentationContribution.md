@@ -159,6 +159,15 @@ The `Dynamic` macro is supposed to replies a value that could be interpreted as 
 The given string of characters will replace the `Dynamic` macro into the generated Markdown text.
 
 
+The replied value by `Dynamic` is assumed to be a valid Markdown text. If this value should
+be automatically formatted within a block of code, you should use the following macro: 
+
+
+```text
+[:DynamicCode:](expression)
+```
+
+
 ###1.7. Generate code from Java type
 
 You could generate a piece of code from a Java type with the following macro:
@@ -267,8 +276,8 @@ The other resources, such as images should be in the `src/main/resources` folder
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -278,4 +287,4 @@ The other resources, such as images should be in the `src/main/resources` folder
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>

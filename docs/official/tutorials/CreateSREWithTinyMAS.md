@@ -823,17 +823,29 @@ class LoggingSkill extends Skill implements Logging {
 			exception.printStackTrace(System::out)
 		}
 	}
+	def error(messageProvider : Supplier<String>) {
+		System::out.println("[" + getId.getString + "] ERROR: " + messageProvider.get)
+	}
 	def warning(message : Object, exception : Throwable = null, parameters : Object*) {
 		System::out.println("[" + getId.getString + "] WARNING: " + message)
 		if (exception !== null) {
 			exception.printStackTrace(System::out)
 		}
 	}
+	def warning(messageProvider : Supplier<String>) {
+		System::out.println("[" + getId.getString + "] WARNING: " + messageProvider.get)
+	}
 	def info(message : Object, parameters : Object*) {
 		System::out.println("[" + getId.getString + "] INFO: " + message)
 	}
+	def info(messageProvider : Supplier<String>) {
+		System::out.println("[" + getId.getString + "] INFO: " + messageProvider.get)
+	}
 	def debug(message : Object, parameters : Object*) {
 		System::out.println("[" + getId.getString + "] DEBUG: " + message)
+	}
+	def debug(messageProvider : Supplier<String>) {
+		System::out.println("[" + getId.getString + "] DEBUG: " + messageProvider.get)
 	}
 }
 ```
@@ -1102,7 +1114,7 @@ class DefaultContextInteractionsSkill extends Skill implements DefaultContextInt
 		^space == defaultSpace.spaceID.ID
 	}
 	def isInDefaultSpace(^event : Event) : boolean {
-		isDefaultSpace(^event.source.spaceId)
+		isDefaultSpace(^event.source.spaceID)
 	}
 }
 ```
@@ -1144,7 +1156,7 @@ def emit(^event : Event, scope : Scope<Address> = null) {
 	defaultSpace.emit(owner.ID, ^event, scope)
 }
 def willReceive(receiver : UUID, ^event : Event) {
-	emit(^event, Scopes::identifiers(receiver))
+	emit(^event) [ it.UUID == receiver ]
 }
 ```
 
@@ -1491,6 +1503,8 @@ name. The implementation creates the task instance, and sets the name
 of the task with a unique value.
 
 ```sarl
+@PrivateAPI(isCallerOnly = true)
+
 class SchedulesSkill extends Skill implements Schedules {
 	def task(name : String) : AgentTask {
 		var theTask = new Task
@@ -1499,6 +1513,10 @@ class SchedulesSkill extends Skill implements Schedules {
 	}
 }
 ```
+
+
+
+Note: `PrivateAPI` is an annotation that gives you access to the functions that are within the private API of SARL.
 
 
 
@@ -2269,11 +2287,16 @@ The `SREBootstrap` service provides the following functions:
 
 ```sarl
 interface SREBootstrap {
-	def isActive : boolean
-	def startWithoutAgent : AgentContext
 	def getBootAgentIdentifier : UUID
+	def isActive : boolean
+	def setBootAgentTypeContextUUID
+	def setDefaultContextUUID
+	def setOffline(boolean)
+	def setRandomContextUUID
+	def setVerboseLevel(int)
 	def startAgent(Class<Agent>, Object[]) : UUID
 	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
+	def startWithoutAgent : AgentContext
 }
 ```
 
@@ -2283,7 +2306,7 @@ interface SREBootstrap {
 
 A SRE library, e.g. [Janus](../tools/Janus.html) may provide an implementation of the `SREBootstrap` service.
 In order to found this implementation dynamically, the SRE library should declare the bootstrap implementation class.
-To do so, the file `META-INF/services/io.sarl.core.SREBootstrap` must be created.
+To do so, the file `META-INF/services/io.sarl.bootstrap.SREBootstrap` must be created.
 This file contains a single line, which is the fully qualified name of the bootstrap implementation class.
 
 As soon the SRE library is included into the *run-time classpath*, the SRE utility class is able to find the
@@ -2343,8 +2366,8 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
-* Status: Draft Release
-* Release: 2017-10-08
+* Status: Stable Release
+* Release: 2018-02-22
 
 > Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -2354,4 +2377,4 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>
