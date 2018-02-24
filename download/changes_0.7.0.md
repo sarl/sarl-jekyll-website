@@ -185,7 +185,8 @@ Release date: 2018-02-22.
 ### 7.2. Documentation of the SARL Core Library
 * Add documentation on the creation of function-caller-aware space. ([details](http://github.com/sarl/sarl/commit/83121f5431f6cebbf8f8003dbe190e0bcdea0df6))
 * Add documentation on the SRE's bootstrap. ([details](http://github.com/sarl/sarl/commit/06d62a855a4c1773ee2a3be219a43f2cb88ad334))
-* Add [privateapi](http://github.com/privateapi) within the API documentation. ([details](http://github.com/sarl/sarl/commit/27e7c917949dff7fdbd3e31c8ae7c35a2d1f494c))
+* Add `@privateapi` within the API documentation. ([details](http://github.com/sarl/sarl/commit/27e7c917949dff7fdbd3e31c8ae7c35a2d1f494c))
+  * This Javadoc annotation marks the annoted element as part of the private API of the SDK.
 * Use Java code when explaining the API access from Java. ([details](http://github.com/sarl/sarl/commit/cf287b130ac778c1aa2a045fdf76d00746e614e0))
 * Fixing the Logging documentation. ([details](http://github.com/sarl/sarl/commit/e2bbe5a00458b43442e2165953b27596ac3a2cbd))
 * Fixing the invalid prototype of `spawnInContext` within the documentation. ([details](http://github.com/sarl/sarl/commit/e3faa7e390f3a7918e9c149a1ce383786a135a47))
