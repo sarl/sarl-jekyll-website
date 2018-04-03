@@ -362,9 +362,9 @@ agent BootAgent {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
 * Status: Stable Release
-* Release: 2018-02-22
+* Release: 2018-04-03
 
-> Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -372,4 +372,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>

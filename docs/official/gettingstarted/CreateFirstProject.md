@@ -86,7 +86,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.7.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.7.2` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://central.sonatype.org/) for the last available version.
 
 ```xml
@@ -94,7 +94,7 @@ Replace the version number `0.7.0` of SARL with the one you want to use. You cou
     ...
     <properties>
        ...
-       <sarl.version>0.7.0</sarl.version>
+       <sarl.version>0.7.2</sarl.version>
     </properties>
     ...
     <build>
@@ -137,16 +137,21 @@ invoked.</important>
 
 ###2.2. Configuration of a runtime environment (optional)
 
-For executing your SARL program, you must use a [runtime environment](http://www.sarl.io/runtime/index.html).
-
-The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
+For executing your SARL program, a [run-time environment](http://www.sarl.io/runtime/index.html) should be used.
+By default, the SARL development environment replaces any reference to the SARL libraries by the run-time environment's libraries
+when the SARL program is launched within the SARL environment or when a runnable Jar library is created.
 
 In several specific cases, you may want to include the runtime environment into the Maven dependencies of your project. In
 this case, you could replace the Maven dependency to the SARL sdk (as defined in the previous section) by a Maven dependency
-to the runtime environment.
+to the runtime environment library.
 
-Replace the version number (`0.7.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
-You could search on the [Maven Central Repository](http://central.sonatype.org/) for the last available version.
+<caution>Replacing the SARL sdk library by the run-time environment library within the Maven dependencies is not the
+recommended approach by the SARL core developers.</caution>
+
+The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
+
+Replace the version number (`2.0.7.2`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
 ```xml
@@ -154,7 +159,7 @@ You could search on the [Maven Central Repository](http://central.sonatype.org/)
    ...
     <properties>
        ...
-       <janus.version>0.7.0</janus.version>
+       <janus.version>2.0.7.2</janus.version>
     </properties>
     ...
     <build>
@@ -204,9 +209,9 @@ In the next section, we will learn how to create our first agent.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.7
 * Status: Stable Release
-* Release: 2018-02-22
+* Release: 2018-04-03
 
-> Copyright &copy; 2014-2017 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -214,4 +219,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
