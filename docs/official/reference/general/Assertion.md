@@ -41,19 +41,59 @@ The message string follows the condition, with a coma character between them.
 assert someCondition, "the failure explanation is here"
 ```
 
+		
+# Enable and Disable Assertions.
 
-##3. Acknowledgements
+By default, assertions are disabled. It means that they are not evaluated at run-time.
+In this way, if someone is launching your application, the application is running quickly, and
+the assert errors cannot occur. It is compliant with the fact that assertions are tests by and for
+the application's developers: the final user of the application is not care about the implementation
+constraints.
+
+For enabling and disabling the assertions, you must change the launch configuration within the SARL product,
+or use an option that is provided by the SARL run-time environment.
+
+##3. Inside the SARL Development Environment
+
+Within the SARL development environment, you must define a launch configuration for running a SARL application.
+Two launch configurations are available:
+* "SARL Agent" for launching an agent, and
+* "SARL Application" for launching a standard application (based on the definition of a `main` method), which will launch the SARL framework later. 
+
+Both of these launch configurations allow you to enable or disable the assertions.
+On the figure below, you could see the "Enable assertions in run mode" and "Enable assertions in debug mode"
+checkboxes within the "Launch Options" section.
+If the first (resp. second) box is checked, assertions will be enabled when you application was launched in run (resp. debug) mode. 
+
+![Screenshot of the dialog box of a SARL launch configuration](./enableassertions.png)
+
+##4. Launching the Janus framework
+
+The Janus framework is one implementation of a SARL run-time environment. You have to use one of its command-line
+options for enabling assertions. All the command-line options are detailed on a [dedicated page](../../tools/Janus.html).
+Usually, the option for enabling the assertions is the same as the one of the Java virtual machine: -ea.
+
+##5. Launching the Java virtual machine
+
+If you want to run your SARL application by launching the Java virtual machine, you could use the standard command
+line options `-enableassertions` and `-ea` that are provided by this virtual machine:
+
+		java [ -enableassertions | -ea  ] <class name>
+
+
+
+##6. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##4. Legal Notice
+##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.7
-* Status: Stable Release
-* Release: 2018-04-03
+* Version: 0.8
+* Status: Draft Release
+* Release: 2018-08-19
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -63,4 +103,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>

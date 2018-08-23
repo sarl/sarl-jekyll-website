@@ -13,8 +13,9 @@ layout: default
 <li><a href="#3-tutorials">3. Tutorials</a></li>
 <ul>
   <li><a href="#3-1-event-communication">3.1. Event Communication</a></li>
-  <li><a href="#3-2-organizational-patterns">3.2. Organizational Patterns</a></li>
-  <li><a href="#3-3-creating-a-sarl-run-time-environment">3.3. Creating a SARL Run-time Environment</a></li>
+  <li><a href="#3-2-parallel-execution">3.2. Parallel Execution</a></li>
+  <li><a href="#3-3-organizational-patterns">3.3. Organizational Patterns</a></li>
+  <li><a href="#3-4-creating-a-sarl-run-time-environment">3.4. Creating a SARL Run-time Environment</a></li>
 </ul>
 <li><a href="#4-best-practices-with-sarl">4. Best Practices with SARL</a></li>
 <li><a href="#5-reference-documentation">5. Reference Documentation</a></li>
@@ -27,7 +28,8 @@ layout: default
 <li><a href="#7-other-tools">7. Other Tools</a></li>
 <ul>
   <li><a href="#7-1-syntax-highlightning">7.1. Syntax Highlightning</a></li>
-  <li><a href="#7-2-command-line-tools">7.2. Command Line Tools</a></li>
+  <li><a href="#7-2-apache-maven">7.2. Apache Maven</a></li>
+  <li><a href="#7-3-command-line-tools">7.3. Command Line Tools</a></li>
 </ul>
 <li><a href="#8-documentation-format">8. Documentation Format</a></li>
 <li><a href="#9-legal-notice">9. Legal Notice</a></li>
@@ -57,11 +59,16 @@ layout: default
 * [Agent Communication with the Ping Pong Agents](./tutorials/PingPong.html)
 * [Agent Communication in Sub-Space with the Ping Pong Agents](./tutorials/PingPongSpace.html)
 
-###3.2. Organizational Patterns
+###3.2. Parallel Execution
+
+* [Parallel execution within the agents](./tutorials/ParallelExecution.html)
+* [Initialization of a multiagent system](./tutorials/MASInitialization.html)
+
+###3.3. Organizational Patterns
 
 * [English Auction with Holons](./tutorials/HolonicAuction.html)
 
-###3.3. Creating a SARL Run-time Environment
+###3.4. Creating a SARL Run-time Environment
 
 * [Creating a SARL Run-time Environment for the tinyMAS platform](./tutorials/CreateSREWithTinyMAS.html)
 
@@ -128,7 +135,11 @@ layout: default
 
 * [Syntax highlighting styles for SARL inside other tools](./tools/SyntaxHighlightning.html)
 
-###7.2. Command Line Tools
+###7.2. Apache Maven
+
+* [maven-sarl-plugin](./tools/MavenSarlPlugin.html): the Maven plugin for the SARL compiler.
+
+###7.3. Command Line Tools
 
 * [sarlc](./tools/Sarlc.html): command-line SARL compiler.
 * [janus](./tools/Janus.html): launching SARL agents with the Janus platform.
@@ -141,9 +152,9 @@ layout: default
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.7
-* Status: Stable Release
-* Release: 2018-04-03
+* Version: 0.8
+* Status: Draft Release
+* Release: 2018-08-19
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -153,4 +164,4 @@ layout: default
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>

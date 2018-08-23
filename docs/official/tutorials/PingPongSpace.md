@@ -42,7 +42,7 @@ Before reading this document, it is recommended reading the
 [General Syntax Reference](../reference/GeneralSyntax.html).
 
 <div class="bt-download">
-<a href="https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-demos-pingpongspace"><img alt="See the code" src="http://www.sarl.io/images/download-icon.png"/></a>
+<a href="https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-tutorials-pingpongspace/src/main/sarl/io/sarl/examples/pingpongspace"><img alt="See the code" src="http://www.sarl.io/images/download-icon.png"/></a>
 </div>
 The elements that are explained in this tutorial are:
 
@@ -54,7 +54,7 @@ The elements that are explained in this tutorial are:
 * the definition of a _proactive_ behavior: waiting for partners.
 
 The source code related to this tutorial may be found in the
-[GitHub of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-demos-pingpongspace).
+[GitHub of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-tutorials-pingpongspace/src/main/sarl/io/sarl/examples/pingpongspace).
 
 
 ##1. Principle of the Application
@@ -474,9 +474,9 @@ agent BootAgent {
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.7
-* Status: Stable Release
-* Release: 2018-04-03
+* Version: 0.8
+* Status: Draft Release
+* Release: 2018-08-19
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -486,4 +486,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>

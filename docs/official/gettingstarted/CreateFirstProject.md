@@ -86,15 +86,15 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.7.2` of SARL with the one you want to use. You could search on the
-[Maven Central Repository](http://central.sonatype.org/) for the last available version.
+Replace the version number `0.8.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
+[Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
  <project>
     ...
     <properties>
        ...
-       <sarl.version>0.7.2</sarl.version>
+       <sarl.version>0.8.0-SNAPSHOT</sarl.version>
     </properties>
     ...
     <build>
@@ -128,8 +128,11 @@ Replace the version number `0.7.2` of SARL with the one you want to use. You cou
 ```
 
 
+
+
+
 The Maven configuration is based on the use of `sarl-maven-plugin`. This plugin is in charge of compiling the SARL and
-the Java files.
+the Java files. Details about the `sarl-maven-plugin` may be found on [this page](../tools/MavenSarlPlugin.html).
 
 <important>You must set the `extensions` tag to true for the `sarl-maven-plugin` plugin. If you missed to set it, the plugin
 will not able to be integrated in the Maven life-cycle. The consequence will be that only the Java compiler will be
@@ -150,7 +153,7 @@ recommended approach by the SARL core developers.</caution>
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
 
-Replace the version number (`2.0.7.2`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`2.0.8.0-SNAPSHOT`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -159,7 +162,7 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>2.0.7.2</janus.version>
+       <janus.version>2.0.8.0-SNAPSHOT</janus.version>
     </properties>
     ...
     <build>
@@ -207,9 +210,9 @@ In the next section, we will learn how to create our first agent.
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.7
-* Status: Stable Release
-* Release: 2018-04-03
+* Version: 0.8
+* Status: Draft Release
+* Release: 2018-08-19
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -219,4 +222,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>

@@ -11,9 +11,10 @@ layout: default
 <li><a href="#1-accessors">1. @Accessors</a></li>
 <li><a href="#2-data">2.  @Data</a></li>
 <li><a href="#3-delegate">3.  @Delegate</a></li>
-<li><a href="#4-tostring">4. @ToString</a></li>
-<li><a href="#5-acknowledgements">5. Acknowledgements</a></li>
-<li><a href="#6-legal-notice">6. Legal Notice</a></li>
+<li><a href="#4-noequalitytestfunctionsgeneration">4. @NoEqualityTestFunctionsGeneration</a></li>
+<li><a href="#5-tostring">5. @ToString</a></li>
+<li><a href="#6-acknowledgements">6. Acknowledgements</a></li>
+<li><a href="#7-legal-notice">7. Legal Notice</a></li>
 
 </ul>
 
@@ -241,7 +242,44 @@ class MyClass implements SomeInterface {
 
 
 
-##4. @ToString
+##4. @NoEqualityTestFunctionsGeneration
+
+The `@NoEqualityTestFunctionsGeneration` annotation disables the generation the equality test functions, i.e. `equals()` and `hashCode()` from
+the field declarations.
+
+By default, the SARL compiler generates the equality test functions from the type's fields. In several cases, this automatic
+behavior should be avoiding because the standard equality test that is provided by the Java run-time environment should be used.
+In this case, `@NoEqualityTestFunctionsGeneration` annotation may be used to mark a type or a field for being excluded of the equality test generation. 
+
+The annotation may mark a type, as in the following example.
+In this case, no equality test function is generated within the marked type and all its subtypes.
+
+```sarl
+@NoEqualityTestFunctionsGeneration
+class MyClass {
+  var field1 : int
+  var field2 : String
+}
+```
+
+
+The annotation may mark a specific field in order to exclude it from the equality test generation.
+In the following example, the `field2` field is marked with the annotation. Consequently, it
+is not included within the equality test within the `equals()` function, and the hash code replied
+by the `hashCode()` function does not include the hash code of the `field2` field.
+
+```sarl
+class MyClass {
+  var field1 : int
+  @NoEqualityTestFunctionsGeneration
+  var field2 : String
+}
+```
+
+
+
+
+##5. @ToString
 
 The `@ToString` annotation enables to generate the function that replies the string representation
 of an object, a.k.a. as the `toString()` function in a Java program.
@@ -282,18 +320,18 @@ For brevity there are options to the annotation to hide field names, skip fields
 
 
 
-##5. Acknowledgements
+##6. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##6. Legal Notice
+##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.7
-* Status: Stable Release
-* Release: 2018-04-03
+* Version: 0.8
+* Status: Draft Release
+* Release: 2018-08-19
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -303,4 +341,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>

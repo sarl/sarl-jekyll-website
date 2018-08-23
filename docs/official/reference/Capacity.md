@@ -17,7 +17,8 @@ layout: default
 </ul>
 <li><a href="#2-built-in-capacities">2. Built-in Capacities</a></li>
 <li><a href="#3-use-of-the-capacities">3. Use of the Capacities</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-associating-a-default-skill-to-a-capacity">4. Associating a default skill to a capacity</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -173,15 +174,47 @@ Details on the use of the Capacities may be found in the following:
 * [Agent](./Agent.html)
 * [Behavior](./Behavior.html)
 
+##4. Associating a default skill to a capacity
+
+As described within the previous section, when a capacity's function is invoked, the function's implementation is retreived from
+the [skill](./Skill.html) that was associated to the capacity.
+
+The standard way for associating a capacity and a skill is to call the `setSkill` function within an agent or a behavior, as
+detailed in the [agent's documentation](./Agent.html).
+
+Nevertheless, let the case in which we would like to bind a capacity to a default skill.
+In other words, we would like to specify that a skill should be associated by default to a capacity if the `setSkill` function
+is not invoked.
+
+The way to realize this it is to the `@DefaultSkill`.
+This annotation may be attached to a capacity's declaration in order to specify the skill that should be binded by default to
+the capacity.  
+
+In the following example, the `MyCapacity` capacity and the `MySkill` skill are declared.
+The [:defaultskillannon] annotation specifies that an instance of `MySkill` should be binded to the
+`MyCapacity` capacity if the developer does not change the binding programmatically.
+
+Examples:
+
+```sarl
+@DefaultSkill(typeof(MySkill))
+capacity MyCapacity {
+	def myfunction
+}
+skill MySkill implements MyCapacity {
+	def myfunction {
+	}
+}
+```
 
 
 
-##4. Legal Notice
+##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.7
-* Status: Stable Release
-* Release: 2018-04-03
+* Version: 0.8
+* Status: Draft Release
+* Release: 2018-08-19
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -191,4 +224,4 @@ Details on the use of the Capacities may be found in the following:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.7.2.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>
