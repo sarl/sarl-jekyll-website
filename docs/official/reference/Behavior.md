@@ -204,6 +204,7 @@ final behavior Example4 {
 The modifiers for the fields in a behavior are:
 
 * Access modifiers:
+	* `public`: the field is accessible from everywhere;
 	* `protected`: the field is accessible within the same package, and derived agents;
 	* `package`: the field is accessible only within the same package of its agent;
 	* `private`: the field is accessible only within its agent (default).
@@ -211,6 +212,7 @@ The modifiers for the fields in a behavior are:
 Examples:
 
 ```sarl
+public var example0 : Object
 protected var example1 : Object
 package var example2 : Object
 private var example3 : Object
@@ -542,8 +544,8 @@ behavior MyBehavior {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.8
-* Status: Draft Release
-* Release: 2018-08-19
+* Status: Stable Release
+* Release: 2018-09-23
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -553,4 +555,4 @@ behavior MyBehavior {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>

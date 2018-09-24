@@ -13,10 +13,12 @@ layout: default
   <li><a href="#1-1-basic-definition">1.1. Basic Definition</a></li>
   <li><a href="#1-2-field-definition">1.2. Field Definition</a></li>
   <li><a href="#1-3-action-definition">1.3. Action Definition</a></li>
-  <li><a href="#1-4-constructor-definition">1.4. Constructor Definition</a></li>
-  <li><a href="#1-5-multiple-capacity-implementation">1.5. Multiple Capacity Implementation</a></li>
-  <li><a href="#1-6-extending-a-skill">1.6. Extending a Skill</a></li>
-  <li><a href="#1-7-modifiers">1.7. Modifiers</a></li>
+  <li><a href="#1-4-initialization-of-a-skill">1.4. Initialization of a skill</a></li>
+  <li><a href="#1-5-uninitialization-of-a-skill">1.5. Uninitialization of a skill</a></li>
+  <li><a href="#1-6-constructor-definition">1.6. Constructor Definition</a></li>
+  <li><a href="#1-7-multiple-capacity-implementation">1.7. Multiple Capacity Implementation</a></li>
+  <li><a href="#1-8-extending-a-skill">1.8. Extending a Skill</a></li>
+  <li><a href="#1-9-modifiers">1.9. Modifiers</a></li>
 </ul>
 <li><a href="#2-built-in-skills">2. Built-in Skills</a></li>
 <li><a href="#3-use-of-the-skills">3. Use of the Skills</a></li>
@@ -114,7 +116,39 @@ skill MyLogging implements Logging {
 
 
 
-###1.4. Constructor Definition
+###1.4. Initialization of a skill
+
+Several elements of the skill can be used only after the skill is attached to its owning agent.
+For example, the value returned by the function `getOwner` is not `null` only when the skill is
+attached to an agent, i.e. its owner. 
+
+In order to enable the developer to write a code that is run when the skill is attached, the function
+`install` could be defined and implemented. The code below provides an example in which the value
+returned by `getOwner` is checked.
+
+```sarl
+def install {
+	// Initialization of the skill
+	assert getOwner !== null
+}
+```
+
+
+
+###1.5. Uninitialization of a skill
+
+In a similar way as `install`, it is possible to execute a code when the skill is detached from it owning agent.
+For this purpose, the `uninstall` function should be defined, as illustrated below: 
+
+```sarl
+def uninstall {
+	// Do uninstallation statements
+}
+```
+
+
+
+###1.6. Constructor Definition
 
 It is not necessary to specify a constructor for Skills unless a value will be initialized.
 
@@ -146,7 +180,7 @@ Details on implicit constructors are given in the reference documentation relate
 [synthetic functions](./general/SyntheticFunctions.html).
 
 
-###1.5. Multiple Capacity Implementation
+###1.7. Multiple Capacity Implementation
 
 In some situations it is useful to combine more than one capacity in a skill.
 Below, the `MyLogging` skill is defined as an implementation of the capacities
@@ -179,7 +213,7 @@ skill MyLogging implements Logging, LogReader {
 ```
 
 
-###1.6. Extending a Skill
+###1.8. Extending a Skill
 
 In some situations it is useful to specialize the definition of a Skill. This mechanism is supported by the __inheritance__
 feature of SARL, which has the same semantics as the inheritance mechanism of the Java object-oriented language.
@@ -201,7 +235,7 @@ skill ExtendedLogging extends StandardJavaLogging {
 
 
 
-###1.7. Modifiers
+###1.9. Modifiers
 
 Modifiers are used to modify declarations of types and type members.
 This section introduces the modifiers for the Skill.
@@ -312,8 +346,8 @@ Details on the use of Skills may be found in the following:
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.8
-* Status: Draft Release
-* Release: 2018-08-19
+* Status: Stable Release
+* Release: 2018-09-23
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -323,4 +357,4 @@ Details on the use of Skills may be found in the following:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>

@@ -12,14 +12,15 @@ layout: default
 <li><a href="#2-inferred-parameter-type">2. Inferred Parameter Type</a></li>
 <li><a href="#3-implicit-parameters-it">3. Implicit Parameters: it</a></li>
 <li><a href="#4-empty-list-of-parameters">4. Empty List of Parameters</a></li>
-<li><a href="#5-lambda-as-the-last-parameter-of-a-method">5. Lambda as the Last Parameter of a Method</a></li>
-<li><a href="#6-type-of-a-lambda-expression">6. Type of a Lambda Expression</a></li>
+<li><a href="#5-short-notation-of-a-lambda-expression">5. Short notation of a Lambda Expression</a></li>
+<li><a href="#6-lambda-as-the-last-parameter-of-a-method">6. Lambda as the Last Parameter of a Method</a></li>
+<li><a href="#7-type-of-a-lambda-expression">7. Type of a Lambda Expression</a></li>
 <ul>
-  <li><a href="#6-1-pure-sarl-notation">6.1. Pure SARL Notation</a></li>
-  <li><a href="#6-2-java-like-notation">6.2. Java-like Notation</a></li>
+  <li><a href="#7-1-pure-sarl-notation">7.1. Pure SARL Notation</a></li>
+  <li><a href="#7-2-java-like-notation">7.2. Java-like Notation</a></li>
 </ul>
-<li><a href="#7-acknowledgements">7. Acknowledgements</a></li>
-<li><a href="#8-legal-notice">8. Legal Notice</a></li>
+<li><a href="#8-acknowledgements">8. Acknowledgements</a></li>
+<li><a href="#9-legal-notice">9. Legal Notice</a></li>
 
 </ul>
 
@@ -88,7 +89,40 @@ val runnable : Runnable = [ |
 
 
 
-##5. Lambda as the Last Parameter of a Method
+##5. Short notation of a Lambda Expression
+
+When the lamda expression is passed to a single-parameter function, the brackets that are enclosing the lambda
+declaration could be missed. It specific syntax is called the short notation of a lambda expression. 
+
+Consider the following definition of a function with lambda expression as a single parameter:
+
+```sarl
+def aFunction(aParameter : (Object) => Object) {
+}
+```
+
+
+
+The call to the previously defined function with the short notation is:
+
+```sarl
+aFunction(a | new Object)
+```
+
+
+
+This call is equivalent to the following one, with the standard notation:
+
+```sarl
+aFunction([a | new Object])
+```
+
+
+
+As for the standard notation, the parameter and the bar could be missed when their is no formal parameter.
+
+
+##6. Lambda as the Last Parameter of a Method
 
 When the last argument of a method call is a lambda, it can be passed right after the argument list.
 
@@ -112,9 +146,9 @@ Collections.sort(t) [ a, b | a.length - b.length ]
 
 
 
-##6. Type of a Lambda Expression
+##7. Type of a Lambda Expression
 
-###6.1. Pure SARL Notation
+###7.1. Pure SARL Notation
 
 Because SARL is a strongly typed programming language, each lambda expression has a type.
 The syntax for specifying the type of a lambda is: `(parameter types) => return type`
@@ -130,7 +164,7 @@ var f : (String) => Boolean
 If the lambda is a procedure, i.e. it has no return type, then the return type to specify must be `void`.
 
 
-###6.2. Java-like Notation
+###7.2. Java-like Notation
 
 The SARL lambda expressions are mapped to the Java types defined in `Functions` or `Procedures`.
 
@@ -153,18 +187,18 @@ Depending of the number of parameters, you may use `Function0` to `Function5`, o
 
 
 
-##7. Acknowledgements
+##8. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##8. Legal Notice
+##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.8
-* Status: Draft Release
-* Release: 2018-08-19
+* Status: Stable Release
+* Release: 2018-09-23
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -174,4 +208,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>

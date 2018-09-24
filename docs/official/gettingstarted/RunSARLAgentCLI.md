@@ -154,11 +154,16 @@ you may use the Maven execution plugin for classing this booting class.
 The typical command line is:
 
 
-	mvn exec:java -Dexec.mainClass="io.janusproject.Boot"
+	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.janusproject.Boot"
 
 
 
-The option `-Dexec.mainClass` specifies the fully qualified name of `io.janusproject.Boot`.
+
+The option `-Dexec.executable` specifies the Java executable.
+
+The option `-Dexec.args` contains the command line arguments to pass to Java.
+The first argument is the classpath of the project. You must not change `%classpath` because it will be dynamically
+replaced by the Maven plugin. 
 
 
 ###3.2. Specify the Agent to Launch
@@ -168,8 +173,7 @@ Indeed, it is mandatory to specify the fully qualified name
 of the agent to launch:
 
 
-	mvn exec:java -Dexec.mainClass="io.janusproject.Boot" -Dexec.args=myapp.MyAgent
-
+	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.janusproject.Boot <qualified_name_of_the_agent>"
 
 
 <veryimportant>The Janus platform allows to start only one agent from the command line.
@@ -187,8 +191,7 @@ The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
 
-	mvn exec:java -Dexec.mainClass="io.janusproject.Boot" -Dexec.args=--help
-
+	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.janusproject.Boot --help"
 
 
 
@@ -203,8 +206,8 @@ In the next section, we will learn how to launch your SARL project from a Java p
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.8
-* Status: Draft Release
-* Release: 2018-08-19
+* Status: Stable Release
+* Release: 2018-09-23
 
 > Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -214,4 +217,4 @@ In the next section, we will learn how to launch your SARL project from a Java p
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
