@@ -154,14 +154,23 @@ def equals(int[], Object) : boolean
 def equals(long[], Object) : boolean
 def equals(short[], Object) : boolean
 def get(Object[], int) : Object
+def get(Object[][], int, int) : Object
 def get(boolean[], int) : boolean
+def get(boolean[][], int, int) : boolean
 def get(byte[], int) : byte
+def get(byte[][], int, int) : byte
 def get(char[], int) : char
+def get(char[][], int, int) : char
 def get(double[], int) : double
+def get(double[][], int, int) : double
 def get(float[], int) : float
+def get(float[][], int, int) : float
 def get(int[], int) : int
+def get(int[][], int, int) : int
 def get(long[], int) : long
+def get(long[][], int, int) : long
 def get(short[], int) : short
+def get(short[][], int, int) : short
 def hashCode(Object[]) : int
 def hashCode(boolean[]) : int
 def hashCode(byte[]) : int
@@ -181,14 +190,23 @@ def length(int[]) : int
 def length(long[]) : int
 def length(short[]) : int
 def set(Object[], int, Object) : Object
+def set(Object[][], int, int, Object) : Object
 def set(boolean[], int, boolean) : boolean
+def set(boolean[][], int, int, boolean) : boolean
 def set(byte[], int, byte) : byte
+def set(byte[][], int, int, byte) : byte
 def set(char[], int, char) : char
+def set(char[][], int, int, char) : char
 def set(double[], int, double) : double
+def set(double[][], int, int, double) : double
 def set(float[], int, float) : float
+def set(float[][], int, int, float) : float
 def set(int[], int, int) : int
+def set(int[][], int, int, int) : int
 def set(long[], int, long) : long
+def set(long[][], int, int, long) : long
 def set(short[], int, short) : short
+def set(short[][], int, int, short) : short
 ```
 
 
@@ -324,11 +342,11 @@ This documentation is inspired by the documentations from the
 ##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -336,4 +354,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

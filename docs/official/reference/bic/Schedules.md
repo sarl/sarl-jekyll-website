@@ -12,12 +12,13 @@ layout: default
 <li><a href="#2-changing-the-name-of-a-task">2. Changing the name of a task</a></li>
 <li><a href="#3-launching-a-task-for-a-single-run">3. Launching a Task for a single run</a></li>
 <li><a href="#4-launching-a-delayed-task">4. Launching a Delayed Task</a></li>
-<li><a href="#5-launching-a-periodic-task-at-a-fixed-rate">5. Launching a Periodic Task at a Fixed Rate</a></li>
-<li><a href="#6-launching-a-periodic-task-with-a-fixed-delay-between-the-runs">6. Launching a Periodic Task with a Fixed Delay between the Runs</a></li>
-<li><a href="#7-cancelling-a-task">7. Cancelling a Task</a></li>
-<li><a href="#8-conditional-execution-of-a-task">8. Conditional Execution of a Task</a></li>
-<li><a href="#9-retreiving-the-active-tasks">9. Retreiving the active tasks</a></li>
-<li><a href="#10-legal-notice">10. Legal Notice</a></li>
+<li><a href="#5-launching-a-task-at-a-specific-time">5. Launching a Task at a Specific Time</a></li>
+<li><a href="#6-launching-a-periodic-task-at-a-fixed-rate">6. Launching a Periodic Task at a Fixed Rate</a></li>
+<li><a href="#7-launching-a-periodic-task-with-a-fixed-delay-between-the-runs">7. Launching a Periodic Task with a Fixed Delay between the Runs</a></li>
+<li><a href="#8-cancelling-a-task">8. Cancelling a Task</a></li>
+<li><a href="#9-conditional-execution-of-a-task">9. Conditional Execution of a Task</a></li>
+<li><a href="#10-retreiving-the-active-tasks">10. Retreiving the active tasks</a></li>
+<li><a href="#11-legal-notice">11. Legal Notice</a></li>
 
 </ul>
 
@@ -163,7 +164,50 @@ agent A {
 
 
 
-##5. Launching a Periodic Task at a Fixed Rate
+
+##5. Launching a Task at a Specific Time
+
+For running a task at a specific time, the following function is provided:
+
+```sarl
+def at(task : AgentTask = null, time : long, procedure : (Agent) => void) : AgentTask
+```
+
+
+Without its optional argument, the function submits the given procedure (a lambda expression as defined in
+the [General Syntax Reference](../GeneralSyntax.html)) to an executor provided by the runtime
+platform. The execution of the procedure will start at the provided time.
+If the given time is not in the futur, the task is not run.
+This function replies the agent task for controlling its execution.
+
+With its optional argument, the function behaves in a similar way as the first, except that it
+accepts an agent task as parameter. This task will attach to the given procedure. The replied task
+is the same as the task given as parameter.
+
+
+Example:
+
+```sarl
+agent A {
+	uses Schedules, Logging
+	var t1 : AgentTask
+	var t2 : AgentTask
+	def myaction {
+		t1 = at(1000) [ a : Agent |
+			info(a)
+		]
+		
+		t1 = t2.at(1000) [ a : Agent |
+			info(a)
+		]
+	}
+}
+```
+
+
+
+
+##6. Launching a Periodic Task at a Fixed Rate
 
 For running a periodic task with a fixed starting rate, the following function is provided:
 
@@ -173,13 +217,13 @@ def every(task : AgentTask = null, delay : long, procedure : (Agent) => void) : 
 
 
 
-The first function submits the given procedure (a lambda expression as defined in
+The function without the default parameter submits the given procedure (a lambda expression as defined in
 the [General Syntax Reference](../GeneralSyntax.html)) to
 an executor provided by the runtime platform. The execution of the procedure
 will be launched periodically with a period of the given number of milliseconds.
 This function replies the agent task for controlling its execution.
 
-The second function behaves in a similar way as the first, except that it
+The function with the default parameter behaves in a similar way as the first, except that it
 accepts an agent task as parameter. This task will attach to the given
 procedure. The replied task is the same as the task given as parameter.
 
@@ -207,7 +251,7 @@ At a given time, four instances of the task are run in parallel (A, B, C, D for 
 
 
 
-##6. Launching a Periodic Task with a Fixed Delay between the Runs
+##7. Launching a Periodic Task with a Fixed Delay between the Runs
 
 For running a periodic task with a fixed duration between the runs, the following function is provided:
 
@@ -246,7 +290,7 @@ atFixedDelay(500) [ sleep(2000) ]
 
 
 
-##7. Cancelling a Task
+##8. Cancelling a Task
 
 It may be useful to cancel a running task, e.g. a periodic task. The `Schedules` capacity
 provides the following functions for managing the execution cancellation of an agent task:
@@ -294,7 +338,7 @@ agent A {
 
 
 
-##8. Conditional Execution of a Task
+##9. Conditional Execution of a Task
 
 Sometimes, it may be useful to execute a task if a condition is `true` or `false`. The 
 `AgentTask` type, which is representing an instance of `AgentTask` provides
@@ -354,7 +398,7 @@ myTask.execute [ doSomething ]
 
 
 
-##9. Retreiving the active tasks
+##10. Retreiving the active tasks
 
 The list of the active tasks may be retreived by invoking the following function:
 
@@ -375,14 +419,14 @@ for (taskName : getActiveTasks) {
 
 
 
-##10. Legal Notice
+##11. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -390,4 +434,4 @@ for (taskName : getActiveTasks) {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

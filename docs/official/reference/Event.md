@@ -255,7 +255,7 @@ events.</veryimportantnote>
 
 Two types of reserved events exist:
 
-* the events reserved in the SARL Core Specification for the [agent's life cycle](./Agent.html#4-behaviors-of-an-agent); and
+* the events reserved in the SARL Core Specification for the [agent's life cycle](./Agent.html#behaviors-of-an-agent); and
 * the events supported by the [Built-in Capacities](./BIC.html).
 
 
@@ -263,11 +263,11 @@ Two types of reserved events exist:
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -275,4 +275,4 @@ Two types of reserved events exist:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

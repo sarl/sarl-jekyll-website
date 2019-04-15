@@ -30,7 +30,15 @@ The following sections describe there annotations.
 ##1. @Accessors
 
 If you want to add getter and or setter methods for your fields, `@Accessors` is your friend.
-This annotation can be applied to object-oriented types. The agent-oriented types cannot be annotated.
+This annotation can be applied to either object-oriented types and several agent-oriented types.
+The agent-oriented types in which you could uses the `@Accessors` annotation are the agents,
+the behaviors and the skills.
+
+
+
+
+
+
 Let's a basic example.
 
 ```sarl
@@ -38,8 +46,7 @@ Let's a basic example.
 ```
 
 
-
-will compile to the code:
+It is compiled to the code:
 
 ```sarl
 private var name : String
@@ -55,9 +62,16 @@ public def setName(name : String) : void {
 
 
 
-By default a public getter and a public setter method is created. The `@Accessors` can be configured to tell
-that you only want one or the other and to change the visibility. This is done by passing the visibility types
-as parameters to the annotation.
+By default, a public getter and a public setter method is created. The `@Accessors` can be configured to tell
+that you only want one or the other, and to change the visibility. This is done by passing one or more values of
+type `AccessorType` for representing the visibility categories
+as parameters to the annotation: `PUBLIC_GETTER`, `PROTECTED_GETTER`, `PACKAGE_GETTER`,
+`PRIVATE_GETTER`, `PUBLIC_SETTER`, `PROTECTED_SETTER`, `PACKAGE_SETTER`,
+`PRIVATE_SETTER`, `NONE`.
+
+
+
+
 You can also use the annotation on class level to do the same for all fields.
 
 Here is a more complex example, that shows how it works:
@@ -72,7 +86,7 @@ Here is a more complex example, that shows how it works:
 ```
 
  
-will compile to the code:
+It is compiled to the code:
 
 ```sarl
 class Person {
@@ -329,11 +343,11 @@ This documentation is inspired by the documentations from the
 ##7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -341,4 +355,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

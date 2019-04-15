@@ -15,9 +15,15 @@ layout: default
   <li><a href="#1-3-is-the-val-keyword-defining-a-constant">1.3. Is the 'val' keyword defining a constant?</a></li>
   <li><a href="#1-4-why-cannot-use-the-syntax-a-0-for-arrays">1.4. Why cannot use the syntax 'a[0]' for arrays?</a></li>
   <li><a href="#1-5-why-can-i-not-use-the-notation-for-generic-parameters">1.5. Why can I not use the '<>' notation for generic parameters?</a></li>
-  <li><a href="#1-6-how-can-i-create-instances-of-anonymous-classes">1.6. How can I create instances of anonymous classes?</a></li>
-  <li><a href="#1-7-java-syntax-for-anonymous-classes-is-allowed">1.7. Java syntax for anonymous classes is allowed</a></li>
-  <li><a href="#1-8-ambiguous-call-to-capacity-function">1.8. Ambiguous call to capacity function</a></li>
+  <li><a href="#1-6-why-can-not-a-static-field-be-defined-in-an-agent-type-declaration-agent-skill-behavior">1.6. Why can not a static field be defined in an agent type declaration (agent, skill, behavior)?</a></li>
+  <li><a href="#1-7-how-can-i-create-instances-of-anonymous-classes">1.7. How can I create instances of anonymous classes?</a></li>
+  <li><a href="#1-8-java-syntax-for-anonymous-classes-is-allowed">1.8. Java syntax for anonymous classes is allowed</a></li>
+  <li><a href="#1-9-ambiguous-call-to-capacity-function">1.9. Ambiguous call to capacity function</a></li>
+  <li><a href="#1-10-why-is-an-error-or-a-warning-put-on-the-occurrence-keyword">1.10. Why is an error or a warning put on the occurrence keyword?</a></li>
+  <li><a href="#1-11-can-we-document-sarl-code-for-javadoc">1.11. Can we document SARL code for JavaDoc?</a></li>
+  <li><a href="#1-12-how-do-i-control-the-log-level-of-the-logging-built-in-capacity">1.12. How do I control the log-level of the Logging built-in capacity?</a></li>
+  <li><a href="#1-13-equality-and-identity-comparison-in-sarl-and-checking-for-null-same-as-java">1.13. Equality and identity comparison (`==`, `===`, `!=`, `!==`) in SARL and checking for null: same as Java?</a></li>
+  <li><a href="#1-14-how-to-return-two-values">1.14. How to return two values?</a></li>
 </ul>
 <li><a href="#2-legal-notice">2. Legal Notice</a></li>
 
@@ -113,7 +119,21 @@ var secondSolution : List<Integer> = new ArrayList
 
 
 
-###1.6. How can I create instances of anonymous classes?
+###1.6. Why can not a static field be defined in an agent type declaration (agent, skill, behavior)?
+
+This is a design choice given that our entities are agents and as such they should not
+"share" data unless done explicitly in an agent-oriented manner, for example via
+resources or communication channels.
+Having static fields in agents or skills would break the "independency" of agents,
+also known as their autonomy.
+
+It is most probable that such static data can be seen as a resource outside the skill
+or agent, and as such it should be managed outside it (for example by using the artifact
+meta-model).
+
+
+
+###1.7. How can I create instances of anonymous classes?
 
 In SARL, the creation of anonymous classes (interface implementation...)
 must be done with a closure.
@@ -138,7 +158,7 @@ instance = [ parameter | /* The code of myfunction() */ ]
 
 
 
-###1.7. Java syntax for anonymous classes is allowed
+###1.8. Java syntax for anonymous classes is allowed
 
 In SARL, it is recommended tp create anonymous classes (interface implementation...)
 must be done with a closure (see previous question).
@@ -156,7 +176,7 @@ var instance = new MyInterface() {
 
 
 
-###1.8. Ambiguous call to capacity function
+###1.9. Ambiguous call to capacity function
 
 When the calling a capacity function, the SARL compiler complains with an "ambiguous call" error.
 In the code below, the function `myfunction` is defined in the capacities `C1` and `C2`.
@@ -196,15 +216,126 @@ getSkill(C1).myfunction
 ```
 
 
+###1.10. Why is an error or a warning put on the occurrence keyword?
+
+Consider this code:
+
+```sarl
+on CarArrivedPercept {
+    cars.get(occurrence.car).floor = occurrence.floor
+}
+```
+
+
+We know that `occurrence` is static, so cannot be changed. However, in the above code,
+`occurrence.car`, is not being changed/assigned, but just used to refer to another entity
+where assignment is performed.
+However, SARL compiler will think that `occurrence.car` may be changed due to a border effect
+of the `get`, and complain with warning.
+
+Consider this code:
+
+```sarl
+on CarArrivedPercept {
+    occurrence.floor = 1
+}
+```
+
+
+The line `occurrence.floor = 1` generates an error because in this case the SARL compiler
+is sure that the `occurrence` instance is changed.
+
+
+In order to avoid the warning above, you could write the code as:
+
+```sarl
+on CarArrivedPercept {
+    var c = occurrence.car
+    cars.get(c).floor = occurrence.floor
+}
+```
+
+
+
+###1.11. Can we document SARL code for JavaDoc?
+
+Yes. Since the SARL compiler generates valid Java code including the documentation,
+you could generate the documentation of your SARL program with the standard javadoc
+tool applied on the generated Java files.
+
+Additionnally, you could use a specific Javadoc doclet in order to generate a documentation 
+that follows the SARL syntax, intead of the Java syntax.
+
+You could find details on the page dedicated to the [Maven documentation plugin](../tools/APIDocumentation.html). 
+
+
+###1.12. How do I control the log-level of the Logging built-in capacity?
+
+Use `setLogLevel()` of the `Logging` capacity, as explained here in the
+[API documentation](http://www.sarl.io/docs/official/reference/bic/Logging.html).
+
+You could also control the general configuration of the log level from the options
+of your SARL Run-time Environment, such as [Janus](../tools/Janus.html).
+
+
+###1.13. Equality and identity comparison (`==`, `===`, `!=`, `!==`) in SARL and checking for null: same as Java?
+
+The mapping of the operator from SARL to Java are:
+* `a === b` becomes `a == b`
+* `a !== b` becomes `a != b`
+* `a == b` becomes `a == null ? (b == null) : a.equals(b)`
+* `a != b` becomes `!Objects.equals(a,b)`. This is null-safe (part of Google API)
+  and the code of the function is `a == b || (a != null && a.equals(b))`.
+
+It is always better to test valid against `null` with the `===` or `!==` operators.
+
+Because the SARL `==` operator is mapped to the Java `equals()` function, and the
+`===` and `!==` operators to the Java `==` and `!=` operators, it is better/safer,
+and a best practice, to use `===` and `!==` when one of the operands is of primitive
+type, e.g. `null`, number constants, primitive type variables. These operators are
+not replaced neither `operator_equals` nor `operator_notEquals` within the Java code.
+
+Usually, the SARL compiler generates a warning to push you to use `===` in place of `==`.
+But with `null == value`, an ambiguous call error occurs before the warning is generated.
+In fact, the SARL compiler tries to find an overloading function for the `==` operator.
+Since `null` has not a specific type, the SARL compiler find multiple overloading functions.
+Check the [documentation](http://www.sarl.io/docs/official/reference/general/Operators.html#3-comparison-operators) 
+for details on the overloading mechanism of SARL.
+
+
+###1.14. How to return two values?
+
+SARL comes with a `Pair<A,B>` class to build an object for storing two values, nicknamed "key" and "value". It comes useful when a method has
+to return two values instead of just one. For example, the following function returns the next floor and direction that an elevator has to serve:
+
+```sarl
+def kb_getNextJob() : Pair<Integer, Double> {
+    //...
+}
+```
+
+
+As of Java 8, and as part of JavaFX, Java provides this `Pair<A,B>` class; check [here](https://www.geeksforgeeks.org/pair-class-in-java/) and
+[here](https://docs.oracle.com/javase/8/javafx/api/javafx/util/Pair.html). Note Pairs are different from `Map`, which can be seen as a collection
+of Pairs and with a proper key/value semantics.
+
+There exist more advanced implementations of `Pair`, for example from Apache. See [here](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/tuple/package-summary.html),
+[here](https://www.baeldung.com/java-pairs) and [here](https://gangmax.me/blog/2017/10/10/how-to-return-multiple-values-from-a-java-method/).
+
+SARL itself have compact syntax do deal with `Pair`, by using `a -> b` to create a `Pair` object `(a,b)`. There are also compact ways of manipulating Collection and Maps.
+
+Check SARL documentation on that [here](../reference/general/Operators.html#8-collection-operators).
+
+
 
 ##2. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -212,4 +343,4 @@ getSkill(C1).myfunction
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

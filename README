@@ -1,17 +1,4 @@
 -----------------------------
-INSTALL ON UBUNTU (14.04)
------------------------------
-1)  apt-get install rake
-2)  apt-get install nodejs
-3)  apt-get install ruby-all-dev
-4)  apt-get install ruby-nokogiri
-5)  apt-get install ruby-bundler
-6)  apt-get install ruby-stringex
-7)  apt-get install jekyll
-8)  gem install -v 4.0.4 --no-rdoc --no-ri jekyll-scholar
-    (the dependencies should be installed also)
-
------------------------------
 INSTALL ON UBUNTU (16.04)
 -----------------------------
 1)  apt-get install ruby ruby-dev make gcc ruby-all-dev rake nodejs ruby-nokogiri ruby-bundler ruby-stringex python-setuptools
@@ -20,7 +7,18 @@ INSTALL ON UBUNTU (16.04)
     (the dependencies should be installed also)
 4)  cd <sarl>/formatting-styles/pygments
 5)  python setup.py develop
-5)  python setup.py install
+6)  python setup.py install
+
+-----------------------------
+INSTALL ON UBUNTU (18.04)
+-----------------------------
+* https://jekyllrb.com/docs/installation/ubuntu/
+* apt-get install rake
+* gem install stringex
+* gem install nokogiri
+* gem install --no-ri jekyll-scholar
+* gem install redcarpet
+* gem install pygments.rb -v 0.6.3
 
 -----------------------
 FAST GENERATION PROCESS

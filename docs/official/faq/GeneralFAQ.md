@@ -33,13 +33,20 @@ layout: default
   <li><a href="#2-5-why-does-the-sarl-product-launch-but-not-contain-any-features-related-to-sarl">2.5. Why does the SARL product launch but not contain any features related to SARL?</a></li>
   <li><a href="#2-6-why-does-the-content-assistant-not-propose-any-suggestion-on-macos">2.6. Why does the content assistant not propose any suggestion on MacOS?</a></li>
 </ul>
-<li><a href="#3-contribute-to-sarl">3. Contribute to SARL</a></li>
+<li><a href="#3-implementation-of-sarl-applications">3. Implementation of SARL Applications</a></li>
 <ul>
-  <li><a href="#3-1-where-are-the-sources-for-sarl">3.1. Where are the sources for SARL?</a></li>
-  <li><a href="#3-2-how-can-i-find-the-current-issues">3.2. How can I find the current issues?</a></li>
-  <li><a href="#3-3-how-can-i-report-a-problem-or-a-bug-in-sarl-components">3.3. How can I report a problem or a bug in SARL components?</a></li>
+  <li><a href="#3-1-is-it-possible-to-obtain-examples-of-sarl-code-for-applications">3.1. Is it possible to obtain examples of SARL code for applications?</a></li>
+  <li><a href="#3-2-how-can-we-know-when-an-agent-has-been-created-fully-after-being-spawn">3.2. How can we know when an agent has been created fully after being spawn?</a></li>
+  <li><a href="#3-3-be-careful-on-the-emit-of-events-in-on-initialize">3.3. Be careful on the emit of events in "on Initialize"</a></li>
+  <li><a href="#3-4-how-can-the-warnings-given-by-the-sarl-compiler-be-avoided">3.4. How can the warnings given by the SARL compiler be avoided?</a></li>
 </ul>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-contribute-to-sarl">4. Contribute to SARL</a></li>
+<ul>
+  <li><a href="#4-1-where-are-the-sources-for-sarl">4.1. Where are the sources for SARL?</a></li>
+  <li><a href="#4-2-how-can-i-find-the-current-issues">4.2. How can I find the current issues?</a></li>
+  <li><a href="#4-3-how-can-i-report-a-problem-or-a-bug-in-sarl-components">4.3. How can I report a problem or a bug in SARL components?</a></li>
+</ul>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -56,13 +63,13 @@ agent-oriented paradigm holds the keys to effectively meet this challenge.
 
 Syntactically and semantically SARL has its roots in the Java programming language but improves on many aspects:
 
-* [Agent specific statements](../index.html#5-2-agent-oriented-programming) - provide specific statements for agent programming
+* [Agent specific statements](../index.html#agent-oriented-programming) - provide specific statements for agent programming
 * [Type inference](../reference/GeneralSyntax.html) - you rarely need to write down type signatures anymore
 * [Lambda expressions](../reference/general/Lambda.html) - concise syntax for anonymous function literals
 * [Operator overloading](../reference/general/Operators.html) - make your libraries even more expressive
 * [Extension methods](../reference/general/Extension.html) - enhance closed types with new functionality
 * [Powerful switch expressions](../reference/general/SwitchExpression.html) - type based switching with implicit casts
-* [No statements](../reference/GeneralSyntax.html#4-details-on-the-sarl-language-elements) - everything is an expression
+* [No statements](../reference/GeneralSyntax.html#details-on-the-sarl-language-elements) - everything is an expression
 * Full support for Java generics - including all conformance and conversion rules
 * Translates to Java not bytecode - understand what is going on and use your code for platforms such as Android or GWT
 
@@ -71,7 +78,7 @@ Unlike other JVM languages, SARL has zero interoperability issues with Java: eve
 __The language is platform- and architecture-independent.__
 
 For a brief comparison between SARL, Java and Xtend languages, see the Section
-"[Comparison between SARL and other languages](../reference/OOP.html#1-comparison-between-sarl-and-other-languages)".
+"[Comparison between SARL and other languages](../reference/OOP.html#comparison-between-sarl-and-other-languages)".
 
 
 ###1.2. Can I use SARL to make agent-based software?
@@ -266,9 +273,140 @@ For enabling the SARL product content assist, we recommend to change its shortcu
 ![Content assist shortcut change](./ctrlspaceprefs.png)
 
 
-##3. Contribute to SARL
+##3. Implementation of SARL Applications
 
-###3.1. Where are the sources for SARL?
+###3.1. Is it possible to obtain examples of SARL code for applications?
+
+__Yes__.
+
+The SARL development environment contains a collection of SARL applications that may be used for creating your own applications.
+They are called the "SARL examples".
+
+In order to create a fresh project based on of these SARL examples, you have to use the menu `File > New > Example`.
+This menu opens a dialog box with a list of examples from which you may select one for creating your fresh project.
+The SARL examples have been put into several categories:
+
+* SARL Tutorials: the SARL code that is associated to one of the tutorial from the official documentation pages.
+* SARL Examples without user interface: a collection of fully-featured applications without graphical user interface.
+* SARL Examples with JavaFX: a collection of fully-featured applications with a JavaFX-based user interface.
+* SARL Templates of applications: a collection of templates for creating a fresh SARL application.
+
+
+###3.2. How can we know when an agent has been created fully after being spawn?
+
+An event `AgentSpawned` will be emitted when an agent has been created and can
+be handled, say by a coordinator, to know the agent is now alive! For example:
+
+```sarl
+on AgentSpawned {
+    info("Agent {0} of type {1} has been created successfully and is now alive!",
+        occurrence.agentIdentifiers, occurrence.agentType)
+}
+```
+
+
+
+
+###3.3. Be careful on the emit of events in "on Initialize"
+
+The `on Initialize` event handler in agents is a bit special, as it is the code ran when an agent is born.
+As such, its execution is more "synchronous" than other on-behavior rules. In particular:
+
+1. Any event emitted within an `on Initialize`, will not be processed until that
+   `on Initialize` code finishes. So, your agent initialization should not depend
+   (and wait) on any fired event being processed, as they won't!
+2. When spawning an agent in `on Initialize`, the spawn instructions will return only
+   after the agent has been created. However, creation of the agent (i.e., of the
+   corresponding object) does not include initialization of the agent via its 
+   `on Initialize` handler. Said so, the Java thread manager may process those
+   initialization processes of the new agent before continuing with the execution
+   of the spawning agent (and this seems to be the case in many Linux boxes
+   where the executor service of Java tends to have the same behavior during
+   all the runs). If you change computer, it may be different. In the following
+   example, the thread executor service of Java seems to give the priority to
+   the `on Initialize` of `Agent2` instead of continuing the run of the
+   spawn function.
+
+```sarl
+agent Agent1 {
+    uses Logging, Lifecycle
+    var agent_name = "agent1"
+    on Initialize {
+        info(agent_name + " spawned")
+        info(agent_name + " spawning Agent2")
+        spawn(Agent2)
+        info(agent_name + " end")
+    }
+}
+agent Agent2 {
+    uses Logging
+    var agent_name = "agent2"
+    on Initialize {
+        info(agent_name + " spawned")
+        info(agent_name + " sleeping")
+        Thread::sleep(5000)
+        info(agent_name + " woke up")
+        info(agent_name + " end")
+    }
+    on Initialize {
+        info(agent_name + " init2")
+        info(agent_name + " init2 end")
+    }
+}
+```
+
+
+The output has been:
+
+```
+Launching the agent: Agent1
+agent1 spawned
+agent1 spawning Agent2
+agent2 spawned
+agent2 init2
+agent2 sleeping
+agent2 init2 end
+agent2 woke up
+agent2 end
+agent1 end
+```
+
+Here it appears as the `on Initialize` behaviors have been run all before
+the execution resumes after the `spawn()` statement, but this is just one way
+and one should not rely on that behavior being guaranteed: once the spawned
+agent is created, the `spawn()` commands returns.
+
+
+
+###3.4. How can the warnings given by the SARL compiler be avoided?
+
+You can use `@SupressWarnings(...)` annotations in the entities you do not want
+to be warned. For example, a typical warning SARL will give is lack of
+synchronization for variables that can be accessed/edited concurrently:
+```
+[WARNING] The field noToSpawn should be synchronized for avoiding value inconsistency
+due to parallel execution. [BootMultiSWIAgents.sarl:70]
+```
+
+To get rid of such warnings, assuming you are aware of the potential issue and
+have planned for it, you can do:
+
+```sarl
+@SuppressWarnings("potential_field_synchronization_problem")
+agent BootMultiSWIAgents {
+    //...
+}
+```
+
+
+See the [Issue Codes](https://github.com/sarl/sarl/blob/master/main/coreplugins/io.sarl.lang/src/io/sarl/lang/validation/IssueCodes.java)
+for a complete list of what can be suppressed.
+
+
+
+##4. Contribute to SARL
+
+###4.1. Where are the sources for SARL?
 
 The sources for SARL are available on
 [Github](https://github.com/sarl/sarl).
@@ -276,26 +414,26 @@ Details for getting the source code may be found on the
 [download page](http://www.sarl.io/download/). 
 
 
-###3.2. How can I find the current issues?
+###4.2. How can I find the current issues?
 
 SARL Core Developers use [Github](https://github.com/sarl/sarl)
 to manage bug tracking and project workflow. 
 The issues are listed on [Github](https://github.com/sarl/sarl/issues). 
 
 
-###3.3. How can I report a problem or a bug in SARL components?
+###4.3. How can I report a problem or a bug in SARL components?
 
 You should submit your issue on [this page](https://github.com/sarl/sarl/issues/new).
 
 
-##4. Legal Notice
+##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -303,4 +441,4 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

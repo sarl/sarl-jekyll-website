@@ -86,7 +86,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.8.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.9.0` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
@@ -94,7 +94,7 @@ Replace the version number `0.8.0` of SARL with the one you want to use. You cou
     ...
     <properties>
        ...
-       <sarl.version>0.8.0</sarl.version>
+       <sarl.version>0.9.0</sarl.version>
 	   <compiler.level>1.8</compiler.level>
 	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -165,7 +165,7 @@ recommended approach by the SARL core developers.</caution>
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
 
-Replace the version number (`2.0.8.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`2.0.9.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -174,7 +174,7 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>2.0.8.0</janus.version>
+       <janus.version>2.0.9.0</janus.version>
     </properties>
     ...
     <build>
@@ -222,11 +222,11 @@ In the next section, we will learn how to create our first agent.
 ##4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -234,4 +234,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

@@ -251,14 +251,23 @@ The methods from `ArrayLiterals` are automatically included.
 ```sarl
 interface ArrayLiterals {
 	def newArrayOfSize(int) : Object[]
+	def newArrayOfSize(int, int) : Object[][]
 	def newBooleanArrayOfSize(int) : boolean[]
+	def newBooleanArrayOfSize(int, int) : boolean[][]
 	def newByteArrayOfSize(int) : byte[]
+	def newByteArrayOfSize(int, int) : byte[][]
 	def newCharArrayOfSize(int) : char[]
+	def newCharArrayOfSize(int, int) : char[][]
 	def newDoubleArrayOfSize(int) : double[]
+	def newDoubleArrayOfSize(int, int) : double[][]
 	def newFloatArrayOfSize(int) : float[]
+	def newFloatArrayOfSize(int, int) : float[][]
 	def newIntArrayOfSize(int) : int[]
+	def newIntArrayOfSize(int, int) : int[][]
 	def newLongArrayOfSize(int) : long[]
+	def newLongArrayOfSize(int, int) : long[][]
 	def newShortArrayOfSize(int) : short[]
+	def newShortArrayOfSize(int, int) : short[][]
 }
 ```
 
@@ -360,11 +369,11 @@ This documentation is inspired by the documentations from the
 ##10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -372,4 +381,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

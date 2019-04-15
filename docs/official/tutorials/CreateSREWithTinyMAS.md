@@ -1724,6 +1724,18 @@ class TimeSkill extends Skill implements Time {
 	def getOSTimeFactor : double {
 		(owner as TMSarlAgent).getSimulationStepDuration(TimeUnit::SECONDS)
 	}
+	def fromOSTime(time : double) : double {
+		time / getOSTimeFactor
+	}
+	def toOSTime(time : double) : double {
+		time * getOSTimeFactor
+	}
+	def fromOSDuration(duration : double) : double {
+		duration / getOSTimeFactor
+	}
+	def toOSDuration(duration : double) : double {
+		duration * getOSTimeFactor
+	}
 }
 ```
 
@@ -2204,7 +2216,7 @@ The following manifest context gives an example of the tinyMAS SRE declaration:
 	
 	SARL-Runtime-Environment:
 	SRE-Name: TinyMAS
-	SARL-Spec-Version: 0.8
+	SARL-Spec-Version: 0.9
 	Standalone-SRE: true
 	VM-Arguments: -ea
 	Program-Arguments:
@@ -2288,11 +2300,15 @@ The `SREBootstrap` service provides the following functions:
 ```sarl
 interface SREBootstrap {
 	def getBootAgentIdentifier : UUID
+	def getUniverseContextUUID : UUID
+	def getUniverseSpaceUUID : UUID
 	def isActive : boolean
 	def setBootAgentTypeContextUUID
-	def setDefaultContextUUID
 	def setOffline(boolean)
 	def setRandomContextUUID
+	def setSpecificContextUUID
+	def setUniverseContextUUID(UUID)
+	def setUniverseSpaceUUID(UUID)
 	def setVerboseLevel(int)
 	def startAgent(Class<Agent>, Object[]) : UUID
 	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
@@ -2365,11 +2381,11 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 ##14. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -2377,4 +2393,4 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

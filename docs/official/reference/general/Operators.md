@@ -335,10 +335,10 @@ In SARL, it is easy to overload or re-define an existing operator.
 
 You should define the operator mapping function (see the previous sections for a comprehensive list of them).
 
- the following example, the addition operator [:plusop] for two `Pair` objects is defined.
- The function that is defining the operator must be named with the `operator_` prefix, and have one parameter
- for each operand associated with the operator. In the example, the addition of two pairs `1 -> 3` and `4 -> 5`.
- gives the pair (a,d).
+The following example, the addition operator [:plusop] for two `Pair` objects is defined.
+The function that is defining the operator must be named with the `operator_` prefix, and have one parameter
+for each operand associated with the operator. In the example, the addition of two pairs `1 -> 3` and `4 -> 5`.
+gives the pair (a,d).
  
 ```sarl
 def operator_plus(
@@ -365,6 +365,9 @@ def example {
 ```
 
 
+In addition to the overloading of the operators that are described on this page, it 
+is possible to overload the casting operator. See [details](./Cast.html).
+
 
 ##12. Acknowledgements
 
@@ -375,11 +378,11 @@ This documentation is inspired by the documentations from the
 ##13. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -387,4 +390,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

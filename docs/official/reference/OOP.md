@@ -83,140 +83,7 @@ complete support of the OOP, you should use a dedicated language, such as Java,
 
 ##1. Comparison between SARL and Other Languages
 
-<a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>, [Xtend](https://www.eclipse.org/xtend/) and
-[Scala](http://scala-lang.org/) are object-oriented programming languages.
-As SARL, Xtend is based on the [Xtext](https://www.eclipse.org/Xtext/) libraries for compiling to the Java language.
-
-The main features coming from the Java language are supported by SARL too. The following table provides the major
-differences between the SARL, Java, Xtend and Scala languages, excluding any feature provided by the development
-environment (Eclipse, IntelliJ...)
-
-<table><thead>
-<tr><th></th><th>SARL</th><th>Java</th><th>Xtend</th><th>Scala</th></tr>
-</thead><tbody>
-<tr><td colspan=5><strong>Agent-oriented programming</strong></td></tr>
-<tr><td><a href="../index.html#agent-oriented-programming">Agent, Capacity, Skill, Behavior...</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Partial: actor paradigm</td></tr>
-<tr><td colspan=5><strong>Object-oriented programming</strong></td></tr>
-<tr><td><a href="./OOP.html">Definition of class and interface types</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="#4-enumeration">Object-oriented enumeration</a>
-			<td style="background: orange; color: white;">No, only constants could be defined</td>
-			<td style="background: green; color: white;">Yes, constants and functions could be defined</td>
-			<td style="background: orange; color: white;">No, only constants could be defined</td>
-			<td style="background: green; color: white;">Yes, constants and functions could be defined</td></tr>
-<tr><td><a href="#5-annotation-type">Definition of annotation types</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="#2-5-static-constructor-definition">Definition of static constructors</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">See companion object</td></tr>
-<tr><td>Inheritance of constructors</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td></tr>
-<tr><td><a href="./general/ActiveAnnotations.html#Data">Automatic creation of read-only data structure</a></td>
-			<td style="background: yellow; color: black;">Manual with <code>@Data</code> annotation</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Manual with <code>@Data</code> annotation</td>
-			<td style="background: orange; color: white;">No</td></tr>
-<tr><td><a href="./general/ActiveAnnotations.html#Accessors">Automatic creation of getters and setters</a></td>
-			<td style="background: yellow; color: black;">Manual with <code>@Accessors</code> annotation</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Manual with <code>@Accessors</code> annotation</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td>Automatic creation of final-field constructor</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Manual with <code>@FinalFieldsConstructor</code> annotation</td>
-			<td style="background: orange; color: white;">No</td></tr>
-<tr><td>Automatic creation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-"><code>equals()</code></a>
-            and <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--"><code>hashCode()</code></a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Manual with <code>@EqualsHashCode</code> annotation</td>
-			<td style="background: green; color: white;">Yes, see case class</td></tr>
-<tr><td>Automatic creation of <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone--"><code>clone()</code></a>
-            when <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Cloneable.html">cloneable type</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td>Automatic creation of a serialVersionUID field when
-        <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html">serializable type</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Manual with <code>@SerialVersionUID</code></td></tr>
-<tr><td><a href="./general/ActiveAnnotations.html#ToString">Automatic creation of the <code>toString()</code> function.</a></td>
-			<td style="background: yellow; color: black;">Manual with <code>@ToString</code> annotation</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: yellow; color: black;">Manual with <code>@ToString</code> annotation</td>
-			<td style="background: green; color: white;">Yes, see case class</td></tr>
-<tr><td colspan=5><strong>Functions, Procedures and Operators</strong></td></tr>
-<tr><td><a href="./general/FuncDecls.html#7-dispatch-function">Definition of dispatch functions</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td></tr>
-<tr><td><a href="./general/Extension.html">Extension methods</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="./general/FuncDecls.html#variadic-function">Definition of variadic functions</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="./general/FuncDecls.html#default-value-for-the-formal-parameters">Definition of default values for the formal parameters</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="./general/Operators.html#operator-overloading">Operator overloading</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td>Automatic detection of <a href="http://download.eclipse.org/modeling/tmf/xtext/javadoc/2.9/org/eclipse/xtext/xbase/lib/Pure.html">pure functions</a> and marking</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: orange; color: white;">No</td></tr>
-<tr><td colspan=5><strong>Expressions</strong></td></tr>
-<tr><td><a href="./general/Lambda.html">Definition of lambda expressions</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="./general/VarDecls.html#typing">Inference of types</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="./general/LoopExpression.html#breaking-a-loop">Support the <code>break</code> statement</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-<tr><td><a href="./general/LoopExpression.html#jump-to-the-next-iteration">Support the <code>continue</code> statement</a></td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: green; color: white;">Yes</td>
-			<td style="background: orange; color: white;">No</td>
-			<td style="background: green; color: white;">Yes</td></tr>
-</tbody></table>
+A comparison between SARL and other programming languages could be found [here](./LanguageComparison.html).
 
 
 ##2. Class
@@ -594,7 +461,7 @@ its behavior. The `override` keyword is specified for clearly marking this
 implementation of `getFullName` as an override of the parent's implementation.
 
 <note>The return type of the `getFullName` method (called with the name `fullName`,
-according to the [property access syntax](./general/MemberAccess.html#1-property-syntax))
+according to the [property access syntax](./general/MemberAccess.html#property-syntax))
 is not specified in the overriding prototype since it could be inferred by the SARL compiler.</note>
 
 For preventing a function to be overridden, you should add the `final` modifier in the signature of
@@ -1302,7 +1169,7 @@ Method calls are bound based on the static types of arguments.
 Sometimes this is not what you want. Especially in the context of extension methods
 you would like to have polymorphic behavior.
 
-The `dispatch` modifier permits defining a [dispatch method](./general/FuncDecls.html#7-dispatch-function).
+The `dispatch` modifier permits defining a [dispatch method](./general/FuncDecls.html#dispatch-function).
 For a set of visible dispatch methods in the current type hierarchy with the same name and
 the same number of arguments, the compiler infers a synthetic dispatcher method.
 This dispatcher uses the common super type of all declared arguments.
@@ -1638,11 +1505,11 @@ Thank you to the contributors to these documents.
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -1650,4 +1517,4 @@ Thank you to the contributors to these documents.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

@@ -61,26 +61,28 @@ The complete list of the options is:
 | `-H`, `--help-config` | Prints information about application modules and their configuration options. |
 | `--javacompiler[=none|ecj|javac]` | Specifies the Java compiler to be run; default is ecj. |
 | `--javasource[=version]` | Specifies the Java version of Java source code accepted, and of the Java class files for targeting a specified release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Valid targets are: 1.8 (or 8). |
+| `--json` | When present, the output of the configuration has the Json format. |
 | `-l level`, `--log=level` | Change the logging level. Possible values are: OFF, ERROR, WARNING, INFO, DEBUG, TRACE, ALL |
 | `-o directory_name`, `--outputdir=directory_name` | Sets the destination directory for class files. The directory must already exist because sarlc does not create it. If a class is part of a package, then sarlc puts the class file in a subdirectory that reflects the package name and creates directories as needed. If the --outputdir option is not specified, then sarlc assumes target/classes. |
-| `-C`, `--printconfig` | Print the current configuration. |
+| `-C`, `--printconfig` | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
 | `-G`, `--printgenerators` | Prints the list of the available extra-language generators. |
 | `-p`, `--progress` | Prints the progress bar on the console. |
 | `-v`, `--version` | Prints release information. |
 | `--workingdir=directory_name` | Directory in which the temporary files will be generated during the compilation process. |
 | `--writestorages[=true|false]` | Specifies if the storage files should be generated; default is true. |
 | `--writetraces[=true|false]` | Specifies if the trace files should be generated; default is true. |
+| `-x`, `--xml` | When present, the output of the configuration has the XML format. |
 
 
 
 ##3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -88,4 +90,4 @@ The complete list of the options is:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

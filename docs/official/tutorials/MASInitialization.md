@@ -77,7 +77,7 @@ For 100 agents, the number of logged messages should be 5,050, not 10,000.
 
 
 Moreover, According to the expected [agent spawning's parallel execution](./ParallelExecution.html), the calls to the
-`spawn` function form a sequence of 100 calls; And, each call to the `spawn` function starts a spawning task that is run within a separated thread.
+`spawn` function form a sequence of 100 calls; And, each call to the `spawn` function starts a spawning task that is run within a separate thread.
 Consequently, the general behavior of the system is not deterministic.
 We cannot infer the number of messages that will be logged because some event may be fired by agents when several
 other agents are still waiting for their spawns. The only one fact is that the number of logged messages is lower than or equal to f(100).
@@ -113,7 +113,7 @@ The booting agent becomes:
 agent BootAgent {
 	uses Lifecycle, DefaultContextInteractions
 	
-	var count = 0
+	var count = new AtomicInteger
 	
 	on Initialize {
 		for (i : 1..100) {
@@ -122,9 +122,9 @@ agent BootAgent {
 	}
 	
 	on AgentSpawned [!it.agentIdentifiers.contains(ID)] {
-		count++
-		if (count == 100) {
-			emit(new StartApplication) [it.UUID != ID]
+		var n = this.count.incrementAndGet
+		if (n === 100) {
+			emit(new StartApplication)
 			killMe
 		}
 	}
@@ -141,11 +141,11 @@ and commits a suicide.
 ##3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -153,4 +153,4 @@ and commits a suicide.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>

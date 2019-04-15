@@ -28,7 +28,9 @@ layout: default
 <li><a href="#3-runtime-behavior-of-janus">3. Runtime Behavior of Janus</a></li>
 <ul>
   <li><a href="#3-1-are-events-received-in-the-same-order-than-when-they-are-sent">3.1. Are events received in the same order than when they are sent?</a></li>
-  <li><a href="#3-2-must-i-configure-the-janus-kernels-to-be-connected-to-other-janus-kernels">3.2. Must I configure the Janus kernels to be connected to other Janus kernels?</a></li>
+  <li><a href="#3-2-how-events-are-treated-by-the-run-time-environment">3.2. How events are treated by the run-time environment?</a></li>
+  <li><a href="#3-3-how-the-spawn-function-is-run-by-the-run-time-environment">3.3. How the spawn function is run by the run-time environment?</a></li>
+  <li><a href="#3-4-must-i-configure-the-janus-kernels-to-be-connected-to-other-janus-kernels">3.4. Must I configure the Janus kernels to be connected to other Janus kernels?</a></li>
 </ul>
 <li><a href="#4-contribute-to-janus">4. Contribute to Janus</a></li>
 <ul>
@@ -192,7 +194,45 @@ the event handlers in parallel. The real order of execution depends on
 how the Java executor is running the handlers on the threads.
 
 
-###3.2. Must I configure the Janus kernels to be connected to other Janus kernels?
+
+###3.2. How events are treated by the run-time environment?
+
+When the event `e` is received by an agent the following algorithm is applied:
+```
+if "on Initialize" is currently running then
+   add e to a buffer of events.
+else if "on Destroy" is currently running then
+   ignore the event.
+else
+   fire(e)
+fi
+```
+The function `fire(e)` retrieves all the `on E` and runs them in parallel, and
+there is a synchronization point after the running of all the `on E` if `E` is
+`Initialize` or `Destroy` (for forcing synchronous execution of `on Initialize`
+and `on Destroy`). At the end of the `on Initialize` (after synchronization point),
+all the buffered events are fired.
+
+Observe that if the event is fired from within the `on Initialize`, the same algorithm
+is applied whatever the receiving agent.
+
+
+
+###3.3. How the spawn function is run by the run-time environment?
+
+Regarding `spawn()`, the function runs in two parts:
+
+1. First, the spawn agent is created. This part is run in the same thread as the
+   caller of spawn, so the spawn call blocks.
+2. Once the spawn agent has been created, the initialization process runs
+   within a separated thread from the spawner agent. So, the call `spawn()` is
+   not locked. Then, the created thread runs all the initialization process,
+   including the synchronous execution of `on Initialize` (see previous question).
+   Consequently, the `on Initialize` of the spawn agent will not block the spawn caller.
+
+
+
+###3.4. Must I configure the Janus kernels to be connected to other Janus kernels?
 
 __No__.
 
@@ -227,11 +267,11 @@ You should submit your issue on
 ##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.8
+* Version: 0.9
 * Status: Stable Release
-* Release: 2018-09-23
+* Release: 2019-04-15
 
-> Copyright &copy; 2014-2018 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -239,4 +279,4 @@ You should submit your issue on
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.8.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
