@@ -38,8 +38,21 @@ The `-SNAPSHOT` postfix indicates a "under-development" version, i.e. it is not 
 The Janus platform may be directly download, even if it is recommend to use it through Maven (see below).
 For downloading the platform, please go to the [download page]({{ page.relative }}/download/index.html#download_janus).
 
-![Janus on Maven Central](https://img.shields.io/maven-central/v/io.janusproject/io.janusproject.kernel.svg?label=Available%20on%20Maven%20Central)
+## Using Janus with Maven
 
+Janus is available as a Maven artifact. The artifact is available on the [Maven Central Repository](http://search.maven.org). For using Janus in your Maven project, add the following dependency into your POM dependencies:
+
+
+    <dependency>
+      <groupId>io.janusproject</groupId>
+      <artifactId>io.janusproject.kernel</artifactId>
+      <version>{{site.janus_stable_version}}</version>
+    </dependency>
+
+
+You should change the version number {{site.janus_stable_version}} according to the version of your choice. All of the available version numbers could be found on the [Maven Central Repository](http://search.maven.org).
+
+![Janus on Maven Central](https://img.shields.io/maven-central/v/io.janusproject/io.janusproject.kernel.svg?label=Available%20on%20Maven%20Central)
 
 ## Documentation
 
