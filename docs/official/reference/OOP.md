@@ -1505,9 +1505,9 @@ Thank you to the contributors to these documents.
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -1517,4 +1517,4 @@ Thank you to the contributors to these documents.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

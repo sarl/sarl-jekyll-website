@@ -10,7 +10,11 @@ layout: default
 
 <li><a href="#1-basic-definition">1. Basic Definition</a></li>
 <li><a href="#2-inferred-parameter-type">2. Inferred Parameter Type</a></li>
-<li><a href="#3-implicit-parameters-it">3. Implicit Parameters: it</a></li>
+<li><a href="#3-implicit-parameters">3. Implicit Parameters</a></li>
+<ul>
+  <li><a href="#3-1-case-of-a-single-parameter-it">3.1. Case of a single parameter: it</a></li>
+  <li><a href="#3-2-case-of-multiple-parameters">3.2. Case of multiple parameters</a></li>
+</ul>
 <li><a href="#4-empty-list-of-parameters">4. Empty List of Parameters</a></li>
 <li><a href="#5-short-notation-of-a-lambda-expression">5. Short notation of a Lambda Expression</a></li>
 <li><a href="#6-lambda-as-the-last-parameter-of-a-method">6. Lambda as the Last Parameter of a Method</a></li>
@@ -43,7 +47,7 @@ Like a method declaration, a lambda expression may declare parameters.
 ```
 
 
-The lambda above has one parameter called e which is of type `ActionEvent`.
+The lambda above has one parameter called `e` which is of type `ActionEvent`.
 The code after the `|` operator is the internal code of the lambda expression.
 
 
@@ -62,7 +66,9 @@ For example, when using inferred type, the code in the previous section becomes:
 The type of `e` is inferred according to its usage.
 
 
-##3. Implicit Parameters: it
+##3. Implicit Parameters
+
+###3.1. Case of a single parameter: it
 
 As lambdas with one parameter are a common case, there  a special short hand notation
 for these parameters, which is to leave the declaration including the vertical bar out.
@@ -75,6 +81,48 @@ The name of the single parameter becomes `it`.
 ]
 ```
 
+
+###3.2. Case of multiple parameters
+
+When a lambda has multiple parameters, and no name is provided by the SARL developer, 
+the compiler generates default names for each of the formal parameters.
+The implicit name for the first parameter is `$0`, `$1` for the second,
+`$2` for the third, etc.
+
+Let the following interface declaration:
+
+```sarl
+interface MyInterface {
+    def myfct(a : int, b : int, c : int)
+}
+```
+
+
+The following code is a lambda expression implementing the `MyInterface` interface.
+Because the `myfct` function has four formal parameters, the lambda expression 
+has four parameters with implicit the following implicit names: `$0`, `$1`, and `$2`.
+
+```sarl
+[
+            [:Success:]
+            package io.sarl.docs.reference.gsr
+            interface MyInterface {
+                def myfct(a : int, b : int, c : int) : int
+            }
+            agent A {
+                def called(p : MyInterface) {}
+                def example {
+                    called(
+                    [:On]
+                    [
+                        $0 + $1 + $2
+                    ]
+                    [:Off])
+                }
+            }
+        [:End:] +  + 
+]
+```
 
 
 ##4. Empty List of Parameters
@@ -196,9 +244,9 @@ This documentation is inspired by the documentations from the
 ##9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -208,4 +256,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

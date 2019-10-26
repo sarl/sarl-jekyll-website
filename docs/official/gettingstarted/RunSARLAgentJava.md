@@ -39,9 +39,12 @@ The SARL API defines a SRE bootstrap as:
 ```sarl
 interface SREBootstrap {
 	def getBootAgentIdentifier : UUID
+	def getKernelLogger : Logger
+	def getService(Class<Object>) : Object
 	def getUniverseContextUUID : UUID
 	def getUniverseSpaceUUID : UUID
 	def isActive : boolean
+	def isRunning : boolean
 	def setBootAgentTypeContextUUID
 	def setOffline(boolean)
 	def setRandomContextUUID
@@ -49,8 +52,11 @@ interface SREBootstrap {
 	def setUniverseContextUUID(UUID)
 	def setUniverseSpaceUUID(UUID)
 	def setVerboseLevel(int)
+	def shutdown
+	def shutdown(boolean)
 	def startAgent(Class<Agent>, Object[]) : UUID
 	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
+	def startAgentWithID(Class<Agent>, UUID, Object[])
 	def startWithoutAgent : AgentContext
 }
 ```
@@ -168,9 +174,9 @@ Please read the rest of the documentation for obtaining more details.
 ##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -180,4 +186,4 @@ Please read the rest of the documentation for obtaining more details.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

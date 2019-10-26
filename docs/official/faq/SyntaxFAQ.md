@@ -324,16 +324,16 @@ There exist more advanced implementations of `Pair`, for example from Apache. Se
 
 SARL itself have compact syntax do deal with `Pair`, by using `a -> b` to create a `Pair` object `(a,b)`. There are also compact ways of manipulating Collection and Maps.
 
-Check SARL documentation on that [here](../reference/general/Operators.html#8-collection-operators).
+Check SARL documentation on that [here](../reference/general/Operators.html#collection-operators).
 
 
 
 ##2. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -343,4 +343,4 @@ Check SARL documentation on that [here](../reference/general/Operators.html#8-co
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

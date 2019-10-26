@@ -91,7 +91,7 @@ A typical command-line to launch is:
 
 ```
 javadoc -doclet io.sarl.docs.doclet.SarlDoclet
-        -cp doclet-0.9.0-SNAPSHOT.jar:path_to_sources
+        -cp doclet-0.10.jar:path_to_sources
         -source 1.8
         -sourcepath path_to_sources
         -d path_to_documentation
@@ -99,7 +99,7 @@ javadoc -doclet io.sarl.docs.doclet.SarlDoclet
 
 In order to use the SARL doclet, you have to specific the name of the doclet with the `-doclet`.
 You must also include the SARL doclet binary file into the class path with the `-cp`.
-In the example above, the name of the SARL doclet's jar file is `doclet-0.9.0-SNAPSHOT.jar`.
+In the example above, the name of the SARL doclet's jar file is `doclet-[:sarl.specification.release_version!].jar`.
 
 
 ##4. Specific Options of the SARL Doclet
@@ -130,9 +130,9 @@ class TheClass {
 ##5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -142,4 +142,4 @@ class TheClass {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

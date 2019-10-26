@@ -63,19 +63,53 @@ def example {
 
 
 
+##4. The try-with-resources Statement
 
-##4. Acknowledgements
+The try-with-resources statement is a try statement that declares one or more resources. A resource
+is an object that must be closed after the program is finished with it. The try-with-resources
+statement ensures that each resource is closed at the end of the statement. Any object that
+implements `java.lang.AutoCloseable`, which includes all objects which implement `java.io.Closeable`,
+can be used as a resource.
+
+The following example reads the first line from a file. It uses an instance of `BufferedReader`
+to read data from the file. `BufferedReader` is a resource that must be closed after the
+program is finished with it:
+
+```sarl
+static def readFirstLineFromFile(path : String) : String {
+	try (var br = new BufferedReader(new FileReader(path))) {
+    				return br.readLine
+	}
+}
+```
+
+
+
+
+In this example, the resource declared in the try-with-resources statement is a `BufferedReader`.
+The declaration statement appears within parentheses immediately after the `try` keyword.
+The class `BufferedReader` implements the interface `java.lang.AutoCloseable`.
+Because the `BufferedReader` instance is declared in a try-with-resource statement, it will be
+closed regardless of whether the try statement completes normally or abruptly (as a result of the method
+`BufferedReader.readLine` throwing an `IOException`).
+
+
+
+
+
+
+##5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##5. Legal Notice
+##6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -85,4 +119,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

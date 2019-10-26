@@ -17,10 +17,11 @@ layout: default
 </ul>
 <li><a href="#2-defining-a-space">2. Defining a Space</a></li>
 <ul>
-  <li><a href="#2-1-defining-a-space">2.1. Defining a Space</a></li>
+  <li><a href="#2-1-defining-the-physicspace">2.1. Defining the PhysicSpace</a></li>
   <li><a href="#2-2-basic-implementation">2.2. Basic Implementation</a></li>
   <li><a href="#2-3-basic-network-support">2.3. Basic Network Support</a></li>
   <li><a href="#2-4-defining-a-spacespecification">2.4. Defining a SpaceSpecification</a></li>
+  <li><a href="#2-5-access-to-the-default-space-instance-within-a-space-specification">2.5. Access to the Default Space Instance within a space specification</a></li>
 </ul>
 <li><a href="#3-legal-notice">3. Legal Notice</a></li>
 
@@ -74,12 +75,12 @@ The most basic scope is represented by a collection of addresses.
 
 ##1. Types of Spaces
 
-SARL provides a collection of Java interfaces that are representing different types of spaces.
+SARL provides a collection of interfaces that are representing different types of spaces.
 
 
 ###1.1. Space
 
-SARL provides a Java interface that is representing all the spaces:
+SARL provides an interface that is representing all the spaces:
 
 ```sarl
 interface Space {
@@ -132,6 +133,11 @@ interface OpenEventSpace {
 
 
 The functions `register` and `unregister` permit an agent to be involved or not.
+The function `register` fires the event `ParticipantJoined`.
+And, the function `unregister` fires the event `ParticipantLeft`.
+
+
+
 
 
 ###1.4. Restricted Access Event Space
@@ -152,7 +158,7 @@ The functions given by this type of space permits implementing a space with rest
 
 ##2. Defining a Space
 
-The definition of a new space must be done with an object-oriented language's features statements.
+The definition of a new space must be done with object-oriented language's features.
 
 For defining a space, three steps must be followed:
 
@@ -160,16 +166,17 @@ For defining a space, three steps must be followed:
 * Implementation of the space on a specific runtime environment;
 * Definition of the space specification.
 
-In the rest of this section, we use the example of the definition of a physic space: a space in which objects are located. 
+In the rest of this section, we use the example of the definition of a physic space: a space in which objects have a 
+spatial position. 
 
 
-###2.1. Defining a Space
+###2.1. Defining the PhysicSpace
 
-The first step for the definition of a new type of space is the specification of the Java interface that is describing
+The first step for the definition of a new type of space is the specification of the interface that is describing
 the functions provided by the space.
 
-The new space type must extend one of the predefined types. In the following example, the new space is related to
-the physic environment in which the agents may evolve.
+The new space type must extend one of the predefined types, below `Space`. In the following example, the new space
+is related to the physic environment in which the agents may evolve.
 
 ```sarl
 interface PhysicSpace extends Space {
@@ -180,8 +187,9 @@ interface PhysicSpace extends Space {
 ```
 
 
-This space permits to move an object (including the physical representation of the agent, its body).
-Additionally, the space gives to the agent the ability to be binded to its body, and to release the control of its body.
+This space permits to move an object, i.e. the physical representation of the agent 
+(named body). Additionally, the space gives to the agent the ability to be binded to its body, and
+to release the control of its body.
 The `EventListener` type is the event listening mechanism associated to the agent. It may be obtained with
 the `Behaviors` built-in capacity (see the corresponding
 [built-in capacity reference](./bic/Behaviors.html) for details).
@@ -194,7 +202,7 @@ the `Behaviors` built-in capacity (see the corresponding
 The definition of the space implementation depends upon the runtime environment.
 
 <caution>This section of the space reference document may evolved in future releases of SARL. Please activate
-the "deprecated feature use" warning in your Java compilation configuration for ensuring
+the "deprecated feature use" warning in your compilation configuration for ensuring
 that you will be notified about any major changes on this part of the API.</caution>
 
 Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
@@ -244,7 +252,7 @@ As described in the previous section, the space implementation should route the 
 network.
 
 <caution>This section of the space reference document may evolved in future releases of SARL. Please activate the
-"deprecated feature use" warning in your Java compilation configuration for ensuring that you will be notified
+"deprecated feature use" warning in your compilation configuration for ensuring that you will be notified
 about any major changes on this part of the API.</caution>
 
 Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
@@ -253,8 +261,9 @@ Below, the implementation extends one of the abstract classes provided by the [J
 class NetworkPhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
 	val entities : Map<UUID,PhysicObject>
 	
-	public new(id : SpaceID, factory : DistributedDataStructureService) {
-		super(id, factory)
+	public new(id : SpaceID, factory : DistributedDataStructureService,
+	        lockProvider : Provider<ReadWriteLock>) {
+		super(id, factory, lockProvider)
 		this.entities = factory.getMap(id.toString + "-physicObjects")
 	}
 	
@@ -320,13 +329,61 @@ The example above is the specification that permits to create a physic space wit
 by injection the factory of distributed data structures provided by the Janus platform.
 
 
+###2.5. Access to the Default Space Instance within a space specification
+
+If the space instance needs to be linked to the default space of the context, it is 
+necessary to retrieve the instance of the default space within the space specification.
+Then, this specification is in charge of passing the default space instance to the 
+space instance.
+
+By contract, the default space instance could be []injected into the space specification 
+instance](https://en.wikipedia.org/wiki/Dependency_injection). The following constraints 
+apply:
+
+1. The injected feature is an object field of the space specification, or a formal parameter;
+2. The injected feature must be of type `OpenEventSpace`;
+3. The injected feature must be marked with one of the two following methods:
+   a. annotated with `@Named("defaultSpace")`, or
+   b. annotated with `@DefaultSpace`.
+
+The following example illustrates the first method of marking of an object field:
+
+```sarl
+class MySpaceSpecification implements SpaceSpecification<MySpace> {
+    @Inject
+    @Named("defaultSpace")
+    var defaultSpace : OpenEventSpace
+    def create(id : SpaceID, params : Object*) : MySpace {
+        return new MySpaceImpl(this.defaultSpace)
+    }
+}
+```
+
+
+
+
+The following example illustrates the second method of marking of an object field:
+
+```sarl
+class MySpaceSpecification implements SpaceSpecification<MySpace> {
+    @Inject
+    @io.sarl.util.DefaultSpace
+    var defaultSpace : OpenEventSpace
+    def create(id : SpaceID, params : Object*) : MySpace {
+        return new MySpaceImpl(this.defaultSpace)
+    }
+}
+```
+
+
+
 
 ##3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -336,4 +393,4 @@ by injection the factory of distributed data structures provided by the Janus pl
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

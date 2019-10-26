@@ -50,23 +50,6 @@ The complete list of the options is:
 
 | Option | Description |
 | ------ | ----------- |
-| `-B`, `--bootid` | The Janus context UUID is computed from the classname of the boot agent. It is equivalent as setting the properties 'janus.context.id.boot' and 'janus.context.id.random' to true and false. |
-| `-cp`, `--classpath` | Add entries to the Java classpath |
-| `--cli` | Show the command line arguments received by Janus. |
-| `-D`, `--define <property=value>` | Define a system property. |
-| `-e`, `--embedded` | Janus is run inside another application. |
-| `-f`, `--file` | Load system properties from a file. |
-| `-h`, `--help` | Display this help. |
-| `-l`, `--log` | Set the logging level. Default level is 'info'. The available logging levels are: none (0), error (1), warning (2), info (3), fine (4), finer (5), finest (6), all (7). |
-| `--nologo` | Hide the Janus logo. |
-| `-o`, `--offline` | Run the platform offline: it cannot communicate with other platform instances. It is equivalent as setting the property 'janus.network.offline' to true. |
-| `-q`, `--quiet` | Decrease the logging level. |
-| `-R`, `--randomid` | The Janus context UUID is computed randomly. It is equivalent as setting the properties 'janus.context.id.boot' and 'janus.context.id.random' to false and true. |
-| `-showclasspath` | Show the classpath used by the application. |
-| `-s`, `--showdefaults` | Show the default values of the system properties. |
-| `-v`, `--verbose` | Increase the logging level. |
-| `-version` | Display the version of Janus. |
-| `-W`, `--worldid` | The Janus context UUID is the default hard-coded one. It is equivalent as setting the properties 'janus.context.id.boot' and 'janus.context.id.random' to false, both. |
 
 
 
@@ -75,9 +58,9 @@ The complete list of the options is:
 ##3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -87,4 +70,4 @@ The complete list of the options is:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

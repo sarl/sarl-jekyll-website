@@ -290,7 +290,7 @@ Consequently, the function `getSpace()` replies the collection of all the contex
 an singleton collection instance that is containing the default space.
 This function must reply a auto-synchronized collection. We use the `Collections3` utility
 class, provided in the SARL API, for creating the synchronized collection.
-The first parameter of the `synchronizedCollection` function is the collection to synchronized,
+The first parameter of the `synchronizedSingleton` function is the collection to synchronized,
 the second parameter is the object on from which the synchronization token will be obtained.
 
 The `getSpace(Class)` function is supposed to reply the existing spaces that were created
@@ -303,15 +303,15 @@ identifier of the default space. In the other cases, the function replies nothin
 
 ```sarl
 def getSpaces : SynchronizedCollection<? extends Space> {
-	Collections3::synchronizedCollection(Collections::singleton(this.defaultSpace), this)
+				Collections3::synchronizedSingleton(this.defaultSpace)
 }
 def getSpaces(spec : Class<? extends SpaceSpecification<S>>)
 		: SynchronizedCollection<S>
 		with S extends Space {
 	if (spec !== null && spec == typeof(EventSpaceSpecification)) {
-		return Collections3::synchronizedCollection(Collections::singleton(this.defaultSpace as S), this);
+		return Collections3::synchronizedSingleton(this.defaultSpace as S)
 	}
-	return Collections3::synchronizedCollection(Collections::emptyList, this)
+	return Collections3::emptySynchronizedSet
 }
 def getSpace(spaceUUID : UUID) : S
  		with S extends Space {
@@ -322,6 +322,10 @@ def getSpace(spaceUUID : UUID) : S
 }
 ```
 
+
+        
+The function call `synchronizedSingleton` is provided by the SARL Development Kit in order to create synchronized collections.
+The argument of this function is the collection to synchronize.
 
 
 #### Definition of the creation functions for spaces
@@ -1287,12 +1291,39 @@ def hasRegisteredBehavior : boolean {
 	!this.behaviors.isEmpty
 }
 def getRegisteredBehaviors : SynchronizedIterable<Behavior> {
-	Collections3::unmodifiableSynchronizedIterable(this.behaviors, this)
+                this.lock.readLock.lock
+                try {
+					Collections3::unmodifiableSynchronizedIterable(this.behaviors, this.lock)
+                } finally {
+                    this.lock.readLock.unlock
+                }
 }
+            val lock : ReadWriteLock = new ReentrantReadWriteLock
 ```
 
 		
 The function call `Collections3::unmodifiableSynchronizedIterable` is provided by the SARL Development Kit in order to create synchronized collections.
+The first argument of this function is the collection to synchronize.
+The second argument is the locking object that is supporting the synchronization of 
+the given collection.
+Usually, the locking object is an instance of `ReentrantReadWriteLock`.
+The call to `Collections3::unmodifiableSynchronizedIterable` is enclosed by a typical code block that is enabling the 
+synchronization on the list of behaviors as reader of this list.
+
+If you don't want to apply a real synchronization on the replied collection, you could 
+replace the previous code by:
+
+```sarl
+def getRegisteredBehaviors : SynchronizedIterable<Behavior> {
+    Collections3::unmodifiableSynchronizedIterable(this.behaviors, NoReadWriteLock::SINGLETON)
+}
+```
+
+
+
+In the previous code, `NoReadWriteLock::SINGLETON` is a specific locking object that is doing exactly 
+nothing regarding the synchronization. In other words, this this locking object, the
+synchronization of the collection is disable. 
 
 
 #### Updating the tinyMAS agent life-cycle for (un)registering the behaviors
@@ -2216,7 +2247,7 @@ The following manifest context gives an example of the tinyMAS SRE declaration:
 	
 	SARL-Runtime-Environment:
 	SRE-Name: TinyMAS
-	SARL-Spec-Version: 0.9
+	SARL-Spec-Version: 0.10
 	Standalone-SRE: true
 	VM-Arguments: -ea
 	Program-Arguments:
@@ -2300,9 +2331,12 @@ The `SREBootstrap` service provides the following functions:
 ```sarl
 interface SREBootstrap {
 	def getBootAgentIdentifier : UUID
+	def getKernelLogger : Logger
+	def getService(Class<Object>) : Object
 	def getUniverseContextUUID : UUID
 	def getUniverseSpaceUUID : UUID
 	def isActive : boolean
+	def isRunning : boolean
 	def setBootAgentTypeContextUUID
 	def setOffline(boolean)
 	def setRandomContextUUID
@@ -2310,8 +2344,11 @@ interface SREBootstrap {
 	def setUniverseContextUUID(UUID)
 	def setUniverseSpaceUUID(UUID)
 	def setVerboseLevel(int)
+	def shutdown
+	def shutdown(boolean)
 	def startAgent(Class<Agent>, Object[]) : UUID
 	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
+	def startAgentWithID(Class<Agent>, UUID, Object[])
 	def startWithoutAgent : AgentContext
 }
 ```
@@ -2381,9 +2418,9 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 ##14. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.9
+* Version: 0.10
 * Status: Stable Release
-* Release: 2019-04-15
+* Release: 2019-10-26
 
 > Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -2393,4 +2430,4 @@ The resulting Mavne configuration becomes (after upadting the configuration abov
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.9.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>

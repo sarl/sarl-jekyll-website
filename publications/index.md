@@ -32,6 +32,12 @@ A list of references (papers and PhD theses on or using SARL) is available below
 
 # 2. Journal, Conference and Workshop Papers
 
+### 2019
+{% bibliography --file publications -q @*[year=2019] %}
+
+### 2018
+{% bibliography --file publications -q @*[year=2018] %}
+
 ### 2017
 {% bibliography --file publications -q @*[year=2017] %}
 
@@ -45,6 +51,9 @@ A list of references (papers and PhD theses on or using SARL) is available below
 {% bibliography --file publications -q @*[year=2014] %}
 
 # 3. Presentations and Talks
+
+### 2019
+{% bibliography --file presentations -q @*[year=2019] %}
 
 ### 2017
 {% bibliography --file presentations -q @*[year=2017] %}
