@@ -98,6 +98,7 @@ github_skip_forks: true
 gitter_room: sarl/Lobby
 
 # Download information for SARL products
+sarl_copyright_year: 2019
 sarl_stable_version: 0.10.0
 sarl_unstable_version: 0.11.0
 janus_stable_version: 2.0.10.0
