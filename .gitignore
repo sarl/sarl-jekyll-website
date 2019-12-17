@@ -4,3 +4,4 @@ docs/suite
 docs/api
 Gemfile.lock
 Gemfile
+.jekyll-cache/

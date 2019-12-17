@@ -435,3 +435,10 @@ textarea {
 
 .highlight .err { color: #000000; font-weight: bold; background-color: inherit } /* Error becomes operator */
 
+.sponsor {
+  max-width: 150px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 30px;
+}
