@@ -20,6 +20,17 @@ INSTALL ON UBUNTU (18.04)
 * gem install redcarpet
 * gem install pygments.rb -v 0.6.3
 
+-----------------------------
+INSTALL ON UBUNTU (19.04)
+-----------------------------
+* apt-get install ruby ruby-all-dev
+* gem install jekyll
+* gem install stringex
+* gem install nokogiri
+* gem install --no-ri jekyll-scholar
+* gem install pygments.rb
+* gem install redcarpet
+
 -----------------------
 FAST GENERATION PROCESS
 -----------------------

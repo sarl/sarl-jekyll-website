@@ -32,12 +32,12 @@ targets for performing certain well-defined tasks such as compilation of code an
 In order to compile SARL code within a Maven-based project, a compilation plug-in is provided, named
 `sarl-maven-plugin`.
  
-##1. Usage
+## 1. Usage
 
 Open the file `pom.xml` of your project, and edit it for obtaining a content similar to the
 configuration below.
 
-Replace the version number `0.10.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.11.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -46,7 +46,7 @@ Replace the version number `0.10.0` of SARL with the one you want to use. You co
     ...
     <properties>
        ...
-       <sarl.version>0.10.0</sarl.version>
+       <sarl.version>0.11.0-SNAPSHOT</sarl.version>
        <jdk.version>1.8</jdk.version>
        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -92,7 +92,7 @@ Replace the version number `0.10.0` of SARL with the one you want to use. You co
 ```
 
 
-##2. Configuration
+## 2. Configuration
 
 The configuration section may contains the following elements.
 
@@ -102,14 +102,14 @@ The configuration section may contains the following elements.
 
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -117,4 +117,4 @@ The configuration section may contains the following elements.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

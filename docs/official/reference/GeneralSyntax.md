@@ -21,7 +21,7 @@ layout: default
 This document describes the general syntax of the SARL Language. 
 
 
-##1. Java Interoperability
+## 1. Java Interoperability
 
 SARL, like Java, is a statically typed language. In fact, it completely supports 
 Java's type system, including the primitive types like _int_ or _boolean_, 
@@ -54,7 +54,7 @@ think in two worlds. You can invoke SARL code from Java and vice versa without a
 surprises or hassles.	
 
 
-##2. Name Syntax
+## 2. Name Syntax
 
 In SARL, the names of the features (agents, variables, fields, etc.)
 cannot be one of the keywords of SARL or Java.
@@ -75,7 +75,7 @@ import io.sarl.^event.ActionEvent
 
 
 
-##3. Statement Syntax
+## 3. Statement Syntax
 
 In SARL, statements are instructions that will be executed.
 A statement may be one of the elements described in the rest of this document.
@@ -99,7 +99,7 @@ var myVariable : int = 5;
 
 
 
-##4. Details on the SARL language elements
+## 4. Details on the SARL language elements
 
 In the following pages, you could find details on the different elements of the SARL syntax:
 
@@ -132,20 +132,20 @@ In the following pages, you could find details on the different elements of the 
 
 
 
-##5. Acknowledgements
+## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -153,4 +153,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

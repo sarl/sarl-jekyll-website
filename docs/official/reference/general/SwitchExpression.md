@@ -31,7 +31,7 @@ not limited to certain values, but can be used for any object reference.
 The operator `==` or its Java-equivalent `Object.equals(Object)` are
 used to compare the value in the case with the one you are switching over.</importantnote>
 
-##1. Switch Cases
+## 1. Switch Cases
 
 Consider the following example.
 
@@ -60,7 +60,7 @@ of a field or variable.
 <importantnote>A case must contains an expression. If you want to do nothing
 for a given case, put an empty block after the colon character.</importantnote>
 
-##2. Default Case
+## 2. Default Case
 
 If none of the cases is matching, the `default` case matches automatically if it is specified
 in the code.
@@ -74,7 +74,7 @@ default: "default string"
 ```
 
 
-##3. Case Guards
+## 3. Case Guards
 
 Consider the following example.
 
@@ -93,7 +93,7 @@ In the example above, the third case matches only if the value of `myString` has
 greater than 5.
 
 
-##4. Type Guards
+## 4. Type Guards
 
 In addition to the case guard described in the previous section, you can specify a type
 guard.
@@ -112,7 +112,7 @@ String : "a string."
 
 
 
-##5. Fall Through
+## 5. Fall Through
 
 You can have multiple type guards and cases separated with a comma, to
 have all of them share the same then part.
@@ -130,20 +130,20 @@ default: "Default"
 
 
 
-##6. Acknowledgements
+## 6. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##7. Legal Notice
+## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -151,4 +151,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

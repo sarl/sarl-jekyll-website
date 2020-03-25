@@ -26,7 +26,7 @@ The built-in capacity `Logging` provides tools for printing messages in the log 
 
 
 
-##1. Print an error or a warning message
+## 1. Print an error or a warning message
 
 For printing an error or a warning message, the two following functions
 are provided:
@@ -70,7 +70,7 @@ agent A {
 
 
 
-##2. Print an information message
+## 2. Print an information message
 
 For printing an information message, the following function is provided:
 
@@ -107,7 +107,7 @@ agent A {
 
 
 
-##3. Print a debugging message
+## 3. Print a debugging message
 
 For printing a debugging message, the following function is provided:
 
@@ -144,7 +144,7 @@ agent A {
 
 
 
-##4. Retrieve and change the logging level
+## 4. Retrieve and change the logging level
 
 The printable messages are associated to a level of logging (error, warning, info, debug).
 If a message is given to the logging system, and the current output level is lower
@@ -181,7 +181,7 @@ agent A {
 
 
 
-##5. Testing the logging level
+## 5. Testing the logging level
 
 The following functions permits testing if a specific logging level is enabled:
 
@@ -209,7 +209,7 @@ agent A {
 
 
 
-##6. Change the name of the logger
+## 6. Change the name of the logger
 
 By default, the logging message contains the identifier of the agent associated to the `Logging` capacity.
 
@@ -233,7 +233,7 @@ agent A {
 ```
 
 
-##7. Accessing to the backend logger
+## 7. Accessing to the backend logger
 
 The `Logging` capacity is based on the logging system of run-time virtual machine.
 The `getLogger` function provides you the access to the backend logger that is associated to the agent. 
@@ -245,14 +245,14 @@ def getLogger : Logger
 
 
 
-##8. Legal Notice
+## 8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -260,4 +260,4 @@ def getLogger : Logger
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

@@ -30,7 +30,7 @@ The elements that are explained in this document are:
 * the use of the event builder.
 
 
-##1. Definition of the event
+## 1. Definition of the event
 
 The purpose of this document is to create an event, which has a unique identifier.
 This identifier is an integer number that should be incremented each time an
@@ -51,7 +51,7 @@ event MyEvent {
 
 
 
-##2. Definition of the event builder
+## 2. Definition of the event builder
 
 For creating the event instances, we apply the
 [builder design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)
@@ -77,7 +77,7 @@ the next available global identifier for the next call to `newInstance`.
 Finally, the `newInstance` function create the event instance with the appropriate identifier. 
 
 
-##3. Use of the event builder
+## 3. Use of the event builder
 
 For using the event builder, you have simply to create an instance of the `MyEventBuilderUser`
 class, and use it as follow (two events are created in the example):
@@ -91,14 +91,14 @@ var event2 = builder.newInstance
 
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -106,4 +106,4 @@ var event2 = builder.newInstance
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

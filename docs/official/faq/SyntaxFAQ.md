@@ -30,9 +30,9 @@ layout: default
 </ul>
 
 
-##1. General Syntax
+## 1. General Syntax
 
-###1.1. Can I use the same syntax as in Java for number literals?
+### 1.1. Can I use the same syntax as in Java for number literals?
 
 __No__.
 
@@ -52,7 +52,7 @@ to zero.  Consequently:
 
 
 
-###1.2. Why can I not put a string in the package name?
+### 1.2. Why can I not put a string in the package name?
 
 It is not allowed to put a SARL keyword, such as
 `agent`, in the name of a package.
@@ -65,7 +65,7 @@ equals to a SARL keyword:
 
 
 
-###1.3. Is the 'val' keyword defining a constant?
+### 1.3. Is the 'val' keyword defining a constant?
 
 __Yes and No__.
 
@@ -85,7 +85,7 @@ val b : Object = new Object
 
 
 
-###1.4. Why cannot use the syntax 'a[0]' for arrays?
+### 1.4. Why cannot use the syntax 'a[0]' for arrays?
 
 In SARL, the array type may be written with the classic array syntax, such as
 `int[]`, or the object-oriented syntax, such as `List<Integer>`.
@@ -102,7 +102,7 @@ a.get(0) == b.get(0)
 
 
 
-###1.5. Why can I not use the '<>' notation for generic parameters?
+### 1.5. Why can I not use the '<>' notation for generic parameters?
 
 In SARL, the empty generic parameter list, written `<>` is
 not supported: a generic type expression must be written between them.
@@ -119,7 +119,7 @@ var secondSolution : List<Integer> = new ArrayList
 
 
 
-###1.6. Why can not a static field be defined in an agent type declaration (agent, skill, behavior)?
+### 1.6. Why can not a static field be defined in an agent type declaration (agent, skill, behavior)?
 
 This is a design choice given that our entities are agents and as such they should not
 "share" data unless done explicitly in an agent-oriented manner, for example via
@@ -133,7 +133,7 @@ meta-model).
 
 
 
-###1.7. How can I create instances of anonymous classes?
+### 1.7. How can I create instances of anonymous classes?
 
 In SARL, the creation of anonymous classes (interface implementation...)
 must be done with a closure.
@@ -158,7 +158,7 @@ instance = [ parameter | /* The code of myfunction() */ ]
 
 
 
-###1.8. Java syntax for anonymous classes is allowed
+### 1.8. Java syntax for anonymous classes is allowed
 
 In SARL, it is recommended tp create anonymous classes (interface implementation...)
 must be done with a closure (see previous question).
@@ -176,7 +176,7 @@ var instance = new MyInterface() {
 
 
 
-###1.9. Ambiguous call to capacity function
+### 1.9. Ambiguous call to capacity function
 
 When the calling a capacity function, the SARL compiler complains with an "ambiguous call" error.
 In the code below, the function `myfunction` is defined in the capacities `C1` and `C2`.
@@ -216,7 +216,7 @@ getSkill(C1).myfunction
 ```
 
 
-###1.10. Why is an error or a warning put on the occurrence keyword?
+### 1.10. Why is an error or a warning put on the occurrence keyword?
 
 Consider this code:
 
@@ -257,7 +257,7 @@ on CarArrivedPercept {
 
 
 
-###1.11. Can we document SARL code for JavaDoc?
+### 1.11. Can we document SARL code for JavaDoc?
 
 Yes. Since the SARL compiler generates valid Java code including the documentation,
 you could generate the documentation of your SARL program with the standard javadoc
@@ -269,7 +269,7 @@ that follows the SARL syntax, intead of the Java syntax.
 You could find details on the page dedicated to the [Maven documentation plugin](../tools/APIDocumentation.html). 
 
 
-###1.12. How do I control the log-level of the Logging built-in capacity?
+### 1.12. How do I control the log-level of the Logging built-in capacity?
 
 Use `setLogLevel()` of the `Logging` capacity, as explained here in the
 [API documentation](http://www.sarl.io/docs/official/reference/bic/Logging.html).
@@ -278,7 +278,7 @@ You could also control the general configuration of the log level from the optio
 of your SARL Run-time Environment, such as [Janus](../tools/Janus.html).
 
 
-###1.13. Equality and identity comparison (`==`, `===`, `!=`, `!==`) in SARL and checking for null: same as Java?
+### 1.13. Equality and identity comparison (`==`, `===`, `!=`, `!==`) in SARL and checking for null: same as Java?
 
 The mapping of the operator from SARL to Java are:
 
@@ -303,7 +303,7 @@ Since `null` has not a specific type, the SARL compiler find multiple overloadin
 Check the [documentation](http://www.sarl.io/docs/official/reference/general/Operators.html#3-comparison-operators) for details on the overloading mechanism of SARL.
 
 
-###1.14. How to return two values?
+### 1.14. How to return two values?
 
 SARL comes with a `Pair<A,B>` class to build an object for storing two values, nicknamed "key" and "value". It comes useful when a method has
 to return two values instead of just one. For example, the following function returns the next floor and direction that an elevator has to serve:
@@ -328,14 +328,14 @@ Check SARL documentation on that [here](../reference/general/Operators.html#coll
 
 
 
-##2. Legal Notice
+## 2. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -343,4 +343,4 @@ Check SARL documentation on that [here](../reference/general/Operators.html#coll
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

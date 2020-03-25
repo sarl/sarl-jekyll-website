@@ -28,7 +28,7 @@ The variable/value declaration follows the syntax:
 Shadowing variables from outer scopes is not allowed, the only exception is the implicit variable `it`.
 
 
-##1. Variable vs. Value Declaration
+## 1. Variable vs. Value Declaration
 
 A variable declaration starting with the keyword `val` denotes a value, which is essentially a final, unsettable variable.
 
@@ -49,7 +49,7 @@ accessible from within the lambda expressions.
 
 
 
-##2. Typing
+## 2. Typing
 
 The type of the variable itself can either be explicitly declared or it can be inferred from the initializer expression.
 
@@ -68,7 +68,7 @@ var a = "abc"
 
 
 
-##3. Implicit Variables: this and it
+## 3. Implicit Variables: this and it
 
 Like in Java the current object is bound to the keyword `this`. This allows for implicit field access or method invocations.
 
@@ -81,20 +81,20 @@ with the same name on the `it` object, then in the `this` object.
 
 
 
-##4. Acknowledgements
+## 4. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -102,4 +102,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

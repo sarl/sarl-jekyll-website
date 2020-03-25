@@ -39,7 +39,7 @@ Each event has:
 * a collection of name-value pairs, i.e. the attributes of the event.
 
 
-##1. Event vs. Message
+## 1. Event vs. Message
 
 In computer-science literature, there are two main approaches 
 for communicating between entities: (1) an event and (2) a message.
@@ -66,9 +66,9 @@ Reference](./BIC.html).
 
 
 
-##2. Defining an Event
+## 2. Defining an Event
 
-###2.1. Define an empty event
+### 2.1. Define an empty event
 
 An event is defined with the `event` keyword followed by the name of the event (without the qualified name of its package,
 which is inferred from the `package` keyword, if present).
@@ -87,7 +87,7 @@ event Event2
 
 
 
-###2.2. Define an event with attributes
+### 2.2. Define an event with attributes
 
 An Event may can carry additional information beyond its name (or type).
 This information is described by a set of attributes (or typed 
@@ -116,7 +116,7 @@ event MyEvent {
 
 
 
-###2.3. Define an event with value attributes
+### 2.3. Define an event with value attributes
 
 Events in SARL will carry data that is unmodifiable 
 when an attribute is defined using the `val` keyword.
@@ -150,7 +150,7 @@ Details on implicit constructors are given in the reference documentation relate
 [synthetic functions](./general/SyntheticFunctions.html).
 
 
-###2.4. Extending Events
+### 2.4. Extending Events
 
 In some use cases, it is useful to specialize the definition
 of an event. This mechanism is supported by the inheritance
@@ -198,7 +198,7 @@ e2.number = 345
 
 
 
-###2.5. Modifiers
+### 2.5. Modifiers
 
 Modifiers are used to modify declarations of types and type members.
 This section introduces the modifiers for the event.
@@ -245,7 +245,7 @@ public var example1 : Object
 
 
 
-##3. Reserved Events
+## 3. Reserved Events
 
 Several events are defined and reserved by the SARL Core Specification.
 They describe the minimal set of events that a runtime environment must support to run a SARL program.
@@ -260,14 +260,14 @@ Two types of reserved events exist:
 
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -275,4 +275,4 @@ Two types of reserved events exist:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

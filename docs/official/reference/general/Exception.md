@@ -11,7 +11,7 @@ For a description of the exceptions that may be thrown by a function,
 please see [how to declare exceptions in a function prototype](./FuncDecls.html#declare-exceptions-in-the-function-prototype).
 
 
-##1. Throwing Exceptions
+## 1. Throwing Exceptions
 
 Throwing objects of type `Throwable` and the `throw` keyword have the same semantics and syntax as in Java; see
 [Java Language Specification](http://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.18). 
@@ -22,7 +22,7 @@ throw new IllegalArgumentException("explanation")
 
 
 
-##2. Try, Catch, Finally
+## 2. Try, Catch, Finally
 
 The try-catch-finally expression is used to handle exceptional situations. 
 Checked exceptions are treated like runtime exceptions and only optionally 
@@ -43,7 +43,7 @@ try {
 
 
 
-##3. Try-Catch as an Expression
+## 3. Try-Catch as an Expression
 
 For try-catch, the argument is an expression. Consequently, you can
 write code like the following and do not have to rely on
@@ -63,7 +63,7 @@ def example {
 
 
 
-##4. The try-with-resources Statement
+## 4. The try-with-resources Statement
 
 The try-with-resources statement is a try statement that declares one or more resources. A resource
 is an object that must be closed after the program is finished with it. The try-with-resources
@@ -98,20 +98,20 @@ closed regardless of whether the try statement completes normally or abruptly (a
 
 
 
-##5. Acknowledgements
+## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -119,4 +119,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

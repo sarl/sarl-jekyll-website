@@ -62,7 +62,7 @@ the [Skill Reference](./Skill.html), and the
 __An agent is an autonomous entity having a set of skills to realize the capacities it exhibits__.
 
 
-##1. Where is living an agent?
+## 1. Where is living an agent?
 
 Before detailing the architecture and the definition tools of an agent, it may be helpful to understand
 where is "living" an agent in the multi-agent system.
@@ -73,7 +73,7 @@ The details are discussed below.
 ![Contexts](./contexts.png)
 
 
-###1.1. Default Context
+### 1.1. Default Context
 
 When it is spawn, an agent is living inside the system in a place named "_Context_".
 
@@ -93,7 +93,7 @@ An agent has an identifier for each space it is involved in. For the case of eve
 spaces, this identifier is  called "address". 
 
 
-###1.2. External Contexts
+### 1.2. External Contexts
 
 During its lifetime, an agent may join and participate in other contexts that are not the default context.
 They are called the external contexts of the agent.
@@ -105,7 +105,7 @@ For joining or leaving a context, the agent must use the `ExternalContextAccess`
 [Built-in Capacity Reference](./BIC.html).
 
 
-###1.3. From Flat to Hierarchical System with the Inner Context
+### 1.3. From Flat to Hierarchical System with the Inner Context
 
 In 1967, Arthur Koestler coined the term _holon_ as an attempt to
 conciliate holistic and reductionist visions of the world.
@@ -140,7 +140,7 @@ be spawn inside this inner context, it is possible to build a holarchy.
 the inner context is equal to the unique identifier of its owning agent.</importantnote>
 
 
-###1.4. Universe Agent and Universe Context
+### 1.4. Universe Agent and Universe Context
 
 At the top level of the holarchy, we consider an omnipresent agent. It is named the __Universe Agent__ (or _Root Agent_).
 The runtime environment will be in charge of spawning the first agents in the system as members of the Universe Agent.
@@ -149,14 +149,14 @@ The inner context of the Universe Agent is called the Universe Context, or the J
 [Janus runtime environment](http://www.janusproject.io).
 
 
-##2. Open Architecture of an Agent
+## 2. Open Architecture of an Agent
 
 The architecture of an agent is illustrated by the following figure.
 
 ![Agent](./agent.png)
 
 
-###2.1. Built-in Capacities
+### 2.1. Built-in Capacities
 
 An agent has a set of built-in capacities considered essential to respect the
 commonly accepted competencies of agents, such autonomy, reactivity, pro-activity
@@ -169,7 +169,7 @@ agents to incorporate a collection of behaviors that will determine
 its global conduct.
 
 
-###2.2. Agent Behaviors
+### 2.2. Agent Behaviors
 
 An agent has also a default behavior directly described within its definition.
 
@@ -180,13 +180,13 @@ __An Event is the specification of some occurrence in a Space that may
 potentially trigger effects by a listener__ (e.g., agent, behavior, etc.) 
 
 
-##3. Defining an Agent
+## 3. Defining an Agent
 
 An agent is declared with the `agent` keyword. In the agent's body block, we can declare Mental States
 (in the form of attributes), Actions and Behaviors.
 
 
-###3.1. Defining an empty agent
+### 3.1. Defining an empty agent
 
 The following code illustrates the definition of an agent named `MyAgent`, and that is empty.
 Basically, this agent does nothing, and does not react on events. 
@@ -198,7 +198,7 @@ agent MyAgent {
 
 
 
-###3.2. Agent Attributes
+### 3.2. Agent Attributes
 
 The mental state of an agent is composed by the data in the knowledge of the agent.
 Most of the time, the mental state is implemented as a collection of attributes in the agent.
@@ -218,7 +218,7 @@ agent MyAgent {
 
 
 
-###3.3. Agent Actions
+### 3.3. Agent Actions
 
 It is allowed to define actions (methods) in the agent.
 The syntax described is described in the [General Syntax Reference](./GeneralSyntax.html).
@@ -241,7 +241,7 @@ agent MyAgent {
 
 
 
-###3.4. Extending an Agent
+### 3.4. Extending an Agent
 
 In some use cases, it is useful to specialize the definition
 of an agent. This mechanism is supported by the inheritance
@@ -272,7 +272,7 @@ agent MySubAgent extends MyAgent {
 
 
 
-###3.5. Modifiers
+### 3.5. Modifiers
 
 Modifiers are used to modify declarations of types and type members.
 This section introduces the modifiers for the agent.
@@ -372,7 +372,7 @@ All the [modifiers for the nested types](./OOP.html) are allowed **except**
 
 
 
-##4. Behaviors of an Agent
+## 4. Behaviors of an Agent
 
 The behaviors of an agent correspond to the units that are executed by the agent for exhibiting its general behavior.
 
@@ -407,7 +407,7 @@ This instance is represented by the `occurrence` keyword. It is an implicit
 variable as the keywords `this` and `it`.
 
 
-###4.1. Initialization Handler
+### 4.1. Initialization Handler
 
 When an agent is ready to be executed by the runtime environment, it receives the `Initialize` event.
 This event is defined as:
@@ -436,7 +436,7 @@ agent MyAgent {
 
 
 
-###4.2. Guarded Initialization Handler
+### 4.2. Guarded Initialization Handler
 
 Because `Initialize` is an event, the handler in the agent could use a guard. This feature enables
 the developer to write different initialization blocks depending on the guards of the handlers.
@@ -459,7 +459,7 @@ agent MyAgent {
 
 
 
-###4.3. Destruction Handler
+### 4.3. Destruction Handler
 
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
@@ -483,7 +483,7 @@ agent MyAgent {
 
 
 
-###4.4. Guarded Destruction Handler
+### 4.4. Guarded Destruction Handler
 
 As for `Initialize`, the handlers of the `Destroy` event could be guarded.
 
@@ -506,7 +506,7 @@ agent MyAgent {
 
 
 
-###4.5. Reactive Behaviors
+### 4.5. Reactive Behaviors
 
 The reactive behavior of an agent is specified with a collection
 of event handlers. The principle of a reactive behavior is to execute a part of the global
@@ -527,7 +527,7 @@ agent MyAgent {
 
 
 
-###4.6. Parallel Execution of the Reactive Behaviors
+### 4.6. Parallel Execution of the Reactive Behaviors
 
 When an event is received and the guard of the corresponding handler is true, the event
 handler is said to be triggered.
@@ -549,7 +549,7 @@ agent MyAgent {
 
 
 
-###4.7. Pro-active Behaviors
+### 4.7. Pro-active Behaviors
 
 A proactive behavior is a part of the global behavior of an agent that the
 agent is deciding to execute by itself.
@@ -574,14 +574,14 @@ agent MyAgent {
 
 
 
-##5. Capacities and Skills
+## 5. Capacities and Skills
 
 An agent is an autonomous entity having a set of skills to realize the capacities it exhibits.
 An agent has a set of built-in capacities considered essential to respect the commonly
 accepted competencies of agents, such autonomy, reactivity, pro-activity and social capacities. 
 
 
-###5.1. Defining a Capacity and a Skill
+### 5.1. Defining a Capacity and a Skill
 
 The definition of a capacity or a skill is out of the scope of this reference document. For details, please read
 the [Capacity Reference](./Capacity.html), and the [Skill Reference](./Skill.html).
@@ -603,7 +603,7 @@ skill Ski implements Cap {
 
 
 
-###5.2. Giving a Skill to an Agent
+### 5.2. Giving a Skill to an Agent
 
 When an agent must use a capacity in one of its behaviors, it must own an implementation of this capacity: a skill.
 
@@ -625,7 +625,21 @@ agent MyAgent {
 
 
 
-###5.3. Giving a Built-in Skill to an Agent
+
+If some cases, you may want to set the skill if one was not set up before. The specific behavior
+is supported by `setSkillIfAbsent(Skill, Class<? extends Capacity>*)`.
+
+```sarl
+agent MyAgent {
+	on Initialize {
+		var theSkill = new Ski
+		setSkillIfAbsent(theSkill)
+	}
+}
+```
+
+
+### 5.3. Giving a Built-in Skill to an Agent
 
 Because the built-in capacities are supported by the runtime environment, the corresponding
 skills are given to the agent. It means that there is no need for an agent to set a skill for
@@ -635,7 +649,7 @@ However, in rare cases, it is possible to use the function `setSkill(Skill, Clas
 changing the implementation of a built-in capacity.
 
 
-###5.4. Using a Capacity with the Getters
+### 5.4. Using a Capacity with the Getters
 
 After a skill is registered into the agent, it could be invoked.
 
@@ -664,7 +678,7 @@ agent MyAgent {
 
 
 
-###5.5. Using a Built-in Capacity with the Getters
+### 5.5. Using a Built-in Capacity with the Getters
 
 The built-in capacities are accessible in the same way as the other capacities, with the getters.
 
@@ -681,7 +695,7 @@ agent MyAgent {
 
 
 
-###5.6. Using a Capacity with the Extension Methods
+### 5.6. Using a Capacity with the Extension Methods
 
 Invoking a capacity/skill with the getter method is not user-friendly. Since the
 [General Syntax Reference](./GeneralSyntax.html) describes the "extension method"
@@ -710,7 +724,7 @@ agent MyAgent {
 
 
 
-###5.7. Using a Built-in Capacity with the Extension Methods
+### 5.7. Using a Built-in Capacity with the Extension Methods
 
 The built-in capacities are accessible in the same way as the other capacities, with the extension methods.
 
@@ -729,14 +743,14 @@ agent MyAgent {
 
 
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -744,4 +758,4 @@ agent MyAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

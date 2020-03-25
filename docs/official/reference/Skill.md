@@ -45,9 +45,9 @@ A *Skill* is a collections of Actions implementing a Capacity as described in
 this specification.
 
 
-##1. Defining a Skill
+## 1. Defining a Skill
 
-###1.1. Basic Definition
+### 1.1. Basic Definition
 
 A Skill implements a Capacity and is defined with the `skill`
 keyword. This relationship is specified with the `implements` keyword.
@@ -70,7 +70,7 @@ skill ConsoleLogging implements Logging {
 
 
 
-###1.2. Field Definition
+### 1.2. Field Definition
 
 Often it is useful or necessary to base a Skill (a
 Capacity's implementation) on attributes (properties or fields).
@@ -94,7 +94,7 @@ skill StandardJavaLogging implements Logging {
 
 
 
-###1.3. Action Definition
+### 1.3. Action Definition
 
 It is possible to declare methods in the Skill in addition to those specified by the Capacity. 
 
@@ -116,7 +116,7 @@ skill MyLogging implements Logging {
 
 
 
-###1.4. Initialization of a skill
+### 1.4. Initialization of a skill
 
 Several elements of the skill can be used only after the skill is attached to its owning agent.
 For example, the value returned by the function `getOwner` is not `null` only when the skill is
@@ -135,7 +135,7 @@ def install {
 
 
 
-###1.5. Uninitialization of a skill
+### 1.5. Uninitialization of a skill
 
 In a similar way as `install`, it is possible to execute a code when the skill is detached from it owning agent.
 For this purpose, the `uninstall` function should be defined, as illustrated below: 
@@ -148,7 +148,7 @@ def uninstall {
 
 
 
-###1.6. Constructor Definition
+### 1.6. Constructor Definition
 
 It is not necessary to specify a constructor for Skills unless a value will be initialized.
 
@@ -156,6 +156,7 @@ Two constructors are defined in the abstract `Skill` class:
 
 ```sarl
 interface Skill extends AgentTrait {
+	def getReferenceCount : int
 }
 ```
 
@@ -180,7 +181,7 @@ Details on implicit constructors are given in the reference documentation relate
 [synthetic functions](./general/SyntheticFunctions.html).
 
 
-###1.7. Multiple Capacity Implementation
+### 1.7. Multiple Capacity Implementation
 
 In some situations it is useful to combine more than one capacity in a skill.
 Below, the `MyLogging` skill is defined as an implementation of the capacities
@@ -213,7 +214,7 @@ skill MyLogging implements Logging, LogReader {
 ```
 
 
-###1.8. Extending a Skill
+### 1.8. Extending a Skill
 
 In some situations it is useful to specialize the definition of a Skill. This mechanism is supported by the __inheritance__
 feature of SARL, which has the same semantics as the inheritance mechanism of the Java object-oriented language.
@@ -235,7 +236,7 @@ skill ExtendedLogging extends StandardJavaLogging {
 
 
 
-###1.9. Modifiers
+### 1.9. Modifiers
 
 Modifiers are used to modify declarations of types and type members.
 This section introduces the modifiers for the Skill.
@@ -325,14 +326,14 @@ dispatch def example7(p : Float) { }
 
 
 
-##2. Built-in Skills
+## 2. Built-in Skills
 
 Several Capacities are defined and reserved by the SARL Core Specification. The corresponding Skills are provided
 by the runtime environment (such as the [Janus platform](http://www.janusproject.io)).
 The built-in Skills are described in the [Built-in Capacity Reference](./BIC.html).
 
 
-##3. Use of the Skills
+## 3. Use of the Skills
 
 Details on the use of Skills may be found in the following:
 
@@ -342,14 +343,14 @@ Details on the use of Skills may be found in the following:
 
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -357,4 +358,4 @@ Details on the use of Skills may be found in the following:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

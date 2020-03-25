@@ -1,9 +1,9 @@
 ---
-title: ""
+title: "English Auction with Holons"
 layout: default
 ---
 
-Ok# English Auction with Holons
+# English Auction with Holons
 
 
 <ul class="page_outline" id="page_outline">
@@ -56,7 +56,7 @@ The source code related to this tutorial may be found in the
 [Github of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-tutorials-holonicauction/src/main/sarl/io/sarl/examples/holonicauction).
 
 
-##1. Principle of the English Auction
+## 1. Principle of the English Auction
 
 This type of auction is arguably the most common form of auction in use today. 
 Participants bid openly against one another, with each subsequent bid required to
@@ -75,7 +75,7 @@ potential bidders.
 Source: [Wikipedia](https://en.wikipedia.org/wiki/Auction)
 
 
-##2. Principle of the Application
+## 2. Principle of the Application
 
 The principle of the application is the following:
 
@@ -90,7 +90,7 @@ __By a design choice, the bidders are sub-agents of the auctioneer agent.__
 ![Holonic Auction](./holonic_auction.png)
 
 
-##3. Why are the sub-agents in the inner context?
+## 3. Why are the sub-agents in the inner context?
 
 According to the [Built-in Capacity Reference](../reference/BIC.html),
 a sub-agent is living in the __inner context__ of a super-agent.
@@ -107,14 +107,14 @@ becomes the natural place where the super-agent and
 its sub-agents are interacting.</note>
 
 
-##4. Definitions of the events
+## 4. Definitions of the events
 
 In the application, two events are needed: the event from the auctioneer for notifying the
 bidders of the new price; and the event that is sent by a bidder to the auctioneer with a
 bid inside.
 
 
-###4.1. Price event
+### 4.1. Price event
 
 The `Price` event is the event sent by the auctioneer for notifying a bidder that
 the price has changed. This event contains the new price.
@@ -131,7 +131,7 @@ event Price {
 
 
 
-###4.2. Playing event
+### 4.2. Playing event
 
 The `Bid` event is the event sent by a bidder to the auctioneer.
 This event contains the value of the bid.
@@ -147,13 +147,13 @@ event Bid {
 
 
 
-##5. Definition of the bidder
+## 5. Definition of the bidder
 
 The bidder agent is reacting to new price notifications, and could offer a new bid if the
 new price is not  exceeding its maximal price.
 
 
-###5.1. Initial definition
+### 5.1. Initial definition
 
 The initial definition of the bidder is below. The `random` attribute contains an instance of
 a random number generator (from the Java library). The `maxPrice` attribute is the maximum value
@@ -173,7 +173,7 @@ agent Bidder {
 
 
 
-###5.2. Bidding
+### 5.2. Bidding
 
 The definition of the bidder agent is extended by the bidding behavior.
 The bidding must occur when the auctioneer is notifying a new price, i.e. when the
@@ -228,7 +228,7 @@ agent Bidder {
 
 
 
-###5.3. Restrict the bid to the auctioneer
+### 5.3. Restrict the bid to the auctioneer
 
 For restricting the recipients of the `Bid` event to the auctioneer, it is mandatory to specify a
 scope for the event.
@@ -277,7 +277,7 @@ agent Bidder {
 
 
 
-###5.4. Definition of the auctioneer
+### 5.4. Definition of the auctioneer
 
 The third step of this tutorial is the definition of the auctioneer that is initiating
 the auction, waiting for bids, and selecting the winner.
@@ -506,7 +506,7 @@ agent Auctioneer {
 
 
 
-###5.5. Stop the agents
+### 5.5. Stop the agents
 
 The previous code works well at one exception. When the auction is closed, the system does not stop.
 Indeed, the auctioneer does not send any more the `Price` event. This
@@ -639,14 +639,14 @@ agent Auctioneer {
 
 
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -654,4 +654,4 @@ agent Auctioneer {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

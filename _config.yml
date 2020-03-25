@@ -50,7 +50,7 @@ build:
 sarl:
   git_name: sarl/sarl
 #  url: https://github.com/sarl/sarl.git
-  url: ../sarl
+  url: ../sarl.dsl
   workdir: /tmp
   branch: master
   doc_suite: docs/io.sarl.docs.markdown

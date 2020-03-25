@@ -38,7 +38,7 @@ A literal denotes a fixed, unchangeable value. Literals for strings, numbers, bo
 supported, as well as literals for unmodifiable collection types like lists, sets, maps, and arrays.
 
 
-##1. String Literals
+## 1. String Literals
 
 A string literal is of type `String`. String literals are enclosed in a pair of single quotes
 or double quotes. Special characters can be quoted with a backslash or defined using unicode
@@ -58,7 +58,7 @@ var e = "Hello
 <note>Unlike Java, SARL strings can span multiple lines, as ilustrated by the variable `e` above.</note>
 
 
-##2. Character Literals
+## 2. Character Literals
 
 Character literals use the same notation as String literals. If a single-character String literal is
 used in a context where a primitive char or the wrapper type `Character` or `char` is expected,
@@ -71,9 +71,9 @@ var b : char = "b"
 
 
 
-##3. Number Literals
+## 3. Number Literals
 
-###3.1. General Notation
+### 3.1. General Notation
 
 SARL supports the same number literals as Java with two exceptions: there is no notation
 for specifying octal numbers, and if you put the dot character in a number, you must
@@ -98,7 +98,7 @@ var e = 1.0		// The trailing zero must be specified
 
 
 
-###3.2. Integer suffixes
+### 3.2. Integer suffixes
 
 Post-fixing an integer literal may change its type:
 
@@ -118,7 +118,7 @@ var aBigInteger = 1234bi
 
 
 
-##4. Floating-point-value suffixes
+## 4. Floating-point-value suffixes
 
 Post-fixing a floating-point literal may change its type:
 
@@ -143,7 +143,7 @@ var aBigDecimal = 1234bd
 
 
 
-###4.1. Large Numbers
+### 4.1. Large Numbers
 
 As in Java 7, you can separate digits using `_` for better readability of large numbers.
 
@@ -154,17 +154,17 @@ var a = 12_345_678L
 
 
 
-##5. Boolean Literals
+## 5. Boolean Literals
 
 There are two boolean literals, `true` and `false`, which correspond to their Java counterpart of type `boolean`.
 
 
-##6. Null Literal
+## 6. Null Literal
 
 The null pointer literal `null` has exactly the same semantics as in Java: a reference to nothing.
 
 
-##7. Type Literals
+## 7. Type Literals
 
 A type literal is the fully qualified name of a type in the SARL language.
 The syntax for type literals is generally the plain name of the type. Nested types use the delimiter `.`.
@@ -192,12 +192,12 @@ String.getDeclaredFields
 
 
 
-##8. Collection Literals
+## 8. Collection Literals
 
 The collection literals permit to specify collections of values.
 
 
-###8.1. Mutable Collections
+### 8.1. Mutable Collections
 
 It is easy to create instances of collections since the methods in `CollectionLiterals` are automatically imported.
 They permit you to create instances of collections from the JDK.
@@ -239,7 +239,7 @@ var myMap = newLinkedHashMap('a' -> 1, 'b' -> 2)
 
 
 
-###8.2. Array Literals
+### 8.2. Array Literals
 
 Java arrays can be created either using a literal as described in the next section, or a new array with a fixed size.
 
@@ -328,7 +328,7 @@ val myList : List<Integer> = myArray
 
 
 
-###8.3. Immutable Collections
+### 8.3. Immutable Collections
 
 In addition to the functions described in the previous section, SARL supports collection literals to create
 immutable collections and arrays, depending on the target type. There are three types of immutable
@@ -360,20 +360,20 @@ var c = #{ 'a' -> 1 ,'b' -> 2 }
 
 
 
-##9. Acknowledgements
+## 9. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##10. Legal Notice
+## 10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -381,4 +381,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

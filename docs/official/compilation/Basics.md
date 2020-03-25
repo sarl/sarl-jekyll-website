@@ -15,7 +15,7 @@ layout: default
 </ul>
 
 
-##1. Standard Compilation Process
+## 1. Standard Compilation Process
 
 The SARL tool-chain is the set of programming tools that are used to perform a multiagent system with SARL.
 As illustrated on the following figure, three types of tools are used in sequence in order to create and
@@ -41,7 +41,7 @@ run an agent-based system:
   [janus](../tools/Janus.html).
 
 
-##2. Other Target Languages Than Java
+## 2. Other Target Languages Than Java
 
 As explained in the previous section, the default target language for the SARL compiler is the Java object-oriented programming language.
 Hopefully,you could configure the SARL compiler for enabling the generation to another target language 
@@ -49,14 +49,14 @@ Hopefully,you could configure the SARL compiler for enabling the generation to a
 * [Python](./PythonGeneration.html)
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -64,4 +64,4 @@ Hopefully,you could configure the SARL compiler for enabling the generation to a
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

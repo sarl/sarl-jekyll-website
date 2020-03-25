@@ -41,9 +41,9 @@ The Mardown support is extended in order to:
 4. check if the links are pointing to existing local files;
 5. check if the reference to the local images are pointing to existing files.
 
-##1. Extra Macros
+## 1. Extra Macros
 
-###1.1. Compile a SARL code with success
+### 1.1. Compile a SARL code with success
 
 For compiling a SARL code, and failing the validation if it cannot be compiled with success, you may use the `Success` macro:
 
@@ -62,7 +62,7 @@ The SARL code inside this macro is not rendered into the final Markdown document
 If you want to render a part of the code, you should use the `On` macro (see below).
 
 
-###1.2. Compile a SARL code with expected errors
+### 1.2. Compile a SARL code with expected errors
 
 For compiling a SARL code, and failing the validation if it can be compiled with success, you may use the `Failure` macro:
 
@@ -81,7 +81,7 @@ The SARL code inside this macro is not rendered into the final Markdown document
 If you want to render a part of the code, you should use the `On` macro (see below).
 
 
-###1.3. Changing the visibility of the SARL code
+### 1.3. Changing the visibility of the SARL code
 
 With two previous macros, i.e. `Success` and `Failure`, the SARL code is not put into the final Markdown document by default.
 In order to output a part of the SARL code, you should manually turn on the rendering of the code with the `On` macro.
@@ -101,7 +101,7 @@ The following example gives you the general syntax of the two macros:
 ```
 
 
-###1.4. Evaluating a SARL expression
+### 1.4. Evaluating a SARL expression
 
 Several validation may need to interpret and evaluate a SARL expression. The `Fact` macro takes a parameter that is a valid SARL
 expression. This expression is interpreted and the result is evaluated.
@@ -118,7 +118,7 @@ The `Fact` macro is succeeding is the expression is evaluated to:
 2. an object instance that is not `null`.
 
 
-###1.5. Capture SARL code into the documentation
+### 1.5. Capture SARL code into the documentation
 
 Many times, a part of the SARL code is mentionned in the documentation text. In order to have the same value in
 the code itself and in the documentation text, you could use the copying and referencing macros.
@@ -144,7 +144,7 @@ If you want to avoid the generation of a Markdown block around the captured text
 This protection is implicit in the parameters and the content of the other macros that are described on this page.
 
 
-###1.6. Dynamic generation of the Markdown text
+### 1.6. Dynamic generation of the Markdown text
 
 Sometimes, it is useful to create the Markdown text via a script in order to introduce dynamic building of the documentation.
 The following macro provides you the ability to run a SARL script for generating the documentation.
@@ -168,7 +168,7 @@ be automatically formatted within a block of code, you should use the following 
 ```
 
 
-###1.7. Generate code from Java type
+### 1.7. Generate code from Java type
 
 You could generate a piece of code from a Java type with the following macro:
 
@@ -183,7 +183,7 @@ This macro extracts the type definition with the reflection mechanism for the gi
 The output of this macro is a formatted SARL code that corresponds to the extracted information.
 
 
-###1.8. Generating an Outline
+### 1.8. Generating an Outline
 
 By default, Markdown does not include a specific tag for generating the outline.
 If you put the `Outline` macro, it will be replaced by a generated outline.
@@ -198,9 +198,9 @@ If you put the `Outline` macro, it will be replaced by a generated outline.
 The section headings will be updating with a section number.
 
 
-##2. Syntax Extensions
+## 2. Syntax Extensions
 
-###2.1. Changing the characters for enclosing the macro parameter
+### 2.1. Changing the characters for enclosing the macro parameter
 
 Several of the macros above take a parameter. Sometimes the characters `(` and `)` are not suitable for enclosing a parameter
 value because the `)` character is inside the value.
@@ -214,14 +214,14 @@ the parameter values. The accepted characters are:
 * `$ value $`
 
 
-###2.2. Comments in the file
+### 2.2. Comments in the file
 
 Any text enclosing by `&lt;!---` and `--&gt;` is assumed to be a comment that should not appear in the generated files.
 
 Note that the standard HTML comments are still copied into the generated files.
 
 
-##3. Maven Tool for Generating the Documentation
+## 3. Maven Tool for Generating the Documentation
 
 The parser that is supporting the macros above is provided in a Maven plugin. You may create a Maven project with the following
 configuration:
@@ -272,14 +272,14 @@ By default, the Markdown code should be in the `src/main/documentation` folder.
 The other resources, such as images should be in the `src/main/resources` folder.
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -287,4 +287,4 @@ The other resources, such as images should be in the `src/main/resources` folder
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

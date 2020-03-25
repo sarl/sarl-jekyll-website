@@ -24,7 +24,7 @@ bottom context in the figure above.
 
 
 
-##1. Retrieving the Inner Context
+## 1. Retrieving the Inner Context
 
 For retrieving the inner context of an agent, this built-in capacity provides the following function:
 
@@ -48,7 +48,7 @@ agent A {
 
 
 
-##2. Members of an Agent
+## 2. Members of an Agent
 
 For retrieving information on the member agents of the current agent, several functions are
 provided by this built-in capacity.
@@ -74,7 +74,7 @@ def getMemberAgentCount : int
 The third function replies all the member agents in the inner context:
 
 ```sarl
-def getMemberAgents : SynchronizedIterable<UUID>
+def getMemberAgents : ConcurrentSkipListSet<UUID>
 ```
 
 
@@ -86,7 +86,7 @@ agent A {
 	uses InnerContextAccess
 	var b : boolean
 	var n : int
-	var m : SynchronizedIterable<UUID>
+	var m : ConcurrentSkipListSet<UUID>
 	def myaction {
 		b = hasMemberAgent
 		n = getMemberAgentCount
@@ -97,7 +97,7 @@ agent A {
 
 
 
-##3. Testing if an element is related to the inner context
+## 3. Testing if an element is related to the inner context
 
 The `InnerContextAccess` provides a collection of utility functions that test if their parameters
 are related to the inner context.
@@ -127,14 +127,14 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -142,4 +142,4 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

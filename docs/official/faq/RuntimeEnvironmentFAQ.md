@@ -46,16 +46,16 @@ layout: default
 
 
 
-##1. General Questions about Janus
+## 1. General Questions about Janus
 
-###1.1. What is the SRE?
+### 1.1. What is the SRE?
 
 SRE stands for "SARL Runtime Environment". The SRE is an implementation of an agent platform, which is able to
 run a SARL program. The official standard SRE supported by the SARL developers is the
 [Janus platform](http://www.janusproject.io).
 
 
-###1.2. What is Janus?
+### 1.2. What is Janus?
 
 Janus is an open-source multi-agent platform fully implemented 
 in Java 1.8. Janus enables developers to quickly create 
@@ -75,7 +75,7 @@ holons.
 Official website: [www.janusproject.io](http://www.janusproject.io)
 
 
-###1.3. Where can I ask my question?
+### 1.3. Where can I ask my question?
 
 If you cannot find an answer to your question in the FAQ, nor the reference documents, nor
 the [existing SARL issues](https://github.com/sarl/sarl/issues),
@@ -84,15 +84,15 @@ you may ask the SARL developers on
 on the [instant messaging forum](https://gitter.im/sarl/Lobby).
 
 
-###1.4. Where can I found information on the release planning of Janus?
+### 1.4. Where can I found information on the release planning of Janus?
 
 Janus is now part of the SARL project.
 The release planning of SARL is detailed on the [milestones page](https://github.com/sarl/sarl/milestones)
 on Github.
 
-##2. Installation and Execution
+## 2. Installation and Execution
 
-###2.1. Is my operating system compatible with Janus?
+### 2.1. Is my operating system compatible with Janus?
 
 The [Janus runtime platform](http://www.janusproject.io)
 is a Java application. Every operating system which has 
@@ -102,7 +102,7 @@ standard may be used to run Janus.
 
 
 
-###2.2. What is the version of the Java virtual machine to install?
+### 2.2. What is the version of the Java virtual machine to install?
 
 Janus requires the JDK 1.8 or higher
 (and strictly lower than 12) to run and compile.
@@ -112,7 +112,7 @@ depending of the current supported standard on Android platforms.
 
 
 
-###2.3. How to launch an agent in Janus?
+### 2.3. How to launch an agent in Janus?
 
 Three methods are available for launching one or more agents in the Janus platform:
 
@@ -121,7 +121,7 @@ Three methods are available for launching one or more agents in the Janus platfo
 * [From a Java program](../gettingstarted/RunSARLAgentJava.html).
 
 
-###2.4. In the Eclipse SARL product, what is the difference between the launch configurations "SARL Agent" and "SARL Application"?
+### 2.4. In the Eclipse SARL product, what is the difference between the launch configurations "SARL Agent" and "SARL Application"?
 
 There is two methods for starting an application that will run SARL agents:
 
@@ -138,7 +138,7 @@ Both launch configurations adds the SARL Run-time Environment into the run-time 
 The selected SRE depends on the configuration of your Eclipse SARL product.
 
 
-###2.5. In the Eclipse SARL product, what is the difference between the launch configurations "Java Application" and "SARL Application"?
+### 2.5. In the Eclipse SARL product, what is the difference between the launch configurations "Java Application" and "SARL Application"?
 
 Both "Java Application" and "SARL Application" are launch configurations for starting 
 a Java application, i.e. invoking the `main()` function for starting up.
@@ -152,7 +152,7 @@ Consequently, if you need to run agents and if you start your application with a
 Application" launch configuration, you must add manually the SRE libraries in the classpath.
  
 
-###2.6. Error: "The SRE is not standalone. It does not contain the Java dependencies."
+### 2.6. Error: "The SRE is not standalone. It does not contain the Java dependencies."
 
 This error occurs when there is no SARL Runtime Environment (SRE) installed on your
 Eclipse environment, OR when the installed SRE is not compatible with the installed
@@ -163,7 +163,7 @@ For solving this problem, you must download the latest
 (Menu <code>Window&gt; Preferences&gt; SARL&gt; Installed SREs</code>).
 
 
-###2.7. Error: "Incompatible SRE with SARL 1.1.1.1. Version must be lower than 0.0.0."
+### 2.7. Error: "Incompatible SRE with SARL 1.1.1.1. Version must be lower than 0.0.0."
 
 This error occurs when the SARL Runtime Environment (SRE) has a version lower than
 the version of the SARL tools, which are embedded in the Eclipse IDE.
@@ -178,7 +178,7 @@ For determining if the Janus platform implements the correct version of the SARL
 please read the explanation  on [how Janus version numbers are built](http://www.janusproject.io/#versionnumber).
 
 
-###2.8. Error: "Agent class not found."
+### 2.8. Error: "Agent class not found."
 
 When the Janus platform cannot find the class file for the start-up agent, it
 displays the error message `"Agent class not found"`.
@@ -196,7 +196,7 @@ For showing the arguments given to Janus, you could launch Janus with the comman
 including the `--cli` option.
 
 
-###2.9. Error: "Invalid byte 2 of 4-byte UTF-8 sequence."
+### 2.9. Error: "Invalid byte 2 of 4-byte UTF-8 sequence."
 
 When installing Janus as an SRE in the Eclipse interface, the plugin loads the Jar file of the
 SRE with the default API.
@@ -214,9 +214,9 @@ file as encoded with the UTF-8 charset.
 Note that this option is defined into the Eclipse SARL product since version 0.4.
 
 
-##3. Runtime Behavior of Janus
+## 3. Runtime Behavior of Janus
 
-###3.1. Are events received in the same order than when they are sent?
+### 3.1. Are events received in the same order than when they are sent?
 
 __No__.
 
@@ -229,7 +229,7 @@ how the Java executor is running the handlers on the threads.
 
 
 
-###3.2. How events are treated by the run-time environment?
+### 3.2. How events are treated by the run-time environment?
 
 When the event `e` of type `E` is received by an agent the following algorithm is applied:
 ```
@@ -252,7 +252,7 @@ is applied whatever the receiving agent.
 
 
 
-###3.3. How the spawn function is run by the run-time environment?
+### 3.3. How the spawn function is run by the run-time environment?
 
 Regarding `spawn()`, the function runs in two parts:
 
@@ -266,7 +266,7 @@ Regarding `spawn()`, the function runs in two parts:
 
 
 
-###3.4. Must I configure the Janus kernels to be connected to other Janus kernels?
+### 3.4. Must I configure the Janus kernels to be connected to other Janus kernels?
 
 __No__.
 
@@ -277,35 +277,35 @@ The sole constraint is that the kernels must be on the
 same local network.
 
 
-##4. Contribute to Janus
+## 4. Contribute to Janus
 
-###4.1. Where are the sources for Janus?
+### 4.1. Where are the sources for Janus?
 
 The sources for Janus are available inside the SARL project repository on
 [Github](https://github.com/sarl/sarl/tree/master/sre/io.janusproject/).
 
 
-###4.2. How can I find the current issues?
+### 4.2. How can I find the current issues?
 
 Janus Developers use [Github](https://github.com/sarl/sarl)
 to manage bug tracking and project workflow. 
 The issues are listed on [Github](https://github.com/sarl/sarl/issues). 
 
 
-###4.3. How can I report a problem or a bug in Janus components?
+### 4.3. How can I report a problem or a bug in Janus components?
 
 You should submit your issue on 
 [this page](https://github.com/sarl/sarl/issues/new).
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -313,4 +313,4 @@ You should submit your issue on
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

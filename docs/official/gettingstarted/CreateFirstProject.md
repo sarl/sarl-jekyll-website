@@ -32,7 +32,7 @@ Two ways are available for creating a SARL project:
 
 These two ways are explained below.
 
-##1. Create a SARL Project without Maven
+## 1. Create a SARL Project without Maven
 
 For creating a project, you should open your Eclipse and click on **File > New > Projects**, and select *SARL Project* in
 the SARL category.
@@ -42,7 +42,7 @@ the SARL category.
 After clicking on **Next**, the wizard is displaying the first page for creating a SARL project.
 
 
-###1.1. Step 1: Entering the project information
+### 1.1. Step 1: Entering the project information
 
 You must enter the name of your project. You could change the standard SARL and Java environment configurations as well.
 
@@ -56,7 +56,7 @@ Then you could click on **Next** for continuing the edition of the project's pro
 The rest of this section is devoted to the edition of the additional properties for the SARL project.
 
 
-###1.2. Step 2: Configuration of the source folders"
+### 1.2. Step 2: Configuration of the source folders"
 
 The second page of the wizard contains the building settings. Two tabs are really interesting: the *Source* and the *Libraries*.
 
@@ -75,18 +75,18 @@ be able to turn the Maven nature on your SARL project on/off.</note>
 
 ![Source Code Folders](./new_sarl_project_screen_3.png)
 
-##2. Create a SARL Project with Maven
+## 2. Create a SARL Project with Maven
 
 For creating a project with both the Maven and SARL natures, you should open your Eclipse and click on
 **File > New > Others > Maven > Maven Project**.
 
 Follow the steps of the project creation wizard, and finally click on the **Finish** button.
 
-###2.1. Edit the Maven configuration
+### 2.1. Edit the Maven configuration
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.10.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.11.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
@@ -94,7 +94,7 @@ Replace the version number `0.10.0` of SARL with the one you want to use. You co
     ...
     <properties>
        ...
-       <sarl.version>0.10.0</sarl.version>
+       <sarl.version>0.11.0-SNAPSHOT</sarl.version>
 	   <jdk.version>1.8</jdk.version>
 	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -150,7 +150,7 @@ the Java files. Details about the `sarl-maven-plugin` may be found on [this page
 will not able to be integrated in the Maven life-cycle. The consequence will be that only the Java compiler will be
 invoked.</important>
 
-###2.2. Configuration of a runtime environment (optional)
+### 2.2. Configuration of a runtime environment (optional)
 
 For executing your SARL program, a [run-time environment](http://www.sarl.io/runtime/index.html) should be used.
 By default, the SARL development environment replaces any reference to the SARL libraries by the run-time environment's libraries
@@ -165,7 +165,7 @@ recommended approach by the SARL core developers.</caution>
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
 
-Replace the version number (`2.0.10.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`3.0.11.0-SNAPSHOT`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -174,7 +174,7 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>2.0.10.0</janus.version>
+       <janus.version>3.0.11.0-SNAPSHOT</janus.version>
     </properties>
     ...
     <build>
@@ -213,20 +213,20 @@ POM file, you must be sure that the imported version of the Google Guava library
 platform. For ensuring this, you must specify the version of the Guava library by defining it in the "dependencyManagement"
 section of your pom file.</important>
 
-##3. What's next?
+## 3. What's next?
 
 In the next section, we will learn how to create our first agent.
 
 [Next>](./AgentIntroduction.html)
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -234,4 +234,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

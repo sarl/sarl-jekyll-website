@@ -35,7 +35,7 @@ documentation pattern for SARL code.
 sarldoc does not affect performance in SARL as all comments are removed at compilation time. Writing comments and
 sarldoc is for better understanding the code and thus better maintaining it.
 
-##1. Usage
+## 1. Usage
 
 The `sarldoc` tool takes arguments:
 
@@ -51,7 +51,7 @@ For obtaining a list of the options, type:
 	sarldoc -h
 
 
-##2. Command-Line Options
+## 2. Command-Line Options
 
 The complete list of the options is:
 
@@ -61,11 +61,11 @@ The complete list of the options is:
 | ------ | ----------- |
 
 
-##3. Documentation Comments
+## 3. Documentation Comments
 
 This section describes source code comments and comment inheritance.
 
-###3.1. Source Code Comments
+### 3.1. Source Code Comments
 
 You can include documentation comments in the source code, ahead of declarations for SARL 
 construct such as agent, behavior, capacity, skill, event, class, interface, method, constructor, or field.
@@ -162,7 +162,7 @@ description of the declared entity. This sentence ends at the first period that 
 terminator, or at the first block tag. The `sarldoc` command copies this first sentence to the member summary at
 the top of the HTML page.
 
-###3.2. Method Comment Inheritance
+### 3.2. Method Comment Inheritance
 
 The `sarldoc` command allows method comment inheritance in type declarations to fill in missing text or to explicitly
 inherit method comments. Constructors, fields, and nested types do not inherit documentation comments.
@@ -179,7 +179,7 @@ is copied only when that exception is declared.
 Insert the `{@inheritDoc}` inline tag in a method main description or `@return`, `@param`, or `@throws` tag comment.
 The corresponding inherited main description or tag comment is copied into that spot.
 
-###3.3. Type Declaration Comment Inheritance
+### 3.3. Type Declaration Comment Inheritance
 
 Comment inheritance occurs in all possible cases of inheritance from type declarations:
 
@@ -193,7 +193,7 @@ In the second case, when a method in a specified type implements a method in an 
 generates the subheading "Specified by" in the documentation for the overriding method. A link to the method being
 implemented is included, whether or not the comment is inherited.
 
-##4. Tags
+## 4. Tags
 
 The `sarldoc` command parses special tags when they are embedded within a SARL documentation comment. The
 `sarldoc` tags let you autogenerate a complete, well-formatted API from your source code. The tags start with
@@ -227,19 +227,19 @@ Tags have the following types:
 | `@version text`      | Adds a Version subheading with the specified text value to the generated documents. |
 
 
-##5. Acknowledgements
+## 5. Acknowledgements
 
 This documentation is inspired by the documentation from the
 [Oracle Javadoc](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html) project.
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -247,4 +247,4 @@ This documentation is inspired by the documentation from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

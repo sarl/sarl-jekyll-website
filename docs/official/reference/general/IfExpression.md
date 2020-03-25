@@ -20,7 +20,7 @@ layout: default
 An if-expression is used to choose between two different values based on a predicate.
 
 
-##1. Standard If-Then-Else Syntax
+## 1. Standard If-Then-Else Syntax
 
 The following results in either the value e1 or e2 depending on whether the predicate e1 !== null evaluates to
 `true` or `false`.
@@ -34,7 +34,7 @@ else
 
 
 
-##2. Optional Else Part
+## 2. Optional Else Part
 
 The else part is optional, which is a shorthand for an else branch that returns the
 default value of the current type.
@@ -44,7 +44,7 @@ if (e1 !== null) e1
 ```
 
 
-##3. Conditional Operator
+## 3. Conditional Operator
 
 Sometimes, it is useful to put a if-then-else expression inside another expression.
 This syntax is known as the [conditional operator, inline if, or ternary if](https://en.wikipedia.org/wiki/%3F:)
@@ -76,20 +76,20 @@ val name = if (e1 !== null) e1 + ' ' + e2 else e2
 
 
 
-##4. Acknowledgements
+## 4. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -97,4 +97,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

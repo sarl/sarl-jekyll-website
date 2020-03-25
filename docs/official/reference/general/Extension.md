@@ -33,7 +33,7 @@ or as an extension method of String:
 
 
 
-##1. Import static extension methods
+## 1. Import static extension methods
 
 You can import static methods as extensions, and directly call the imported static methods.
 
@@ -52,7 +52,7 @@ agent MyAgent {
 
 
 
-##2. Local extension methods
+## 2. Local extension methods
 
 All visible non-static methods of the current class and its super types are automatically available as extensions.
 
@@ -72,7 +72,7 @@ def example : boolean {
 
 
 
-##3. Extension Provider
+## 3. Extension Provider
 
 By adding the `extension` keyword to a field, a local variable, or a parameter declaration, its
 instance methods become extension methods.
@@ -124,13 +124,13 @@ def extensionLocalVariableExample(value : String) : boolean {
 
 
 
-##4. Imported Extensions
+## 4. Imported Extensions
 
 The following sections describe the extensions (in alphabetical order) that are automatically imported in a SARL script.
 The extensions are described into categories.
 
 
-###4.1. Collection Category
+### 4.1. Collection Category
 
 The following functions are provided for extended the standard collection API:
 
@@ -144,6 +144,15 @@ def clone(float[]) : float[]
 def clone(int[]) : int[]
 def clone(long[]) : long[]
 def clone(short[]) : short[]
+def contains(Object[], Object) : boolean
+def contains(boolean[], boolean) : boolean
+def contains(byte[], byte) : boolean
+def contains(char[], char) : boolean
+def contains(double[], double) : boolean
+def contains(float[], float) : boolean
+def contains(int[], int) : boolean
+def contains(long[], long) : boolean
+def contains(short[], short) : boolean
 def equals(Object[], Object) : boolean
 def equals(boolean[], Object) : boolean
 def equals(byte[], Object) : boolean
@@ -211,7 +220,7 @@ def set(short[][], int, int, short) : short
 
 
 
-###4.2. Number Category
+### 4.2. Number Category
 
 The following functions are provided for extended the standard number API:
 
@@ -226,7 +235,7 @@ def operator_power(BigDecimal, int) : BigDecimal
 
 
 
-###4.3. Primitive Type Category
+### 4.3. Primitive Type Category
 
 The following functions are provided for extended the standard primitive type  API:
 
@@ -245,7 +254,7 @@ def xor(boolean, boolean) : boolean
 
 
 
-###4.4. Object Type Category
+### 4.4. Object Type Category
 
 The following functions are provided for extended the Object types:
 
@@ -259,7 +268,7 @@ def operator_spaceship(Comparable<Object>, Object) : int
 
 
 
-###4.5. Functions and Procedure Category
+### 4.5. Functions and Procedure Category
 
 The following functions are provided for extended the standard Lambda expression API:
 
@@ -279,7 +288,7 @@ def curry((Object, Object, Object, Object, Object, Object) => Object, Object) : 
 
 
 
-###4.6. Time Category
+### 4.6. Time Category
 
 The following functions are provided for extended the standard time API:
 
@@ -333,20 +342,20 @@ def weeks(short) : long
 
 
 
-##5. Acknowledgements
+## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -354,4 +363,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

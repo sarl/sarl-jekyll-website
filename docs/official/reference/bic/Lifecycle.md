@@ -24,7 +24,7 @@ the inner context, as well as the `killMe` action to stop the execution of an ag
 
 
 
-##1. Stopping the Agent Execution
+## 1. Stopping the Agent Execution
 
 Because of the autonomy property of an agent, it can be stopped only by committing a suicide. It means that
 it is impossible to stop an agent from another agent: the agent to stop must be able to accept or reject
@@ -65,22 +65,21 @@ agent A {
 
 
 
-##2. Spawning in the default context
+## 2. Spawning in the default context
 
 Many time, it is useful for agent to create a new agent into the default context. The following
 functions are provided for this task:
 
 ```sarl
-def spawn(agentType : Class<? extends Agent>, parameters : Object*) : UUID
-def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object*) : Iterable<UUID>
+def spawn(agentType : Class<? extends Agent>, parameters : Object*)
+def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object*)
 ```
 
 
 This action creates one to `nbAgents` instance(s) of the given agent type, and launches the agent(s)
 into the default context.
-The first `spawn` function above is spawning a single agent and replies the identifier of the spawned agent.
-The second `spawn` function is spawning the given number of agents and replies the identifiers of the
-spawned agents.
+The first `spawn` function above is spawning a single agent.
+The second `spawn` function is spawning the given number of agents.
 The `parameters` are passed to the spawned agent inside the `Initialize` event: the `parameters` field.
 
 
@@ -99,23 +98,21 @@ Example:
 agent A {
 	uses Lifecycle
 	def myaction {
-		var aid : UUID
-		var listaid : Iterable<UUID>
 		var type : Class<? extends Agent>
 		var p1 : Object
 		var p2 : Object
 		type = typeof(A)
 		p1 = new Object
 		p2 = new Object
-		aid = spawn(type, p1, p2)
-		listaid = spawn(5, type, p1, p2)
+		spawn(type, p1, p2)
+		spawn(5, type, p1, p2)
 	}
 }
 ```
 
 
 
-##3. Spawning in a specific context
+## 3. Spawning in a specific context
 
 When one or more agents should be spawned into a specific agent context, the two following functions
 could be used for launching the agents:
@@ -123,20 +120,19 @@ could be used for launching the agents:
 ```sarl
 def spawnInContext(agentType : Class<? extends Agent>,
                    context : AgentContext,
-                   parameters : Object*) : UUID
+                   parameters : Object*)
 def spawnInContext(nbAgents : int,
                    agentType : Class<? extends Agent>,
                    context : AgentContext,
-                   parameters : Object*) : Iterable<UUID>
+                   parameters : Object*)
 ```
 
 
 
 This action creates one to `nbAgents` instance(s) of the given agent type, and launches the agent(s)
 into the given `context`.
-The first `spawn` function is spawning a single agent and replies the identifier of the spawned agent.
-The second `spawn` function is spawning the given number of agents and replies the identifiers of the
-spawned agents.
+The first `spawn` function is spawning a single agent.
+The second `spawn` function is spawning the given number of agents.
 The `parameters` are passed to the spawned agent inside the `Initialize` event: the
 `parameters` field.
 
@@ -152,23 +148,21 @@ agent A {
 	uses Lifecycle
 	def myaction {
 		var c : AgentContext
-		var aid : UUID
-		var listaid : Iterable<UUID>
 		var type : Class<? extends Agent>
 		var p1 : Object
 		var p2 : Object
 		type = typeof(A)
 		p1 = new Object
 		p2 = new Object
-		aid = spawnInContext(type, c, p1, p2)
-		listaid = spawnInContext(5, type, c, p1, p2)
+		spawnInContext(type, c, p1, p2)
+		spawnInContext(5, type, c, p1, p2)
 	}
 }
 ```
 
 
 
-##4. Spawning with a specific agent identifier
+## 4. Spawning with a specific agent identifier
 
 Some time, it is useful to create an agent with a specific identifier. The following function permits to spawn an agent
 with a given identifier in a specific context:
@@ -177,7 +171,7 @@ with a given identifier in a specific context:
 def spawnInContextWithID(agentType : Class<? extends Agent>,
 agentId : UUID,
 context : AgentContext,
-parameters : Object*) : UUID
+parameters : Object*)
 ```
 
 
@@ -204,21 +198,21 @@ agent A {
 		type = typeof(A)
 		p1 = new Object
 		p2 = new Object
-		aid = spawnInContextWithID(type, aid, c, #[p1, p2])
+		spawnInContextWithID(type, aid, c, #[p1, p2])
 	}
 }
 ```
 
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -226,4 +220,4 @@ agent A {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

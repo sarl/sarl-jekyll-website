@@ -25,7 +25,7 @@ Initialization of a multiagent system is a hard problem, and specifically with S
 The problem is: how ensuring that all the agents on the system are alive before starting to run their
 standard behaviors?
 
-##1. Example of a problematic system
+## 1. Example of a problematic system
 
 First, let consider a SARL code that is not working well regarding the initialization of the system.
 In the following code, the type of agent `MyAgent` is defined.
@@ -82,7 +82,7 @@ Consequently, the general behavior of the system is not deterministic.
 We cannot infer the number of messages that will be logged because some event may be fired by agents when several
 other agents are still waiting for their spawns. The only one fact is that the number of logged messages is lower than or equal to f(100).
 
-##2. Solution: waiting for the agent spawning
+## 2. Solution: waiting for the agent spawning
 
 A possible solution to the previously mentionned problem is to split the starting up of the application into two steps:
 1. Spawning of the agents: agents are spawn, and the system waits until all the agents are alive and ready.
@@ -121,7 +121,7 @@ agent BootAgent {
 		}
 	}
 	
-	on AgentSpawned [!it.agentIdentifiers.contains(ID)] {
+	on AgentSpawned [it.agentID != ID] {
 		var n = this.count.incrementAndGet
 		if (n === 100) {
 			emit(new StartApplication)
@@ -138,14 +138,14 @@ Each time an agent is spawned, the booting agent is notified with an `AgentSpawn
 When the number of spawned agents reaches 100, the booting agent notifies about the application start
 and commits a suicide.
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -153,4 +153,4 @@ and commits a suicide.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

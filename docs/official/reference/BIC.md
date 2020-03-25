@@ -45,7 +45,7 @@ and the spaces by the small color boxes in the contexts.
 ![Contexts](./contexts.png)
 
 
-##1. Details on the Built-In Capacities
+## 1. Details on the Built-In Capacities
 
 Each built-in capacity is detailed inside a dedicated section:
 
@@ -59,7 +59,7 @@ Each built-in capacity is detailed inside a dedicated section:
 * [Time](./bic/Time.html)
 
 
-##2. Use of the Built-in Capacities
+## 2. Use of the Built-in Capacities
 
 Details on the use of the built-in capacities may be found in the references of the major
 behavior-based concepts of SARL:
@@ -69,14 +69,14 @@ behavior-based concepts of SARL:
 
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -84,4 +84,4 @@ behavior-based concepts of SARL:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

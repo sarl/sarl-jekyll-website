@@ -19,13 +19,13 @@ Python is a widely used high-level programming language for general-purpose prog
 As an interpreted language, Python has a design philosophy that emphasizes code readability, and a syntax that allows
 programmers to express concepts in fewer lines of code than might be used in languages such as C++ or Java.
 
-##1. Integration to the Standard Compilation Process
+## 1. Integration to the Standard Compilation Process
 
 The Python generator for SARL compiler is included into the SARL tool-chain, as illustrated by the following figure.
 
 ![Standard Compilation Process for SARL Programs](./compilation_process.png)
 
-##2. Enabling and Configuring the Python Generator
+## 2. Enabling and Configuring the Python Generator
 
 For enabling and configuring the Python generator, you must open the dedicated preference page into the SARL development environment.
 It is accessible by:
@@ -46,14 +46,14 @@ This preference page will enable you to:
 
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -61,4 +61,4 @@ This preference page will enable you to:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

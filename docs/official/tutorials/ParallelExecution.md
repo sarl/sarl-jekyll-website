@@ -25,7 +25,7 @@ parallel execution of the agent's components may be used at different places.
 Nevertheless, according the SARL language's specifications, several features are assumed to be run in parallel.
 They are briefly explained below. 
 
-##1. Event Firing, Dispatching and Handling
+## 1. Event Firing, Dispatching and Handling
 
 In SARL, event-based communication is the interaction mechanism that is provided by default.
 Firing an event is done within an interaction space by calling one of the dedicated function that are defined within
@@ -66,7 +66,7 @@ is run in a dedicated thread.
 <caution>In the previous example, there is no warranty about the order of printing of the two messages. Because of the parallel execution
 of the threads, the `"Agent was spawned"` message may be displayed before the `"Spawn query called"` message.</caution>
 
-##2. Agent Spawning
+## 2. Agent Spawning
 
 Agent spawning is the action to create and start an agent from another agent.
 The spawning function is provided by the 
@@ -114,7 +114,7 @@ it may be logged at any time. Consequently, the possible output cases are:
 * `"Do initialization"`, `"Agent was spawned"`, `"Spawn query called"`
 
 
-##3. Agent Killing
+## 3. Agent Killing
 
 Agent killing is the action to stop and destroy an agent.
 The killing function is provided by the 
@@ -151,14 +151,14 @@ The `"Agent was killed"` message is always logged after the `"Do destruction"` m
 steps 4 and 3, respectively. These steps are run on the same thread.
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -166,4 +166,4 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

@@ -34,7 +34,7 @@ Please read the [Behavior Reference](../Behavior.html) for details.
 
 
 
-##1. Registering a Behavior
+## 1. Registering a Behavior
 
 Assuming that a behavior was already defined, it is possible for an agent to register this behavior:
 
@@ -65,7 +65,7 @@ beh.registerBehavior
 
 
 
-##2. Unregistering a Behavior
+## 2. Unregistering a Behavior
 
 Assuming that a behavior was already registered, it is possible for an agent to unregister it:
 
@@ -94,7 +94,7 @@ agent A {
 
 
 
-##3. Registering a Behavior with an event filter
+## 3. Registering a Behavior with an event filter
 
 Assuming that a behavior was already defined, it is possible for an agent to
 register this behavior that may received only the events matching a specific
@@ -133,7 +133,7 @@ beh.registerBehavior [^event | ^event instanceof MyEvent]
 
 
 
-##4. Executing a Behavior
+## 4. Executing a Behavior
 
 A behavior is executed through its event handlers. Consequently, for running a behavior, it is mandatory
 to wake it with an event. This particular feature is supported by:
@@ -165,7 +165,7 @@ wake(e, scope)
 
 
 
-##5. Creating an Event Listener
+## 5. Creating an Event Listener
 
 Sometimes, it is useful or mandatory for an agent to listen on the events in a
 given space. The following function permits retrieving the event listener of
@@ -187,13 +187,13 @@ l = asEventListener
 
 
 
-##6. Accessing to the collection of the registered behaviors
+## 6. Accessing to the collection of the registered behaviors
 
 Two functions are provided for accessing to the collection of the registered behaviors:
 
 ```sarl
 def hasRegisteredBehavior : boolean
-def getRegisteredBehaviors : SynchronizedIterable<Behavior>
+def getRegisteredBehaviors : ConcurrentLinkedDeque<Behavior>
 ```
 
 
@@ -204,20 +204,20 @@ The getRegisteredBehaviors replies an unmodifiable collection of the registered 
 
 ```sarl
 var b : boolean = hasRegisteredBehavior
-var c : SynchronizedIterable<Behavior> = getRegisteredBehaviors
+var c : ConcurrentLinkedDeque<Behavior> = getRegisteredBehaviors
 ```
 
 
 
 
-##7. Legal Notice
+## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -225,4 +225,4 @@ var c : SynchronizedIterable<Behavior> = getRegisteredBehaviors
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

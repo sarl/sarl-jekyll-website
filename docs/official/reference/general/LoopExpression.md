@@ -23,7 +23,7 @@ layout: default
 SARL provides four types of loop statements.
 
 
-##1. For-Each Loop
+## 1. For-Each Loop
 
 The for loop is used to execute a certain expression for each element of an array or an instance of `Iterable`.
 
@@ -50,7 +50,7 @@ for (v as String : tab) {
 
 
 
-##2. Traditional Java For Loop
+## 2. Traditional Java For Loop
 
 The traditional for loop is very similar to the one known from Java, or even C.
 When executed, it first executes the init-expression, where local variables can be
@@ -67,7 +67,7 @@ for (var i = 0; i<123; i++) {
 
 
 
-##3. While Loop
+## 3. While Loop
 
 A while loop is used to execute a certain expression unless the predicate is evaluated to
 `false`. The type of a while loop is `void`.
@@ -82,7 +82,7 @@ while (i<123) {
 
 
 
-##4. Do-While Loop
+## 4. Do-While Loop
 
 A while loop is used to execute a certain expression unless the predicate is evaluated 
 to `false`. The difference to the while loop is that the execution starts by 
@@ -100,7 +100,7 @@ while (i<123)
 
 
 
-##5. Breaking a loop
+## 5. Breaking a loop
 
 The `break` keyword is provides for breaking the enclosing loop.
 When this keyword is run, the control flow exits for the nearest
@@ -117,7 +117,7 @@ for (v : tab) {
 
 
 
-##6. Jump to the next iteration
+## 6. Jump to the next iteration
 
 The `continue` keyword is provides for stopping the execution of the
 current iteration into loop, and jumping to the next iteration.
@@ -136,20 +136,20 @@ for (v : tab) {
 
 
 
-##7. Acknowledgements
+## 7. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##8. Legal Notice
+## 8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -157,4 +157,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

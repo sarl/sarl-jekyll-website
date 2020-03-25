@@ -35,7 +35,7 @@ think of a lambda expression as an anonymous class with a single
 method.
 
 
-##1. Basic Definition
+## 1. Basic Definition
 
 A lambda expression is code surrounded by square brackets (inspired from Smalltalk).
 Like a method declaration, a lambda expression may declare parameters.
@@ -51,7 +51,7 @@ The lambda above has one parameter called `e` which is of type `ActionEvent`.
 The code after the `|` operator is the internal code of the lambda expression.
 
 
-##2. Inferred Parameter Type
+## 2. Inferred Parameter Type
 
 You do not have to specify the type explicitly because it can be inferred from the context.
 For example, when using inferred type, the code in the previous section becomes:
@@ -66,9 +66,9 @@ For example, when using inferred type, the code in the previous section becomes:
 The type of `e` is inferred according to its usage.
 
 
-##3. Implicit Parameters
+## 3. Implicit Parameters
 
-###3.1. Case of a single parameter: it
+### 3.1. Case of a single parameter: it
 
 As lambdas with one parameter are a common case, there  a special short hand notation
 for these parameters, which is to leave the declaration including the vertical bar out.
@@ -82,7 +82,7 @@ The name of the single parameter becomes `it`.
 ```
 
 
-###3.2. Case of multiple parameters
+### 3.2. Case of multiple parameters
 
 When a lambda has multiple parameters, and no name is provided by the SARL developer, 
 the compiler generates default names for each of the formal parameters.
@@ -125,7 +125,7 @@ has four parameters with implicit the following implicit names: `$0`, `$1`, and 
 ```
 
 
-##4. Empty List of Parameters
+## 4. Empty List of Parameters
 
 A lambda expression with zero arguments is written with a bar after the opening bracket:
 
@@ -137,7 +137,7 @@ val runnable : Runnable = [ |
 
 
 
-##5. Short notation of a Lambda Expression
+## 5. Short notation of a Lambda Expression
 
 When the lamda expression is passed to a single-parameter function, the brackets that are enclosing the lambda
 declaration could be missed. It specific syntax is called the short notation of a lambda expression. 
@@ -170,7 +170,7 @@ aFunction([a | new Object])
 As for the standard notation, the parameter and the bar could be missed when their is no formal parameter.
 
 
-##6. Lambda as the Last Parameter of a Method
+## 6. Lambda as the Last Parameter of a Method
 
 When the last argument of a method call is a lambda, it can be passed right after the argument list.
 
@@ -194,9 +194,9 @@ Collections.sort(t) [ a, b | a.length - b.length ]
 
 
 
-##7. Type of a Lambda Expression
+## 7. Type of a Lambda Expression
 
-###7.1. Pure SARL Notation
+### 7.1. Pure SARL Notation
 
 Because SARL is a strongly typed programming language, each lambda expression has a type.
 The syntax for specifying the type of a lambda is: `(parameter types) => return type`
@@ -212,7 +212,7 @@ var f : (String) => Boolean
 If the lambda is a procedure, i.e. it has no return type, then the return type to specify must be `void`.
 
 
-###7.2. Java-like Notation
+### 7.2. Java-like Notation
 
 The SARL lambda expressions are mapped to the Java types defined in `Functions` or `Procedures`.
 
@@ -235,20 +235,20 @@ Depending of the number of parameters, you may use `Function0` to `Function5`, o
 
 
 
-##8. Acknowledgements
+## 8. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##9. Legal Notice
+## 9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -256,4 +256,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

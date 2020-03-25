@@ -32,7 +32,7 @@ A function declaration starts with the keyword `def`. This declaration can only 
 in top-level features, such as `agent`.
 
 
-##1. Standard Declarations
+## 1. Standard Declarations
 
 The standard function declaration follows the following syntax:
 
@@ -81,7 +81,7 @@ def action6(a : int, b : String) : String {
 
 
 
-##2. Declare exceptions in the function prototype
+## 2. Declare exceptions in the function prototype
 
 The section "[Exception Support](./Exception.html)" shows how to write
 an exception handler in the code. Sometimes, it is appropriate for code
@@ -111,7 +111,7 @@ def myaction throws IllegalStateException {
 
 
 
-##3. Generic Function
+## 3. Generic Function
 
 Generic functions are methods that introduce their own type parameters. This is similar to declaring a
 [generic type](../OOP.html#define-a-generic-class),
@@ -135,7 +135,7 @@ A generic method's body is declared like that of any other method.
 Two syntaxes are allowed for defining the type parameters of the actions: the `with` syntax, and the bracket syntax.
 
 
-###3.1. Definition with "with" keyword
+### 3.1. Definition with "with" keyword
 
 The `with` syntax for a generic function includes a type parameter, after the `with`
 keyword, between the function's return type and the function's body.
@@ -152,7 +152,7 @@ def addAndReturn(element : T, collection : Collection<T>) : T with T {
 
 
 
-###3.2. Definition with brackets
+### 3.2. Definition with brackets
 
 The bracket syntax for a generic function includes a type parameter, inside angle brackets, and
 appears before the function's name.
@@ -169,7 +169,7 @@ def <T> addAndReturn(element : T, collection : Collection<T>) : T {
 
 
 
-###3.3. Bounded Type Parameters
+### 3.3. Bounded Type Parameters
 
 There may be times when you'll want to restrict the kinds of types that are allowed to be
 passed to a type parameter. For example, a method that operates on numbers might only want
@@ -188,7 +188,7 @@ def print(value : T) with T extends Number {
 
 
 
-##4. Variadic Function
+## 4. Variadic Function
 
 A variadic function is a function of indefinite arity: one which accepts a variable number of arguments.
 
@@ -235,7 +235,7 @@ action2(true, 3.0, 1, 5)
 
 
 
-##5. Default Value for the Formal Parameters
+## 5. Default Value for the Formal Parameters
 
 SARL allows you to specify a default value for a formal parameter.
 
@@ -288,7 +288,7 @@ action2(9.0)
 
 
 
-##6. Mixing Variadic Parameter and Default Values
+## 6. Mixing Variadic Parameter and Default Values
 
 It is possible to mix the variadic parameter and the default values,
 except that the variadic parameter cannot have a default value. 
@@ -299,7 +299,7 @@ def action(v : int = 5, a : float*) { }
 
 
 
-##7. Dispatch Function
+## 7. Dispatch Function
 
 Generally, method resolution and binding is done statically at compile time.
 Method calls are bound based on the static types of arguments.
@@ -357,20 +357,20 @@ In the example, the calls to the `getType` functions produces the output:
 
 
 
-##8. Acknowledgements
+## 8. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##9. Legal Notice
+## 9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -378,4 +378,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

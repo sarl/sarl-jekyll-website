@@ -40,9 +40,9 @@ associated with a given Capacity. Acquiring a new Capacity enables an Agent to g
 This provides Agents with a self-adaptation mechanism that allows them to dynamically change their architecture
 according to their current needs and goals.
 
-##1. Defining a Capacity
+## 1. Defining a Capacity
 
-###1.1. Capacity Definition
+### 1.1. Capacity Definition
 
 A Capacity is the specification of a collection of Actions. Consequently, only Action signatures can be defined inside
 a Capacity: no attribute or field is allowed, and no body (code) for the Action may be present.
@@ -63,7 +63,7 @@ capacity Logging {
 
 
 
-###1.2. Extending a Capacity
+### 1.2. Extending a Capacity
 
 In some situations, it is useful to specialize the definition of a Capacity. Capacity specialization is supported
 by the inheritance feature of SARL, which has the same semantics as the inheritance mechanism of the Java
@@ -85,7 +85,7 @@ capacity ErrorLogging extends Logging {
 
 
 
-###1.3. Extending Multiple Capacities
+### 1.3. Extending Multiple Capacities
 
 In some situations, it is useful to define a Capacity by extending more than one Capacity.
 Below, the `Cap3` Capacity is defined as an extension of the Capacities `Cap1` and `Cap2`.
@@ -104,7 +104,7 @@ capacity Cap3 extends Cap1, Cap2 {
 
 
 
-###1.4. Modifiers
+### 1.4. Modifiers
 
 Modifiers are used to modify declarations of types and type members. This section introduces the modifiers for Capacity.
 The modifiers are usually written before the keyword defining the Capacity.
@@ -148,7 +148,7 @@ public def example1
 
 
 
-##2. Built-in Capacities
+## 2. Built-in Capacities
 
 Several Capacities are defined and reserved by the SARL Core Specification.
 They compose the minimal set of Capacities that a runtime environment must support to run a SARL program.
@@ -159,7 +159,7 @@ of the reserved Capacities.</veryimportantnote>
 The built-in Capacities are defined in the [Built-in Capacity Reference](./BIC.html).
 
 
-##3. Use of the Capacities
+## 3. Use of the Capacities
 
 The use of a Capacity is related to the associated [Skills](./Skill.html).
 A Capacity cannot be called by itself since it does not provide an implementation: this is the role of the Skill.
@@ -174,7 +174,7 @@ Details on the use of the Capacities may be found in the following:
 * [Agent](./Agent.html)
 * [Behavior](./Behavior.html)
 
-##4. Associating a default skill to a capacity
+## 4. Associating a default skill to a capacity
 
 As described within the previous section, when a capacity's function is invoked, the function's implementation is retreived from
 the [skill](./Skill.html) that was associated to the capacity.
@@ -209,14 +209,14 @@ skill MySkill implements MyCapacity {
 
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -224,4 +224,4 @@ skill MySkill implements MyCapacity {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

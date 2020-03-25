@@ -30,7 +30,7 @@ it may be the operating system time, or a simulator time.
 
 
 
-##1. Get the Current Time
+## 1. Get the Current Time
 
 For obtaining the current time, the `getTime` function is provides by the `Time` capacity:
 
@@ -58,7 +58,7 @@ agent A {
 
 
 
-##2. Convertion from Operating System Time to the SARL Run-time Time
+## 2. Convertion from Operating System Time to the SARL Run-time Time
 
 At least, there is two different time scales:
 
@@ -71,7 +71,7 @@ The functions `toOSTime` and `fromOSTime` do the convertion of a time between th
 The functions `toOSDuration` and `fromOSDuration` do the convertion of a duration between these two scales.
 
 
-###2.1. Get the Factor for Mapping to Operating-System Time
+### 2.1. Get the Factor for Mapping to Operating-System Time
 
 For the time replied by the `getTime` function may be not the operating-system time, e.g. a simulation time.
 In order to map the time replied by the `getTime` function and the operating-system time, the
@@ -90,7 +90,7 @@ def getOSTimeFactor : double
 
 
 
-###2.2. Convertion of a Time
+### 2.2. Convertion of a Time
 
 For converting a time, you have access to two functions:
 
@@ -106,7 +106,7 @@ operatingSystemTime = toOSTime(sreTime)
 
 
 
-###2.3. Convertion of a Duration
+### 2.3. Convertion of a Duration
 
 For converting a duration, you have access to two functions:
 
@@ -122,14 +122,14 @@ operatingSystemTime = toOSDuration(sreTime)
 
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -137,4 +137,4 @@ operatingSystemTime = toOSDuration(sreTime)
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

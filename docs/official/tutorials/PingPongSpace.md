@@ -57,7 +57,7 @@ The source code related to this tutorial may be found in the
 [GitHub of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-tutorials-pingpongspace/src/main/sarl/io/sarl/examples/pingpongspace).
 
 
-##1. Principle of the Application
+## 1. Principle of the Application
 
 The principle of the application is the following:
 
@@ -71,12 +71,12 @@ These messages contain an integer number that indicates the number of the event.
 ![Ping-Pong Example](./pingpongspace.png)
 
 
-##2. Event definition
+## 2. Event definition
 
 First, the `Ping` and `Pong` events must be defined.
 
 
-###2.1. Ping Event
+### 2.1. Ping Event
 
 The `Ping` is an event that contains the index of the event. This index indicates
 at which position the event is located in the sequence of sent `Ping` event.
@@ -88,7 +88,7 @@ For setting the value of the `index` value, it is mandatory to define a construc
 
 
 
-###2.2. Pong Event
+### 2.2. Pong Event
 
 The `Pong` is an event that contains the index of the `Ping` event for which the
 `Pong` event is created.
@@ -106,12 +106,12 @@ event Pong {
 
 
 
-##3. Pong agent
+## 3. Pong agent
 
 The second step of this tutorial is the definition of the agent that is waiting
 for `Ping` events, and replying `Ping` events.
 
-###3.1. First definition
+### 3.1. First definition
 
 The initial definition of the pong agent is:
 
@@ -122,7 +122,7 @@ agent PongAgent {
 
 
 
-###3.2. Join the sub-space
+### 3.2. Join the sub-space
 
 Because the agents are interacting into a sub-space, they must join this sub-space at start-up.
 
@@ -155,7 +155,7 @@ agent PongAgent {
 
 
 
-###3.3. Handling the Ping event
+### 3.3. Handling the Ping event
 
 The pong agent needs to handle the `Ping` events. For that, a "behavior unit" must be defined in the
 agent. According to the  [Agent Reference](../reference/Agent.html),
@@ -183,7 +183,7 @@ agent PongAgent {
 
 
 
-###3.4. Replying to Ping with a Pong
+### 3.4. Replying to Ping with a Pong
 
 Now, it is time to define how the pong agent is replying with a `Ping` message.
 
@@ -231,7 +231,7 @@ agent PongAgent {
 
 
 
-###3.5. Restricting the scope of the Pong event
+### 3.5. Restricting the scope of the Pong event
 
 In the previous code, the event is emitted to all the agents belonging to the default
 space, including the pong agent.
@@ -269,13 +269,13 @@ agent PongAgent {
 
 
 
-##4. Ping Agent
+## 4. Ping Agent
 
 The third step of this tutorial is the definition of the agent that is sending `Ping`
 events, and waiting for `Pong` events.
 
 
-###4.1. First definition
+### 4.1. First definition
 
 The initial definition of the ping agent is:
 
@@ -297,7 +297,7 @@ agent PingAgent {
 
 
 
-###4.2. Handling the Pong event
+### 4.2. Handling the Pong event
 
 The ping agent needs to handle the `Pong` events. For that, a "behavior unit" must be
 defined in the agent.
@@ -322,7 +322,7 @@ agent PingAgent {
 
 
 
-###4.3. Re-sending a Ping when receiving a Pong
+### 4.3. Re-sending a Ping when receiving a Pong
 
 When the ping agent is receiving a `Pong` event, it re-sends a
 `Ping` event to the sender of the `Pong` event.
@@ -354,7 +354,7 @@ agent PingAgent {
 
 
 
-###4.4. Sending the first Ping
+### 4.4. Sending the first Ping
 
 For starting the exchanges among the agents, it is mandatory to send a first occurrence
 of the `Ping` event.
@@ -386,7 +386,7 @@ agent PingAgent {
 
 
 
-###4.5. Delaying the sending of the first Ping
+### 4.5. Delaying the sending of the first Ping
 
 The previous code has a major problem: if there is no pong agent launched
 when the ping agent is sending the first `Ping` event, the application
@@ -421,7 +421,7 @@ agent PingAgent {
 		^space.register(asEventListener())
 		val task = task("waiting_for_partner")
 		task.every(1000) [
-			if (defaultSpace.participants.size > 1) {
+			if (defaultSpace.numberOfStrongParticipants > 1) {
 				var evt = new Ping(0)
 				^space.emit( evt )
 				task.cancel
@@ -437,7 +437,7 @@ agent PingAgent {
 
 
 
-##5. Launch the agents
+## 5. Launch the agents
 
 The fourth step of this tutorial is the definition of the launching process.
 In the rest of this section, we discuss the use of the
@@ -471,14 +471,14 @@ agent BootAgent {
 
 
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -486,4 +486,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

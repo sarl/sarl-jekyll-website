@@ -24,7 +24,7 @@ from a Java program.
 The default SRE is the [Janus platform](http://www.janusproject.io). 
 
 
-##1. Definition of the SRE Bootstrap
+## 1. Definition of the SRE Bootstrap
 
 In the SARL API, a bootstrap is definition is provided.
 It represents an access point to the SRE from any program.
@@ -38,7 +38,6 @@ The SARL API defines a SRE bootstrap as:
 
 ```sarl
 interface SREBootstrap {
-	def getBootAgentIdentifier : UUID
 	def getKernelLogger : Logger
 	def getService(Class<Object>) : Object
 	def getUniverseContextUUID : UUID
@@ -54,8 +53,10 @@ interface SREBootstrap {
 	def setVerboseLevel(int)
 	def shutdown
 	def shutdown(boolean)
-	def startAgent(Class<Agent>, Object[]) : UUID
-	def startAgent(int, Class<Agent>, Object[]) : Iterable<UUID>
+	def shutdown(boolean, int)
+	def shutdown(int)
+	def startAgent(Class<Agent>, Object[])
+	def startAgent(int, Class<Agent>, Object[])
 	def startAgentWithID(Class<Agent>, UUID, Object[])
 	def startWithoutAgent : AgentContext
 }
@@ -69,7 +70,7 @@ The standard Java service management feature is used. in other words, the SRE sh
 its `META-INF/services/io.sarl.bootstrap.SREBootstrap` file.
 
 
-##2. Using the SRE Bootstrap
+## 2. Using the SRE Bootstrap
 
 In order to help you to use the bootstrap functions, the SARL API provides a static utility type, named `SRE`.
 In the following Java code, the `SRE` utility type is used for retrieving the bootstrap.
@@ -97,7 +98,7 @@ In the case you want to launch more than one agent programmatically,
 you could call the `startAgent` function the number of times you need.
 
 
-##3.  Direct Access to the API of the Janus SRE
+## 3.  Direct Access to the API of the Janus SRE
 
 Caution: using the API of Janus within your program is not recommended by the SARL team. Prefer to use the Bootstrap API.
 
@@ -105,16 +106,16 @@ Caution: using the API of Janus within your program is not recommended by the SA
 
 The Janus platform provides a `Boot` class. For launching the platform, you must use this boot class.
 
-The `Boot` class provides the `startJanus` function, which permits to launch Janus programmatically.
+The `Boot` class provides the `startAgent` function, which permits to launch Janus programmatically.
 
 
 Let consider you want to launch your agent, defined in the `MyAgent` class.
 The following SARL code gives you an example of how to launch this agent in Janus.
 
-The first parameter of the `startJanus` function is the Java type of the agent
+The first parameter of the `startAgent` function is the Java type of the agent
 to launch.
 
-The second parameter of the `startJanus` function is the list of parameters to
+The second parameter of the `startAgent` function is the list of parameters to
 pass with the `Initialize` event to the launched agent.
 
 
@@ -123,47 +124,23 @@ pass with the `Initialize` event to the launched agent.
 If you want to launch more agents, please read the next section.</importantnote>
 
 
-		import io.janusproject.Boot;
+		import io.sarl.sre.boot.Boot;
 		import myprogram.MyAgent;
 		public class MyProgram {
 		 	public static void main(String[] args) {
-				Boot.startJanus(MyAgent.class, args);
+				Boot.createMainObject.startAgent(MyAgent.class, args);
 			}
 		}
 
 
 In  the case you want to launch more than one agent programmatically,
-you could use the `Kernel` instance provided by Janus.
-
-This instance is replied by the `startJanus` function of the `Boot` class.
-
-The `Kernel` type provides the `spawn` functions, which permit launching
-an agent programmatically.
-
-The previous example could be updated for launching two agents of the same type.
-The resulting code is shown below.
-
-The first parameter of the `spawn` function is the Java type of the agent to launch.
-
-The second parameter of the `spawn` function is the list of parameters to
-pass with the [:initevent] event to the launched agent.
-
-<important>that the first agent is launched by the `startJanus` function, and the 
-second agent is launched by the `spawn` function.</important>
+you could use the `SreMain` instance provided by Janus.
+This instance is replied by the `getKernel` function of the `Boot` class.
 
 
 
-		import io.janusproject.Boot;
-		import myprogram.MyAgent;
-		public class MyProgram {
-		 	public static void main(String[] args) {
-				Boot.startJanus(MyAgent.class, args);
-				janusKernel.spawn(MyAgent.class, args);
-			}
-		}
 
-
-##4. What's next?
+## 4. What's next?
 
 Now, you are ready for developing agents with the SARL language.
 Please read the rest of the documentation for obtaining more details.
@@ -171,14 +148,14 @@ Please read the rest of the documentation for obtaining more details.
 [Next>](../index.html)
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -186,4 +163,4 @@ Please read the rest of the documentation for obtaining more details.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

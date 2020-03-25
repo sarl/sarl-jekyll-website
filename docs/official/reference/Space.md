@@ -19,9 +19,8 @@ layout: default
 <ul>
   <li><a href="#2-1-defining-the-physicspace">2.1. Defining the PhysicSpace</a></li>
   <li><a href="#2-2-basic-implementation">2.2. Basic Implementation</a></li>
-  <li><a href="#2-3-basic-network-support">2.3. Basic Network Support</a></li>
-  <li><a href="#2-4-defining-a-spacespecification">2.4. Defining a SpaceSpecification</a></li>
-  <li><a href="#2-5-access-to-the-default-space-instance-within-a-space-specification">2.5. Access to the Default Space Instance within a space specification</a></li>
+  <li><a href="#2-3-defining-a-spacespecification">2.3. Defining a SpaceSpecification</a></li>
+  <li><a href="#2-4-access-to-the-default-space-instance-within-a-space-specification">2.4. Access to the Default Space Instance within a space specification</a></li>
 </ul>
 <li><a href="#3-legal-notice">3. Legal Notice</a></li>
 
@@ -73,31 +72,45 @@ listeners for a given event.__
 The most basic scope is represented by a collection of addresses.
 
 
-##1. Types of Spaces
+## 1. Types of Spaces
 
 SARL provides a collection of interfaces that are representing different types of spaces.
 
 
-###1.1. Space
+### 1.1. Space
 
 SARL provides an interface that is representing all the spaces:
 
 ```sarl
 interface Space {
-	def getParticipants : SynchronizedSet<UUID>
+	def forEachStrongParticipant((Object) => void)
+	def getNumberOfStrongParticipants : int
 	def getSpaceID : SpaceID
+	def isPseudoEmpty : boolean
+	def isPseudoEmpty(UUID) : boolean
 }
 ```
 
 
 
 
+
+
 The `getSpaceID` function replies the identifier of the space.
-The `getParticipants` function replies the identifiers
-of the agents belonging to the space.
+
+Participants to the space are software entities, e.g. agents that are participating to the interaction in the space.
+Two types of participant are forseen:
+
+* *strong participant*: this is the standard or regular type. If the space has a strong participant, it is considered as an not empty space and cannot be destroyed from the system;
+* *weak participant*: this is a special type. If the space has only weak participants, i.e. no strong participant is involved, it is considered as en empty space and could be destroy from the system.
+
+The `getNumberOfStrongParticipants` function replies the number of strong participants that are registered to the space.
+The [:ispseudoemptyfct] function replies if the space has at least a strong participant registered.
+If the parameter is given, it is the identifier of the participant that should be ignored. In other words,
+the [:ispseudoemptyfct] function replies if another strong participant than the one with the given identifier is registered.
 
 
-###1.2. Event Space
+### 1.2. Event Space
 
 Spaces that are based on event propagation mechanism are defined as:
 
@@ -118,13 +131,13 @@ The `getAddress` function replies the address in the space of the agent that has
 The `emit` functions permits fire of an event in the space.
 
 
-###1.3. Open Event Space
+### 1.3. Open Event Space
 
 Event spaces that are allowing the agents to be register and unregister are "open event spaces":
 
 ```sarl
 interface OpenEventSpace {
-	def register(EventListener) : Address
+	def register(EventListener, boolean) : Address
 	def unregister(EventListener) : Address
 }
 ```
@@ -140,7 +153,7 @@ And, the function `unregister` fires the event `ParticipantLeft`.
 
 
 
-###1.4. Restricted Access Event Space
+### 1.4. Restricted Access Event Space
 
 When an event space needs to control the registration access, it should be a "restricted access event space":
 
@@ -156,7 +169,7 @@ interface RestrictedAccessEventSpace {
 The functions given by this type of space permits implementing a space with restricted access, based on the standard Java API.
 
 
-##2. Defining a Space
+## 2. Defining a Space
 
 The definition of a new space must be done with object-oriented language's features.
 
@@ -170,7 +183,7 @@ In the rest of this section, we use the example of the definition of a physic sp
 spatial position. 
 
 
-###2.1. Defining the PhysicSpace
+### 2.1. Defining the PhysicSpace
 
 The first step for the definition of a new type of space is the specification of the interface that is describing
 the functions provided by the space.
@@ -197,7 +210,7 @@ the `Behaviors` built-in capacity (see the corresponding
 
 
 
-###2.2. Basic Implementation
+### 2.2. Basic Implementation
 
 The definition of the space implementation depends upon the runtime environment.
 
@@ -210,6 +223,24 @@ Below, the implementation extends one of the abstract classes provided by the [J
 ```sarl
 class PhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
 	val entities = <UUID, PhysicObject>newHashMap
+	
+	val strongRepository = new ConcurrentHashMap<UUID, Participant>
+	var weakRepository : ConcurrentHashMap<UUID, Participant>
+	override getInternalStrongParticipantStructure : ConcurrentHashMap<UUID, Participant> {
+		this.strongRepository 
+	}
+
+	override getInternalWeakParticipantStructure : ConcurrentHashMap<UUID, Participant> {
+		this.weakRepository
+	}
+	override ensureInternalWeakParticipantStructure : ConcurrentHashMap<UUID, Participant> {
+		var r = this.weakRepository
+		if (r === null) {
+			this.weakRepository = new ConcurrentHashMap
+			r = this.weakRepository
+		}
+		return this.weakRepository
+	}
 	def moveObject(identifier : UUID, x : float, y : float, z : float) {
 		synchronized (this.entities) {
 			var o = this.entities.get(identifier)
@@ -246,59 +277,8 @@ the support of the interaction. Consequently, it should provide the mechanisms f
 routing the events to all the agents other the computer network.</important>
 
 
-###2.3. Basic Network Support
 
-As described in the previous section, the space implementation should route the information among the agents over a computer
-network.
-
-<caution>This section of the space reference document may evolved in future releases of SARL. Please activate the
-"deprecated feature use" warning in your compilation configuration for ensuring that you will be notified
-about any major changes on this part of the API.</caution>
-
-Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
-
-```sarl
-class NetworkPhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
-	val entities : Map<UUID,PhysicObject>
-	
-	public new(id : SpaceID, factory : DistributedDataStructureService,
-	        lockProvider : Provider<ReadWriteLock>) {
-		super(id, factory, lockProvider)
-		this.entities = factory.getMap(id.toString + "-physicObjects")
-	}
-	
-	def bindBody(entity : EventListener) {
-		this.entities.put(entity.ID, new PhysicObject)
-		var a = new Address(spaceID, entity.ID)
-		synchronized (this.participantInternalDataStructure) {
-			return this.participantInternalDataStructure.registerParticipant(a, entity)
-		}
-	}
-	
-	def unbindBody(entity : EventListener) {
-		this.entities.remove(entity.ID)
-		synchronized (this.participantInternalDataStructure) {
-			return this.participantInternalDataStructure.unregisterParticipant(entity)
-		}
-	}
-	
-	def moveObject(identifier : UUID, x : float, y : float, z : float) {
-		var o = this.entities.remove(identifier)
-		if (o !== null) {
-			o.move(x, y, z)
-			this.entities.put(identifier, o)
-		}
-	}
-}
-```
-
-
-<important>The collection of the physic objects is a distributed map over the computer network. It means that each node
-of the platform has a direct access to the objects' instances. If whose to say that is implementation may face some problems,
-such as the serialization of the physic objects, and the scalability of the distributed map.</important>
-
-
-###2.4. Defining a SpaceSpecification
+### 2.3. Defining a SpaceSpecification
 
 For creating instances of spaces, it is necessary to define a space specification.
 This specification may create the space instance according to rules, or provide information and rules to the spaces.
@@ -314,22 +294,8 @@ class PhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
 
 The example above is the specification related to the first implementation of the `PhysicSpace`.
 
-```sarl
-class NetworkPhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
-	@Inject
-	var factory : DistributedDataStructureService
-	def create(id : SpaceID, params : Object*) : PhysicSpace {
-		return new NetworkPhysicSpaceImpl(id, factory)
-	}
-}
-```
 
-
-The example above is the specification that permits to create a physic space with networking. It retrieves
-by injection the factory of distributed data structures provided by the Janus platform.
-
-
-###2.5. Access to the Default Space Instance within a space specification
+### 2.4. Access to the Default Space Instance within a space specification
 
 If the space instance needs to be linked to the default space of the context, it is 
 necessary to retrieve the instance of the default space within the space specification.
@@ -378,14 +344,14 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -393,4 +359,4 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

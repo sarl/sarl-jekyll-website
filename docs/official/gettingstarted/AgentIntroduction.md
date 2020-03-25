@@ -32,7 +32,7 @@ To create our first agent, right click on the project and follow **New > File**.
 
 The SARL default editor will open.
 
-##1. Basic agent definition
+## 1. Basic agent definition
 
 Agents are defined using the `agent` keyword.
 
@@ -42,7 +42,7 @@ agent MyAgent {
 ```
 
 
-##2. Package definition
+## 2. Package definition
 
 SARL elements are organized in packages. You can define the package using the `package` keyword.
 
@@ -53,18 +53,18 @@ The character `^` in the package name permits to use a SARL keyword into a packa
 [General Syntax Reference](../reference/GeneralSyntax.html) for details).
 Therefore FirstAgent and SecondAgent belong to the same package, i.e. `io.sarl.docs.gettingstarted.^agent`.</importantnote>
 
-##3. Agent Perceptions
+## 3. Agent Perceptions
 
 Agents need to perceive their environment in order to react to external stimuli. Perceptions take the form of events
 (see [Event](../reference/Event.html) and [Agent](../reference/Agent.html) References for details).
 
-###3.1. Declare an Event
+### 3.1. Declare an Event
 
 To declare a new event use the `event` keyword. The following code defines a new event `MyEvent`.
 
 `event MyEvent`
 
-###3.2. Define an agent Perceptions
+### 3.2. Define an agent Perceptions
 
 Now, we will want our agent to react to `MyEvent` and print a message on the console.
 
@@ -85,7 +85,7 @@ agent MyAgent {
 
 
 
-###3.3. Lifecycle events
+### 3.3. Lifecycle events
 
 SARL defines two **lifecycle** events :
 
@@ -115,7 +115,7 @@ agent MyAgent {
 
 
 
-###3.4. Accessing the event's occurrence
+### 3.4. Accessing the event's occurrence
 
 Inside a behavior declaration you may need to access the event instance the agent is reacting to.
 
@@ -141,12 +141,12 @@ agent MyAgent {
 
 
 
-##4. Agent Communication
+## 4. Agent Communication
 
 Agents need to send data and stimuli to other agents. This communication takes the form of event sending
 (see [Event](../reference/Event.html) and [Agent](../reference/Agent.html) References for details).
 
-###4.1. Use the capacity to send an event in the default space
+### 4.1. Use the capacity to send an event in the default space
 
 Now, we will want our agent to send data to other agents. The data are embedded into events. The definition of an
 event is described above.
@@ -167,7 +167,7 @@ agent MyAgent {
 
 
 
-###4.2. Send an event in the default space
+### 4.2. Send an event in the default space
 
 The `DefaultContextInteractions` built-in capacity provides functions for sending events in the default space.
 
@@ -185,20 +185,20 @@ agent MyAgent {
 ```
 
 
-##5. What's next?
+## 5. What's next?
 
 In the next section, we will learn how to start a SARL agent in the Eclipse IDE.
 
 [Next>](./RunSARLAgentEclipse.html)
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -206,4 +206,4 @@ In the next section, we will learn how to start a SARL agent in the Eclipse IDE.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

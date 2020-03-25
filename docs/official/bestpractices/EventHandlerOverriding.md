@@ -29,7 +29,7 @@ In this document, the operational semantic of the event handlers is reminded. Th
 the event handler behavior is explained.
 
 
-##1. Operational semantic of the event handlers
+## 1. Operational semantic of the event handlers
 
 The operational semantics of the event handler is the following:
 when an event is received by an agent (or a behavior), all the event handlers matching the
@@ -59,7 +59,7 @@ agent MyAgent extends MySuperAgent {
 
 
 
-##2. Defining the super behavior in a function
+## 2. Defining the super behavior in a function
 
 For overriding the behavior associated to an event handler, it is mandatory to use the function overriding mechanism
 that is provided by the SARL language.
@@ -84,7 +84,7 @@ agent MySuperAgent {
 
 
 
-##3. Overriding the super function
+## 3. Overriding the super function
 
 For overriding the behavior, the function `myEventBehavior` could be overridden in the sub-type.
 With the example below, the message "hello world" is no more printed out because of the function overriding.
@@ -99,14 +99,14 @@ agent MyAgent extends MySuperAgent {
 
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -114,4 +114,4 @@ agent MyAgent extends MySuperAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

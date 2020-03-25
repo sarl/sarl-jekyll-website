@@ -9,7 +9,7 @@ An assertion is a statement that a predicate is expected to always be true at th
 If an assertion evaluates to false at run time, an assertion failure results, which typically causes
 the program to crash, or to throw an assertion exception.
 
-##1. Assert Statement
+## 1. Assert Statement
 
 SARL supports assertions in the source code by the `assert` keyword.
 
@@ -31,7 +31,7 @@ assert x <= 1
 ```
 
 
-##2. Error Message
+## 2. Error Message
 
 Sometimes, it is useful to give an explanation about the failure.
 The `assert` keyword accepts a string of character that is the message given when the program has crashed.
@@ -53,7 +53,7 @@ constraints.
 For enabling and disabling the assertions, you must change the launch configuration within the SARL product,
 or use an option that is provided by the SARL run-time environment.
 
-##3. Inside the SARL Development Environment
+## 3. Inside the SARL Development Environment
 
 Within the SARL development environment, you must define a launch configuration for running a SARL application.
 Two launch configurations are available:
@@ -67,13 +67,13 @@ If the first (resp. second) box is checked, assertions will be enabled when you 
 
 ![Screenshot of the dialog box of a SARL launch configuration](./enableassertions.png)
 
-##4. Launching the Janus framework
+## 4. Launching the Janus framework
 
 The Janus framework is one implementation of a SARL run-time environment. You have to use one of its command-line
 options for enabling assertions. All the command-line options are detailed on a [dedicated page](../../tools/Janus.html).
 Usually, the option for enabling the assertions is the same as the one of the Java virtual machine: -ea.
 
-##5. Launching the Java virtual machine
+## 5. Launching the Java virtual machine
 
 If you want to run your SARL application by launching the Java virtual machine, you could use the standard command
 line options `-enableassertions` and `-ea` that are provided by this virtual machine:
@@ -82,20 +82,20 @@ line options `-enableassertions` and `-ea` that are provided by this virtual mac
 
 
 
-##6. Acknowledgements
+## 6. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##7. Legal Notice
+## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -103,4 +103,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

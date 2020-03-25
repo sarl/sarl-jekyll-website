@@ -161,7 +161,7 @@ environment (Eclipse, IntelliJ...)
 </tbody></table>
 
 
-##1. References
+## 1. References
 
 This documentation is based on elements from the following sources:
 
@@ -172,14 +172,14 @@ This documentation is based on elements from the following sources:
 
 
 
-##2. Legal Notice
+## 2. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -187,4 +187,4 @@ This documentation is based on elements from the following sources:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

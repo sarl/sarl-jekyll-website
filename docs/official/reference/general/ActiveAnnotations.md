@@ -27,7 +27,7 @@ Depending on the meaning of the active annotation, the generated Java code could
 SARL comes with ready-to-use active annotations for common code patterns.
 The following sections describe there annotations.
 
-##1. @Accessors
+## 1. @Accessors
 
 If you want to add getter and or setter methods for your fields, `@Accessors` is your friend.
 This annotation can be applied to either object-oriented types and several agent-oriented types.
@@ -123,7 +123,7 @@ class Person {
 
 
 
-##2.  @Data
+## 2.  @Data
 
 The annotation `@Data` will turn an annotated class into a value object class. A class annotated with
 [:dataannon] is processed according to the following rules:
@@ -153,7 +153,7 @@ Example:
 
 
 
-##3.  @Delegate
+## 3.  @Delegate
 
 The `@Delegate` annotation automatically generates delegate methods for all interfaces shared between the delegate
 and the currently implemented class. You can optionally restrict it to explicitly stated interfaces.
@@ -256,7 +256,7 @@ class MyClass implements SomeInterface {
 
 
 
-##4. @NoEqualityTestFunctionsGeneration
+## 4. @NoEqualityTestFunctionsGeneration
 
 The `@NoEqualityTestFunctionsGeneration` annotation disables the generation the equality test functions, i.e. `equals()` and `hashCode()` from
 the field declarations.
@@ -293,7 +293,7 @@ class MyClass {
 
 
 
-##5. @ToString
+## 5. @ToString
 
 The `@ToString` annotation enables to generate the function that replies the string representation
 of an object, a.k.a. as the `toString()` function in a Java program.
@@ -334,20 +334,20 @@ For brevity there are options to the annotation to hide field names, skip fields
 
 
 
-##6. Acknowledgements
+## 6. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##7. Legal Notice
+## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -355,4 +355,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

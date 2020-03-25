@@ -48,13 +48,13 @@ A Behavior is the specification of a collection of behavior units.
 This Behavior may be used by an agent for building its global behavior.
 
 
-##1. Defining a Behavior
+## 1. Defining a Behavior
 
 A behavior is declared with the `behavior` keyword. In the behavior's body block, we can declare Mental States
 (in the form of attributes), Actions and Behaviors.
 
 
-###1.1. Defining an empty behavior
+### 1.1. Defining an empty behavior
 
 The following code illustrates the definition of a behavior named [:behaviortype1], and that is empty.
 
@@ -67,7 +67,7 @@ behavior MyBehavior {
 
 
 
-###1.2. Behavior Attributes
+### 1.2. Behavior Attributes
 
 The mental state of an agent is composed by the data in the knowledge of the agent. A behavior may contain
 a part of this mental state. Most of the time, it is implemented as a collection of attributes.
@@ -87,7 +87,7 @@ behavior MyBehavior {
 
 
 
-###1.3. Behavior Actions
+### 1.3. Behavior Actions
 
 It is allowed to define actions (methods) in the behavior. The syntax described in the
 [General Syntax Reference](./GeneralSyntax.html) is used.
@@ -110,7 +110,7 @@ behavior MyBehavior {
 
 
 
-###1.4. Extending a Behavior
+### 1.4. Extending a Behavior
 
 In some use cases, it is useful to specialize the definition of a behavior. This mechanism is supported
 by the inheritance feature of SARL, which has the same semantic as the inheritance
@@ -139,7 +139,7 @@ behavior MySubBehavior extends MyBehavior {
 
 
 
-###1.5. Instancing and Use of a Behavior
+### 1.5. Instancing and Use of a Behavior
 
 A behavior is always owned by an agent. Consequently, it is mandatory to pass the agent as parameter
 of the behavior's constructor.
@@ -164,7 +164,7 @@ agent MyAgent {
 
 
 
-###1.6. Modifiers
+### 1.6. Modifiers
 
 Modifiers are used to modify declarations of types and type members.
 This section introduces the modifiers for the behavior. The modifiers are usually
@@ -255,7 +255,7 @@ dispatch def example7(p : Float) { }
 
 
 
-##2. Behavior Units of a Behavior
+## 2. Behavior Units of a Behavior
 
 The behaviors of an agent correspond to the units that are executed by the agent for exhibiting
 its general behavior.
@@ -290,7 +290,7 @@ the occurrence. This instance is represented by the `occurrence` keyword. It is 
 variable as the keywords `this` and `it`.
 
 
-###2.1. Initialization Handler
+### 2.1. Initialization Handler
 
 When a behavior is ready to be executed by the runtime environment, usually when it
 is registered in its owning agent, it receives the `Initialize` event.
@@ -316,7 +316,7 @@ behavior MyBehavior {
 
 
 
-###2.2. Guarded Initialization Handler
+### 2.2. Guarded Initialization Handler
 
 Because `Initialize` is an event, the handler in the behavior could use a guard. This feature enables
 the developer to write different initialization blocks depending on the guards of the handlers.
@@ -338,7 +338,7 @@ behavior MyBehavior {
 
 
 
-###2.3. Destruction Handler
+### 2.3. Destruction Handler
 
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
@@ -362,7 +362,7 @@ behavior MyBehavior {
 
 
 
-###2.4. Guarded Destruction Handler
+### 2.4. Guarded Destruction Handler
 
 As for `Initialize`, the handlers of the `Destroy` event could be guarded.
 
@@ -385,7 +385,7 @@ behavior MyBehavior {
 
 
 
-###2.5. Reactive Behavior Units
+### 2.5. Reactive Behavior Units
 
 The reactive behavior is specified with a collection of event handlers. The principle of a reactive behavior
 is to execute a part of the behavior when something has happening in the behavior, the agent or in its environment.
@@ -405,7 +405,7 @@ behavior MyBehavior {
 
 
 
-###2.6. Parallel Execution of the Reactive Behavior Units
+### 2.6. Parallel Execution of the Reactive Behavior Units
 
 When an event is received and the guard of the corresponding handler is true, the event handler is said to be triggered.
 
@@ -426,7 +426,7 @@ behavior MyBehavior {
 
 
 
-###2.7. Pro-active Behavior Units
+### 2.7. Pro-active Behavior Units
 
 A proactive behavior is a part of the global behavior of an agent that the
 agent is deciding to execute by itself.
@@ -452,7 +452,7 @@ behavior MyBehavior {
 
 
 
-##3. Capacities and Skills
+## 3. Capacities and Skills
 
 An agent is an autonomous entity having a set of skills to realize the capacities it exhibits.
 An agent has a set of built-in capacities considered essential to respect the commonly accepted
@@ -461,7 +461,7 @@ competencies of agents, such autonomy, reactivity, pro-activity and social capac
 Consequently, a behavior associated to an agent is able to use the skills of this agent.
 
 
-###3.1. Defining a Capacity and a Skill
+### 3.1. Defining a Capacity and a Skill
 
 The definition of a capacity or a skill is out of the scope of this reference document. For details, please read
 the [Capacity Reference](./Capacity.html), and the [Skill Reference](./Skill.html).
@@ -483,15 +483,42 @@ skill Ski implements Cap {
 
 
 
-###3.2. Giving a Skill to the Associated Agent
+### 3.2. Giving a Skill to the Associated Agent
 
 When a behavior must use a capacity, its agent must own an implementation of this capacity: a skill.
 It is possible for a behavior to assign a skill to its agent.
 
+```sarl
+behavior MyBehavior {
+	new (owner : Agent) {
+		super(owner)
+		var theSkill = new Ski
+		setSkill( theSkill, Cap )
+	}
+}
+```
 
 
 
-###3.3. Using a Capacity with the Getters
+
+
+
+If some cases, you may want to set the skill if one was not set up before. The specific behavior
+is supported by `setSkillIfAbsent(Skill, Class<? extends Capacity>*)`.
+
+```sarl
+behavior MyBehavior {
+	new (owner : Agent) {
+		super(owner)
+		var theSkill = new Ski
+		setSkillIfAbsent( theSkill, Cap )
+	}
+}
+```
+
+
+
+### 3.3. Using a Capacity with the Getters
 
 For invoking a function implemented by a skill, the two following steps must be done:
 
@@ -514,7 +541,7 @@ behavior MyBehavior {
 
 
 
-###3.4. Using a Capacity with the Extension Methods
+### 3.4. Using a Capacity with the Extension Methods
 
 Invoking a capacity/skill with the getter method is not user-friendly. Since the
 [General Syntax Reference](./GeneralSyntax.html) describes the "extension method"
@@ -540,14 +567,14 @@ behavior MyBehavior {
 
 
 
-##4. Legal Notice
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -555,4 +582,4 @@ behavior MyBehavior {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

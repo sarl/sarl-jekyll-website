@@ -25,7 +25,7 @@ A script is a text file containing SARL code. Each script must follow the format
 	<top-level features>
 
 
-##1. Package Declaration
+## 1. Package Declaration
 
 To structure your software, it is common to put scripts in different packages (as Java does for the classes).
 
@@ -48,7 +48,7 @@ package has an empty name. It is recommended in the SARL Best Practices to speci
 name.</note> 
 
 
-##2. Import Directive
+## 2. Import Directive
 
 The _imports_ section of a SARL script is dedicated to declaring imported classes.
 Each time you want to use a feature defined in another package, (a different file)
@@ -71,7 +71,7 @@ import java.net.*
 
 
 
-##3. Static Import Directive
+## 3. Static Import Directive
 
 Sometimes, it is necessary to import a class to access its statically defined functions,
 i.e., a function that can be called without any associated object's instance.
@@ -108,7 +108,7 @@ import static java.util.Collections.*
 
 
 
-##4. Top-Level Features
+## 4. Top-Level Features
 
 Most of a SARL script consists of the definitions of top-level features. These features are the
 core concepts of SARL, such as `agent`, `event`, or `capacity`.
@@ -153,20 +153,20 @@ annotation MyAnnotation {
 
 
 
-##5. Acknowledgements
+## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -174,4 +174,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

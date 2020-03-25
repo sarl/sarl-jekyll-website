@@ -32,7 +32,7 @@ layout: default
 SARL supports a collection of operators. Most of them are infix operators, and several are postfix operators.
 
 
-##1. Assignments
+## 1. Assignments
 
 The assignment operators are listed below. Local variables and fields can be assigned using the `=` operator.
 Compound assignment operators (`+=`, `-=`, `*=`, `/=`, and `%=`) can be used as a shorthand for the assignment
@@ -53,7 +53,7 @@ of a binary expression. They work automatically when the corresponding infix ope
 See the [operator overloading section](#11-operator-overloading) for details.</note>
 
 
-##2. Arithmetic operators
+## 2. Arithmetic operators
 
 The arithmetic operators are listed below and take numbers as operands. 
 There are either unary (one operand) or binary (two operands).
@@ -78,9 +78,9 @@ operator. This function can be redefined as explained in the
 [operator overloading section](#11-operator-overloading).
 
 
-##3. Comparison operators
+## 3. Comparison operators
 
-###3.1. Comparison operators on primitive types
+### 3.1. Comparison operators on primitive types
 
 The comparison operators on primitive types are listed below.
 
@@ -104,7 +104,7 @@ operator. This function can be redefined as explained in the
 operator overloading section](#operator-overloading).
 
 
-###3.2. Comparison operators on objects
+### 3.2. Comparison operators on objects
 
 The comparison operators on objects are listed below.
 
@@ -126,7 +126,7 @@ operator. This function can be redefined as explained in the
 operator overloading section](#operator-overloading).
 
 
-##4. Boolean Operators
+## 4. Boolean Operators
 
 The boolean operators are listed below. Each operator takes one or two boolean values as operands, and
 replies the boolean value resulting from the operational semantic of the operator. 
@@ -145,7 +145,7 @@ operator. This function can be redefined as explained in the
 [operator overloading section](#11-operator-overloading).
 
 
-##5. Bitwise Operators
+## 5. Bitwise Operators
 
 The bit operators are listed below. The bit operators apply operations on the bits that represent
 a numeric value.
@@ -178,7 +178,7 @@ Additional bitwise operators are available into the SARL library, but not associ
 
 
 
-##6. String Operators
+## 6. String Operators
 
 The string operators are listed below. These operators are dedicated to strings of characters.
 
@@ -195,7 +195,7 @@ operator. This function can be redefined as explained in the
 [operator overloading section](#11-operator-overloading).
 
 
-##7. Number Range operators
+## 7. Number Range operators
 
 This section presents a collection of operators that define ranges of values.
 
@@ -213,7 +213,7 @@ operator. This function can be redefined as explained in the
 [operator overloading section](#11-operator-overloading).
 
 
-##8. Collection Operators
+## 8. Collection Operators
 
 The collection operators are listed below. These operators are dedicated to the collections (lists, sets, maps...)
 Most of the time, the first operand is the collection on which the operator must be applied.
@@ -245,7 +245,7 @@ operator. This function can be redefined as explained in the
 [operator overloading section](#11-operator-overloading).
 
 
-##9. Other operators
+## 9. Other operators
 
 This section presents a collection of operators that are not related to the categories in the previous sections.
 
@@ -285,7 +285,7 @@ reserved pseudo-variable, which does not need to be typed out since it is the de
 lambda expression. The lambda expression replies the value of `it`.
 
 
-##10. Operator Precedence
+## 10. Operator Precedence
 
 The following table lists the precedence and associativity of SARL operators. Operators are listed top to bottom,
 in ascending precedence, i.e. from the lower priority to the higher priority.
@@ -329,7 +329,7 @@ unary postfix operators: `a.b++` is parsed `(a.b)++` and not `a.(b++)`.
 Operator precedence is unaffected by operator overloading.
 
 
-##11. Operator Overloading
+## 11. Operator Overloading
 
 In SARL, it is easy to overload or re-define an existing operator.
 
@@ -369,20 +369,20 @@ In addition to the overloading of the operators that are described on this page,
 is possible to overload the casting operator. See [details](./Cast.html).
 
 
-##12. Acknowledgements
+## 12. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##13. Legal Notice
+## 13. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -390,4 +390,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

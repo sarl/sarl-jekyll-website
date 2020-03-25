@@ -34,7 +34,7 @@ may be performed on it. In addition to `int`, the SARL programming language supp
 * Object data types (class, enumeration, annotation, etc.).
 
 
-##1. Primitive Types
+## 1. Primitive Types
 
 A primitive type is predefined by the language and is named by a reserved keyword. Primitive values do not
 share state with other primitive values. The eight primitive data types supported by the SARL programming language are:
@@ -51,7 +51,7 @@ share state with other primitive values. The eight primitive data types supporte
 | `char`    | `java.lang.Character`       | The `char` data type is a single 16-bit Unicode character. It has a minimum value of `\u0000` (or 0)  and a maximum value of `\uffff` (or 65,535 inclusive). |
 
 
-##2. String of Characters
+## 2. String of Characters
 
 In addition to the eight primitive data types listed above, the SARL  programming language also provides special
 support for character strings via the `java.lang.String` class. Enclosing your character string within (double or simple) quotes
@@ -61,7 +61,7 @@ String objects are immutable, which means that once created, their values cannot
 a primitive data type, but considering the special support given to it by the language, you'll probably
 tend to think of it as such.
 
-##3. Default Values of Primitive Types
+## 3. Default Values of Primitive Types
 
 It's not always necessary to assign a value when a field is declared. Fields that are declared but not initialized
 will be set to a reasonable default by the compiler. Generally speaking, this default will be zero or null,
@@ -83,20 +83,20 @@ The following chart summarizes the default values for the above data types.
 
 
 
-##4. Acknowledgements
+## 4. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -104,4 +104,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

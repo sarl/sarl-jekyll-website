@@ -22,7 +22,7 @@ Its role is to provide all the libraries and plugins that are needed for running
 
 For launching the Janus platform from a command-line shell, you could use the `janus` tool.
 
-##1. Usage
+## 1. Usage
 
 The `janus` tool takes arguments:
 
@@ -42,9 +42,12 @@ For obtaining a list of the options, type:
 	janus -help
 
 
-##2. Command-Line Options
+## 2. Command-Line Options
 
-The complete list of the options is:
+The Janus framework provides options on the command-line.
+The list of the options is displayed below. This list includes
+all the standard modules of Janus. If you add an extra module into
+the classpath of your application, more options may become available.
 
 
 
@@ -55,14 +58,14 @@ The complete list of the options is:
 
 
 
-##3. Legal Notice
+## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -70,4 +73,4 @@ The complete list of the options is:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

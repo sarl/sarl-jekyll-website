@@ -44,16 +44,16 @@ Three methods could be used for launching an agent with Janus:
 
 
 
-##1. Use the Janus command-line tool
+## 1. Use the Janus command-line tool
 
 The SARL project provides a [command-line tool for launching agents](../tools/Janus.html) on the Janus runtime environment.
 
 
-###1.1. Download the janus command-line tool
+### 1.1. Download the janus command-line tool
 
 You could download this command line tool, named "janus" on the [downloading page of SARL](http://www.sarl.io/download/index.html).
 
-###1.2. Launching the agent
+### 1.2. Launching the agent
 
 For launching an agent, you must launch the command-line tool with the fully-qualified
 name of the agent as parameter, `myapp.MyAgent` in the following example.
@@ -78,9 +78,9 @@ If the `janus` script indicates to you an error "agent not found", most of the t
 The --jar option becomes mandatory for specifying the jar file.
 
 
-##2. Use the standard java method
+## 2. Use the standard java method
 
-###2.1. Boot of Janus
+### 2.1. Boot of Janus
 
 The Janus platform provides a `Boot` class. For launching the platform, you must execute this
 boot class in a Java Virtual Machine.
@@ -88,23 +88,23 @@ boot class in a Java Virtual Machine.
 The typical command line is:
 
 
-	java -cp app.jar io.janusproject.Boot
+	java -cp app.jar io.sarl.sre.boot.Boot
 
 
 
 The option `-cp` specifies the Jar file that contains
 the compiled classes. The given `app.jar` file is a Jar file that is containing the Janus
 platform, the SARL libraries, and the application classes.
-The last argument is the fully qualified name of the booting class of Janus: `io.janusproject.Boot`
+The last argument is the fully qualified name of the booting class of Janus: `io.sarl.sre.boot.Boot`
 
 
-###2.2. Specify the Agent to Launch
+### 2.2. Specify the Agent to Launch
 
 The example given in the previous section causes an error. Indeed, it is mandatory to
 specify the fully qualified name of the agent to launch:
 
 
-	java -cp app.jar io.janusproject.Boot myapp.MyAgent
+	java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
 
 
 <veryimportant>The Janus platform allows to start only one agent from the command line.
@@ -115,7 +115,7 @@ If you want to start a collection of agents, you must select one of the followin
 </veryimportant> 
 
 
-###2.3. What is app.jar?
+### 2.3. What is app.jar?
 
 In the previous section, we assume that all the application binary files are
 contained into the `app.jar` file.
@@ -125,28 +125,28 @@ that is containing all the jar files required for running your application, incl
 the Janus jar file(s):
 
 
-	java -cp /path/to/myapplication.jar:/path/to/io.janusproject.kernel-<version>-with-dependencies.jar io.janusproject.Boot myapp.MyAgent
+	java -cp /path/to/myapplication.jar:/path/to/io.janusproject.kernel-<version>-with-dependencies.jar io.sarl.sre.boot.Boot myapp.MyAgent
 
 The `io.janusproject.kernel-<version>-with-dependencies.jar` file may be dowloaded from the [Janus website](http://www.janusproject.io/)
 
 You may also create the `app.jar` file with Maven by using the assembly plugin for creating a jar file with all the dependencies inside.
 
 
-###2.4. Janus Command Line Options
+### 2.4. Janus Command Line Options
 
 The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
 
-	java -cp app.jar io.janusproject.Boot --help
+	java -cp app.jar io.sarl.sre.boot.Boot --help
 
 
-##3. Use Maven Execution Plugin
+## 3. Use Maven Execution Plugin
 
 Maven provides a plugin for launching an application after automatically building
 the application's classpath. This plugin may be used for launching an agent.
 
-###3.1. Boot of Janus
+### 3.1. Boot of Janus
 
 Based on the fact that the Janus platform provides a `Boot` class for launching itself,
 you may use the Maven execution plugin for classing this booting class.
@@ -154,7 +154,7 @@ you may use the Maven execution plugin for classing this booting class.
 The typical command line is:
 
 
-	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.janusproject.Boot"
+	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot"
 
 
 
@@ -166,14 +166,14 @@ The first argument is the classpath of the project. You must not change `%classp
 replaced by the Maven plugin. 
 
 
-###3.2. Specify the Agent to Launch
+### 3.2. Specify the Agent to Launch
 
 The example given in the previous section causes an error.
 Indeed, it is mandatory to specify the fully qualified name
 of the agent to launch:
 
 
-	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.janusproject.Boot <qualified_name_of_the_agent>"
+	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot <qualified_name_of_the_agent>"
 
 
 <veryimportant>The Janus platform allows to start only one agent from the command line.
@@ -185,31 +185,31 @@ one of the following approaches:
 </veryimportant> 
 
 
-###3.3. Janus Command Line Options
+### 3.3. Janus Command Line Options
 
 The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
 
-	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.janusproject.Boot --help"
+	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot --help"
 
 
 
-##4. What's next?
+## 4. What's next?
 
 In the next section, we will learn how to launch your SARL project from a Java program.
 
 [Next>](./RunSARLAgentJava.html)
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -217,4 +217,4 @@ In the next section, we will learn how to launch your SARL project from a Java p
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

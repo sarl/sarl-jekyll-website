@@ -36,7 +36,7 @@ a method with zero argument since empty parentheses are optional.
 The rest of this section describes particular mechanisms for calling the object members.
 
 
-##1. Property Syntax
+## 1. Property Syntax
 
 The SARL language provides a very powerfull mecanism for calling members of an object as
 properties of this object.
@@ -47,7 +47,7 @@ corresponding Java-Bean getter method if available.
 The getter method must have a name starting with one of the strings of
 characters `get`, `is`, `has`, followed by the given name.
 
-###1.1. Definition of the Properties and the Accessors
+### 1.1. Definition of the Properties and the Accessors
 
 In the following example, two fields are defined: `prop1` and `prop2`.
 As usual, these properties have a private scope, and the getter and setter functions must
@@ -68,7 +68,7 @@ agent A {
 ```
 
 
-###1.2. Read Accesses
+### 1.2. Read Accesses
 
 Four cases for accessing a property are possible:
 
@@ -87,7 +87,7 @@ But, the second case uses the "property-access" syntax, and it is assumed to be 
 
 
 
-###1.3. Write Accesses
+### 1.3. Write Accesses
 
 Four cases for writing a property are possible:
 
@@ -107,7 +107,7 @@ Note that for this latest case, the "variable assignment" syntax is used.
 
 
 
-##2. Static Access to Members
+## 2. Static Access to Members
 
 To access a static field or method you can use the recommended Java syntax or the more explicit double colon `::`.
 That means, the following expressions are pairwise equivalent:
@@ -119,7 +119,7 @@ var b = Integer.TYPE
 
 
 
-##3. Null-Safe Feature Call
+## 3. Null-Safe Feature Call
 
 Checking for null references can make code very unreadable. 
 The variable `myRef` is assumed to be declared.
@@ -139,7 +139,7 @@ myRef?.length()
 
 
 
-##4. Call to an Inherited Method
+## 4. Call to an Inherited Method
 
 When it is possible to extend an existing type, the methods can be overridden.
 In this case, the `super` keyword invoks the inherited implementation of the method
@@ -154,12 +154,12 @@ def anAction {
 
 
 
-##5. Call to a Constructor
+## 5. Call to a Constructor
 
 Constructor calls correspond to the calls of a constructor function for an object.
 
 
-###5.1. Instance Creation
+### 5.1. Instance Creation
 
 Constructor calls have the same syntax as in Java. The only difference is that empty parentheses are optional.
 If type arguments are omitted, they will be inferred from the current context similar to Java's
@@ -173,7 +173,7 @@ var c = new ArrayList<Integer>
 
 
 
-###5.2. Inherited Constructor
+### 5.2. Inherited Constructor
 
 In the implementation of a constructor, it is possible to call one of the inherited constructors.
 The syntax is similar to Java: the (:super:] keyword is used to represent the inherited constructor.
@@ -194,20 +194,20 @@ new (param : Address) {
 
 
 
-##6. Acknowledgements
+## 6. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##7. Legal Notice
+## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -215,4 +215,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

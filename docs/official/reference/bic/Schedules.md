@@ -28,7 +28,7 @@ The built-in capacity `Schedules` enables the agent to schedule tasks for future
 
 
 
-##1. Creating Named Tasks
+## 1. Creating Named Tasks
 
 A named task may be created with:
 
@@ -55,7 +55,7 @@ agent A {
 
 
 
-##2. Changing the name of a task
+## 2. Changing the name of a task
 
 A task has a name that serves as its identifier. You could change the task name by calling the following function:
 
@@ -83,7 +83,7 @@ agent A {
 ```
 
 
-##3. Launching a Task for a single run
+## 3. Launching a Task for a single run
 
 For running a task once time, the following function is provided:
 
@@ -124,7 +124,7 @@ agent A {
 
 
 
-##4. Launching a Delayed Task
+## 4. Launching a Delayed Task
 
 For running a task in a given delay, the following function is provided:
 
@@ -165,7 +165,7 @@ agent A {
 
 
 
-##5. Launching a Task at a Specific Time
+## 5. Launching a Task at a Specific Time
 
 For running a task at a specific time, the following function is provided:
 
@@ -207,7 +207,7 @@ agent A {
 
 
 
-##6. Launching a Periodic Task at a Fixed Rate
+## 6. Launching a Periodic Task at a Fixed Rate
 
 For running a periodic task with a fixed starting rate, the following function is provided:
 
@@ -251,7 +251,7 @@ At a given time, four instances of the task are run in parallel (A, B, C, D for 
 
 
 
-##7. Launching a Periodic Task with a Fixed Delay between the Runs
+## 7. Launching a Periodic Task with a Fixed Delay between the Runs
 
 For running a periodic task with a fixed duration between the runs, the following function is provided:
 
@@ -290,7 +290,7 @@ atFixedDelay(500) [ sleep(2000) ]
 
 
 
-##8. Cancelling a Task
+## 8. Cancelling a Task
 
 It may be useful to cancel a running task, e.g. a periodic task. The `Schedules` capacity
 provides the following functions for managing the execution cancellation of an agent task:
@@ -338,7 +338,7 @@ agent A {
 
 
 
-##9. Conditional Execution of a Task
+## 9. Conditional Execution of a Task
 
 Sometimes, it may be useful to execute a task if a condition is `true` or `false`. The 
 `AgentTask` type, which is representing an instance of `AgentTask` provides
@@ -398,7 +398,7 @@ myTask.execute [ doSomething ]
 
 
 
-##10. Retreiving the active tasks
+## 10. Retreiving the active tasks
 
 The list of the active tasks may be retreived by invoking the following function:
 
@@ -419,14 +419,14 @@ for (taskName : getActiveTasks) {
 
 
 
-##11. Legal Notice
+## 11. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -434,4 +434,4 @@ for (taskName : getActiveTasks) {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

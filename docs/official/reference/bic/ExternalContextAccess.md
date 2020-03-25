@@ -15,7 +15,7 @@ top-right context in the figure above.
 
 
 
-##1. Retrieving a Context
+## 1. Retrieving a Context
 
 For retrieving the context with a particular ID, this built-in capacity provides the following function:
 
@@ -44,7 +44,7 @@ agent A {
 
 
 
-##2. Retrieving the Universe Context
+## 2. Retrieving the Universe Context
 
 In all the SARL application, a default context exists. It's name is the Universe context.
 It is fully managed by the SARL run-time environment.
@@ -56,12 +56,12 @@ def getUniverseContext() : AgentContext
 
 
 
-##3. Retrieving the Contexts of an Agent
+## 3. Retrieving the Contexts of an Agent
 
 The following function enables an agent to retrieve all the contexts in which it is involved:
 
 ```sarl
-def getAllContexts : SynchronizedIterable<AgentContext>
+def getAllContexts : ConcurrentLinkedDeque<AgentContext>
 ```
 
 
@@ -71,7 +71,7 @@ The default context is included in the replied collection.
 ```sarl
 agent A {
 	uses ExternalContextAccess
-	var c : SynchronizedIterable<AgentContext>
+	var c : ConcurrentLinkedDeque<AgentContext>
 	def myaction {
 		c = getAllContexts
 	}
@@ -80,7 +80,7 @@ agent A {
 
 
 
-##4. Joining an Existing Context
+## 4. Joining an Existing Context
 
 Agents must be able to join a new parent context. The following function gives this capability to them:
 
@@ -125,7 +125,7 @@ agent A {
 
 
 
-##5. Leaving a Context
+## 5. Leaving a Context
 
 When an agent wants to leave a context, it must invoke:
 
@@ -157,7 +157,7 @@ agent A {
 
 
 
-##6. Testing if an element is related to an external context
+## 6. Testing if an element is related to an external context
 
 The `ExternalContextAccess` provides a collection of utility functions that test if their
 parameters are related to the any external context.
@@ -182,7 +182,7 @@ on AnEvent [ isInSpace(occurrence, myspace) ] {
 ```
 
 
-##7. Helper for firing an event in a space
+## 7. Helper for firing an event in a space
 
 Regarding the definition of the `EventSpace` type, the event emiting function takes at least two parameters:
 
@@ -214,14 +214,14 @@ From a syntactic point of view, the two calls look similar. But, the call to the
 the extension method syntax: the first argument to the function is written prior to the function's name.
 
 
-##8. Legal Notice
+## 8. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -229,4 +229,4 @@ the extension method syntax: the first argument to the function is written prior
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

@@ -51,9 +51,9 @@ layout: default
 </ul>
 
 
-##1. General Questions about SARL
+## 1. General Questions about SARL
 
-###1.1. What is SARL?
+### 1.1. What is SARL?
 
 SARL is a statically-typed agent-programming language. SARL aims at providing the fundamental abstractions for
 dealing with concurrency, distribution, interaction, decentralization, reactivity, autonomy and dynamic
@@ -81,7 +81,7 @@ For a brief comparison between SARL, Java and Xtend languages, see the Section
 "[Comparison between SARL and other languages](../reference/OOP.html#comparison-between-sarl-and-other-languages)".
 
 
-###1.2. Can I use SARL to make agent-based software?
+### 1.2. Can I use SARL to make agent-based software?
 
 __Yes__.
 
@@ -91,7 +91,7 @@ direct communication. The agents may be deployed across
 multiple networked computers.
 
 
-###1.3. Can I use SARL to make agent-based simulation software?
+### 1.3. Can I use SARL to make agent-based simulation software?
 
 __Yes__. 
 
@@ -102,7 +102,7 @@ supporting the simulated environments (time management,
 environment model...)
 
 
-###1.4. Can I use SARL to make holonic software?
+### 1.4. Can I use SARL to make holonic software?
 
 __Yes__.
 
@@ -110,7 +110,7 @@ Holon is recursively composed of holons. In SARL, agents are holons. SARL provid
 complete support for holons.
 
 
-###1.5. Can I use SARL to make organizational software?
+### 1.5. Can I use SARL to make organizational software?
 
 __Yes__.
 
@@ -123,7 +123,7 @@ provides embedded capacity implementations required by the played roles.
 Another organizational model may be in another space.
 
 
-###1.6. Is SARL an object-oriented programming language?
+### 1.6. Is SARL an object-oriented programming language?
 
 __Yes and No__.
 
@@ -137,7 +137,7 @@ It provides statements and rules that correspond to
 object-oriented languages.
 
 
-###1.7. Can I use my Java classes in SARL?
+### 1.7. Can I use my Java classes in SARL?
 
 __Yes__.
 
@@ -146,7 +146,7 @@ in two worlds. You can invoke SARL code from Java and vice versa without any sur
 
 
 
-###1.8. Must I use Maven to create a SARL project?
+### 1.8. Must I use Maven to create a SARL project?
 
 __No__.
 
@@ -157,7 +157,7 @@ However, the SARL developers recommend Maven because it simplifies the
 management of your project's dependencies on the SARL libraries.
 
 
-###1.9. What is the SRE?
+### 1.9. What is the SRE?
 
 SRE stands for "SARL Runtime Environment."
 The SRE is an implementation of an agent platform which is able to run a SARL program.
@@ -165,7 +165,7 @@ The official standard SRE supported by the SARL developers is the
 [Janus platform](http://www.janusproject.io).
 
 
-###1.10. What is the difference between SARL and Janus?
+### 1.10. What is the difference between SARL and Janus?
 
 SARL is a general-purpose agent-oriented language.
 Janus is a runtime environment (SRE) for multi-agent applications
@@ -181,14 +181,14 @@ We can compare the SARL universe with the Java universe:
 | Runtime environment      | SRE, e.g. Janus, TinyMAS...   | JVM, e.g. Hotspot, IcedTea, Dalvik... |
 
 
-###1.11. Where can I find information on the release planning of SARL?
+### 1.11. Where can I find information on the release planning of SARL?
 
 The release planning of SARL is detailed on the
 [milestones page](https://github.com/sarl/sarl/milestones)
 on Github.
 
 
-###1.12. Where can I ask my question?
+### 1.12. Where can I ask my question?
 
 If your question is not addressed in the FAQ, the reference documents, or
 the [existing issues](https://github.com/sarl/sarl/issues), you
@@ -197,7 +197,7 @@ may ask the SARL developers on the
 on the [instant messaging forum](https://gitter.im/sarl/Lobby).
 
 
-###1.13. Where can I find more information and projects related to SARL?
+### 1.13. Where can I find more information and projects related to SARL?
 
 A list of successful projects are given on the [Community](http://sarl.io/community/index.html#sucessstories)
 page of the SARL web site.
@@ -208,15 +208,15 @@ This is not a catalog of all the libraries, just a starting point for your explo
 This list is used by the SARL team to update the official web site of SARL.
 
 
-##2. Installation and Execution
+## 2. Installation and Execution
 
-###2.1. Is my operating system compatible with SARL?
+### 2.1. Is my operating system compatible with SARL?
 
 SARL is based on a part of the Eclipse API. Every operating system which has a compatible Java 
 Virtual Machine with Eclipse may be used to run SARL. 
 
 
-###2.2. What version of the Java virtual machine is required?
+### 2.2. What version of the Java virtual machine is required?
 
 SARL requires the JDK 1.8 or higher to compile and run.
 Note that if you plan to create Android applications, you should
@@ -224,7 +224,7 @@ configure your JDK to produce 1.6 class files from 1.8 Java code.
 
 
 
-###2.3. Why does SARL display an error on startup?
+### 2.3. Why does SARL display an error on startup?
 
 Most of the time the problem is due to an incompatibility between
 the configuration of your operating system or Java virtual machine,
@@ -235,7 +235,7 @@ the complete error trace. Usually, it is in your home directory or in
 the folder of the SARL Eclipse executable file.
 
 
-###2.4. Why does SARL Eclipse fail on Windows 10?
+### 2.4. Why does SARL Eclipse fail on Windows 10?
 
 This is due to a problem in your configuration. Most of the time the log file
 (see the previous question) contains the error
@@ -248,7 +248,7 @@ or use the 32-bit version of the SARL Eclipse product.
 If another error occurs, you should go on the SARL forum and report this problem.
 
 
-###2.5. Why does the SARL product launch but not contain any features related to SARL?
+### 2.5. Why does the SARL product launch but not contain any features related to SARL?
 
 This is due to a problem in your configuration. SARL tools need the Eclipse
 framework to be run with a Java Development Kit 1.8 or higher.
@@ -264,7 +264,7 @@ path to the binary file `javaw[.exe]` or `java[.exe]` of at least the JDK 1.8.
 
 
 
-###2.6. Why does the content assistant not propose any suggestion on MacOS?
+### 2.6. Why does the content assistant not propose any suggestion on MacOS?
 
 By default in the SARL product, the shortcut key for invoking the content assistant is `Ctrl+Space` or `Apple+Space`.
 But, the Spotlight tool on MacOS is also using the same shortcut key.
@@ -279,9 +279,9 @@ For enabling the SARL product content assist, we recommend to change its shortcu
 ![Content assist shortcut change](./ctrlspaceprefs.png)
 
 
-##3. Implementation of SARL Applications
+## 3. Implementation of SARL Applications
 
-###3.1. Is it possible to obtain examples of SARL code for applications?
+### 3.1. Is it possible to obtain examples of SARL code for applications?
 
 __Yes__.
 
@@ -298,7 +298,7 @@ The SARL examples have been put into several categories:
 * SARL Templates of applications: a collection of templates for creating a fresh SARL application.
 
 
-###3.2. How can we know when an agent has been created fully after being spawn?
+### 3.2. How can we know when an agent has been created fully after being spawn?
 
 An event `AgentSpawned` will be emitted when an agent has been created and can
 be handled, say by a coordinator, to know the agent is now alive! For example:
@@ -306,14 +306,14 @@ be handled, say by a coordinator, to know the agent is now alive! For example:
 ```sarl
 on AgentSpawned {
     info("Agent {0} of type {1} has been created successfully and is now alive!",
-        occurrence.agentIdentifiers, occurrence.agentType)
+        occurrence.agentID, occurrence.agentType)
 }
 ```
 
 
 
 
-###3.3. Be careful on the emit of events in "on Initialize"
+### 3.3. Be careful on the emit of events in "on Initialize"
 
 The `on Initialize` event handler in agents is a bit special, as it is the code ran when an agent is born.
 As such, its execution is more "synchronous" than other on-behavior rules. In particular:
@@ -384,7 +384,7 @@ agent is created, the `spawn()` commands returns.
 
 
 
-###3.4. How can the warnings given by the SARL compiler be avoided?
+### 3.4. How can the warnings given by the SARL compiler be avoided?
 
 You can use `@SupressWarnings(...)` annotations in the entities you do not want
 to be warned. For example, a typical warning SARL will give is lack of
@@ -410,9 +410,9 @@ for a complete list of what can be suppressed.
 
 
 
-##4. Contribute to SARL
+## 4. Contribute to SARL
 
-###4.1. Where are the sources for SARL?
+### 4.1. Where are the sources for SARL?
 
 The sources for SARL are available on
 [Github](https://github.com/sarl/sarl).
@@ -420,26 +420,26 @@ Details for getting the source code may be found on the
 [download page](http://www.sarl.io/download/). 
 
 
-###4.2. How can I find the current issues?
+### 4.2. How can I find the current issues?
 
 SARL Core Developers use [Github](https://github.com/sarl/sarl)
 to manage bug tracking and project workflow. 
 The issues are listed on [Github](https://github.com/sarl/sarl/issues). 
 
 
-###4.3. How can I report a problem or a bug in SARL components?
+### 4.3. How can I report a problem or a bug in SARL components?
 
 You should submit your issue on [this page](https://github.com/sarl/sarl/issues/new).
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -447,4 +447,4 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

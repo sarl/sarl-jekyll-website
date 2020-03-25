@@ -40,7 +40,7 @@ Therefore, it is actually created on top of the other built-in capacities.
 
 
 
-##1. Retrieving the Default Context and Space
+## 1. Retrieving the Default Context and Space
 
 For retrieving the default context of an agent, this built-in capacity provides the following function:
 
@@ -66,7 +66,7 @@ def getDefaultAddress : EventSpace
 
 
 
-##2. Sending an Event in the Default Space
+## 2. Sending an Event in the Default Space
 
 The core mechanism for information exchanges among agents is [event-based](../Event.html).
 For sending an event in the default space of the default context, the following function is provided:
@@ -102,9 +102,9 @@ defaultContext.defaultSpace.emit(getID, ^event)
 
 
 
-##3. Sending an Event to Specific Agents in the Default Space
+## 3. Sending an Event to Specific Agents in the Default Space
 
-###3.1. Function with a Scoping Parameter
+### 3.1. Function with a Scoping Parameter
 
 The previous sending function assumes that there is no restriction on the set of the receivers of the event.
 It is possible to specify a `Scope` for applying a restriction.
@@ -123,7 +123,7 @@ interface Scope<T> extends Serializable {
 ```
 
 
-###3.2. Creation of scopes with Lambda expressions
+### 3.2. Creation of scopes with Lambda expressions
 
 It is recommended defining a lambda expression for creating a scope.
 The following example is equivalent to the feature call of `emit` without the scoping parameter:
@@ -153,7 +153,7 @@ emit(new MyEvent) [ it.UUID == id1 || it.UUID == id2 ]
 
 
 
-###3.3. Inverted syntax for emitting an event.
+### 3.3. Inverted syntax for emitting an event.
 
 According to the [extension method mechanism](../general/Extension.html), it is possible to call
 the `emit` function with the event instance as the receiver expression. The previous
@@ -176,34 +176,9 @@ In the previous code, the receiver of the event is given by the formal parameter
 The scope restricts the receiver according to this identifier.
 
 
-For an abstract point of view, the previous emitting call may be explained with "the event is emitted to the receiver".
-Sometimes, the developer would like to write a code that corresponds to the sentence "the receiver will receive the event".
-In order to enable this approach to the developer, the SARL API provides the function:
-
-```sarl
-def willReceive(receiverId : UUID, ^event : Event) {
-	emit(^event) [ it.UUID == receiverId ]
-}
-```
 
 
-The initial example in this section becomes:
-
-```sarl
-agent A {
-	uses DefaultContextInteractions
-
-	def myaction(receiverId : UUID) {
-		var ^event : Event = new MyEvent
-		receiverId.willReceive(^event) 
-	}
-}
-```
-
-
-
-
-##4. Testing if an element is related to the default context
+## 4. Testing if an element is related to the default context
 
 The `DefaultContextInteractions` provides a collection of utility functions that test if
 their parameters are related to the default context or the default space.
@@ -235,14 +210,14 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -250,4 +225,4 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

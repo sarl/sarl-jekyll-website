@@ -19,7 +19,7 @@ layout: default
 <ul>
   <li><a href="#2-1-create-a-java-application-configuration">2.1. Create a Java application configuration</a></li>
   <li><a href="#2-2-add-the-janus-runtime-environment">2.2. Add the Janus runtime environment</a></li>
-  <li><a href="#2-3-specify-the-janus-boot-agent">2.3. Specify the Janus Boot agent</a></li>
+  <li><a href="#2-3-specify-the-sre-boot-agent">2.3. Specify the SRE Boot agent</a></li>
   <li><a href="#2-4-specify-the-agent-to-execute">2.4. Specify the agent to execute</a></li>
   <li><a href="#2-5-give-parameters-to-the-agent">2.5. Give parameters to the Agent</a></li>
 </ul>
@@ -41,7 +41,7 @@ Two major methods are available for launching a SARL application inside the SARL
 The SARL launch configuration is recommended.
 
 
-##1. Create a SARL Launch Configuration
+## 1. Create a SARL Launch Configuration
 
 For launching the SARL agents on the runtime environment inside the SARL Eclipse IDE, you must
 define a *Run Configuration*.
@@ -50,7 +50,7 @@ define a *Run Configuration*.
 application. You must use the [Java launch configuration](#2-create-a-java-launch-configuration).</veryimportant>
 
 
-###1.1. Create a Java application configuration
+### 1.1. Create a Java application configuration
 
 Open the run configuration dialog box by selecting **Run > Run Configurations**, and create a new SARL
 application. You obtain a page similar to:
@@ -61,7 +61,7 @@ application. You obtain a page similar to:
 
 Change the *name* of the run configuration, and select the *project*, which is containing your agent.
 
-###1.2. Specify the agent to execute
+### 1.2. Specify the agent to execute
 
 The second step is the specification of the agent to launch.
 Keep in mind that you can only give one start-up agent to 
@@ -78,7 +78,7 @@ of the agent that must be launched.
 
 At the bottom of this page, you may change configuration options for the runtime environment.
 
-###1.3. Add the Janus runtime environment
+### 1.3. Add the Janus runtime environment
 
 For running your agent, you must specify a SARL runtime environment.
 In this tutorial, we assume that you want to use the [Janus platform](http://www.janusproject.io).
@@ -93,7 +93,7 @@ After adding the SRE's JAR file, you obtain a dialog box similar to:
 
 ![Add Janus](./EclipseRunConfiguration_0_2.png)
 
-###1.4. Give parameters to the Agent
+### 1.4. Give parameters to the Agent
 
 It is possible to give arguments to the launched agent.
 Indeed, all the arguments given as program arguments
@@ -113,7 +113,7 @@ On this page, you could also specify the parameters to give to the SARL runtime 
 to the Java virtual machine.
 
 
-##2. Create a Java Launch Configuration
+## 2. Create a Java Launch Configuration
 
 For launching the SARL agents on the Janus runtime environment inside
 the Eclipse IDE, you must define a *Run Configuration*.
@@ -123,7 +123,7 @@ This section is dedicated to the definition of a launcher for Java application (
 launching configuration in the Eclipse community).
 
 
-###2.1. Create a Java application configuration
+### 2.1. Create a Java application configuration
 
 Open the run configuration dialog box by selecting **Run > Run Configurations**, and create a new Java
 Application. You obtain a page similar to:
@@ -135,7 +135,7 @@ Application. You obtain a page similar to:
 Change the *name* of the run configuration, and select the *project*, which is containing your agent.
 
 
-###2.2. Add the Janus runtime environment
+### 2.2. Add the Janus runtime environment
 
 For running your agent with the Janus runtime environment, you must add the Janus library in the class path.
 
@@ -153,16 +153,16 @@ Then, you are able to select the library for the Janus runtime environment.
 ![Add Janus Library](./EclipseRunConfiguration_1_2.png)
 
 
-###2.3. Specify the Janus Boot agent
+### 2.3. Specify the SRE Boot agent
 
 You can go back to the *Main* tab, and enter the *Main class*.
-The main class **must always be** `io.janusproject.Boot`.
+The main class **must always be** `io.sarl.sre.boot.Boot`.
 
 
 ![Janus Boot Class](./EclipseRunConfiguration_1_3.png)
 
 
-###2.4. Specify the agent to execute
+### 2.4. Specify the agent to execute
 
 The last step is the specification of the agent to launch.
 Keep in mind that you can give to the Janus runtime environment
@@ -178,7 +178,7 @@ of the agent that must be launched.
 ![Agent to Launch](./EclipseRunConfiguration_1_4.png)
 
 
-###2.5. Give parameters to the Agent
+### 2.5. Give parameters to the Agent
 
 It is possible to give arguments to the launched agent.
 Indeed, all the arguments given as program arguments
@@ -195,7 +195,7 @@ The following example gives the values `FirstParam` and
 
 
 
-##3. Retrieve the Command Line Parameters in the Agent
+## 3. Retrieve the Command Line Parameters in the Agent
 
 For retrieving the values passed on the command line, you must handle the `Initialize` event, as illustrated
 by the following example:
@@ -211,7 +211,7 @@ agent MyAgent {
 
 
 
-##4. What's next?
+## 4. What's next?
 
 In the next section, we will learn how to launch your SARL project from the command line.
 
@@ -219,14 +219,14 @@ In the next section, we will learn how to launch your SARL project from the comm
 [Next>](./RunSARLAgentCLI.html)
 
 
-##5. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -234,4 +234,4 @@ In the next section, we will learn how to launch your SARL project from the comm
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>

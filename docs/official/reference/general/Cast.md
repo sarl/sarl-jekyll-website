@@ -34,7 +34,7 @@ In SARL, you can perform the following kinds of conversions:
   For more information, see [Conversion Operators](#4-conversion-operators).
 
 
-##1. Implicit Conversions
+## 1. Implicit Conversions
 
 For built-in types, e.g. numeric types, an implicit conversion can be made when the value to be stored can fit into
 the variable without being truncated or rounded off. For example, a variable of type long (64-bit integer) 
@@ -75,7 +75,7 @@ The following table shows the predefined implicit conversions between SARL types
 
 
 
-##2. Explicit Conversions
+## 2. Explicit Conversions
 
 However, if a conversion cannot be made without a risk of losing information, the compiler requires that you perform
 an explicit conversion, which is called a cast. A cast is a way of explicitly informing the compiler that you
@@ -136,7 +136,7 @@ SARL.
 |               | BigInteger, BigDecimal                                                                                   |
 
 
-##3. Type Conversion Exceptions at Run Time
+## 3. Type Conversion Exceptions at Run Time
 
 In some reference type conversions, the compiler cannot determine whether a cast will be valid. It is possible for
 a casting operation that compiles correctly to fail at run time. As shown in the following example, a type cast
@@ -180,7 +180,7 @@ type to which the result of `expr` is to be converted. The `instanceof` operator
 `type`; otherwise, it returns `false`.
 
 
-##4. Conversion Operators
+## 4. Conversion Operators
 
 SARL enables programmers to declare conversions on classes or basic types so that classes or basic types can
 be converted to and/or from other classes or basic types. Conversions are associated to the `as`
@@ -272,20 +272,20 @@ class Test {
 
 
 
-##5. Acknowledgements
+## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-##6. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.10
-* Status: Stable Release
-* Release: 2019-10-26
+* Version: 0.11
+* Status: Draft Release
+* Release: 2020-03-25
 
-> Copyright &copy; 2014-2019 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
@@ -293,4 +293,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.10.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>
