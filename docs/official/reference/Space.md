@@ -13,7 +13,6 @@ layout: default
   <li><a href="#1-1-space">1.1. Space</a></li>
   <li><a href="#1-2-event-space">1.2. Event Space</a></li>
   <li><a href="#1-3-open-event-space">1.3. Open Event Space</a></li>
-  <li><a href="#1-4-restricted-access-event-space">1.4. Restricted Access Event Space</a></li>
 </ul>
 <li><a href="#2-defining-a-space">2. Defining a Space</a></li>
 <ul>
@@ -84,7 +83,9 @@ SARL provides an interface that is representing all the spaces:
 ```sarl
 interface Space {
 	def forEachStrongParticipant((Object) => void)
+	def forEachWeakParticipant((Object) => void)
 	def getNumberOfStrongParticipants : int
+	def getNumberOfWeakParticipants : int
 	def getSpaceID : SpaceID
 	def isPseudoEmpty : boolean
 	def isPseudoEmpty(UUID) : boolean
@@ -153,22 +154,6 @@ And, the function `unregister` fires the event `ParticipantLeft`.
 
 
 
-### 1.4. Restricted Access Event Space
-
-When an event space needs to control the registration access, it should be a "restricted access event space":
-
-```sarl
-interface RestrictedAccessEventSpace {
-	def register(EventListener, Principal) : Address
-	def register(Object) : Address
-	def unregister(EventListener) : Address
-}
-```
-
-
-The functions given by this type of space permits implementing a space with restricted access, based on the standard Java API.
-
-
 ## 2. Defining a Space
 
 The definition of a new space must be done with object-oriented language's features.
@@ -224,23 +209,6 @@ Below, the implementation extends one of the abstract classes provided by the [J
 class PhysicSpaceImpl extends AbstractEventSpace implements PhysicSpace {
 	val entities = <UUID, PhysicObject>newHashMap
 	
-	val strongRepository = new ConcurrentHashMap<UUID, Participant>
-	var weakRepository : ConcurrentHashMap<UUID, Participant>
-	override getInternalStrongParticipantStructure : ConcurrentHashMap<UUID, Participant> {
-		this.strongRepository 
-	}
-
-	override getInternalWeakParticipantStructure : ConcurrentHashMap<UUID, Participant> {
-		this.weakRepository
-	}
-	override ensureInternalWeakParticipantStructure : ConcurrentHashMap<UUID, Participant> {
-		var r = this.weakRepository
-		if (r === null) {
-			this.weakRepository = new ConcurrentHashMap
-			r = this.weakRepository
-		}
-		return this.weakRepository
-	}
 	def moveObject(identifier : UUID, x : float, y : float, z : float) {
 		synchronized (this.entities) {
 			var o = this.entities.get(identifier)
@@ -348,8 +316,8 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.11
-* Status: Draft Release
-* Release: 2020-03-25
+* Status: Stable Release
+* Release: 2020-06-02
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -359,4 +327,4 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>

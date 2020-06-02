@@ -6,9 +6,9 @@ relative: ../..
 
 # Janus Agent and Holonic Platform
 
-![Janus Logo]({{ page.relative }}/images/janus.png)
+![Janus Logo]({{ page.relative }}/images/janusv3.png)
 
-Janus is an open-source multi-agent platform fully implemented in Java 1.8. 
+Janus is an open-source multi-agent platform fully implemented in SARL (implemented with Java for its versions 1 and 2). 
 Janus enables developers to quickly create web, enterprise and desktop multiagent-based applications. 
 It provides a comprehensive set of features to develop, run, display and monitor multiagent-based applications. 
 Janus-based applications can be distributed across a network. 

@@ -163,8 +163,8 @@ This documentation is inspired by the documentations from the
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.11
-* Status: Draft Release
-* Release: 2020-03-25
+* Status: Stable Release
+* Release: 2020-06-02
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -174,4 +174,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>

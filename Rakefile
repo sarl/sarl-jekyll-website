@@ -344,7 +344,7 @@ task :build_generaldoc, :option do |t, args|
   sarl_copy = ensure_git_sarl_repository(true)
   puts "Compiling documentation ..."
   Dir.chdir("#{sarl_copy}/docs/io.sarl.docs.markdown")
-  execute("mvn -Dmaven.test.skip=true clean install")
+  execute(CONFIG["mvn"]["cmd"] + " -Dmaven.test.skip=true clean install")
   Dir.chdir("#{curdir}")
   puts "Documentation generated"
 end
