@@ -10,29 +10,29 @@ layout: default
 
 <li><a href="#1-defining-a-behavior">1. Defining a Behavior</a></li>
 <ul>
-  <li><a href="#1-1-defining-an-empty-behavior">1.1. Defining an empty behavior</a></li>
-  <li><a href="#1-2-behavior-attributes">1.2. Behavior Attributes</a></li>
-  <li><a href="#1-3-behavior-actions">1.3. Behavior Actions</a></li>
-  <li><a href="#1-4-extending-a-behavior">1.4. Extending a Behavior</a></li>
-  <li><a href="#1-5-instancing-and-use-of-a-behavior">1.5. Instancing and Use of a Behavior</a></li>
-  <li><a href="#1-6-modifiers">1.6. Modifiers</a></li>
+  <li><a href="#11-defining-an-empty-behavior">1.1. Defining an empty behavior</a></li>
+  <li><a href="#12-behavior-attributes">1.2. Behavior Attributes</a></li>
+  <li><a href="#13-behavior-actions">1.3. Behavior Actions</a></li>
+  <li><a href="#14-extending-a-behavior">1.4. Extending a Behavior</a></li>
+  <li><a href="#15-instancing-and-use-of-a-behavior">1.5. Instancing and Use of a Behavior</a></li>
+  <li><a href="#16-modifiers">1.6. Modifiers</a></li>
 </ul>
 <li><a href="#2-behavior-units-of-a-behavior">2. Behavior Units of a Behavior</a></li>
 <ul>
-  <li><a href="#2-1-initialization-handler">2.1. Initialization Handler</a></li>
-  <li><a href="#2-2-guarded-initialization-handler">2.2. Guarded Initialization Handler</a></li>
-  <li><a href="#2-3-destruction-handler">2.3. Destruction Handler</a></li>
-  <li><a href="#2-4-guarded-destruction-handler">2.4. Guarded Destruction Handler</a></li>
-  <li><a href="#2-5-reactive-behavior-units">2.5. Reactive Behavior Units</a></li>
-  <li><a href="#2-6-parallel-execution-of-the-reactive-behavior-units">2.6. Parallel Execution of the Reactive Behavior Units</a></li>
-  <li><a href="#2-7-pro-active-behavior-units">2.7. Pro-active Behavior Units</a></li>
+  <li><a href="#21-initialization-handler">2.1. Initialization Handler</a></li>
+  <li><a href="#22-guarded-initialization-handler">2.2. Guarded Initialization Handler</a></li>
+  <li><a href="#23-destruction-handler">2.3. Destruction Handler</a></li>
+  <li><a href="#24-guarded-destruction-handler">2.4. Guarded Destruction Handler</a></li>
+  <li><a href="#25-reactive-behavior-units">2.5. Reactive Behavior Units</a></li>
+  <li><a href="#26-parallel-execution-of-the-reactive-behavior-units">2.6. Parallel Execution of the Reactive Behavior Units</a></li>
+  <li><a href="#27-pro-active-behavior-units">2.7. Pro-active Behavior Units</a></li>
 </ul>
 <li><a href="#3-capacities-and-skills">3. Capacities and Skills</a></li>
 <ul>
-  <li><a href="#3-1-defining-a-capacity-and-a-skill">3.1. Defining a Capacity and a Skill</a></li>
-  <li><a href="#3-2-giving-a-skill-to-the-associated-agent">3.2. Giving a Skill to the Associated Agent</a></li>
-  <li><a href="#3-3-using-a-capacity-with-the-getters">3.3. Using a Capacity with the Getters</a></li>
-  <li><a href="#3-4-using-a-capacity-with-the-extension-methods">3.4. Using a Capacity with the Extension Methods</a></li>
+  <li><a href="#31-defining-a-capacity-and-a-skill">3.1. Defining a Capacity and a Skill</a></li>
+  <li><a href="#32-giving-a-skill-to-the-associated-agent">3.2. Giving a Skill to the Associated Agent</a></li>
+  <li><a href="#33-using-a-capacity-with-the-getters">3.3. Using a Capacity with the Getters</a></li>
+  <li><a href="#34-using-a-capacity-with-the-extension-methods">3.4. Using a Capacity with the Extension Methods</a></li>
 </ul>
 <li><a href="#4-legal-notice">4. Legal Notice</a></li>
 
@@ -570,9 +570,9 @@ behavior MyBehavior {
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -582,4 +582,4 @@ behavior MyBehavior {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

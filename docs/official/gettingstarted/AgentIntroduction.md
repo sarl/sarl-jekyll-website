@@ -12,15 +12,15 @@ layout: default
 <li><a href="#2-package-definition">2. Package definition</a></li>
 <li><a href="#3-agent-perceptions">3. Agent Perceptions</a></li>
 <ul>
-  <li><a href="#3-1-declare-an-event">3.1. Declare an Event</a></li>
-  <li><a href="#3-2-define-an-agent-perceptions">3.2. Define an agent Perceptions</a></li>
-  <li><a href="#3-3-lifecycle-events">3.3. Lifecycle events</a></li>
-  <li><a href="#3-4-accessing-the-event-s-occurrence">3.4. Accessing the event's occurrence</a></li>
+  <li><a href="#31-declare-an-event">3.1. Declare an Event</a></li>
+  <li><a href="#32-define-an-agent-perceptions">3.2. Define an agent Perceptions</a></li>
+  <li><a href="#33-lifecycle-events">3.3. Lifecycle events</a></li>
+  <li><a href="#34-accessing-the-event-s-occurrence">3.4. Accessing the event's occurrence</a></li>
 </ul>
 <li><a href="#4-agent-communication">4. Agent Communication</a></li>
 <ul>
-  <li><a href="#4-1-use-the-capacity-to-send-an-event-in-the-default-space">4.1. Use the capacity to send an event in the default space</a></li>
-  <li><a href="#4-2-send-an-event-in-the-default-space">4.2. Send an event in the default space</a></li>
+  <li><a href="#41-use-the-capacity-to-send-an-event-in-the-default-space">4.1. Use the capacity to send an event in the default space</a></li>
+  <li><a href="#42-send-an-event-in-the-default-space">4.2. Send an event in the default space</a></li>
 </ul>
 <li><a href="#5-what-s-next">5. What's next?</a></li>
 <li><a href="#6-legal-notice">6. Legal Notice</a></li>
@@ -194,9 +194,9 @@ In the next section, we will learn how to start a SARL agent in the Eclipse IDE.
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -206,4 +206,4 @@ In the next section, we will learn how to start a SARL agent in the Eclipse IDE.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

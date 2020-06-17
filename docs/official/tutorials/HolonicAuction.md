@@ -13,16 +13,16 @@ layout: default
 <li><a href="#3-why-are-the-sub-agents-in-the-inner-context">3. Why are the sub-agents in the inner context?</a></li>
 <li><a href="#4-definitions-of-the-events">4. Definitions of the events</a></li>
 <ul>
-  <li><a href="#4-1-price-event">4.1. Price event</a></li>
-  <li><a href="#4-2-playing-event">4.2. Playing event</a></li>
+  <li><a href="#41-price-event">4.1. Price event</a></li>
+  <li><a href="#42-playing-event">4.2. Playing event</a></li>
 </ul>
 <li><a href="#5-definition-of-the-bidder">5. Definition of the bidder</a></li>
 <ul>
-  <li><a href="#5-1-initial-definition">5.1. Initial definition</a></li>
-  <li><a href="#5-2-bidding">5.2. Bidding</a></li>
-  <li><a href="#5-3-restrict-the-bid-to-the-auctioneer">5.3. Restrict the bid to the auctioneer</a></li>
-  <li><a href="#5-4-definition-of-the-auctioneer">5.4. Definition of the auctioneer</a></li>
-  <li><a href="#5-5-stop-the-agents">5.5. Stop the agents</a></li>
+  <li><a href="#51-initial-definition">5.1. Initial definition</a></li>
+  <li><a href="#52-bidding">5.2. Bidding</a></li>
+  <li><a href="#53-restrict-the-bid-to-the-auctioneer">5.3. Restrict the bid to the auctioneer</a></li>
+  <li><a href="#54-definition-of-the-auctioneer">5.4. Definition of the auctioneer</a></li>
+  <li><a href="#55-stop-the-agents">5.5. Stop the agents</a></li>
 </ul>
 <li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
@@ -642,9 +642,9 @@ agent Auctioneer {
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -654,4 +654,4 @@ agent Auctioneer {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

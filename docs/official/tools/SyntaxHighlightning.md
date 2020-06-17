@@ -14,8 +14,8 @@ layout: default
 <li><a href="#4-gtk-source-view">4. Gtk Source View</a></li>
 <li><a href="#5-latex">5. LaTeX</a></li>
 <ul>
-  <li><a href="#5-1-standard-latex-style">5.1. Standard LaTeX Style</a></li>
-  <li><a href="#5-2-latex-beamer">5.2. LaTeX Beamer</a></li>
+  <li><a href="#51-standard-latex-style">5.1. Standard LaTeX Style</a></li>
+  <li><a href="#52-latex-beamer">5.2. LaTeX Beamer</a></li>
 </ul>
 <li><a href="#6-pygments">6. Pygments</a></li>
 <li><a href="#7-sublime-text-editor">7. Sublime Text Editor</a></li>
@@ -162,9 +162,9 @@ For using the SARL style, you should:
 ## 10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -174,4 +174,4 @@ For using the SARL style, you should:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

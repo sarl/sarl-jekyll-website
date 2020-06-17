@@ -6,7 +6,7 @@ relative: ../..
 
 # Janus Agent and Holonic Platform
 
-![Janus Logo]({{ page.relative }}/images/janusv3.png)
+![Janus Logo]({{ page.relative }}images/janusv3.png)
 
 Janus is an open-source multi-agent platform fully implemented in SARL (implemented with Java for its versions 1 and 2). 
 Janus enables developers to quickly create web, enterprise and desktop multiagent-based applications. 
@@ -36,7 +36,7 @@ The `-SNAPSHOT` postfix indicates a "under-development" version, i.e. it is not 
 ## Downloading Janus
 
 The Janus platform may be directly download, even if it is recommend to use it through Maven (see below).
-For downloading the platform, please go to the [download page]({{ page.relative }}/download/index.html#download_janus).
+For downloading the platform, please go to the [download page]({{ page.relative }}download/index.html#download_janus).
 
 ## Using Janus with Maven
 
@@ -54,17 +54,21 @@ You should change the version number {{site.janus_stable_version}} according to 
 
 ![Janus on Maven Central](https://img.shields.io/maven-central/v/io.janusproject/io.janusproject.kernel.svg?label=Available%20on%20Maven%20Central)
 
+## Command-Line Tool
+
+A command-line tool is provided for running Janus. It could be downloaded on the [SARL download page]({{ page.relative }}download/index.html#download_janus). And, you could read the [official documentation]({{ page.relative }}docs/official/tools/Janus.html) of this tool.
+
 ## Documentation
 
 ### Java API Documentation
 
-The API documentation related to the Janus platform is included into the [documentation of SARL](http://www.sarl.io/docs/api).
+The API documentation related to the Janus platform is included into the [documentation of SARL]({{ page.relative }}docs/api).
 
 
 ### Frequently Asked Questions
 
 The frequently asked questions related to the Janus platform are hosted by the SARL programming language website.
-See the [Frequently Asked Questions]({{ page.relative }}/docs/official/faq/RuntimeEnvironmentFAQ.html).
+See the [Frequently Asked Questions]({{ page.relative }}docs/official/faq/RuntimeEnvironmentFAQ.html).
 
 
 

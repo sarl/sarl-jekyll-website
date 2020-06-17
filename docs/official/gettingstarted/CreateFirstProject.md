@@ -10,13 +10,13 @@ layout: default
 
 <li><a href="#1-create-a-sarl-project-without-maven">1. Create a SARL Project without Maven</a></li>
 <ul>
-  <li><a href="#1-1-step-1-entering-the-project-information">1.1. Step 1: Entering the project information</a></li>
-  <li><a href="#1-2-step-2-configuration-of-the-source-folders">1.2. Step 2: Configuration of the source folders"</a></li>
+  <li><a href="#11-step-1-entering-the-project-information">1.1. Step 1: Entering the project information</a></li>
+  <li><a href="#12-step-2-configuration-of-the-source-folders">1.2. Step 2: Configuration of the source folders"</a></li>
 </ul>
 <li><a href="#2-create-a-sarl-project-with-maven">2. Create a SARL Project with Maven</a></li>
 <ul>
-  <li><a href="#2-1-edit-the-maven-configuration">2.1. Edit the Maven configuration</a></li>
-  <li><a href="#2-2-configuration-of-a-runtime-environment-optional">2.2. Configuration of a runtime environment (optional)</a></li>
+  <li><a href="#21-edit-the-maven-configuration">2.1. Edit the Maven configuration</a></li>
+  <li><a href="#22-configuration-of-a-runtime-environment-optional">2.2. Configuration of a runtime environment (optional)</a></li>
 </ul>
 <li><a href="#3-what-s-next">3. What's next?</a></li>
 <li><a href="#4-legal-notice">4. Legal Notice</a></li>
@@ -86,7 +86,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.11.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.12.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
@@ -94,7 +94,7 @@ Replace the version number `0.11.0` of SARL with the one you want to use. You co
     ...
     <properties>
        ...
-       <sarl.version>0.11.0</sarl.version>
+       <sarl.version>0.12.0-SNAPSHOT</sarl.version>
 	   <jdk.version>1.8</jdk.version>
 	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -165,7 +165,7 @@ recommended approach by the SARL core developers.</caution>
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
 
-Replace the version number (`3.0.11.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`3.0.12.0-SNAPSHOT`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -174,7 +174,7 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>3.0.11.0</janus.version>
+       <janus.version>3.0.12.0-SNAPSHOT</janus.version>
     </properties>
     ...
     <build>
@@ -222,9 +222,9 @@ In the next section, we will learn how to create our first agent.
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -234,4 +234,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

@@ -10,18 +10,18 @@ layout: default
 
 <li><a href="#1-create-a-sarl-launch-configuration">1. Create a SARL Launch Configuration</a></li>
 <ul>
-  <li><a href="#1-1-create-a-java-application-configuration">1.1. Create a Java application configuration</a></li>
-  <li><a href="#1-2-specify-the-agent-to-execute">1.2. Specify the agent to execute</a></li>
-  <li><a href="#1-3-add-the-janus-runtime-environment">1.3. Add the Janus runtime environment</a></li>
-  <li><a href="#1-4-give-parameters-to-the-agent">1.4. Give parameters to the Agent</a></li>
+  <li><a href="#11-create-a-java-application-configuration">1.1. Create a Java application configuration</a></li>
+  <li><a href="#12-specify-the-agent-to-execute">1.2. Specify the agent to execute</a></li>
+  <li><a href="#13-add-the-janus-runtime-environment">1.3. Add the Janus runtime environment</a></li>
+  <li><a href="#14-give-parameters-to-the-agent">1.4. Give parameters to the Agent</a></li>
 </ul>
 <li><a href="#2-create-a-java-launch-configuration">2. Create a Java Launch Configuration</a></li>
 <ul>
-  <li><a href="#2-1-create-a-java-application-configuration">2.1. Create a Java application configuration</a></li>
-  <li><a href="#2-2-add-the-janus-runtime-environment">2.2. Add the Janus runtime environment</a></li>
-  <li><a href="#2-3-specify-the-sre-boot-agent">2.3. Specify the SRE Boot agent</a></li>
-  <li><a href="#2-4-specify-the-agent-to-execute">2.4. Specify the agent to execute</a></li>
-  <li><a href="#2-5-give-parameters-to-the-agent">2.5. Give parameters to the Agent</a></li>
+  <li><a href="#21-create-a-java-application-configuration">2.1. Create a Java application configuration</a></li>
+  <li><a href="#22-add-the-janus-runtime-environment">2.2. Add the Janus runtime environment</a></li>
+  <li><a href="#23-specify-the-sre-boot-agent">2.3. Specify the SRE Boot agent</a></li>
+  <li><a href="#24-specify-the-agent-to-execute">2.4. Specify the agent to execute</a></li>
+  <li><a href="#25-give-parameters-to-the-agent">2.5. Give parameters to the Agent</a></li>
 </ul>
 <li><a href="#3-retrieve-the-command-line-parameters-in-the-agent">3. Retrieve the Command Line Parameters in the Agent</a></li>
 <li><a href="#4-what-s-next">4. What's next?</a></li>
@@ -222,9 +222,9 @@ In the next section, we will learn how to launch your SARL project from the comm
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -234,4 +234,4 @@ In the next section, we will learn how to launch your SARL project from the comm
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

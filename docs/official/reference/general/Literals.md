@@ -12,21 +12,21 @@ layout: default
 <li><a href="#2-character-literals">2. Character Literals</a></li>
 <li><a href="#3-number-literals">3. Number Literals</a></li>
 <ul>
-  <li><a href="#3-1-general-notation">3.1. General Notation</a></li>
-  <li><a href="#3-2-integer-suffixes">3.2. Integer suffixes</a></li>
+  <li><a href="#31-general-notation">3.1. General Notation</a></li>
+  <li><a href="#32-integer-suffixes">3.2. Integer suffixes</a></li>
 </ul>
 <li><a href="#4-floating-point-value-suffixes">4. Floating-point-value suffixes</a></li>
 <ul>
-  <li><a href="#4-1-large-numbers">4.1. Large Numbers</a></li>
+  <li><a href="#41-large-numbers">4.1. Large Numbers</a></li>
 </ul>
 <li><a href="#5-boolean-literals">5. Boolean Literals</a></li>
 <li><a href="#6-null-literal">6. Null Literal</a></li>
 <li><a href="#7-type-literals">7. Type Literals</a></li>
 <li><a href="#8-collection-literals">8. Collection Literals</a></li>
 <ul>
-  <li><a href="#8-1-mutable-collections">8.1. Mutable Collections</a></li>
-  <li><a href="#8-2-array-literals">8.2. Array Literals</a></li>
-  <li><a href="#8-3-immutable-collections">8.3. Immutable Collections</a></li>
+  <li><a href="#81-mutable-collections">8.1. Mutable Collections</a></li>
+  <li><a href="#82-array-literals">8.2. Array Literals</a></li>
+  <li><a href="#83-immutable-collections">8.3. Immutable Collections</a></li>
 </ul>
 <li><a href="#9-acknowledgements">9. Acknowledgements</a></li>
 <li><a href="#10-legal-notice">10. Legal Notice</a></li>
@@ -369,9 +369,9 @@ This documentation is inspired by the documentations from the
 ## 10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -381,4 +381,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

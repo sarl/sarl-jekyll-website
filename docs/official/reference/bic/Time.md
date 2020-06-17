@@ -11,9 +11,9 @@ layout: default
 <li><a href="#1-get-the-current-time">1. Get the Current Time</a></li>
 <li><a href="#2-convertion-from-operating-system-time-to-the-sarl-run-time-time">2. Convertion from Operating System Time to the SARL Run-time Time</a></li>
 <ul>
-  <li><a href="#2-1-get-the-factor-for-mapping-to-operating-system-time">2.1. Get the Factor for Mapping to Operating-System Time</a></li>
-  <li><a href="#2-2-convertion-of-a-time">2.2. Convertion of a Time</a></li>
-  <li><a href="#2-3-convertion-of-a-duration">2.3. Convertion of a Duration</a></li>
+  <li><a href="#21-get-the-factor-for-mapping-to-operating-system-time">2.1. Get the Factor for Mapping to Operating-System Time</a></li>
+  <li><a href="#22-convertion-of-a-time">2.2. Convertion of a Time</a></li>
+  <li><a href="#23-convertion-of-a-duration">2.3. Convertion of a Duration</a></li>
 </ul>
 <li><a href="#3-legal-notice">3. Legal Notice</a></li>
 
@@ -125,9 +125,9 @@ operatingSystemTime = toOSDuration(sreTime)
 ## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -137,4 +137,4 @@ operatingSystemTime = toOSDuration(sreTime)
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

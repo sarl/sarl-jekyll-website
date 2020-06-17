@@ -12,16 +12,16 @@ layout: default
 <li><a href="#2-inferred-parameter-type">2. Inferred Parameter Type</a></li>
 <li><a href="#3-implicit-parameters">3. Implicit Parameters</a></li>
 <ul>
-  <li><a href="#3-1-case-of-a-single-parameter-it">3.1. Case of a single parameter: it</a></li>
-  <li><a href="#3-2-case-of-multiple-parameters">3.2. Case of multiple parameters</a></li>
+  <li><a href="#31-case-of-a-single-parameter-it">3.1. Case of a single parameter: it</a></li>
+  <li><a href="#32-case-of-multiple-parameters">3.2. Case of multiple parameters</a></li>
 </ul>
 <li><a href="#4-empty-list-of-parameters">4. Empty List of Parameters</a></li>
 <li><a href="#5-short-notation-of-a-lambda-expression">5. Short notation of a Lambda Expression</a></li>
 <li><a href="#6-lambda-as-the-last-parameter-of-a-method">6. Lambda as the Last Parameter of a Method</a></li>
 <li><a href="#7-type-of-a-lambda-expression">7. Type of a Lambda Expression</a></li>
 <ul>
-  <li><a href="#7-1-pure-sarl-notation">7.1. Pure SARL Notation</a></li>
-  <li><a href="#7-2-java-like-notation">7.2. Java-like Notation</a></li>
+  <li><a href="#71-pure-sarl-notation">7.1. Pure SARL Notation</a></li>
+  <li><a href="#72-java-like-notation">7.2. Java-like Notation</a></li>
 </ul>
 <li><a href="#8-acknowledgements">8. Acknowledgements</a></li>
 <li><a href="#9-legal-notice">9. Legal Notice</a></li>
@@ -244,9 +244,9 @@ This documentation is inspired by the documentations from the
 ## 9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -256,4 +256,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

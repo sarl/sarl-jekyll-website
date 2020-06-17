@@ -10,16 +10,16 @@ layout: default
 
 <li><a href="#1-types-of-spaces">1. Types of Spaces</a></li>
 <ul>
-  <li><a href="#1-1-space">1.1. Space</a></li>
-  <li><a href="#1-2-event-space">1.2. Event Space</a></li>
-  <li><a href="#1-3-open-event-space">1.3. Open Event Space</a></li>
+  <li><a href="#11-space">1.1. Space</a></li>
+  <li><a href="#12-event-space">1.2. Event Space</a></li>
+  <li><a href="#13-open-event-space">1.3. Open Event Space</a></li>
 </ul>
 <li><a href="#2-defining-a-space">2. Defining a Space</a></li>
 <ul>
-  <li><a href="#2-1-defining-the-physicspace">2.1. Defining the PhysicSpace</a></li>
-  <li><a href="#2-2-basic-implementation">2.2. Basic Implementation</a></li>
-  <li><a href="#2-3-defining-a-spacespecification">2.3. Defining a SpaceSpecification</a></li>
-  <li><a href="#2-4-access-to-the-default-space-instance-within-a-space-specification">2.4. Access to the Default Space Instance within a space specification</a></li>
+  <li><a href="#21-defining-the-physicspace">2.1. Defining the PhysicSpace</a></li>
+  <li><a href="#22-basic-implementation">2.2. Basic Implementation</a></li>
+  <li><a href="#23-defining-a-spacespecification">2.3. Defining a SpaceSpecification</a></li>
+  <li><a href="#24-access-to-the-default-space-instance-within-a-space-specification">2.4. Access to the Default Space Instance within a space specification</a></li>
 </ul>
 <li><a href="#3-legal-notice">3. Legal Notice</a></li>
 
@@ -139,6 +139,8 @@ Event spaces that are allowing the agents to be register and unregister are "ope
 ```sarl
 interface OpenEventSpace {
 	def register(EventListener, boolean) : Address
+	def registerStrongParticipant(EventListener) : Address
+	def registerWeakParticipant(EventListener) : Address
 	def unregister(EventListener) : Address
 }
 ```
@@ -315,9 +317,9 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 ## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -327,4 +329,4 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

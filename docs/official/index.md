@@ -9,26 +9,26 @@ layout: default
 <ul class="page_outline" id="page_outline">
 
 <li><a href="#1-getting-started">1. Getting Started</a></li>
-<li><a href="#2-frequently-asked-questions-faq">2. Frequently Asked Questions  (FAQ)</a></li>
+<li><a href="#2-frequently-asked-questions-faq">2. Frequently Asked Questions (FAQ)</a></li>
 <li><a href="#3-tutorials">3. Tutorials</a></li>
 <ul>
-  <li><a href="#3-1-event-communication">3.1. Event Communication</a></li>
-  <li><a href="#3-2-parallel-execution">3.2. Parallel Execution</a></li>
-  <li><a href="#3-3-organizational-patterns">3.3. Organizational Patterns</a></li>
+  <li><a href="#31-event-communication">3.1. Event Communication</a></li>
+  <li><a href="#32-parallel-execution">3.2. Parallel Execution</a></li>
+  <li><a href="#33-organizational-patterns">3.3. Organizational Patterns</a></li>
 </ul>
 <li><a href="#4-best-practices-with-sarl">4. Best Practices with SARL</a></li>
 <li><a href="#5-reference-documentation">5. Reference Documentation</a></li>
 <ul>
-  <li><a href="#5-1-general-syntax">5.1. General Syntax</a></li>
-  <li><a href="#5-2-agent-oriented-programming">5.2. Agent-Oriented Programming</a></li>
-  <li><a href="#5-3-object-oriented-programming">5.3. Object-Oriented Programming</a></li>
+  <li><a href="#51-general-syntax">5.1. General Syntax</a></li>
+  <li><a href="#52-agent-oriented-programming">5.2. Agent-Oriented Programming</a></li>
+  <li><a href="#53-object-oriented-programming">5.3. Object-Oriented Programming</a></li>
 </ul>
 <li><a href="#6-compilation-and-generation-infrastructure">6. Compilation and Generation Infrastructure</a></li>
 <li><a href="#7-other-tools">7. Other Tools</a></li>
 <ul>
-  <li><a href="#7-1-syntax-highlightning">7.1. Syntax Highlightning</a></li>
-  <li><a href="#7-2-apache-maven">7.2. Apache Maven</a></li>
-  <li><a href="#7-3-command-line-tools">7.3. Command Line Tools</a></li>
+  <li><a href="#71-syntax-highlightning">7.1. Syntax Highlightning</a></li>
+  <li><a href="#72-apache-maven">7.2. Apache Maven</a></li>
+  <li><a href="#73-command-line-tools">7.3. Command Line Tools</a></li>
 </ul>
 <li><a href="#8-documentation-format">8. Documentation Format</a></li>
 <li><a href="#9-legal-notice">9. Legal Notice</a></li>
@@ -45,7 +45,7 @@ layout: default
 * [Run SARL Agent from the Command Line](./gettingstarted/RunSARLAgentCLI.html)
 * [Run SARL Agent from a Java Program](./gettingstarted/RunSARLAgentJava.html)
 
-## 2. Frequently Asked Questions  (FAQ)
+## 2. Frequently Asked Questions (FAQ)
 
 * [General FAQ on SARL](./faq/GeneralFAQ.html)
 * [SARL Syntax FAQ](./faq/SyntaxFAQ.html)
@@ -104,6 +104,7 @@ layout: default
 	* [Assertions](./reference/general/Assertion.html)
 * Meta-programming:
 	* [Active annotations](./reference/general/ActiveAnnotations.html)
+* [Compiler Errors](./reference/CompilerErrors.html)
 * [Comparison between SARL and other Languages](./reference/LanguageComparison.html)
 
 ### 5.2. Agent-Oriented Programming
@@ -115,14 +116,17 @@ layout: default
 * [Behavior Reference](./reference/Behavior.html)
 * [Built-in Capacity Reference](./reference/BIC.html)
 * [Space Reference](./reference/Space.html)
+* [Compiler Errors](./reference/CompilerErrors.html)
 
 ### 5.3. Object-Oriented Programming
 
 * [Basic Object-Oriented Programming Support](./reference/OOP.html)
 * [Comparison between SARL and other Languages](./reference/LanguageComparison.html)
+* [Compiler Errors](./reference/CompilerErrors.html)
 
 ## 6. Compilation and Generation Infrastructure
 
+* [Compiler Errors](./reference/CompilerErrors.html)
 * [Basics of the SARL Compilation Process](./compilation/Basics.html)
 * [Generation to the Python Language](./compilation/PythonGeneration.html)
 
@@ -150,9 +154,9 @@ layout: default
 ## 9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -162,4 +166,4 @@ layout: default
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

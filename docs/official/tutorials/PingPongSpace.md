@@ -11,24 +11,24 @@ layout: default
 <li><a href="#1-principle-of-the-application">1. Principle of the Application</a></li>
 <li><a href="#2-event-definition">2. Event definition</a></li>
 <ul>
-  <li><a href="#2-1-ping-event">2.1. Ping Event</a></li>
-  <li><a href="#2-2-pong-event">2.2. Pong Event</a></li>
+  <li><a href="#21-ping-event">2.1. Ping Event</a></li>
+  <li><a href="#22-pong-event">2.2. Pong Event</a></li>
 </ul>
 <li><a href="#3-pong-agent">3. Pong agent</a></li>
 <ul>
-  <li><a href="#3-1-first-definition">3.1. First definition</a></li>
-  <li><a href="#3-2-join-the-sub-space">3.2. Join the sub-space</a></li>
-  <li><a href="#3-3-handling-the-ping-event">3.3. Handling the Ping event</a></li>
-  <li><a href="#3-4-replying-to-ping-with-a-pong">3.4. Replying to Ping with a Pong</a></li>
-  <li><a href="#3-5-restricting-the-scope-of-the-pong-event">3.5. Restricting the scope of the Pong event</a></li>
+  <li><a href="#31-first-definition">3.1. First definition</a></li>
+  <li><a href="#32-join-the-sub-space">3.2. Join the sub-space</a></li>
+  <li><a href="#33-handling-the-ping-event">3.3. Handling the Ping event</a></li>
+  <li><a href="#34-replying-to-ping-with-a-pong">3.4. Replying to Ping with a Pong</a></li>
+  <li><a href="#35-restricting-the-scope-of-the-pong-event">3.5. Restricting the scope of the Pong event</a></li>
 </ul>
 <li><a href="#4-ping-agent">4. Ping Agent</a></li>
 <ul>
-  <li><a href="#4-1-first-definition">4.1. First definition</a></li>
-  <li><a href="#4-2-handling-the-pong-event">4.2. Handling the Pong event</a></li>
-  <li><a href="#4-3-re-sending-a-ping-when-receiving-a-pong">4.3. Re-sending a Ping when receiving a Pong</a></li>
-  <li><a href="#4-4-sending-the-first-ping">4.4. Sending the first Ping</a></li>
-  <li><a href="#4-5-delaying-the-sending-of-the-first-ping">4.5. Delaying the sending of the first Ping</a></li>
+  <li><a href="#41-first-definition">4.1. First definition</a></li>
+  <li><a href="#42-handling-the-pong-event">4.2. Handling the Pong event</a></li>
+  <li><a href="#43-re-sending-a-ping-when-receiving-a-pong">4.3. Re-sending a Ping when receiving a Pong</a></li>
+  <li><a href="#44-sending-the-first-ping">4.4. Sending the first Ping</a></li>
+  <li><a href="#45-delaying-the-sending-of-the-first-ping">4.5. Delaying the sending of the first Ping</a></li>
 </ul>
 <li><a href="#5-launch-the-agents">5. Launch the agents</a></li>
 <li><a href="#6-legal-notice">6. Legal Notice</a></li>
@@ -133,7 +133,7 @@ for creating a new space.
 
 After retrieving the instance of the space, it is mandatory to register the agent for
 receiving the events. The spaces of type `OpenEventSpaceSpecification` provides
-the `register` function. It takes the event listener of the agent (provided by
+the `registerStrongParticipant` function. It takes the event listener of the agent (provided by
 the `Behaviors` capacity).
 
 
@@ -148,7 +148,7 @@ agent PongAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 }
 ```
@@ -174,7 +174,7 @@ agent PongAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 	on Ping {
 	}
@@ -220,7 +220,7 @@ agent PongAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 	on Ping {
 		var evt = new Pong( occurrence.index )
@@ -258,7 +258,7 @@ agent PongAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 	on Ping {
 		var evt = new Pong( occurrence.index )
@@ -290,7 +290,7 @@ agent PingAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 }
 ```
@@ -313,7 +313,7 @@ agent PingAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 	on Pong {
 	}
@@ -343,7 +343,7 @@ agent PingAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 	}
 	on Pong {
 		var evt = new Ping( occurrence.index + 1 )
@@ -373,7 +373,7 @@ agent PingAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 		var evt = new Ping(0)
 		^space.emit( evt )
 	}
@@ -418,7 +418,7 @@ agent PingAgent {
 		^space = defaultContext.getOrCreateSpaceWithSpec(
 			typeof(OpenEventSpaceSpecification),
 			occurrence.parameters.get(0) as UUID)
-		^space.register(asEventListener())
+		^space.registerStrongParticipant(asEventListener())
 		val task = task("waiting_for_partner")
 		task.every(1000) [
 			if (defaultSpace.numberOfStrongParticipants > 1) {
@@ -474,9 +474,9 @@ agent BootAgent {
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -486,4 +486,4 @@ agent BootAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

@@ -12,9 +12,9 @@ layout: default
 <li><a href="#2-command-line-options">2. Command-Line Options</a></li>
 <li><a href="#3-documentation-comments">3. Documentation Comments</a></li>
 <ul>
-  <li><a href="#3-1-source-code-comments">3.1. Source Code Comments</a></li>
-  <li><a href="#3-2-method-comment-inheritance">3.2. Method Comment Inheritance</a></li>
-  <li><a href="#3-3-type-declaration-comment-inheritance">3.3. Type Declaration Comment Inheritance</a></li>
+  <li><a href="#31-source-code-comments">3.1. Source Code Comments</a></li>
+  <li><a href="#32-method-comment-inheritance">3.2. Method Comment Inheritance</a></li>
+  <li><a href="#33-type-declaration-comment-inheritance">3.3. Type Declaration Comment Inheritance</a></li>
 </ul>
 <li><a href="#4-tags">4. Tags</a></li>
 <li><a href="#5-acknowledgements">5. Acknowledgements</a></li>
@@ -59,6 +59,7 @@ The complete list of the options is:
 
 | Option | Description |
 | ------ | ----------- |
+| `-c yaml_location`, `--config=yaml_location` | Specifies YAML config location, which can be a file path or a URL. |
 
 
 ## 3. Documentation Comments
@@ -235,9 +236,9 @@ This documentation is inspired by the documentation from the
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -247,4 +248,4 @@ This documentation is inspired by the documentation from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

@@ -13,8 +13,8 @@ layout: default
 <li><a href="#3-command-line-generation">3. Command-Line Generation</a></li>
 <li><a href="#4-specific-options-of-the-sarl-doclet">4. Specific Options of the SARL Doclet</a></li>
 <ul>
-  <li><a href="#4-1-doclet-options">4.1. Doclet Options</a></li>
-  <li><a href="#4-2-exclude-elements-from-the-documentation">4.2. Exclude elements from the documentation</a></li>
+  <li><a href="#41-doclet-options">4.1. Doclet Options</a></li>
+  <li><a href="#42-exclude-elements-from-the-documentation">4.2. Exclude elements from the documentation</a></li>
 </ul>
 <li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
@@ -91,7 +91,7 @@ A typical command-line to launch is:
 
 ```
 javadoc -doclet io.sarl.docs.doclet.SarlDoclet
-        -cp doclet-0.11.jar:path_to_sources
+        -cp doclet-0.12.jar:path_to_sources
         -source 1.8
         -sourcepath path_to_sources
         -d path_to_documentation
@@ -130,9 +130,9 @@ class TheClass {
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -142,4 +142,4 @@ class TheClass {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

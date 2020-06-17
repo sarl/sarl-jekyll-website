@@ -10,41 +10,42 @@ layout: default
 
 <li><a href="#1-general-questions-about-sarl">1. General Questions about SARL</a></li>
 <ul>
-  <li><a href="#1-1-what-is-sarl">1.1. What is SARL?</a></li>
-  <li><a href="#1-2-can-i-use-sarl-to-make-agent-based-software">1.2. Can I use SARL to make agent-based software?</a></li>
-  <li><a href="#1-3-can-i-use-sarl-to-make-agent-based-simulation-software">1.3. Can I use SARL to make agent-based simulation software?</a></li>
-  <li><a href="#1-4-can-i-use-sarl-to-make-holonic-software">1.4. Can I use SARL to make holonic software?</a></li>
-  <li><a href="#1-5-can-i-use-sarl-to-make-organizational-software">1.5. Can I use SARL to make organizational software?</a></li>
-  <li><a href="#1-6-is-sarl-an-object-oriented-programming-language">1.6. Is SARL an object-oriented programming language?</a></li>
-  <li><a href="#1-7-can-i-use-my-java-classes-in-sarl">1.7. Can I use my Java classes in SARL?</a></li>
-  <li><a href="#1-8-must-i-use-maven-to-create-a-sarl-project">1.8. Must I use Maven to create a SARL project?</a></li>
-  <li><a href="#1-9-what-is-the-sre">1.9. What is the SRE?</a></li>
-  <li><a href="#1-10-what-is-the-difference-between-sarl-and-janus">1.10. What is the difference between SARL and Janus?</a></li>
-  <li><a href="#1-11-where-can-i-find-information-on-the-release-planning-of-sarl">1.11. Where can I find information on the release planning of SARL?</a></li>
-  <li><a href="#1-12-where-can-i-ask-my-question">1.12. Where can I ask my question?</a></li>
-  <li><a href="#1-13-where-can-i-find-more-information-and-projects-related-to-sarl">1.13. Where can I find more information and projects related to SARL?</a></li>
+  <li><a href="#11-what-is-sarl">1.1. What is SARL?</a></li>
+  <li><a href="#12-can-i-use-sarl-to-make-agent-based-software">1.2. Can I use SARL to make agent-based software?</a></li>
+  <li><a href="#13-can-i-use-sarl-to-make-agent-based-simulation-software">1.3. Can I use SARL to make agent-based simulation software?</a></li>
+  <li><a href="#14-can-i-use-sarl-to-make-holonic-software">1.4. Can I use SARL to make holonic software?</a></li>
+  <li><a href="#15-can-i-use-sarl-to-make-organizational-software">1.5. Can I use SARL to make organizational software?</a></li>
+  <li><a href="#16-is-sarl-an-object-oriented-programming-language">1.6. Is SARL an object-oriented programming language?</a></li>
+  <li><a href="#17-can-i-use-my-java-classes-in-sarl">1.7. Can I use my Java classes in SARL?</a></li>
+  <li><a href="#18-must-i-use-maven-to-create-a-sarl-project">1.8. Must I use Maven to create a SARL project?</a></li>
+  <li><a href="#19-what-is-the-sre">1.9. What is the SRE?</a></li>
+  <li><a href="#110-what-is-the-difference-between-sarl-and-janus">1.10. What is the difference between SARL and Janus?</a></li>
+  <li><a href="#111-where-can-i-find-information-on-the-release-planning-of-sarl">1.11. Where can I find information on the release planning of SARL?</a></li>
+  <li><a href="#112-where-can-i-ask-my-question">1.12. Where can I ask my question?</a></li>
+  <li><a href="#113-where-can-i-find-more-information-and-projects-related-to-sarl">1.13. Where can I find more information and projects related to SARL?</a></li>
 </ul>
 <li><a href="#2-installation-and-execution">2. Installation and Execution</a></li>
 <ul>
-  <li><a href="#2-1-is-my-operating-system-compatible-with-sarl">2.1. Is my operating system compatible with SARL?</a></li>
-  <li><a href="#2-2-what-version-of-the-java-virtual-machine-is-required">2.2. What version of the Java virtual machine is required?</a></li>
-  <li><a href="#2-3-why-does-sarl-display-an-error-on-startup">2.3. Why does SARL display an error on startup?</a></li>
-  <li><a href="#2-4-why-does-sarl-eclipse-fail-on-windows-10">2.4. Why does SARL Eclipse fail on Windows 10?</a></li>
-  <li><a href="#2-5-why-does-the-sarl-product-launch-but-not-contain-any-features-related-to-sarl">2.5. Why does the SARL product launch but not contain any features related to SARL?</a></li>
-  <li><a href="#2-6-why-does-the-content-assistant-not-propose-any-suggestion-on-macos">2.6. Why does the content assistant not propose any suggestion on MacOS?</a></li>
+  <li><a href="#21-is-my-operating-system-compatible-with-sarl">2.1. Is my operating system compatible with SARL?</a></li>
+  <li><a href="#22-what-version-of-the-java-virtual-machine-is-required">2.2. What version of the Java virtual machine is required?</a></li>
+  <li><a href="#23-why-does-sarl-display-an-error-on-startup">2.3. Why does SARL display an error on startup?</a></li>
+  <li><a href="#24-why-does-sarl-eclipse-fail-on-windows-10">2.4. Why does SARL Eclipse fail on Windows 10?</a></li>
+  <li><a href="#25-why-does-the-sarl-product-launch-but-not-contain-any-features-related-to-sarl">2.5. Why does the SARL product launch but not contain any features related to SARL?</a></li>
+  <li><a href="#26-why-does-the-content-assistant-not-propose-any-suggestion-on-macos">2.6. Why does the content assistant not propose any suggestion on MacOS?</a></li>
 </ul>
 <li><a href="#3-implementation-of-sarl-applications">3. Implementation of SARL Applications</a></li>
 <ul>
-  <li><a href="#3-1-is-it-possible-to-obtain-examples-of-sarl-code-for-applications">3.1. Is it possible to obtain examples of SARL code for applications?</a></li>
-  <li><a href="#3-2-how-can-we-know-when-an-agent-has-been-created-fully-after-being-spawn">3.2. How can we know when an agent has been created fully after being spawn?</a></li>
-  <li><a href="#3-3-be-careful-on-the-emit-of-events-in-on-initialize">3.3. Be careful on the emit of events in "on Initialize"</a></li>
-  <li><a href="#3-4-how-can-the-warnings-given-by-the-sarl-compiler-be-avoided">3.4. How can the warnings given by the SARL compiler be avoided?</a></li>
+  <li><a href="#31-is-it-possible-to-obtain-examples-of-sarl-code-for-applications">3.1. Is it possible to obtain examples of SARL code for applications?</a></li>
+  <li><a href="#32-how-can-we-know-when-an-agent-has-been-created-fully-after-being-spawn">3.2. How can we know when an agent has been created fully after being spawn?</a></li>
+  <li><a href="#33-be-careful-on-the-emit-of-events-in-on-initialize">3.3. Be careful on the emit of events in "on Initialize"</a></li>
+  <li><a href="#34-what-is-the-list-of-all-the-error-warning-and-information-messages-that-may-be-generated-by-the-sarl-compiler">3.4. What is the list of all the error, warning and information messages that may be generated by the SARL compiler?</a></li>
+  <li><a href="#35-how-can-the-warnings-given-by-the-sarl-compiler-be-avoided">3.5. How can the warnings given by the SARL compiler be avoided?</a></li>
 </ul>
 <li><a href="#4-contribute-to-sarl">4. Contribute to SARL</a></li>
 <ul>
-  <li><a href="#4-1-where-are-the-sources-for-sarl">4.1. Where are the sources for SARL?</a></li>
-  <li><a href="#4-2-how-can-i-find-the-current-issues">4.2. How can I find the current issues?</a></li>
-  <li><a href="#4-3-how-can-i-report-a-problem-or-a-bug-in-sarl-components">4.3. How can I report a problem or a bug in SARL components?</a></li>
+  <li><a href="#41-where-are-the-sources-for-sarl">4.1. Where are the sources for SARL?</a></li>
+  <li><a href="#42-how-can-i-find-the-current-issues">4.2. How can I find the current issues?</a></li>
+  <li><a href="#43-how-can-i-report-a-problem-or-a-bug-in-sarl-components">4.3. How can I report a problem or a bug in SARL components?</a></li>
 </ul>
 <li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
@@ -384,7 +385,15 @@ agent is created, the `spawn()` commands returns.
 
 
 
-### 3.4. How can the warnings given by the SARL compiler be avoided?
+### 3.4. What is the list of all the error, warning and information messages that may be generated by the SARL compiler?
+
+We provide a [page](../reference/CompilerErrors.html) that lists all the issue messages from the SARL compiler. 
+
+Additionally, several run-time errors from the [Janus framework](../tools/Janus.html) are explained [here](../tools/Janus.html#3-list-of-errors-and-warnings). 
+
+
+
+### 3.5. How can the warnings given by the SARL compiler be avoided?
 
 You can use `@SupressWarnings(...)` annotations in the entities you do not want
 to be warned. For example, a typical warning SARL will give is lack of
@@ -435,9 +444,9 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -447,4 +456,4 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

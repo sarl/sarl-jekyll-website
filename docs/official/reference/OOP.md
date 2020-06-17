@@ -11,55 +11,55 @@ layout: default
 <li><a href="#1-comparison-between-sarl-and-other-languages">1. Comparison between SARL and Other Languages</a></li>
 <li><a href="#2-class">2. Class</a></li>
 <ul>
-  <li><a href="#2-1-define-a-class">2.1. Define a Class</a></li>
-  <li><a href="#2-2-class-inheritance">2.2. Class Inheritance</a></li>
-  <li><a href="#2-3-define-a-generic-class">2.3. Define a Generic Class</a></li>
-  <li><a href="#2-4-constructor-definition">2.4. Constructor Definition</a></li>
-  <li><a href="#2-5-static-constructor-definition">2.5. Static Constructor Definition</a></li>
-  <li><a href="#2-6-field-definition">2.6. Field Definition</a></li>
-  <li><a href="#2-7-method-definition">2.7. Method Definition</a></li>
-  <li><a href="#2-8-modifiers">2.8. Modifiers</a></li>
-  <li><a href="#2-9-method-overriding">2.9. Method Overriding</a></li>
-  <li><a href="#2-10-accessing-local-variables-of-the-enclosing-scope">2.10. Accessing Local Variables of the Enclosing Scope</a></li>
+  <li><a href="#21-define-a-class">2.1. Define a Class</a></li>
+  <li><a href="#22-class-inheritance">2.2. Class Inheritance</a></li>
+  <li><a href="#23-define-a-generic-class">2.3. Define a Generic Class</a></li>
+  <li><a href="#24-constructor-definition">2.4. Constructor Definition</a></li>
+  <li><a href="#25-static-constructor-definition">2.5. Static Constructor Definition</a></li>
+  <li><a href="#26-field-definition">2.6. Field Definition</a></li>
+  <li><a href="#27-method-definition">2.7. Method Definition</a></li>
+  <li><a href="#28-modifiers">2.8. Modifiers</a></li>
+  <li><a href="#29-method-overriding">2.9. Method Overriding</a></li>
+  <li><a href="#210-accessing-local-variables-of-the-enclosing-scope">2.10. Accessing Local Variables of the Enclosing Scope</a></li>
 </ul>
 <li><a href="#3-interface">3. Interface</a></li>
 <ul>
-  <li><a href="#3-1-define-an-interface">3.1. Define an Interface</a></li>
-  <li><a href="#3-2-interface-inheritance">3.2. Interface Inheritance</a></li>
-  <li><a href="#3-3-define-a-generic-interface">3.3. Define a Generic Interface</a></li>
-  <li><a href="#3-4-interface-implementation">3.4. Interface Implementation</a></li>
-  <li><a href="#3-5-default-implementation-of-interface-functions">3.5. Default Implementation of Interface Functions</a></li>
-  <li><a href="#3-6-modifiers">3.6. Modifiers</a></li>
+  <li><a href="#31-define-an-interface">3.1. Define an Interface</a></li>
+  <li><a href="#32-interface-inheritance">3.2. Interface Inheritance</a></li>
+  <li><a href="#33-define-a-generic-interface">3.3. Define a Generic Interface</a></li>
+  <li><a href="#34-interface-implementation">3.4. Interface Implementation</a></li>
+  <li><a href="#35-default-implementation-of-interface-functions">3.5. Default Implementation of Interface Functions</a></li>
+  <li><a href="#36-modifiers">3.6. Modifiers</a></li>
 </ul>
 <li><a href="#4-enumeration">4. Enumeration</a></li>
 <ul>
-  <li><a href="#4-1-define-an-enumeration">4.1. Define an Enumeration</a></li>
-  <li><a href="#4-2-modifiers">4.2. Modifiers</a></li>
+  <li><a href="#41-define-an-enumeration">4.1. Define an Enumeration</a></li>
+  <li><a href="#42-modifiers">4.2. Modifiers</a></li>
 </ul>
 <li><a href="#5-annotation-type">5. Annotation Type</a></li>
 <ul>
-  <li><a href="#5-1-define-an-annotation">5.1. Define an Annotation</a></li>
-  <li><a href="#5-2-modifiers">5.2. Modifiers</a></li>
+  <li><a href="#51-define-an-annotation">5.1. Define an Annotation</a></li>
+  <li><a href="#52-modifiers">5.2. Modifiers</a></li>
 </ul>
 <li><a href="#6-anonymous-class">6. Anonymous Class</a></li>
 <ul>
-  <li><a href="#6-1-declaring-anonymous-classes">6.1. Declaring Anonymous Classes</a></li>
-  <li><a href="#6-2-syntax-of-anonymous-classes">6.2. Syntax of Anonymous Classes</a></li>
-  <li><a href="#6-3-accessing-local-variables-of-the-enclosing-scope-and-declaring-and-accessing-members-of-the-anonymous-class">6.3. Accessing Local Variables of the Enclosing Scope, and Declaring and Accessing Members of the Anonymous Class</a></li>
+  <li><a href="#61-declaring-anonymous-classes">6.1. Declaring Anonymous Classes</a></li>
+  <li><a href="#62-syntax-of-anonymous-classes">6.2. Syntax of Anonymous Classes</a></li>
+  <li><a href="#63-accessing-local-variables-of-the-enclosing-scope-and-declaring-and-accessing-members-of-the-anonymous-class">6.3. Accessing Local Variables of the Enclosing Scope, and Declaring and Accessing Members of the Anonymous Class</a></li>
 </ul>
 <li><a href="#7-definition-of-all-the-supported-modifiers">7. Definition of all the supported modifiers</a></li>
 <ul>
-  <li><a href="#7-1-abstract-modifier">7.1. abstract Modifier</a></li>
-  <li><a href="#7-2-access-modifiers-public-protected-package-private">7.2. Access Modifiers: public, protected, package, private</a></li>
-  <li><a href="#7-3-dispatch-modifier">7.3. dispatch Modifier</a></li>
-  <li><a href="#7-4-extension-modifier">7.4. extension Modifier</a></li>
-  <li><a href="#7-5-final-modifier">7.5. final Modifier</a></li>
-  <li><a href="#7-6-native-modifier">7.6. native Modifier</a></li>
-  <li><a href="#7-7-static-modifier">7.7. static Modifier</a></li>
-  <li><a href="#7-8-strictfp-modifier">7.8. strictfp Modifier</a></li>
-  <li><a href="#7-9-synchronized-modifier">7.9. synchronized Modifier</a></li>
-  <li><a href="#7-10-transient-modifier">7.10. transient Modifier</a></li>
-  <li><a href="#7-11-volatile-modifier">7.11. volatile Modifier</a></li>
+  <li><a href="#71-abstract-modifier">7.1. abstract Modifier</a></li>
+  <li><a href="#72-access-modifiers-public-protected-package-private">7.2. Access Modifiers: public, protected, package, private</a></li>
+  <li><a href="#73-dispatch-modifier">7.3. dispatch Modifier</a></li>
+  <li><a href="#74-extension-modifier">7.4. extension Modifier</a></li>
+  <li><a href="#75-final-modifier">7.5. final Modifier</a></li>
+  <li><a href="#76-native-modifier">7.6. native Modifier</a></li>
+  <li><a href="#77-static-modifier">7.7. static Modifier</a></li>
+  <li><a href="#78-strictfp-modifier">7.8. strictfp Modifier</a></li>
+  <li><a href="#79-synchronized-modifier">7.9. synchronized Modifier</a></li>
+  <li><a href="#710-transient-modifier">7.10. transient Modifier</a></li>
+  <li><a href="#711-volatile-modifier">7.11. volatile Modifier</a></li>
 </ul>
 <li><a href="#8-references">8. References</a></li>
 <li><a href="#9-legal-notice">9. Legal Notice</a></li>
@@ -264,7 +264,7 @@ A static field is not an instance variable. It is a special type of class attrib
 ### 2.7. Method Definition
 
 A method could be declared into a class following the [function declaration syntax](./general/FuncDecls.html).
-The overriding of an inhertited method is explained in section ["Method Overriding"](#2-9-method-overriding).
+The overriding of an inhertited method is explained in section ["Method Overriding"](#29-method-overriding).
 
 A method may be declared with the `static` modifier. In this case, it becomes a static method, or class method.
 A static method is a function that is not associated to a specific instance of the class.
@@ -1505,9 +1505,9 @@ Thank you to the contributors to these documents.
 ## 9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -1517,4 +1517,4 @@ Thank you to the contributors to these documents.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

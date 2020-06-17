@@ -10,15 +10,15 @@ layout: default
 
 <li><a href="#1-defining-a-skill">1. Defining a Skill</a></li>
 <ul>
-  <li><a href="#1-1-basic-definition">1.1. Basic Definition</a></li>
-  <li><a href="#1-2-field-definition">1.2. Field Definition</a></li>
-  <li><a href="#1-3-action-definition">1.3. Action Definition</a></li>
-  <li><a href="#1-4-initialization-of-a-skill">1.4. Initialization of a skill</a></li>
-  <li><a href="#1-5-uninitialization-of-a-skill">1.5. Uninitialization of a skill</a></li>
-  <li><a href="#1-6-constructor-definition">1.6. Constructor Definition</a></li>
-  <li><a href="#1-7-multiple-capacity-implementation">1.7. Multiple Capacity Implementation</a></li>
-  <li><a href="#1-8-extending-a-skill">1.8. Extending a Skill</a></li>
-  <li><a href="#1-9-modifiers">1.9. Modifiers</a></li>
+  <li><a href="#11-basic-definition">1.1. Basic Definition</a></li>
+  <li><a href="#12-field-definition">1.2. Field Definition</a></li>
+  <li><a href="#13-action-definition">1.3. Action Definition</a></li>
+  <li><a href="#14-initialization-of-a-skill">1.4. Initialization of a skill</a></li>
+  <li><a href="#15-uninitialization-of-a-skill">1.5. Uninitialization of a skill</a></li>
+  <li><a href="#16-constructor-definition">1.6. Constructor Definition</a></li>
+  <li><a href="#17-multiple-capacity-implementation">1.7. Multiple Capacity Implementation</a></li>
+  <li><a href="#18-extending-a-skill">1.8. Extending a Skill</a></li>
+  <li><a href="#19-modifiers">1.9. Modifiers</a></li>
 </ul>
 <li><a href="#2-built-in-skills">2. Built-in Skills</a></li>
 <li><a href="#3-use-of-the-skills">3. Use of the Skills</a></li>
@@ -346,9 +346,9 @@ Details on the use of Skills may be found in the following:
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -358,4 +358,4 @@ Details on the use of Skills may be found in the following:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

@@ -5,8 +5,12 @@ permalink: /news/:year/:month/:day/:title.html
 facebook_username: sarllanguage
 github_username: sarl/sarl
 
-redcarpet:
-  extensions: ["tables", "autolink", "strikethrough", "with_toc_data", "fenced_code_blocks", "prettify"]
+#redcarpet:
+#  extensions: ["tables", "autolink", "strikethrough", "with_toc_data", "fenced_code_blocks", #"prettify"]
+kramdown:
+  syntax_highlighter: pygments
+  auto_ids: true
+  toc_levels: 2..3
 
 description: | 
   SARL is a general-purpose agent-oriented language.
@@ -50,7 +54,7 @@ build:
 sarl:
   git_name: sarl/sarl
 #  url: https://github.com/sarl/sarl.git
-  url: ../sarl-0.11
+  url: ../sarl.dsl
   workdir: /tmp
   branch: master
   doc_suite: docs/io.sarl.docs.markdown

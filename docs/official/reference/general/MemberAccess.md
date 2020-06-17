@@ -10,17 +10,17 @@ layout: default
 
 <li><a href="#1-property-syntax">1. Property Syntax</a></li>
 <ul>
-  <li><a href="#1-1-definition-of-the-properties-and-the-accessors">1.1. Definition of the Properties and the Accessors</a></li>
-  <li><a href="#1-2-read-accesses">1.2. Read Accesses</a></li>
-  <li><a href="#1-3-write-accesses">1.3. Write Accesses</a></li>
+  <li><a href="#11-definition-of-the-properties-and-the-accessors">1.1. Definition of the Properties and the Accessors</a></li>
+  <li><a href="#12-read-accesses">1.2. Read Accesses</a></li>
+  <li><a href="#13-write-accesses">1.3. Write Accesses</a></li>
 </ul>
 <li><a href="#2-static-access-to-members">2. Static Access to Members</a></li>
 <li><a href="#3-null-safe-feature-call">3. Null-Safe Feature Call</a></li>
 <li><a href="#4-call-to-an-inherited-method">4. Call to an Inherited Method</a></li>
 <li><a href="#5-call-to-a-constructor">5. Call to a Constructor</a></li>
 <ul>
-  <li><a href="#5-1-instance-creation">5.1. Instance Creation</a></li>
-  <li><a href="#5-2-inherited-constructor">5.2. Inherited Constructor</a></li>
+  <li><a href="#51-instance-creation">5.1. Instance Creation</a></li>
+  <li><a href="#52-inherited-constructor">5.2. Inherited Constructor</a></li>
 </ul>
 <li><a href="#6-acknowledgements">6. Acknowledgements</a></li>
 <li><a href="#7-legal-notice">7. Legal Notice</a></li>
@@ -203,9 +203,9 @@ This documentation is inspired by the documentations from the
 ## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -215,4 +215,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

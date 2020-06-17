@@ -10,10 +10,10 @@ layout: default
 
 <li><a href="#1-defining-a-capacity">1. Defining a Capacity</a></li>
 <ul>
-  <li><a href="#1-1-capacity-definition">1.1. Capacity Definition</a></li>
-  <li><a href="#1-2-extending-a-capacity">1.2. Extending a Capacity</a></li>
-  <li><a href="#1-3-extending-multiple-capacities">1.3. Extending Multiple Capacities</a></li>
-  <li><a href="#1-4-modifiers">1.4. Modifiers</a></li>
+  <li><a href="#11-capacity-definition">1.1. Capacity Definition</a></li>
+  <li><a href="#12-extending-a-capacity">1.2. Extending a Capacity</a></li>
+  <li><a href="#13-extending-multiple-capacities">1.3. Extending Multiple Capacities</a></li>
+  <li><a href="#14-modifiers">1.4. Modifiers</a></li>
 </ul>
 <li><a href="#2-built-in-capacities">2. Built-in Capacities</a></li>
 <li><a href="#3-use-of-the-capacities">3. Use of the Capacities</a></li>
@@ -212,9 +212,9 @@ skill MySkill implements MyCapacity {
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -224,4 +224,4 @@ skill MySkill implements MyCapacity {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

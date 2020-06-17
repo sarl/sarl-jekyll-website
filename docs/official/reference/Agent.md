@@ -10,43 +10,43 @@ layout: default
 
 <li><a href="#1-where-is-living-an-agent">1. Where is living an agent?</a></li>
 <ul>
-  <li><a href="#1-1-default-context">1.1. Default Context</a></li>
-  <li><a href="#1-2-external-contexts">1.2. External Contexts</a></li>
-  <li><a href="#1-3-from-flat-to-hierarchical-system-with-the-inner-context">1.3. From Flat to Hierarchical System with the Inner Context</a></li>
-  <li><a href="#1-4-universe-agent-and-universe-context">1.4. Universe Agent and Universe Context</a></li>
+  <li><a href="#11-default-context">1.1. Default Context</a></li>
+  <li><a href="#12-external-contexts">1.2. External Contexts</a></li>
+  <li><a href="#13-from-flat-to-hierarchical-system-with-the-inner-context">1.3. From Flat to Hierarchical System with the Inner Context</a></li>
+  <li><a href="#14-universe-agent-and-universe-context">1.4. Universe Agent and Universe Context</a></li>
 </ul>
 <li><a href="#2-open-architecture-of-an-agent">2. Open Architecture of an Agent</a></li>
 <ul>
-  <li><a href="#2-1-built-in-capacities">2.1. Built-in Capacities</a></li>
-  <li><a href="#2-2-agent-behaviors">2.2. Agent Behaviors</a></li>
+  <li><a href="#21-built-in-capacities">2.1. Built-in Capacities</a></li>
+  <li><a href="#22-agent-behaviors">2.2. Agent Behaviors</a></li>
 </ul>
 <li><a href="#3-defining-an-agent">3. Defining an Agent</a></li>
 <ul>
-  <li><a href="#3-1-defining-an-empty-agent">3.1. Defining an empty agent</a></li>
-  <li><a href="#3-2-agent-attributes">3.2. Agent Attributes</a></li>
-  <li><a href="#3-3-agent-actions">3.3. Agent Actions</a></li>
-  <li><a href="#3-4-extending-an-agent">3.4. Extending an Agent</a></li>
-  <li><a href="#3-5-modifiers">3.5. Modifiers</a></li>
+  <li><a href="#31-defining-an-empty-agent">3.1. Defining an empty agent</a></li>
+  <li><a href="#32-agent-attributes">3.2. Agent Attributes</a></li>
+  <li><a href="#33-agent-actions">3.3. Agent Actions</a></li>
+  <li><a href="#34-extending-an-agent">3.4. Extending an Agent</a></li>
+  <li><a href="#35-modifiers">3.5. Modifiers</a></li>
 </ul>
 <li><a href="#4-behaviors-of-an-agent">4. Behaviors of an Agent</a></li>
 <ul>
-  <li><a href="#4-1-initialization-handler">4.1. Initialization Handler</a></li>
-  <li><a href="#4-2-guarded-initialization-handler">4.2. Guarded Initialization Handler</a></li>
-  <li><a href="#4-3-destruction-handler">4.3. Destruction Handler</a></li>
-  <li><a href="#4-4-guarded-destruction-handler">4.4. Guarded Destruction Handler</a></li>
-  <li><a href="#4-5-reactive-behaviors">4.5. Reactive Behaviors</a></li>
-  <li><a href="#4-6-parallel-execution-of-the-reactive-behaviors">4.6. Parallel Execution of the Reactive Behaviors</a></li>
-  <li><a href="#4-7-pro-active-behaviors">4.7. Pro-active Behaviors</a></li>
+  <li><a href="#41-initialization-handler">4.1. Initialization Handler</a></li>
+  <li><a href="#42-guarded-initialization-handler">4.2. Guarded Initialization Handler</a></li>
+  <li><a href="#43-destruction-handler">4.3. Destruction Handler</a></li>
+  <li><a href="#44-guarded-destruction-handler">4.4. Guarded Destruction Handler</a></li>
+  <li><a href="#45-reactive-behaviors">4.5. Reactive Behaviors</a></li>
+  <li><a href="#46-parallel-execution-of-the-reactive-behaviors">4.6. Parallel Execution of the Reactive Behaviors</a></li>
+  <li><a href="#47-pro-active-behaviors">4.7. Pro-active Behaviors</a></li>
 </ul>
 <li><a href="#5-capacities-and-skills">5. Capacities and Skills</a></li>
 <ul>
-  <li><a href="#5-1-defining-a-capacity-and-a-skill">5.1. Defining a Capacity and a Skill</a></li>
-  <li><a href="#5-2-giving-a-skill-to-an-agent">5.2. Giving a Skill to an Agent</a></li>
-  <li><a href="#5-3-giving-a-built-in-skill-to-an-agent">5.3. Giving a Built-in Skill to an Agent</a></li>
-  <li><a href="#5-4-using-a-capacity-with-the-getters">5.4. Using a Capacity with the Getters</a></li>
-  <li><a href="#5-5-using-a-built-in-capacity-with-the-getters">5.5. Using a Built-in Capacity with the Getters</a></li>
-  <li><a href="#5-6-using-a-capacity-with-the-extension-methods">5.6. Using a Capacity with the Extension Methods</a></li>
-  <li><a href="#5-7-using-a-built-in-capacity-with-the-extension-methods">5.7. Using a Built-in Capacity with the Extension Methods</a></li>
+  <li><a href="#51-defining-a-capacity-and-a-skill">5.1. Defining a Capacity and a Skill</a></li>
+  <li><a href="#52-giving-a-skill-to-an-agent">5.2. Giving a Skill to an Agent</a></li>
+  <li><a href="#53-giving-a-built-in-skill-to-an-agent">5.3. Giving a Built-in Skill to an Agent</a></li>
+  <li><a href="#54-using-a-capacity-with-the-getters">5.4. Using a Capacity with the Getters</a></li>
+  <li><a href="#55-using-a-built-in-capacity-with-the-getters">5.5. Using a Built-in Capacity with the Getters</a></li>
+  <li><a href="#56-using-a-capacity-with-the-extension-methods">5.6. Using a Capacity with the Extension Methods</a></li>
+  <li><a href="#57-using-a-built-in-capacity-with-the-extension-methods">5.7. Using a Built-in Capacity with the Extension Methods</a></li>
 </ul>
 <li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
@@ -746,9 +746,9 @@ agent MyAgent {
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -758,4 +758,4 @@ agent MyAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

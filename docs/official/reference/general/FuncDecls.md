@@ -12,16 +12,23 @@ layout: default
 <li><a href="#2-declare-exceptions-in-the-function-prototype">2. Declare exceptions in the function prototype</a></li>
 <li><a href="#3-generic-function">3. Generic Function</a></li>
 <ul>
-  <li><a href="#3-1-definition-with-with-keyword">3.1. Definition with "with" keyword</a></li>
-  <li><a href="#3-2-definition-with-brackets">3.2. Definition with brackets</a></li>
-  <li><a href="#3-3-bounded-type-parameters">3.3. Bounded Type Parameters</a></li>
+  <li><a href="#31-definition-with-with-keyword">3.1. Definition with "with" keyword</a></li>
+  <li><a href="#32-definition-with-brackets">3.2. Definition with brackets</a></li>
+  <li><a href="#33-bounded-type-parameters">3.3. Bounded Type Parameters</a></li>
 </ul>
 <li><a href="#4-variadic-function">4. Variadic Function</a></li>
 <li><a href="#5-default-value-for-the-formal-parameters">5. Default Value for the Formal Parameters</a></li>
 <li><a href="#6-mixing-variadic-parameter-and-default-values">6. Mixing Variadic Parameter and Default Values</a></li>
 <li><a href="#7-dispatch-function">7. Dispatch Function</a></li>
-<li><a href="#8-acknowledgements">8. Acknowledgements</a></li>
-<li><a href="#9-legal-notice">9. Legal Notice</a></li>
+<li><a href="#8-purity-of-the-functions">8. Purity of the Functions</a></li>
+<ul>
+  <li><a href="#81-general-definition">8.1. General Definition</a></li>
+  <li><a href="#82-i-o-in-pure-functions">8.2. I/O in Pure Functions</a></li>
+  <li><a href="#83-automatic-determination-of-the-function-purity-in-sarl">8.3. Automatic Determination of the Function Purity in SARL</a></li>
+  <li><a href="#84-manually-tagging-of-pure-functions">8.4. Manually Tagging of Pure Functions</a></li>
+</ul>
+<li><a href="#9-acknowledgements">9. Acknowledgements</a></li>
+<li><a href="#10-legal-notice">10. Legal Notice</a></li>
 
 </ul>
 
@@ -356,19 +363,173 @@ In the example, the calls to the `getType` functions produces the output:
 	it's a string
 
 
+## 8. Purity of the Functions
 
-## 8. Acknowledgements
+### 8.1. General Definition
+
+A [pure function](https://en.wikipedia.org/wiki/Pure_function) is a function that has the following properties:
+
+1. Its return value is the same for the same arguments (no variation with local static variables, non-local variables, 
+   mutable reference arguments or input streams from I/O devices).
+2. Its evaluation has no side effects (no mutation of local static variables, non-local variables, mutable
+   reference arguments or I/O streams).
+
+Most of the time, a pure function is a computational analogue of a mathematical function. Some authors, particularly from the
+imperative language community, use the term "pure" for all functions that just have the above property.
+
+In SARL, a pure function is a function that has no side-effect on the state of the invoked object,  the static state, and
+I/O targets. The following examples of SARL functions are pure:
+
+```sarl
+def floor(value : double) : double {
+	val fvalue = value as int
+	return fvalue
+}
+def max(a : double, b : double) : double {
+	if (a >= b) a
+	else b
+}
+def f : void {
+	var x = 0
+	x++
+}
+```
+
+
+ The following examples of SARL functions are impure:
+
+```sarl
+class MyClass {
+	var ifield : int
+	static var sfield : int
+	def incrementField : void {
+		this.ifield ++
+	}
+	def incrementGlobalField : void {
+		sfield ++
+	}
+	static def incrementGlobalField2 : void {
+		sfield ++
+	}
+}
+```
+
+
+
+### 8.2. I/O in Pure Functions
+
+I/O is inherently impure: input operations undermine
+[referential transparency](https://en.wikipedia.org/wiki/Referential_transparency),
+and output operations create side effects.
+Nevertheless, there is a sense in which function can perform input or output and still be pure, if the sequence of
+operations on the relevant I/O devices is modeled explicitly as both an argument and a result, and I/O operations are
+taken to fail when the input sequence does not describe the operations actually taken since the program began execution.
+
+The second point ensures that the only sequence usable as an argument must change with each I/O action; the first allows
+different calls to an I/O-performing function to return different results on account of the sequence arguments having changed.
+
+
+### 8.3. Automatic Determination of the Function Purity in SARL
+
+SARL compiler tries to figure out if the functions have side-effect. 
+It does some clever analysis of the name of the method (e.g., getters) and also tries to check if the
+body has any method that is impure, i.e., that may have side-effects.
+
+SARL compiler considers the following cases for determining if a function must be tagged as pure or not:
+
+1. The function name follows one of the regular expression pattern that corresponds to functions that are
+   usually pure:
+   * For getter functions:
+     * name starts with `get`, `has` or `is`
+
+     * name equals to `length`
+
+   * For comparison functions:
+     * name equals to `equals`, `hashCode`, `compare` or `compareTo`.
+
+
+
+
+   * For container functions:
+     * name equals to `size`
+
+     * name starts with `contains`, optionally followed by characters according to the
+       [camel-case standard](https://en.wikipedia.org/wiki/Camel_case)
+
+   * For iteration:
+     * name equals to `iterator`
+
+   * For cloning:
+     * name equals to `clone`
+
+   * For data conversion:
+     * name starts with `to` following the [camel-case standard](https://en.wikipedia.org/wiki/Camel_case)
+
+   * For well-known pure functions:
+   	 * name equals to one of `abs`, `acos`, `asin`, `atan`, `atan2`, `cbrt`, `ceil`, `cos`, `cosh`, `exp`, `floor`,
+   	   `hypot`, `log`, `log10`, `log1p`, `max`, `min`, `pow`, `random`, `rint`, `round`, `scalb`, `signum`, `sin`,
+   	   `sinh`, `sqrt`, `tan`, `tanh`, `ulp`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. The code of the function, *if it is written in SARL*, is analyzed in order to determine if it contains no
+   call to a side-effect (impure) features.
+
+If none of the cases above is matching the current definition of a function, then the function is assumed to be impure.
+
+
+### 8.4. Manually Tagging of Pure Functions
+
+In the case the SARL compiler is not able to automatically determine the purity of a function, but you are sure that the function
+is pure, it is possible to mark the function as pure manually.
+
+```sarl
+@Pure
+def myFunction() : int {
+	// Do something complex
+	return 0
+}
+```
+
+
+
+## 9. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-## 9. Legal Notice
+## 10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -378,4 +539,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

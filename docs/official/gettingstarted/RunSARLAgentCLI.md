@@ -10,21 +10,21 @@ layout: default
 
 <li><a href="#1-use-the-janus-command-line-tool">1. Use the Janus command-line tool</a></li>
 <ul>
-  <li><a href="#1-1-download-the-janus-command-line-tool">1.1. Download the janus command-line tool</a></li>
-  <li><a href="#1-2-launching-the-agent">1.2. Launching the agent</a></li>
+  <li><a href="#11-download-the-janus-command-line-tool">1.1. Download the janus command-line tool</a></li>
+  <li><a href="#12-launching-the-agent">1.2. Launching the agent</a></li>
 </ul>
 <li><a href="#2-use-the-standard-java-method">2. Use the standard java method</a></li>
 <ul>
-  <li><a href="#2-1-boot-of-janus">2.1. Boot of Janus</a></li>
-  <li><a href="#2-2-specify-the-agent-to-launch">2.2. Specify the Agent to Launch</a></li>
-  <li><a href="#2-3-what-is-app-jar">2.3. What is app.jar?</a></li>
-  <li><a href="#2-4-janus-command-line-options">2.4. Janus Command Line Options</a></li>
+  <li><a href="#21-boot-of-janus">2.1. Boot of Janus</a></li>
+  <li><a href="#22-specify-the-agent-to-launch">2.2. Specify the Agent to Launch</a></li>
+  <li><a href="#23-what-is-app-jar">2.3. What is app.jar?</a></li>
+  <li><a href="#24-janus-command-line-options">2.4. Janus Command Line Options</a></li>
 </ul>
 <li><a href="#3-use-maven-execution-plugin">3. Use Maven Execution Plugin</a></li>
 <ul>
-  <li><a href="#3-1-boot-of-janus">3.1. Boot of Janus</a></li>
-  <li><a href="#3-2-specify-the-agent-to-launch">3.2. Specify the Agent to Launch</a></li>
-  <li><a href="#3-3-janus-command-line-options">3.3. Janus Command Line Options</a></li>
+  <li><a href="#31-boot-of-janus">3.1. Boot of Janus</a></li>
+  <li><a href="#32-specify-the-agent-to-launch">3.2. Specify the Agent to Launch</a></li>
+  <li><a href="#33-janus-command-line-options">3.3. Janus Command Line Options</a></li>
 </ul>
 <li><a href="#4-what-s-next">4. What's next?</a></li>
 <li><a href="#5-legal-notice">5. Legal Notice</a></li>
@@ -205,9 +205,9 @@ In the next section, we will learn how to launch your SARL project from a Java p
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -217,4 +217,4 @@ In the next section, we will learn how to launch your SARL project from a Java p
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

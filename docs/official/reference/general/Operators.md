@@ -12,8 +12,8 @@ layout: default
 <li><a href="#2-arithmetic-operators">2. Arithmetic operators</a></li>
 <li><a href="#3-comparison-operators">3. Comparison operators</a></li>
 <ul>
-  <li><a href="#3-1-comparison-operators-on-primitive-types">3.1. Comparison operators on primitive types</a></li>
-  <li><a href="#3-2-comparison-operators-on-objects">3.2. Comparison operators on objects</a></li>
+  <li><a href="#31-comparison-operators-on-primitive-types">3.1. Comparison operators on primitive types</a></li>
+  <li><a href="#32-comparison-operators-on-objects">3.2. Comparison operators on objects</a></li>
 </ul>
 <li><a href="#4-boolean-operators">4. Boolean Operators</a></li>
 <li><a href="#5-bitwise-operators">5. Bitwise Operators</a></li>
@@ -378,9 +378,9 @@ This documentation is inspired by the documentations from the
 ## 13. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -390,4 +390,4 @@ This documentation is inspired by the documentations from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

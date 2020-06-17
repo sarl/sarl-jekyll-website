@@ -12,9 +12,9 @@ layout: default
 <li><a href="#2-sending-an-event-in-the-default-space">2. Sending an Event in the Default Space</a></li>
 <li><a href="#3-sending-an-event-to-specific-agents-in-the-default-space">3. Sending an Event to Specific Agents in the Default Space</a></li>
 <ul>
-  <li><a href="#3-1-function-with-a-scoping-parameter">3.1. Function with a Scoping Parameter</a></li>
-  <li><a href="#3-2-creation-of-scopes-with-lambda-expressions">3.2. Creation of scopes with Lambda expressions</a></li>
-  <li><a href="#3-3-inverted-syntax-for-emitting-an-event">3.3. Inverted syntax for emitting an event.</a></li>
+  <li><a href="#31-function-with-a-scoping-parameter">3.1. Function with a Scoping Parameter</a></li>
+  <li><a href="#32-creation-of-scopes-with-lambda-expressions">3.2. Creation of scopes with Lambda expressions</a></li>
+  <li><a href="#33-inverted-syntax-for-emitting-an-event">3.3. Inverted syntax for emitting an event.</a></li>
 </ul>
 <li><a href="#4-testing-if-an-element-is-related-to-the-default-context">4. Testing if an element is related to the default context</a></li>
 <li><a href="#5-legal-notice">5. Legal Notice</a></li>
@@ -213,9 +213,9 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -225,4 +225,4 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>

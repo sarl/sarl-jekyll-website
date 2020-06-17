@@ -11,11 +11,11 @@ layout: default
 <li><a href="#1-event-vs-message">1. Event vs. Message</a></li>
 <li><a href="#2-defining-an-event">2. Defining an Event</a></li>
 <ul>
-  <li><a href="#2-1-define-an-empty-event">2.1. Define an empty event</a></li>
-  <li><a href="#2-2-define-an-event-with-attributes">2.2. Define an event with attributes</a></li>
-  <li><a href="#2-3-define-an-event-with-value-attributes">2.3. Define an event with value attributes</a></li>
-  <li><a href="#2-4-extending-events">2.4. Extending Events</a></li>
-  <li><a href="#2-5-modifiers">2.5. Modifiers</a></li>
+  <li><a href="#21-define-an-empty-event">2.1. Define an empty event</a></li>
+  <li><a href="#22-define-an-event-with-attributes">2.2. Define an event with attributes</a></li>
+  <li><a href="#23-define-an-event-with-value-attributes">2.3. Define an event with value attributes</a></li>
+  <li><a href="#24-extending-events">2.4. Extending Events</a></li>
+  <li><a href="#25-modifiers">2.5. Modifiers</a></li>
 </ul>
 <li><a href="#3-reserved-events">3. Reserved Events</a></li>
 <li><a href="#4-legal-notice">4. Legal Notice</a></li>
@@ -263,9 +263,9 @@ Two types of reserved events exist:
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.11
-* Status: Stable Release
-* Release: 2020-06-02
+* Version: 0.12
+* Status: Draft Release
+* Release: 2020-06-17
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -275,4 +275,4 @@ Two types of reserved events exist:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.11.0.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
