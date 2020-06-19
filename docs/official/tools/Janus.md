@@ -69,35 +69,47 @@ occur because of one of the used library. In these errors are not necessary docu
 on [Gitter](https://gitter.im/sarl/Lobby) or [Google Group](http://www.sarl.io/community/forums.html) with the
 SARL community.
 
-The code column gives the internal code of the issue.
+The "N." column provides a number that could be used in order to make easier your discussions with the SARL developers on the forums.
+
+The column "Message and Description" contains information and details on each issue.
 The **message** gives a template of typical message that is given by the compiler.
-The **cause** describes the source of the issue.
+The **cause** describes the source of the issue, and provides a short explanation of the cause of the issue.
 The **solving** provides guidelines to fix the issue when it is possible.
-The level column indicates the expected level of the issue (error or warning).
+
+The "Level" column indicates the level of importance for the issue.
+It may be:
+* "error": the issue makes Janus failing and stopping.
+* "warning": the issue is an important message that may have implication on the quality of your program.
+* "info": the issue is a simple information message from the compiler. The impact on the quality of your program is low.
+
+
+The code of the issue, which is appended at the end of the messages, corresponds to the content of the "Code" column below.
+This code may have a short format (e.g., the one shown in the column), or a long format (e.g., if you move your mouse pointer on the code, you should see the long format of the code into a pop-up window).
+The long code is provided by the SARL compiler at the end of the issue messages.
 
 
 
-| N. | Code  | Message and Description | Level              |
-| -- | ----- | ----------------------- | ------------------ |
-| 1 | agent_task_already_launched | **Message:** Already launched task<br>**Cause:** A task was launched two times. This error denotes of a problem of design of the agent software<br>**Solving:** Review your code to avoid the task to be launched too times | Error |
-| 2 | cannot_emit_in_space | **Message:** Cannot emit the event '*event-type*' with the scope '*scope*': *error*<br>**Cause:** The given event cannot be emitted into a space because of an internal error | Error |
-| 3a | cli_argument_list_size | **Message:** Not enough arguments. You have to provide the qualified name of the agent to be launched<br>**Cause:** This error is generated when the number of commend-line arguments that are passed to Janus is too small, in the case that Janus is supposed to launch an agent. The missed argument is the fully-qualified name of the agent to be launched<br>**Solving:** Add to the command-line the fully-qualified name of the agent to be launched | Error |
-| 3b | cli_argument_list_size | **Message:** Too many arguments. You must not provide arguments<br>**Cause:** This error is generated when the number of commend-line arguments that are passed to Janus is too big, in the case that Janus is not supposed to launch an agent.<br>**Solving:** Remove all the command-line arguments | Error |
-| 4 | disabled_spawn | **Message:** The spawning of the agents is disabled. The spawning of *agent-type* inside *context* is skipped<br>**Cause:** An agent spawn query was received, but rejected because the agent life-cycle service has disabled its spawning service. It is usually due to the fact that Janus has already started to shutdown<br>**Solving:** Review you code in order to avoid to spawn an agent after all the exisiting agents have been killed | Warning |
-| 5a | event_guard_error | **Message:** Event guard evaluator method becomes inaccessible: {1}<br>**Cause:** Event guards are evaluated into dedicated Java functions by Janus. This error message is generated when the guard evaluation function cannot be called due to access restrictions. This error should never occur because it means that the Janus code itself is broken | Error |
-| 5b | event_guard_error | **Message:** Invalid argument for the event guard evaluator method: {1}<br>**Cause:** Event guards are evaluated into dedicated Java functions by Janus. This error message is generated when one of the arguments of the guard evaluation function is invalid. Usually, it is because the event cannot be passed to the function | Error |
-| 6 | invalid_sarl_specification | **Message:** The SARL specification version that was used for generating the type *name* is not compatible with the specification version supported by Janus<br>**Cause:** Internally, Janus checks if the provided class of an agent to be launched was generated with a version of the SARL compiler that is supported by the current version of Janus. This error message is generated when the class to be loaded is not compatible<br>**Solving:** Get agent's binary files that are compiled with the compatible SARL compiler | Error |
-| 7 | not_alive_error | **Message:** Cannot kill agent *id* because it is not alive<br>**Cause:** The agent with the given *id* cannot be killed because it is already dead<br>**Solving:** Review your code to avoid the call to `killMe` too many times | Error |
-| 8 | not_killable_error | **Message:** Cannot kill agent *id* because it is considered as not killable<br>**Cause:** The agent with the given *id* cannot be killed. Usually, it is because it is a holon that contains sub-holons<br>**Solving:** Review your code to avoid the killing of the sub-holon when it is not empty | Error |
-| 9 | null_agent_task | **Message:** Agent task is null<br>**Cause:** The reference to an agent task is lost. This avoid the task to be run. This error should never occur | Error |
-| 10 | service_manager_error | **Message:** Failure in service *name*<br>**Cause:** An internal error into the Janus service manager has occurred. The error is related to the service with the given *name* | Error |
-| 11 | spawn_error | **Message:** Cannot instantiate an agent of type *type-name* due to the following: *error*<br>**Cause:** An internal error avoid an agent of the given *type-name* to be created and launched<br>**Solving:** Review the given *error* and fix your agent software accordingly | Error |
-| 12 | task_cancel | **Message:** Task with the id '*id*' and the name '*name*' was cancelled<br>**Cause:** A task was detected as cancelled by the thread execution service. This error should never occur, except if you have manually cancelled an agent task during its execution | Warning |
-| 13 | task_error | **Message:** Uncaught exception: *error*<br>in thread #*task-id* '*task-name'<br>**Cause:** This error message is displayed when an agent task has encountered an *error*. | Error |
-| 14 | task_interrupt | **Message:** Task with the id '*id*' and the name '*name*' was interrupted<br>**Cause:** A task was detected as interrupted by the thread execution service. This error should never occur, except if the thread associated to the agent task was interrupted programmatically | Warning |
-| 15 | task_reject | **Message:** Rejected task due to lack of resources or service shutdown: *task*<br>**Cause:** This warning message is generated when an agent task is rejected by the internal thread execution service. Most of the time, the reason of the rejection is because there is not more space in the queue of tasks to be run. By default, when a task is rejected to be executed into a thread, Janus assumes that the tasks could be run into the current thread, and it is running the task. Consequently, this warning should be considered in order to detect internal bugs in your software<br>**Solving:** x | Warning |
-| 16a | universe_creation | **Message:** Cannot create the universe context<br>**Cause:** Something avoid the Janus framework to be started and create the root context of the application. The cause of the error is unknown | Error |
-| 16b | universe_creation | **Message:** Cannot create the universe context: *cause*<br>**Cause:** Something avoid the Janus framework to be started and create the root context of the application. The cause of the error is provided | Error |
+| N. | Message and Description | Level | Code |
+| -- | ----------------------- | ----- | ---- |
+| 1 | **Message:** Already launched task<br>**Cause:** A task was launched two times. This error denotes of a problem of design of the agent software<br>**Solving:** Review your code to avoid the task to be launched too times | Error | [agent_task_already_launched](: "io.sarl.sre.IssueCodes.agent_task_already_launched") |
+| 2 | **Message:** Cannot emit the event '*event-type*' with the scope '*scope*': *error*<br>**Cause:** The given event cannot be emitted into a space because of an internal error | Error | [cannot_emit_in_space](: "io.sarl.sre.IssueCodes.cannot_emit_in_space") |
+| 3a | **Message:** Not enough arguments. You have to provide the qualified name of the agent to be launched<br>**Cause:** This error is generated when the number of commend-line arguments that are passed to Janus is too small, in the case that Janus is supposed to launch an agent. The missed argument is the fully-qualified name of the agent to be launched<br>**Solving:** Add to the command-line the fully-qualified name of the agent to be launched | Error | [cli_argument_list_size](: "io.sarl.sre.IssueCodes.cli_argument_list_size") |
+| 3b | **Message:** Too many arguments. You must not provide arguments<br>**Cause:** This error is generated when the number of commend-line arguments that are passed to Janus is too big, in the case that Janus is not supposed to launch an agent.<br>**Solving:** Remove all the command-line arguments | Error | [cli_argument_list_size](: "io.sarl.sre.IssueCodes.cli_argument_list_size") |
+| 4 | **Message:** The spawning of the agents is disabled. The spawning of *agent-type* inside *context* is skipped<br>**Cause:** An agent spawn query was received, but rejected because the agent life-cycle service has disabled its spawning service. It is usually due to the fact that Janus has already started to shutdown<br>**Solving:** Review you code in order to avoid to spawn an agent after all the exisiting agents have been killed | Warning | [disabled_spawn](: "io.sarl.sre.IssueCodes.disabled_spawn") |
+| 5a | **Message:** Event guard evaluator method becomes inaccessible: {1}<br>**Cause:** Event guards are evaluated into dedicated Java functions by Janus. This error message is generated when the guard evaluation function cannot be called due to access restrictions. This error should never occur because it means that the Janus code itself is broken | Error | [event_guard_error](: "io.sarl.sre.IssueCodes.event_guard_error") |
+| 5b | **Message:** Invalid argument for the event guard evaluator method: {1}<br>**Cause:** Event guards are evaluated into dedicated Java functions by Janus. This error message is generated when one of the arguments of the guard evaluation function is invalid. Usually, it is because the event cannot be passed to the function | Error | [event_guard_error](: "io.sarl.sre.IssueCodes.event_guard_error") |
+| 6 | **Message:** The SARL specification version that was used for generating the type *name* is not compatible with the specification version supported by Janus<br>**Cause:** Internally, Janus checks if the provided class of an agent to be launched was generated with a version of the SARL compiler that is supported by the current version of Janus. This error message is generated when the class to be loaded is not compatible<br>**Solving:** Get agent's binary files that are compiled with the compatible SARL compiler | Error | [invalid_sarl_specification](: "io.sarl.sre.IssueCodes.invalid_sarl_specification") |
+| 7 | **Message:** Cannot kill agent *id* because it is not alive<br>**Cause:** The agent with the given *id* cannot be killed because it is already dead<br>**Solving:** Review your code to avoid the call to `killMe` too many times | Error | [not_alive_error](: "io.sarl.sre.IssueCodes.not_alive_error") |
+| 8 | **Message:** Cannot kill agent *id* because it is considered as not killable<br>**Cause:** The agent with the given *id* cannot be killed. Usually, it is because it is a holon that contains sub-holons<br>**Solving:** Review your code to avoid the killing of the sub-holon when it is not empty | Error | [not_killable_error](: "io.sarl.sre.IssueCodes.not_killable_error") |
+| 9 | **Message:** Agent task is null<br>**Cause:** The reference to an agent task is lost. This avoid the task to be run. This error should never occur | Error | [null_agent_task](: "io.sarl.sre.IssueCodes.null_agent_task") |
+| 10 | **Message:** Failure in service *name*<br>**Cause:** An internal error into the Janus service manager has occurred. The error is related to the service with the given *name* | Error | [service_manager_error](: "io.sarl.sre.IssueCodes.service_manager_error") |
+| 11 | **Message:** Cannot instantiate an agent of type *type-name* due to the following: *error*<br>**Cause:** An internal error avoid an agent of the given *type-name* to be created and launched<br>**Solving:** Review the given *error* and fix your agent software accordingly | Error | [spawn_error](: "io.sarl.sre.IssueCodes.spawn_error") |
+| 12 | **Message:** Task with the id '*id*' and the name '*name*' was cancelled<br>**Cause:** A task was detected as cancelled by the thread execution service. This error should never occur, except if you have manually cancelled an agent task during its execution | Warning | [task_cancel](: "io.sarl.sre.IssueCodes.task_cancel") |
+| 13 | **Message:** Uncaught exception: *error*<br>in thread #*task-id* '*task-name'<br>**Cause:** This error message is displayed when an agent task has encountered an *error*. | Error | [task_error](: "io.sarl.sre.IssueCodes.task_error") |
+| 14 | **Message:** Task with the id '*id*' and the name '*name*' was interrupted<br>**Cause:** A task was detected as interrupted by the thread execution service. This error should never occur, except if the thread associated to the agent task was interrupted programmatically | Warning | [task_interrupt](: "io.sarl.sre.IssueCodes.task_interrupt") |
+| 15 | **Message:** Rejected task due to lack of resources or service shutdown: *task*<br>**Cause:** This warning message is generated when an agent task is rejected by the internal thread execution service. Most of the time, the reason of the rejection is because there is not more space in the queue of tasks to be run. By default, when a task is rejected to be executed into a thread, Janus assumes that the tasks could be run into the current thread, and it is running the task. Consequently, this warning should be considered in order to detect internal bugs in your software<br>**Solving:** x | Warning | [task_reject](: "io.sarl.sre.IssueCodes.task_reject") |
+| 16a | **Message:** Cannot create the universe context<br>**Cause:** Something avoid the Janus framework to be started and create the root context of the application. The cause of the error is unknown | Error | [universe_creation](: "io.sarl.sre.IssueCodes.universe_creation") |
+| 16b | **Message:** Cannot create the universe context: *cause*<br>**Cause:** Something avoid the Janus framework to be started and create the root context of the application. The cause of the error is provided | Error | [universe_creation](: "io.sarl.sre.IssueCodes.universe_creation") |
 
 
 
@@ -107,7 +119,7 @@ The level column indicates the expected level of the issue (error or warning).
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-06-17
+* Release: 2020-06-19
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
