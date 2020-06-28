@@ -59,8 +59,7 @@ The complete list of the options is:
 
 | Option | Description |
 | ------ | ----------- |
-| `-c yaml_location`, `--config=yaml_location` | Specifies YAML config location, which can be a file path or a URL. |
-
+| | |
 
 ## 3. Documentation Comments
 
@@ -238,7 +237,7 @@ This documentation is inspired by the documentation from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-06-19
+* Release: 2020-06-28
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

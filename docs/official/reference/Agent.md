@@ -31,12 +31,10 @@ layout: default
 <li><a href="#4-behaviors-of-an-agent">4. Behaviors of an Agent</a></li>
 <ul>
   <li><a href="#41-initialization-handler">4.1. Initialization Handler</a></li>
-  <li><a href="#42-guarded-initialization-handler">4.2. Guarded Initialization Handler</a></li>
-  <li><a href="#43-destruction-handler">4.3. Destruction Handler</a></li>
-  <li><a href="#44-guarded-destruction-handler">4.4. Guarded Destruction Handler</a></li>
-  <li><a href="#45-reactive-behaviors">4.5. Reactive Behaviors</a></li>
-  <li><a href="#46-parallel-execution-of-the-reactive-behaviors">4.6. Parallel Execution of the Reactive Behaviors</a></li>
-  <li><a href="#47-pro-active-behaviors">4.7. Pro-active Behaviors</a></li>
+  <li><a href="#42-destruction-handler">4.2. Destruction Handler</a></li>
+  <li><a href="#43-reactive-behaviors">4.3. Reactive Behaviors</a></li>
+  <li><a href="#44-parallel-execution-of-the-reactive-behaviors">4.4. Parallel Execution of the Reactive Behaviors</a></li>
+  <li><a href="#45-pro-active-behaviors">4.5. Pro-active Behaviors</a></li>
 </ul>
 <li><a href="#5-capacities-and-skills">5. Capacities and Skills</a></li>
 <ul>
@@ -409,6 +407,8 @@ variable as the keywords `this` and `it`.
 
 ### 4.1. Initialization Handler
 
+#### General Description
+
 When an agent is ready to be executed by the runtime environment, it receives the `Initialize` event.
 This event is defined as:
 
@@ -436,7 +436,7 @@ agent MyAgent {
 
 
 
-### 4.2. Guarded Initialization Handler
+#### Guarded Initialization Handler
 
 Because `Initialize` is an event, the handler in the agent could use a guard. This feature enables
 the developer to write different initialization blocks depending on the guards of the handlers.
@@ -459,7 +459,129 @@ agent MyAgent {
 
 
 
-### 4.3. Destruction Handler
+#### Execution of the Initialization Handler
+
+The `on Initialize` event handler in agents is a bit special, as it is the code run when an agent is born.
+As such, its execution is more "synchronous" than other on-behavior rules. In particular:
+
+1. Any event emitted within an `on Initialize`, will not be processed until that
+   `on Initialize` code finishes. So, your agent initialization should not depend
+   (and wait) on any fired event being processed, as they won't!
+2. When spawning an agent in `on Initialize`, the spawn instructions will return only
+   after the agent has been created. However, creation of the agent (i.e., of the
+   corresponding object) does not include initialization of the agent via its 
+   `on Initialize` handler. Said so, the Java thread manager may process those
+   initialization processes of the new agent before continuing with the execution
+   of the spawning agent (and this seems to be the case in many Linux boxes
+   where the executor service of Java tends to have the same behavior during
+   all the runs). If you change computer, it may be different. In the following
+   example, the thread executor service of Java seems to give the priority to
+   the `on Initialize` of `Agent2` instead of continuing the run of the
+   spawn function.
+
+```sarl
+agent Agent1 {
+    uses Logging, Lifecycle
+    var agent_name = "agent1"
+    on Initialize {
+        info(agent_name + " spawned")
+        info(agent_name + " spawning Agent2")
+        spawn(Agent2)
+        info(agent_name + " end")
+    }
+}
+agent Agent2 {
+    uses Logging
+    var agent_name = "agent2"
+    on Initialize {
+        info(agent_name + " spawned")
+        info(agent_name + " sleeping")
+        Thread::sleep(5000)
+        info(agent_name + " woke up")
+        info(agent_name + " end")
+    }
+    on Initialize {
+        info(agent_name + " init2")
+        info(agent_name + " init2 end")
+    }
+}
+```
+
+
+The output has been:
+
+```
+Launching the agent: Agent1
+agent1 spawned
+agent1 spawning Agent2
+agent2 spawned
+agent2 init2
+agent2 sleeping
+agent2 init2 end
+agent2 woke up
+agent2 end
+agent1 end
+```
+
+Here it appears as the `on Initialize` behaviors have been run all before
+the execution resumes after the `spawn()` statement, but this is just one way
+and one should not rely on that behavior being guaranteed: once the spawned
+agent is created, the `spawn()` commands returns.
+
+
+#### Multiple Initialization Handlers
+
+It is allowed to declare multiple initialization handlers into a single agent type, as illustrated by:
+
+```sarl
+agent Agent3 {
+	uses Logging
+    on Initialize {
+        info("1")
+    }
+    on Initialize {
+        info("2")
+    }
+    on Initialize {
+        info("3")
+    }
+}
+```
+
+
+According to the SARL operational semantic, the three event handlers for `Initialize` are run in parallel.
+The initialization event handlers are not constructors (as defined in object-oriented programming paradigm),
+they are reacting to the receiving of an `Initialize` occurrence.
+Consequently, we could say that there is a single `Initialize` occurrence during the whole life of an agent;
+But, it may have multiple handlers to react to the receiving of this event.
+
+
+#### Initialization Handler within the Inheritance Hierarchy
+
+The example in the previous section could be extended in order to illustrate how the initialization handlers
+are run when the type of the agent (here `Agent4`) is declared within a inheritance hierarchy.
+
+```sarl
+agent Agent4 extends Agent3 {
+	uses Logging
+    on Initialize {
+        info("4")
+    }
+    on Initialize {
+        info("5")
+    }
+}
+```
+
+
+According to the SARL operational semantic, all the initialization handlers are run in parallel.
+In the previous example, five event handlers will be run: three are defined into `Agent3`, and
+two are defined into `Agent4`. This mechanism is generalized to all the events within an agent.
+
+
+### 4.2. Destruction Handler
+
+#### General Description
 
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
@@ -483,7 +605,7 @@ agent MyAgent {
 
 
 
-### 4.4. Guarded Destruction Handler
+#### Guarded Destruction Handler
 
 As for `Initialize`, the handlers of the `Destroy` event could be guarded.
 
@@ -506,7 +628,7 @@ agent MyAgent {
 
 
 
-### 4.5. Reactive Behaviors
+### 4.3. Reactive Behaviors
 
 The reactive behavior of an agent is specified with a collection
 of event handlers. The principle of a reactive behavior is to execute a part of the global
@@ -527,7 +649,7 @@ agent MyAgent {
 
 
 
-### 4.6. Parallel Execution of the Reactive Behaviors
+### 4.4. Parallel Execution of the Reactive Behaviors
 
 When an event is received and the guard of the corresponding handler is true, the event
 handler is said to be triggered.
@@ -549,7 +671,7 @@ agent MyAgent {
 
 
 
-### 4.7. Pro-active Behaviors
+### 4.5. Pro-active Behaviors
 
 A proactive behavior is a part of the global behavior of an agent that the
 agent is deciding to execute by itself.
@@ -748,7 +870,7 @@ agent MyAgent {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-06-19
+* Release: 2020-06-28
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
