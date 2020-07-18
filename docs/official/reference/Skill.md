@@ -155,7 +155,8 @@ It is not necessary to specify a constructor for Skills unless a value will be i
 Two constructors are defined in the abstract `Skill` class: 
 
 ```sarl
-interface Skill extends AgentTrait {
+interface Skill extends AgentTrait
+		implements IBehaviorGuardEvaluatorReceiver {
 	def getReferenceCount : int
 }
 ```
@@ -348,7 +349,7 @@ Details on the use of Skills may be found in the following:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-06-28
+* Release: 2020-07-18
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

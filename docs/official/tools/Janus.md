@@ -119,7 +119,7 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-06-28
+* Release: 2020-07-18
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
