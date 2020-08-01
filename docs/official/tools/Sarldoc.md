@@ -59,7 +59,52 @@ The complete list of the options is:
 
 | Option | Description |
 | ------ | ----------- |
-| | |
+| -a [true&#124;false]<br>--authortag[=true&#124;false] | Specify if the @author tag should be supported by Sarldoc; default value is true. |
+| -b path<br>--boot-classpath=path | Cross-compiles against the specified set of boot classes. As with the user class path, boot class path entries are separated by colons (:) and can be directories, JAR archives, or ZIP archives. |
+| --classpath=path | Specifies where to find user class files, and source files. This class path overrides the user class path in the SARLC_CLASSPATH environment variable. If neither SARLC_CLASSPATH, --cp nor --classpath is specified, then the user class path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| --compiler | Run sarlc. |
+| --config=yaml_location | Specifies YAML config location, which can be a file path or a URL. |
+| --cp=path | Specifies where to find user class files, and source files. This class path overrides the user class path in the SARLC_CLASSPATH environment variable. If neither SARLC_CLASSPATH, --cp nor --classpath is specified, then the user class path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| --deprecatedtag[=true&#124;false] | Specify if the @deprecated tag should be supported by Sarldoc; default value is true. |
+| --directory=directory_name | Sets the destination directory for Java source files that are generated from the SARL files. The directory must already exist because sarlc does not create it. If a SARL declaration is part of a package, then sarlc puts the Java source file in a subdirectory that reflects the package name and creates directories as needed. If the --directory option is not specified, then sarlc assumes src/main/generated-sources/sarl. |
+| --docdirectory=directory | Specify the output folder into which the generated HTML documentation will be copied. If it is not specified, the default folder is : target/site/apidocs. |
+| --doctitle=text | Specify the title of the documentation. |
+| -e [encoding]<br>--encoding[=encoding] | Sets the source file encoding name, such as EUC-JP and UTF-8. If the --encoding option is not specified, then the platform default converter is used. |
+| -f<br>--fake | Run sarldoc. |
+| --generate-clones[=true&#124;false] | Specifies if the clone functions should be generated; default is true. |
+| --generate-equality-tests[=true&#124;false] | Specifies if the equality tests should be generated; default is true. |
+| --generate-inlines[=true&#124;false] | Specifies if the @Inline annotations should be generated; default is false. |
+| --generate-pures[=true&#124;false] | Specifies if the @Pure annotations should be generated; default is true. |
+| --generate-serials[=true&#124;false] | Specifies if the serial identifiers should be generated; default is true. |
+| --generate-tostring[=true&#124;false] | Specifies if the toString functions should be generated; default is true. |
+| --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
+| --generator=identifiers | Enables extra-language generators. The parameter is a list of identifiers of the generators to turn on, separated by ':'. See the option -G for printing out the list of the available generators. |
+| -h<br>--help | Prints this message. |
+| -H<br>--help-config | Prints information about application modules and their configuration options. |
+| --java-compiler[=none&#124;ecj&#124;javac] | Specifies the Java compiler to be run; default is ecj. |
+| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 1.8, and strictly lower than 12. |
+| --javadoc=file | Specify the path to the executable of Javadoc. If it is not specified, the value will be inferred from the current installation of the Java environment. |
+| --json | When present, the output of the configuration has the Json format. |
+| --locale=locale_code  | Specify the locale that should be used into the documentation; default value is en_US. |
+| --log=level | Specifies where to find user class files, and source files. This class path overrides the user class path in the LOG_LEVEL environment variable. If neither LOG_LEVEL, --log nor --{2} is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| -o directory_name<br>--outputdir=directory_name | Sets the destination directory for class files. The directory must already exist because sarlc does not create it. If a class is part of a package, then sarlc puts the class file in a subdirectory that reflects the package name and creates directories as needed. If the --outputdir option is not specified, then sarlc assumes target/classes. |
+| -G<br>--print-generators | Prints the list of the available extra-language generators. |
+| -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
+| -p [val]<br>--progress[=val] | Prints the progress bar on the console. |
+| -s [true&#124;false]<br>--sincetag[=true&#124;false] | Specify if the @since tag should be supported by Sarldoc; default value is true. |
+| --tags=name:placements:header(:name:placements:header)* | Specify the custom tags with the given names, placements and heading texts. The 'placements' must be a list of characters in: X (disable: disable tag), a (all: in all pages), o (overview: into the overview page), p (packages: into the packages'' documentations), t (types: into the types'' documentations), c (constructors: into constructors'' documentations), m (methods: into the methods'' documentations), f (fields: into the fields'' documentations). |
+| --tempdir=directory_name | Directory in which the temporary files will be generated during the compilation process. |
+| --version | Prints release information. |
+| --versiontag[=true&#124;false] | Specify if the @version tag should be supported by Sarldoc; default value is true. |
+| --visibility[=public&#124;protected&#124;package&#124;private] | Specify if the minimum visibility of the documented values; possible values are: public, protected, package, private; default value is protected. |
+| --wall | Specifies if all the warnings are printed out. |
+| --werror | Terminates compilation when warnings occur. |
+| --wnone | Specifies if all the warnings are ignored. |
+| --write-storages[=true&#124;false] | Specifies if the storage files should be generated; default is true. |
+| --write-traces[=true&#124;false] | Specifies if the trace files should be generated; default is true. |
+| -x<br>--xml | When present, the output of the configuration has the XML format. |
+
+
 
 ## 3. Documentation Comments
 
@@ -237,7 +282,7 @@ This documentation is inspired by the documentation from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-07-18
+* Release: 2020-08-01
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

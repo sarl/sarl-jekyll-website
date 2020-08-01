@@ -442,3 +442,13 @@ textarea {
   margin-left: 0px;
   margin-right: 30px;
 }
+
+div .gsc-control-cse {
+  background-color: inherit;
+  border: 0pt;
+}
+
+div .gsc-input-box {
+  background-color: inherit;
+}
+

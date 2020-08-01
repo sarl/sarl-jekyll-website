@@ -220,7 +220,7 @@ of the object, and ensuring that the desrialized object is really of the same ty
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-07-18
+* Release: 2020-08-01
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

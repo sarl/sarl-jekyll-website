@@ -30,15 +30,15 @@ environment (Eclipse, IntelliJ...)
 | [Definition of annotation types](./OOP.html#annotation-type)                    | Yes |Yes | Yes | Yes                     |
 | [Definition of static constructors](./OOP.html#static-constructor-definition)   | Yes | Yes | <span style="color: red;">No</span> | <span style="color: orange;">See companion object</span> |
 | Inheritance of constructors                                                   | Yes | <span style="color: red;">No</span> | <span style="color: red;">No</span> | <span style="color: red;">No</span> |
-| [Automatic creation of read-only data structure](./general/ActiveAnnotations.html#Data) | <span style="color: orange;">Manual with `@Data` annotation</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with `@Data` annotation</span>| <span style="color: red;">No</span> |
-| [Automatic creation of getters and setters](./general/ActiveAnnotations.html#Accessors) | <span style="color: orange;">Manual with `Accessors` annotation</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with @Accessors annotation</span> | Yes |
+| [Automatic creation of read-only data structure](./general/ActiveAnnotations.html#data) | <span style="color: orange;">Manual with `@Data` annotation</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with `@Data` annotation</span>| <span style="color: red;">No</span> |
+| [Automatic creation of getters and setters](./general/ActiveAnnotations.html#accessors) | <span style="color: orange;">Manual with `Accessors` annotation</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with @Accessors annotation</span> | Yes |
 | Automatic creation of final-field constructor                                  | <span style="color: red;">No</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with `@FinalFieldsConstructor` annotation</span> | <span style="color: red;">No</span> |
 | Automatic creation of [equals()](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-)
             and [hashCode()](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--) | Yes | <span style="color: red;">No</span> | <span style="color: orange;">Manual with @EqualsHashCode annotation</span> | Yes, see case class |
 | Automatic creation of [clone()](https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone--) when cloneable type | Yes | <span style="color: red;">No</span> | <span style="color: red;">No</span> | Yes |
 | Automatic creation of a serialVersionUID field when
         [serializable type](https://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html) | Yes | <span style="color: red;">No</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with `@SerialVersionUID`</span> |
-| [Automatic creation of the toString() function](./general/ActiveAnnotations.html#ToString) | <span style="color: orange;">Manual with `@ToString` annotation</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with `@ToString` annotation</span> | Yes, see case class |
+| [Automatic creation of the toString() function](./general/ActiveAnnotations.html#tostring) | <span style="color: orange;">Manual with `@ToString` annotation</span> | <span style="color: red;">No</span> | <span style="color: orange;">Manual with `@ToString` annotation</span> | Yes, see case class |
 
 
 
@@ -86,7 +86,7 @@ This documentation is based on elements from the following sources:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-07-18
+* Release: 2020-08-01
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

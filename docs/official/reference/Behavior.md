@@ -42,7 +42,7 @@ Before reading this document, we recommend that you read
 the [General Syntax Reference](./GeneralSyntax.html),
 and the [Agent Reference](./Agent.html).
 
-A Behavior is the specification of a collection of behavior units.
+A Behavior is the specification of a collection of behavior units (or event handlers).
 This Behavior may be used by an agent for building its global behavior.
 
 
@@ -640,7 +640,7 @@ behavior MyBehavior {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-07-18
+* Release: 2020-08-01
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -24,6 +24,9 @@ layout: default
   <li><a href="#53-object-oriented-programming">5.3. Object-Oriented Programming</a></li>
 </ul>
 <li><a href="#6-compilation-and-generation-infrastructure">6. Compilation and Generation Infrastructure</a></li>
+<ul>
+  <li><a href="#61-run-time-behavior-of-sarl-programs">6.1. Run-time Behavior of SARL Programs</a></li>
+</ul>
 <li><a href="#7-other-tools">7. Other Tools</a></li>
 <ul>
   <li><a href="#71-syntax-highlightning">7.1. Syntax Highlightning</a></li>
@@ -130,6 +133,10 @@ layout: default
 * [Basics of the SARL Compilation Process](./compilation/Basics.html)
 * [Generation to the Python Language](./compilation/PythonGeneration.html)
 
+### 6.1. Run-time Behavior of SARL Programs
+
+* [Run-time Behavior of SARL Programs](./reference/Runtime.html)
+
 ## 7. Other Tools
 
 ### 7.1. Syntax Highlightning
@@ -156,7 +163,7 @@ layout: default
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-07-18
+* Release: 2020-08-01
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

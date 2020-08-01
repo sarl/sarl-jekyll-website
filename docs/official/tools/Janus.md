@@ -54,9 +54,35 @@ the classpath of your application, more options may become available.
 
 | Option | Description |
 | ------ | ----------- |
-| `-c yaml_location`, `--config=yaml_location` | Specifies YAML config location, which can be a file path or a URL. |
-| `-h`, `--help` | Prints this message. |
-| `-H`, `--help-config` | Prints information about application modules and their configuration options. |
+| --agent-spawns-per-thread=number | Specify the maximal number of agent spawns that must be supported by a single thread into the life-cycle service; Default is 128. |
+| --async-probe-update={true&#124;false} | Specify if the probe service should update asynchronously the probed values, or not; Default is true. |
+| -b method<br>--boot-type=method | Specify the method for selecting the identifier of the default context; The possible values are default, random, boot_agent_name; Default is 'default'. |
+| --classpath=path | Specifies where to find user class files, and source files. This class path overrides the user class path in the SRE_CLASSPATH environment variable. If neither SRE_CLASSPATH, --cp nor --classpath is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| --config=yaml_location | Specifies YAML config location, which can be a file path or a URL. |
+| --cp=path | Specifies where to find user class files, and source files. This class path overrides the user class path in the SRE_CLASSPATH environment variable. If neither SRE_CLASSPATH, --cp nor --classpath is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| -d uuid<br>--default-space-id=uuid | Specify the identifier (UUID) of the default space into the root context; Default is 7ba8885d-545b-445a-a0e9-b655bc15ebe0. |
+| -e {reflect, polymorphic}<br>--event-bus={reflect, polymorphic} | Specify the type of event bus to create for each agent; Default is reflect. |
+| -g<br>--generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
+| -h<br>--help | Prints this message. |
+| -H<br>--help-config | Prints information about application modules and their configuration options. |
+| --inject-agents={true&#124;false} | Specify if the agents should be injected with field values by the SRE; Default is false. |
+| --internal-error-log-level=level | Specify the logging level for the internal errors within the parallel executors; Default is: all. |
+| -j<br>--json | When present, the output of the configuration has the Json format. |
+| -k duration<br>--keep-alive=duration | Specify the duration in seconds during which a thread is staying alive even if there is not task to be run; After this duration, iddle threads are destroyed by the SRE; Default value is 60. |
+| -l level<br>--log=level | Specifies where to find user class files, and source files. This class path overrides the user class path in the LOG_LEVEL environment variable. If neither LOG_LEVEL, --log nor --{2} is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| --max-threads=number | Specify the maximal number of threads that could be created by the SRE; Default is 512. |
+| --min-threads=number | Specify the minimal number of threads that should be created by the SRE; Default is 0. |
+| --name=name | Specify the name of the program that is shown into the logs for example; Default is 'SARL Run-time Environment'. |
+| --no-agent | Start the SRE without agent at boot time. In this case, the fully qualified name that may be provided on the command line is simply ignored. Agents should be spawned later by calling the programmatic API of the SRE. |
+| -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
+| -r uuid<br>--root-context-id=uuid | Specify the identifier (UUID) of the root context; Default is 2c38fb7f-f363-4f6e-877b-110b1f07cc77. |
+| --service-start-timeout=timeout | Specify the timeout for waiting a service to be started (in milliseconds); A value equal to zero means that the SRE waits for ever; Default is 0. |
+| --service-stop-timeout=timeout | Specify the timeout for waiting a service to be stopped (in milliseconds); A value equal to zero means that the SRE waits for ever; Default is 10 000. |
+| --thread-purge={true&#124;false} | Specify if the executor service is periodically purging the thread pools; Default is: true. |
+| --thread-timeout=timeout | Specify the numbers of seconds that the SRE is waiting for thread terminations before timeout; Default is: 30. |
+| -v<br>--version | Prints release information. |
+| -x<br>--xml | When present, the output of the configuration has the XML format. |
+
 
 
 
@@ -119,7 +145,7 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-07-18
+* Release: 2020-08-01
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
