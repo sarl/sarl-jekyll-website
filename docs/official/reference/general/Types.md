@@ -11,8 +11,9 @@ layout: default
 <li><a href="#1-primitive-types">1. Primitive Types</a></li>
 <li><a href="#2-string-of-characters">2. String of Characters</a></li>
 <li><a href="#3-default-values-of-primitive-types">3. Default Values of Primitive Types</a></li>
-<li><a href="#4-acknowledgements">4. Acknowledgements</a></li>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#4-immutable-types">4. Immutable Types</a></li>
+<li><a href="#5-acknowledgements">5. Acknowledgements</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
@@ -81,20 +82,91 @@ The following chart summarizes the default values for the above data types.
 | `String` or any object | `null`        |
 
 
+## 4. Immutable Types
+
+All objects in SARL has an internal state (composed of the values of the different attributes, transitively).
+As SARL is a strongly-typed language, each object is of a given type.
+This type is said to be immutable when the internal state of a object of this type remains constant after it has been entirely created.
+In other words, the values of the object's attributes cannot be changed after the object's construction.
+ 
+Several types are always immutable in SARL (mostly from the Java API itself):
+
+| Immutable Types |
+| --------------- |
+| io.sarl.lang.core.Event |
+| java.io.File |
+| java.lang.Boolean |
+| java.lang.Byte |
+| java.lang.Character |
+| java.lang.Double |
+| java.lang.Enum |
+| java.lang.Float |
+| java.lang.Integer |
+| java.lang.Long |
+| java.lang.Short |
+| java.lang.StackTraceElement |
+| java.lang.String |
+| java.lang.annotation.Annotation |
+| java.net.InetAddress |
+| java.net.URI |
+| java.net.URL |
+| java.security.Permission |
+| java.time.Clock |
+| java.time.Duration |
+| java.time.Instant |
+| java.time.LocalDate |
+| java.time.LocalDateTime |
+| java.time.LocalTime |
+| java.time.MonthDay |
+| java.time.OffsetDateTime |
+| java.time.OffsetTime |
+| java.time.Period |
+| java.time.Year |
+| java.time.YearMonth |
+| java.time.ZoneId |
+| java.time.ZoneOffset |
+| java.time.ZonedDateTime |
+| java.util.Date |
+| java.util.Locale |
+| java.util.UUID |
+| org.eclipse.xtext.util.Pair |
+| org.eclipse.xtext.xbase.lib.Pair |
 
 
-## 4. Acknowledgements
+Additionally, you could define your own data type that is assumed to be immutable.
+This definition is based on the usage of a specific annotation that is attached to your type.
+The complete list of annotations that mark the types as immutable is:
+
+| Annotations for Immutable Types |
+| ------------------------------- |
+| org.eclipse.xtend.lib.Data |
+| org.eclipse.xtend.lib.annotations.Data |
+
+
+For illustration, the `@Data` annotation, that is described in the [active annotation documentation](./ActiveAnnotations.html#2-data),
+could be used as below:
+
+```sarl
+@Data class Person {
+  val firstName : String
+  val lastName : String
+}
+```
+
+
+
+## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
 [Xtext](https://www.eclipse.org/Xtext/documentation.html) and
 [Xtend](https://www.eclipse.org/xtend/documentation.html) projects.
 
-## 5. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-01
+* Release: 2020-08-18
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
