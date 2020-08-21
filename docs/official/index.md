@@ -22,6 +22,7 @@ layout: default
   <li><a href="#51-general-syntax">5.1. General Syntax</a></li>
   <li><a href="#52-agent-oriented-programming">5.2. Agent-Oriented Programming</a></li>
   <li><a href="#53-object-oriented-programming">5.3. Object-Oriented Programming</a></li>
+  <li><a href="#54-sarl-development-toolkit-sdk-and-programming-interface-api">5.4. SARL Development Toolkit (SDK) and Programming Interface (API)</a></li>
 </ul>
 <li><a href="#6-compilation-and-generation-infrastructure">6. Compilation and Generation Infrastructure</a></li>
 <ul>
@@ -127,6 +128,12 @@ layout: default
 * [Comparison between SARL and other Languages](./reference/LanguageComparison.html)
 * [Compiler Errors](./reference/CompilerErrors.html)
 
+### 5.4. SARL Development Toolkit (SDK) and Programming Interface (API)
+
+* [Programmatic Access to the SARL Run-time Environment](./api/SRE.html)
+* [Naming and Namespaces](./api/Naming.html)
+* [SRE Observation and Probes](./api/Probing.html)
+
 ## 6. Compilation and Generation Infrastructure
 
 * [Compiler Errors](./reference/CompilerErrors.html)
@@ -163,7 +170,7 @@ layout: default
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-18
+* Release: 2020-08-21
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

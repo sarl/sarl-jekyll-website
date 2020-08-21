@@ -135,7 +135,7 @@ The extensions are described into categories.
 The following functions are provided for extended the standard collection API:
 
 ```sarl
-def clone(Object[]) : Object[]
+def clone(T[]) : T[] with T
 def clone(boolean[]) : boolean[]
 def clone(byte[]) : byte[]
 def clone(char[]) : char[]
@@ -162,8 +162,8 @@ def equals(float[], Object) : boolean
 def equals(int[], Object) : boolean
 def equals(long[], Object) : boolean
 def equals(short[], Object) : boolean
-def get(Object[], int) : Object
-def get(Object[][], int, int) : Object
+def get(T[], int) : T with T
+def get(T[][], int, int) : T with T
 def get(boolean[], int) : boolean
 def get(boolean[][], int, int) : boolean
 def get(byte[], int) : byte
@@ -198,8 +198,8 @@ def length(float[]) : int
 def length(int[]) : int
 def length(long[]) : int
 def length(short[]) : int
-def set(Object[], int, Object) : Object
-def set(Object[][], int, int, Object) : Object
+def set(T[], int, E) : T with T, E
+def set(T[][], int, int, E) : T with T, E
 def set(boolean[], int, boolean) : boolean
 def set(boolean[][], int, int, boolean) : boolean
 def set(byte[], int, byte) : byte
@@ -259,11 +259,11 @@ def xor(boolean, boolean) : boolean
 The following functions are provided for extended the Object types:
 
 ```sarl
-def operator_greaterEqualsThan(Comparable<Object>, Object) : boolean
-def operator_greaterThan(Comparable<Object>, Object) : boolean
-def operator_lessEqualsThan(Comparable<Object>, Object) : boolean
-def operator_lessThan(Comparable<Object>, Object) : boolean
-def operator_spaceship(Comparable<Object>, Object) : int
+def operator_greaterEqualsThan(Comparable<Object>, C) : boolean with C
+def operator_greaterThan(Comparable<Object>, C) : boolean with C
+def operator_lessEqualsThan(Comparable<Object>, C) : boolean with C
+def operator_lessThan(Comparable<Object>, C) : boolean with C
+def operator_spaceship(Comparable<Object>, C) : int with C
 ```
 
 
@@ -273,17 +273,17 @@ def operator_spaceship(Comparable<Object>, Object) : int
 The following functions are provided for extended the standard Lambda expression API:
 
 ```sarl
-def andThen((Object) => Object, (Object) => Object) : (Object) => Object
-def andThen((Object) => void, (Object) => void) : (Object) => void
-def andThen((Object, Object) => Object, (Object) => Object) : (Object, Object) => Object
+def andThen((Object) => T, (Object) => R) : (V) => R with V, T, R
+def andThen((Object) => void, (Object) => void) : (T) => void with T
+def andThen((Object, Object) => T, (Object) => R) : (V1, V2) => R with V1, V2, T, R
 def andThen(Procedure0, Procedure0) : Procedure0
-def compose((Object) => Object, (Object) => Object) : (Object) => Object
-def curry((Object) => Object, Object) : () => Object
-def curry((Object, Object) => Object, Object) : (Object) => Object
-def curry((Object, Object, Object) => Object, Object) : (Object, Object) => Object
-def curry((Object, Object, Object, Object) => Object, Object) : (Object, Object, Object) => Object
-def curry((Object, Object, Object, Object, Object) => Object, Object) : (Object, Object, Object, Object) => Object
-def curry((Object, Object, Object, Object, Object, Object) => Object, Object) : (Object, Object, Object, Object, Object) => Object
+def compose((Object) => R, (Object) => T) : (V) => R with V, T, R
+def curry((Object) => RESULT, P1) : () => RESULT with P1, RESULT
+def curry((Object, Object) => RESULT, P1) : (P2) => RESULT with P1, P2, RESULT
+def curry((Object, Object, Object) => RESULT, P1) : (P2, P3) => RESULT with P1, P2, P3, RESULT
+def curry((Object, Object, Object, Object) => RESULT, P1) : (P2, P3, P4) => RESULT with P1, P2, P3, P4, RESULT
+def curry((Object, Object, Object, Object, Object) => RESULT, P1) : (P2, P3, P4, P5) => RESULT with P1, P2, P3, P4, P5, RESULT
+def curry((Object, Object, Object, Object, Object, Object) => RESULT, P1) : (P2, P3, P4, P5, P6) => RESULT with P1, P2, P3, P4, P5, P6, RESULT
 ```
 
 
@@ -353,7 +353,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-18
+* Release: 2020-08-21
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

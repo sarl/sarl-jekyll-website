@@ -203,29 +203,29 @@ It is easy to create instances of collections since the methods in `CollectionLi
 They permit you to create instances of collections from the JDK.
 
 ```sarl
-interface CollectionLiterals {
-	def emptyList : List<Object>
-	def emptyMap : Map<Object, Object>
-	def emptySet : Set<Object>
-	def newArrayList : ArrayList<Object>
-	def newArrayList(Object[]*) : ArrayList<Object>
-	def newHashMap : HashMap<Object, Object>
-	def newHashMap(Pair<Object, Object>[]*) : HashMap<Object, Object>
-	def newHashSet : HashSet<Object>
-	def newHashSet(Object[]*) : HashSet<Object>
-	def newImmutableList(Object[]*) : List<Object>
-	def newImmutableMap(Pair<Object, Object>[]*) : Map<Object, Object>
-	def newImmutableSet(Object[]*) : Set<Object>
-	def newLinkedHashMap : LinkedHashMap<Object, Object>
-	def newLinkedHashMap(Pair<Object, Object>[]*) : LinkedHashMap<Object, Object>
-	def newLinkedHashSet : LinkedHashSet<Object>
-	def newLinkedHashSet(Object[]*) : LinkedHashSet<Object>
-	def newLinkedList : LinkedList<Object>
-	def newLinkedList(Object[]*) : LinkedList<Object>
-	def newTreeMap(Comparator<Object>) : TreeMap<Object, Object>
-	def newTreeMap(Comparator<Object>, Pair<Object, Object>[]) : TreeMap<Object, Object>
-	def newTreeSet(Comparator<Object>) : TreeSet<Object>
-	def newTreeSet(Comparator<Object>, Object[]) : TreeSet<Object>
+class CollectionLiterals {
+	def emptyList : List<T> with T
+	def emptyMap : Map<K, V> with K, V
+	def emptySet : Set<T> with T
+	def newArrayList : ArrayList<T> with T
+	def newArrayList(T[]*) : ArrayList<T> with T
+	def newHashMap : HashMap<K, V> with K, V
+	def newHashMap(Pair<K, V>[]*) : HashMap<K, V> with K, V
+	def newHashSet : HashSet<T> with T
+	def newHashSet(T[]*) : HashSet<T> with T
+	def newImmutableList(T[]*) : List<T> with T
+	def newImmutableMap(Pair<K, V>[]*) : Map<K, V> with K, V
+	def newImmutableSet(T[]*) : Set<T> with T
+	def newLinkedHashMap : LinkedHashMap<K, V> with K, V
+	def newLinkedHashMap(Pair<K, V>[]*) : LinkedHashMap<K, V> with K, V
+	def newLinkedHashSet : LinkedHashSet<T> with T
+	def newLinkedHashSet(T[]*) : LinkedHashSet<T> with T
+	def newLinkedList : LinkedList<T> with T
+	def newLinkedList(T[]*) : LinkedList<T> with T
+	def newTreeMap(Comparator<Object>) : TreeMap<K, V> with K, V
+	def newTreeMap(Comparator<Object>, Pair<K, V>[]) : TreeMap<K, V> with K, V
+	def newTreeSet(Comparator<Object>) : TreeSet<T> with T
+	def newTreeSet(Comparator<Object>, T[]) : TreeSet<T> with T
 }
 ```
 
@@ -249,9 +249,9 @@ Java arrays can be created either using a literal as described in the next secti
 The methods from `ArrayLiterals` are automatically included.
 
 ```sarl
-interface ArrayLiterals {
-	def newArrayOfSize(int) : Object[]
-	def newArrayOfSize(int, int) : Object[][]
+class ArrayLiterals {
+	def newArrayOfSize(int) : T[] with T
+	def newArrayOfSize(int, int) : T[][] with T
 	def newBooleanArrayOfSize(int) : boolean[]
 	def newBooleanArrayOfSize(int, int) : boolean[][]
 	def newByteArrayOfSize(int) : byte[]
@@ -371,7 +371,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-18
+* Release: 2020-08-21
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

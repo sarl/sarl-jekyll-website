@@ -413,7 +413,7 @@ When an agent is ready to be executed by the runtime environment, it receives th
 This event is defined as:
 
 ```sarl
-interface Initialize extends Event {
+class Initialize extends Event {
 }
 ```
 
@@ -586,7 +586,7 @@ two are defined into `Agent4`. This mechanism is generalized to all the events w
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
 ```sarl
-interface Destroy extends Event {
+class Destroy extends Event {
 }
 ```
 
@@ -870,7 +870,7 @@ agent MyAgent {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-18
+* Release: 2020-08-21
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

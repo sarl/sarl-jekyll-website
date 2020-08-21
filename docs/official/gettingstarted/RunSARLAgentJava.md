@@ -26,49 +26,15 @@ The default SRE is the [Janus platform](http://www.janusproject.io).
 
 ## 1. Definition of the SRE Bootstrap
 
-In the SARL API, a bootstrap is definition is provided.
+In the SARL API, a bootstrap definition is provided.
 It represents an access point to the SRE from any program.
-This access point may be used for accessing the features of the underlying SRE,
-independently of the implementation.
+This access point may be used for accessing by code the features of the underlying SRE,
+independently of the concrete implementation.
 In other words, the SRE Bootstrap gives access to the standard SRE functions without
 forcing you to add an explicit dependency to the SRE Library, e.g. Janus, into your
 application classpath.
 
-The SARL API defines a SRE bootstrap as:
-
-```sarl
-interface SREBootstrap {
-	def addSREListener(SREListener)
-	def getKernelLogger : Logger
-	def getService(Class<Object>) : Object
-	def getUniverseContextUUID : UUID
-	def getUniverseSpaceUUID : UUID
-	def isActive : boolean
-	def isRunning : boolean
-	def removeSREListener(SREListener)
-	def setBootAgentTypeContextUUID
-	def setOffline(boolean)
-	def setRandomContextUUID
-	def setSpecificContextUUID
-	def setUniverseContextUUID(UUID)
-	def setUniverseSpaceUUID(UUID)
-	def setVerboseLevel(int)
-	def shutdown
-	def shutdown(boolean)
-	def shutdown(int)
-	def startAgent(Class<Agent>, Object[])
-	def startAgent(int, Class<Agent>, Object[])
-	def startAgentWithID(Class<Agent>, UUID, Object[])
-	def startWithoutAgent : AgentContext
-}
-```
-
-
-
-A run-time environment, such as [Janus](http://www.janusproject.io) must provide a service implementing this bootstrap interface.
-The standard Java service management feature is used. in other words, the SRE should
-[declare the service implementation](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html) into
-its `META-INF/services/io.sarl.bootstrap.SREBootstrap` file.
+The definition of the SARL API for using the bootstrap is detailled in the [reference page on SRE](../api/SRE.html).
 
 
 ## 2. Using the SRE Bootstrap
@@ -96,7 +62,7 @@ It is the role of the SARL run-time environment to create this instance for you,
 
 
 In the case you want to launch more than one agent programmatically,
-you could call the `startAgent` function the number of times you need.
+you could call the `startAgent` function with the number of agent instances you need.
 
 
 ## 3.  Direct Access to the API of the Janus SRE
@@ -154,7 +120,7 @@ Please read the rest of the documentation for obtaining more details.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-18
+* Release: 2020-08-21
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
