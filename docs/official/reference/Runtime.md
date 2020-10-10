@@ -121,6 +121,7 @@ event MyEvent2
 ```
 
 
+
 This agent definition contains two event handlers: one for events of type `MyEvent`, and one for events of type `MyEvent2`.
 The sequence diagram that corresponds to the sending and receiving of an occurrence of type `MyEvent` by `Agent1` is provided below.
 
@@ -156,6 +157,7 @@ agent Agent2 {
 ```
 
 
+
 This agent definition contains three event handlers: two for events of type `MyEvent`, and one for events of type `MyEvent2`.
 The sequence diagram that corresponds to the receiving of an occurrence of type `MyEvent`  by `Agent2` is provided below:
 
@@ -181,14 +183,15 @@ agent SubAgent2 extends Agent2 {
 ```
 
 
+
 In the previous code, two event handlers are added into the definition of `SubAgent2`.
 These two event handlers are added to the list of available event handlers for the event `MyEvent`.
 Therefore, the agent `SubAgent2` displays `A` and `B` from the inherited definition of `Agent2`, and `C`
 and `D` from the `SubAgent2` definition.
 And, because of the parallel execution of the four event handlers, there is no fixed order for displaying `A`, `B`, `C`, `D`.
 
-<caution>Event handlers are inherited, but there is no overriding of event handler. In other words, you cannot replace/override
-the code of an event handler that is inherited.</caution>
+> **_Caution:_** Event handlers are inherited, but there is no overriding of event handler. In other words, you cannot replace/override
+> the code of an event handler that is inherited.
 
 
 #### General Process for Event Handling
@@ -245,6 +248,7 @@ agent AgentExample {
 ```
 
 
+
 Since the event handler is executed in parallel (see previous section), if multiple occurrences of `Calculate` are fired, then a multi-threading issues
 for accessing to the `sum` may occur.
 
@@ -253,8 +257,8 @@ execution fails almost every time with an inconsistent actual output e.g.: `965`
 
 A simple way to avoid the race condition is to make the operation thread-safe by using the `synchronized` keyword.
 
-<caution>If a field is assessed from a function called from an event handler, then the synchronization issue still may occur, if neither
-the function is synchronized nor the event handler.</caution> 
+> **_Caution:_** If a field is assessed from a function called from an event handler, then the synchronization issue
+> still may occur, if neither the function is synchronized nor the event handler. 
 
 
 ### 5.2. The Synchronized Keyword
@@ -263,8 +267,8 @@ The `synchronized` keyword is included into the SARL language in order to let yo
 accesses to shared data.
 This keyword is formally defined in a dedicated [reference page](./general/Synchronization.html).
 
-<caution>The SARL compiler does not apply automatic synchronization to your code yet (it is planned for a future release).
-You have to manage the `synchronized` keyword manually by yourself.</caution>
+> **_Caution:_** The SARL compiler does not apply automatic synchronization to your code yet (it is planned for a future release).
+> You have to manage the `synchronized` keyword manually by yourself.
 
 
 ## 6. Event Sending Run-time Sequence
@@ -312,7 +316,7 @@ caller. That's why in the sequence diagram above, there is no creation of a thre
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

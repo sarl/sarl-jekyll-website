@@ -47,6 +47,7 @@ Like a method declaration, a lambda expression may declare parameters.
 ```
 
 
+
 The lambda above has one parameter called `e` which is of type `ActionEvent`.
 The code after the `|` operator is the internal code of the lambda expression.
 
@@ -61,6 +62,7 @@ For example, when using inferred type, the code in the previous section becomes:
 	textField.text = "Something happened!" + e.toString
 ]
 ```
+
 
 
 The type of `e` is inferred according to its usage.
@@ -82,6 +84,7 @@ The name of the single parameter becomes `it`.
 ```
 
 
+
 ### 3.2. Case of multiple parameters
 
 When a lambda has multiple parameters, and no name is provided by the SARL developer, 
@@ -98,31 +101,33 @@ interface MyInterface {
 ```
 
 
+
 The following code is a lambda expression implementing the `MyInterface` interface.
 Because the `myfct` function has four formal parameters, the lambda expression 
 has four parameters with implicit the following implicit names: `$0`, `$1`, and `$2`.
 
 ```sarl
 [
-            [:Success:]
-            package io.sarl.docs.reference.gsr
-            interface MyInterface {
-                def myfct(a : int, b : int, c : int) : int
-            }
-            agent A {
-                def called(p : MyInterface) {}
-                def example {
-                    called(
-                    [:On]
-                    [
-                        $0 + $1 + $2
-                    ]
-                    [:Off])
-                }
-            }
-        [:End:] +  + 
+    [:Success:]
+    package io.sarl.docs.reference.gsr
+    interface MyInterface {
+        def myfct(a : int, b : int, c : int) : int
+    }
+    agent A {
+        def called(p : MyInterface) {}
+        def example {
+            called(
+            [:On]
+            [
+                $0 + $1 + $2
+            ]
+            [:Off])
+        }
+    }
+[:End:] +  + 
 ]
 ```
+
 
 
 ## 4. Empty List of Parameters
@@ -184,6 +189,7 @@ Collections.sort(t, [ a, b | a.length - b.length ])
 ```
 
 
+
 The second example uses the notation with the lambda expression outside the argument list.
 
 ```sarl
@@ -207,6 +213,7 @@ returning a value of `Boolean`.
 ```sarl
 var f : (String) => Boolean
 ```
+
 
 
 If the lambda is a procedure, i.e. it has no return type, then the return type to specify must be `void`.
@@ -246,7 +253,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

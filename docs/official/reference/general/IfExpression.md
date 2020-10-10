@@ -44,6 +44,7 @@ if (e1 !== null) e1
 ```
 
 
+
 ## 3. Conditional Operator
 
 Sometimes, it is useful to put a if-then-else expression inside another expression.
@@ -87,7 +88,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

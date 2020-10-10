@@ -78,7 +78,7 @@ program is finished with it:
 ```sarl
 static def readFirstLineFromFile(path : String) : String {
 	try (var br = new BufferedReader(new FileReader(path))) {
-    				return br.readLine
+		return br.readLine
 	}
 }
 ```
@@ -95,9 +95,6 @@ closed regardless of whether the try statement completes normally or abruptly (a
 
 
 
-
-
-
 ## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
@@ -109,7 +106,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

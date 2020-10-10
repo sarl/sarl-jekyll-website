@@ -26,6 +26,7 @@ they can be used. This involves stating the variable's type and name, as you've 
 var gear : int = 1
 ```
 
+
 		
 Doing so tells your program that a field named `gear` exists, holds numerical data, and has an initial
 value of `1`. A variable's data type determines the values it may contain, plus the operations that
@@ -39,6 +40,7 @@ may be performed on it. In addition to `int`, the SARL programming language supp
 
 A primitive type is predefined by the language and is named by a reserved keyword. Primitive values do not
 share state with other primitive values. The eight primitive data types supported by the SARL programming language are:
+
 
 | Type      | Object Equivalent (Wrapper) | Definition                                            |
 | --------- | --------------------------- | ----------------------------------------------------- |
@@ -69,6 +71,7 @@ will be set to a reasonable default by the compiler. Generally speaking, this de
 depending on the data type. Relying on such default values, however, is generally considered bad programming style.
 
 The following chart summarizes the default values for the above data types.
+
 
 | Data Type              | Default Value |
 | ---------------------- | ------------- |
@@ -166,7 +169,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

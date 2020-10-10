@@ -41,8 +41,8 @@ def killMe
 This action automatically unregisters the calling agent from the default context, and therefore all its
 spaces including the default space.
 
-<veryimportantnote> If the killed agent was a composed agent, it must not have members any more before
-calling this action, otherwise a `RuntimeException` is thrown.</veryimportantnote>
+> **_Very Important Note:_** If the killed agent was a composed agent, it must not have members any more before
+> calling this action, otherwise a `RuntimeException` is thrown.
 
 This action fires two events:
 
@@ -53,7 +53,6 @@ This action fires two events:
 
 
 Example:
-
 ```sarl
 agent A {
 	uses Lifecycle
@@ -76,6 +75,7 @@ def spawn(nbAgents: int, agentType : Class<? extends Agent>, parameters : Object
 ```
 
 
+
 This action creates one to `nbAgents` instance(s) of the given agent type, and launches the agent(s)
 into the default context.
 The first `spawn` function above is spawning a single agent.
@@ -93,7 +93,6 @@ This action fires two events:
 
 
 Example:
-
 ```sarl
 agent A {
 	uses Lifecycle
@@ -142,7 +141,6 @@ This action fires two events:
 * `Initialize` in spawned agent.
 
 Example:
-
 ```sarl
 agent A {
 	uses Lifecycle
@@ -175,6 +173,7 @@ parameters : Object*)
 ```
 
 
+
 This action creates an instance of the given agent type, with the given identifier, and launches the agent
 into the given context.
 The parameters are passed to the spawned agent inside the `Initialize` event: the `parameters` field.
@@ -185,7 +184,6 @@ This action fires two events:
 * `Initialize` in spawned agent.
 
 Example:
-
 ```sarl
 agent A {
 	uses Lifecycle
@@ -210,7 +208,7 @@ agent A {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

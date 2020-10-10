@@ -46,8 +46,8 @@ The SARL launch configuration is recommended.
 For launching the SARL agents on the runtime environment inside the SARL Eclipse IDE, you must
 define a *Run Configuration*.
 
-<veryimportant>If your project is Maven-based, you could not use this method for launching your
-application. You must use the [Java launch configuration](#2-create-a-java-launch-configuration).</veryimportant>
+> **_Very Important Note:_** If your project is Maven-based, you could not use this method for launching your
+> application. You must use the [Java launch configuration](#2-create-a-java-launch-configuration).
 
 
 ### 1.1. Create a Java application configuration
@@ -92,6 +92,8 @@ After adding the SRE's JAR file, you obtain a dialog box similar to:
 
 
 ![Add Janus](./EclipseRunConfiguration_0_2.png)
+
+
 
 ### 1.4. Give parameters to the Agent
 
@@ -224,7 +226,7 @@ In the next section, we will learn how to launch your SARL project from the comm
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

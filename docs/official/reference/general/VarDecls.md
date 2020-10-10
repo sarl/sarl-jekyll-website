@@ -22,8 +22,10 @@ variable (see below for details), its name, and optionally its type and its init
 
 The variable/value declaration follows the syntax:
 
-		var NAME [: TYPE] [= INITIAL VALUE]
-		val NAME [: TYPE] [= INITIAL VALUE]
+```text
+var NAME [: TYPE] [= INITIAL VALUE]
+val NAME [: TYPE] [= INITIAL VALUE]
+```
 
 Shadowing variables from outer scopes is not allowed, the only exception is the implicit variable `it`.
 
@@ -34,12 +36,15 @@ A variable declaration starting with the keyword `val` denotes a value, which is
 
 
 
+
 The variable needs to be declared with the keyword `var`, which stands for 'variable', if its value can change.
+
 
 
 
 Variables declared outside a lambda expression using the `var` or `val` keyword are accessible from within the
 lambda expressions.
+
 
 
 
@@ -58,6 +63,7 @@ In the following example, the type of the variable is explicitly given:
 ```sarl
 var a : String = "abc"
 ```
+
 
 
 In the following example, the type of the variable is inferred to `String`:
@@ -80,7 +86,6 @@ When you type a name that doesn't resolve to a variable in the local scope, the 
 with the same name on the `it` object, then in the `this` object.
 
 
-
 ## 4. Acknowledgements
 
 This documentation is inspired by the documentations from the
@@ -92,7 +97,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

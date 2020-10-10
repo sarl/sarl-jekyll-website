@@ -55,7 +55,8 @@ var e = "Hello
 
 
 
-<note>Unlike Java, SARL strings can span multiple lines, as ilustrated by the variable `e` above.</note>
+
+> **_Note:_** Unlike Java, SARL strings can span multiple lines, as ilustrated by the variable `e` above.
 
 
 ## 2. Character Literals
@@ -107,7 +108,6 @@ Post-fixing an integer literal may change its type:
 * suffix `bi` or `BI` is for `BigInteger` number.
 
 Examples:
-
 ```sarl
 var anInteger = 1234
 
@@ -128,7 +128,6 @@ Post-fixing a floating-point literal may change its type:
 * suffix `bd` or `BD` is for `BigDecimal` number. 
 
 Examples:
-
 ```sarl
 var aDouble = 1234.0
 
@@ -230,6 +229,7 @@ class CollectionLiterals {
 ```
 
 
+
 In the following example, an array-based list with two strings of characters and a linked hash map with two pairs are created. 
 
 ```sarl
@@ -272,8 +272,9 @@ class ArrayLiterals {
 ```
 
 
- This utility class provides a collection of methods, such as ``ArrayLiterals`.newArrayOfSize(int)`
- for creating array literals.
+
+This utility class provides a collection of methods, such as ``ArrayLiterals`.newArrayOfSize(int)`
+for creating array literals.
 
 ```sarl
 // variable a contains a array of size 400 which contains Objects.
@@ -296,16 +297,14 @@ The method `length` is available for retrieving the size of the array.
 
 ```sarl
 var a = #['Hello', 'world', '!']
-
 // variable b contains the second element of the array a: 'world'.
 var b = a.get(1)
-
 // change the first element in the array a.
 a.set(0, 'New Element')
-
 // variable c contains the size of the array a: 3.
 var c = a.length
 ```
+
 
 
 
@@ -371,7 +370,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

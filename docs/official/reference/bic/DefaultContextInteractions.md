@@ -34,6 +34,7 @@ defaultContext.defaultSpace.emit(getID, ^event)
 ```
 
 
+
 Therefore, it is actually created on top of the other built-in capacities.
 
 
@@ -56,6 +57,7 @@ the following function:
 ```sarl
 def getDefaultSpace : EventSpace
 ```
+
 
 
 For obtaining the address of the agent in the default space, the following function is provided:
@@ -81,7 +83,6 @@ This function emits the given event with no scope (i.e., all registered agent wi
 event) in the default space of the default context.
 
 Example:
-
 ```sarl
 agent A {
 	uses DefaultContextInteractions
@@ -116,11 +117,13 @@ def emit(e : Event, scope : Scope<Address>)
 
 
 A scope is a predicates that is evaluated against the addresses of the receivers. It is defined as:
+
 ```sarl
 interface Scope<T> extends Serializable {
 	def matches(element : T) : boolean
 }
 ```
+
 
 
 ### 3.2. Creation of scopes with Lambda expressions
@@ -142,6 +145,7 @@ not the other agents.
 ```sarl
 emit(new MyEvent) [ it == a1 || it == a2 ]
 ```
+
 
 
 Another way to scope is based on the test of the agent identifiers of `UUID` type.
@@ -177,7 +181,6 @@ The scope restricts the receiver according to this identifier.
 
 
 
-
 ## 4. Testing if an element is related to the default context
 
 The `DefaultContextInteractions` provides a collection of utility functions that test if
@@ -198,8 +201,8 @@ The following example illustrates the use of the `isInDefaultSpace` function in 
 an behavior unit. In this example, the behavior unit is run only if the event of type `AnEvent`
 was emitted in the default space.
 
-<note>According to the [General Syntax Reference](../GeneralSyntax.html),
-the `event.isInDefaultSpace` is equivalent to `isInDefaultSpace(event)`.</note>
+> **_Note:_**According to the [General Syntax Reference](../GeneralSyntax.html),
+> the `event.isInDefaultSpace` is equivalent to `isInDefaultSpace(event)`.
 
 ```sarl
 on AnEvent [ occurrence.inDefaultSpace ] {
@@ -215,7 +218,7 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

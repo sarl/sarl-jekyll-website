@@ -50,7 +50,7 @@ and the spaces by the small color boxes in the contexts.
 Each built-in capacity is detailed inside a dedicated section:
 
 * [Behaviors](./bic/Behaviors.html)
-* [DefaultContxtInteractions](./bic/DefaultContextInteractions.html)
+* [DefaultContextInteractions](./bic/DefaultContextInteractions.html)
 * [ExternalContextAccess](./bic/ExternalContextAccess.html)
 * [InnerContextAccess](./bic/InnerContextAccess.html)
 * [Lifecycle](./bic/Lifecycle.html)
@@ -74,7 +74,7 @@ behavior-based concepts of SARL:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -42,14 +42,12 @@ These two event handlers are run in parallel.
 
 ```sarl
 event MyEvent
-
 agent MySuperAgent {
   uses Logging
   on MyEvent {
 	info("hello world")
   }
 }
-
 agent MyAgent extends MySuperAgent {
   on MyEvent {
 	// CODE1
@@ -70,7 +68,6 @@ of the event handler from the previous section. The event handler invokes the de
 
 ```sarl
 event MyEvent
-
 agent MySuperAgent {
   uses Logging
   on MyEvent {
@@ -104,7 +101,7 @@ agent MyAgent extends MySuperAgent {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

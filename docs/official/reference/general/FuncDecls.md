@@ -43,10 +43,12 @@ in top-level features, such as `agent`.
 
 The standard function declaration follows the following syntax:
 
-	def NAME [([PARAMETER, PARAMETER, PARAMETER...])] [: RETURN TYPE] [BLOCK]
+```text
+def NAME [([PARAMETER, PARAMETER, PARAMETER...])] [: RETURN TYPE] [BLOCK]
+```
 
 
-<note>The parameters are implicitly declared with the keyword `val` so are read-only.</note>
+> **_Note:_** The parameters are implicitly declared with the keyword `val` so are read-only.
 
 The following code gives examples of function declarations:
 
@@ -98,9 +100,9 @@ it is better to let a method further down the call stack handle the exception.
 If a function doesn't catch the checked exceptions that can occur within
 it, the function may specify that it can throw these exceptions.
 
-<note>This specification is optional since the SARL compiler determines the
-exceptions that are not catched, and assumes that they are implicitly
-thrown outside the function.</note>
+> **_Note:_** This specification is optional since the SARL compiler determines the
+> exceptions that are not catched, and assumes that they are implicitly
+> thrown outside the function.
 
 The declaration of the thrown exceptions is done with the 
 `throws` keyword, followed by a list of thrown exception types.
@@ -137,7 +139,7 @@ generic functions:
 
 A generic method's body is declared like that of any other method.
 
-<note>Type parameters can represent only reference types, not primitive types (like `int`, `double` and `char`).</note>
+> **_Note:_** Type parameters can represent only reference types, not primitive types (like `int`, `double` and `char`).
 
 Two syntaxes are allowed for defining the type parameters of the actions: the `with` syntax, and the bracket syntax.
 
@@ -251,9 +253,9 @@ the action can skip passing a value for the corresponding argument.
 And, when the function is called, the default value is given to the
 skipped argument.
 
-<importantnote> In SARL, if a formal parameter has a default value, the following formal
-parameters do not need to have default values as well. This is a major
-difference with the default values in other languages, such as C++.</importantnote>
+> **_Important Note:_** In SARL, if a formal parameter has a default value, the following formal
+> parameters do not need to have default values as well. This is a major
+> difference with the default values in other languages, such as C++.
  
 ```sarl
 // Function with one parameter with a default value.
@@ -353,14 +355,17 @@ def printType(x : Object) {
 ```
 
 
+
 This dispatcher uses the common super type of all declared arguments.
 Client code always binds to the synthesized dispatcher method.
 
 In the example, the calls to the `getType` functions produces the output:
 
-	it's a number
-	it's an int
-	it's a string
+```text
+it's a number
+it's an int
+it's a string
+```
 
 
 ## 8. Purity of the Functions
@@ -529,7 +534,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

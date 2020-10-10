@@ -162,9 +162,7 @@ class Skill extends AgentTrait
 ```
 
 
-
 Example of constructor definition:
-
 ```sarl
 // The constructor is mandatory
 // for defining the field "logger"
@@ -215,6 +213,7 @@ skill MyLogging implements Logging, LogReader {
 ```
 
 
+
 ### 1.8. Extending a Skill
 
 In some situations it is useful to specialize the definition of a Skill. This mechanism is supported by the __inheritance__
@@ -222,8 +221,8 @@ feature of SARL, which has the same semantics as the inheritance mechanism of th
 
 The extended Skill is specified just after the `extends` keyword.
 
-<veryimportantnote> A Skill type can extend __only one__ other Skill type.  This is similar
-to the constraint on the extension of classes in the Java language.</veryimportantnote>
+> **_Very Important Note:_** A Skill type can extend __only one__ other Skill type.  This is similar
+> to the constraint on the extension of classes in the Java language.
 
 In the following code, the `StandardJavaLogging` Skill (defined above) is extended to override the info output.
 
@@ -349,7 +348,7 @@ Details on the use of Skills may be found in the following:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

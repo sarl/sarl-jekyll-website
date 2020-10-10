@@ -37,10 +37,10 @@ def task(name : String) : AgentTask
 ```
 
 
+
 The replied task may be used for future execution, or controlling the execution.
 
 Example:
-
 ```sarl
 agent A {
 	uses Schedules
@@ -58,14 +58,13 @@ agent A {
 ## 2. Changing the name of a task
 
 A task has a name that serves as its identifier. You could change the task name by calling the following function:
-
 ```sarl
 def setName(task : AgentTask, name : String)
 ```
 
 
-Example:
 
+Example:
 ```sarl
 agent A {
 	uses Schedules
@@ -83,10 +82,10 @@ agent A {
 ```
 
 
+
 ## 3. Launching a Task for a single run
 
 For running a task once time, the following function is provided:
-
 ```sarl
 def execute(task : AgentTask = null, procedure : (Agent) => void) : AgentTask
 ```
@@ -103,7 +102,6 @@ agent task as parameter. This task will attach to the given procedure. The repli
 the task given as parameter.
 
 Example:
-
 ```sarl
 agent A {
 	uses Schedules, Logging
@@ -127,10 +125,10 @@ agent A {
 ## 4. Launching a Delayed Task
 
 For running a task in a given delay, the following function is provided:
-
 ```sarl
 def in(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
 ```
+
 
 
 Without its optional argument, the function submits the given procedure (a lambda expression as defined in
@@ -144,7 +142,6 @@ is the same as the task given as parameter.
 
 
 Example:
-
 ```sarl
 agent A {
 	uses Schedules, Logging
@@ -164,14 +161,13 @@ agent A {
 
 
 
-
 ## 5. Launching a Task at a Specific Time
 
 For running a task at a specific time, the following function is provided:
-
 ```sarl
 def at(task : AgentTask = null, time : long, procedure : (Agent) => void) : AgentTask
 ```
+
 
 
 Without its optional argument, the function submits the given procedure (a lambda expression as defined in
@@ -186,7 +182,6 @@ is the same as the task given as parameter.
 
 
 Example:
-
 ```sarl
 agent A {
 	uses Schedules, Logging
@@ -206,11 +201,9 @@ agent A {
 
 
 
-
 ## 6. Launching a Periodic Task at a Fixed Rate
 
 For running a periodic task with a fixed starting rate, the following function is provided:
-
 ```sarl
 def every(task : AgentTask = null, delay : long, procedure : (Agent) => void) : AgentTask
 ```
@@ -282,6 +275,7 @@ atFixedDelay(500) [ sleep(2000) ]
 
 
 
+
 | t= | 0 | 500 | 1000 | 1500 | 2000 | 2500 | 3000 | 3500 | 4000 | 4500 | 5000 | 5500 | 6000 | 6500 |
 | -- | - | --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | A  | X | X   | X    | X    |      |      |      |      |      |      |      |      |      |      |
@@ -311,7 +305,6 @@ whether the thread executing this task should be interrupted in an attempt to st
 The `isCanceled` function enables to test if a task was canceled or not.
 
 Example:
-
 ```sarl
 agent A {
 	uses Schedules
@@ -354,6 +347,7 @@ def setGuard(condition : (Agent) => boolean)
 
 
 
+
 The first function replies the guard associated to the task, or `null` if
 there is no associated guard. The second function enables you to change the associated guard.
 
@@ -369,21 +363,23 @@ def unless(condition : (Agent) => boolean) : AgentTask
 
 
 
+
 The `ifTrue` function is equivalent to `setGuard`, except that it is replying the current agent task.
 The `unless` function sets the guard of the task to the negation of the given condition. It replies
 the current task.
 
-<caution>The `ifTrue` and `unless` functions should not be used on the result of the scheduling functions.
-Indeed, if you call these two function on the value replied by `execute` for example, the execution platform
-could have launched the task before the guard is set. Consider the following code
-
-```sarl
-execute [ doSomething ].unless [ myVar > 5 ]
+> **_Caution:_** The `ifTrue` and `unless` functions should not be used on the result of the scheduling functions.
+> Indeed, if you call these two function on the value replied by `execute` for example, the execution platform
+> could have launched the task before the guard is set. Consider the following code
+> 
+>```sarl
+>			execute [ doSomething ].unless [ myVar > 5 ]
+>
 ```
 
-
-The call to `execute` is done before the call to `unless`. It means that the execution platform could have
-already checked if a guard is assosiated and `true`, before the `unless` function sets the guard.</caution>
+>
+> The call to `execute` is done before the call to `unless`. It means that the execution platform could have
+> already checked if a guard is assosiated and `true`, before the `unless` function sets the guard.
 
 The best practice for setting the task guards is to create a task, set the guard, and execute the task:
 
@@ -407,10 +403,10 @@ def getActiveTasks : Collection<String>
 ```
 
 
+
 The replied collection is unmodifiable and contains the names of the active tasks. 
 
 Example:
-
 ```sarl
 for (taskName : getActiveTasks) {
 	info("Active task: " + taskName)
@@ -424,7 +420,7 @@ for (taskName : getActiveTasks) {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

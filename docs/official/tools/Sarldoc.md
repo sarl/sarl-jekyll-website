@@ -39,8 +39,9 @@ sarldoc is for better understanding the code and thus better maintaining it.
 
 The `sarldoc` tool takes arguments:
 
-
-	sarldoc [OPTIONS] <source folder>...
+```text
+sarldoc [OPTIONS] <source folder>...
+```
 
 
 The `sarldoc` tool takes at least one `source folder` from which the SARL files are read.
@@ -48,7 +49,9 @@ The `sarldoc` tool takes at least one `source folder` from which the SARL files 
 You could change the behavior of the `sarldoc` compiler with the command-line options.
 For obtaining a list of the options, type:
 
-	sarldoc -h
+```text
+sarldoc -h
+```
 
 
 ## 2. Command-Line Options
@@ -87,10 +90,12 @@ The complete list of the options is:
 | --json | When present, the output of the configuration has the Json format. |
 | --locale=locale_code  | Specify the locale that should be used into the documentation; default value is en_US. |
 | --log=level | Specifies where to find user class files, and source files. This class path overrides the user class path in the LOG_LEVEL environment variable. If neither LOG_LEVEL, --log nor --{2} is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| -m path<br>--modulepath=path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -o directory_name<br>--outputdir=directory_name | Sets the destination directory for class files. The directory must already exist because sarlc does not create it. If a class is part of a package, then sarlc puts the class file in a subdirectory that reflects the package name and creates directories as needed. If the --outputdir option is not specified, then sarlc assumes target/classes. |
+| -p path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -G<br>--print-generators | Prints the list of the available extra-language generators. |
 | -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
-| -p [val]<br>--progress[=val] | Prints the progress bar on the console. |
+| --progress[=val] | Prints the progress bar on the console. |
 | -s [true&#124;false]<br>--sincetag[=true&#124;false] | Specify if the @since tag should be supported by Sarldoc; default value is true. |
 | --tags=name:placements:header(:name:placements:header)* | Specify the custom tags with the given names, placements and heading texts. The 'placements' must be a list of characters in: X (disable: disable tag), a (all: in all pages), o (overview: into the overview page), p (packages: into the packages'' documentations), t (types: into the types'' documentations), c (constructors: into constructors'' documentations), m (methods: into the methods'' documentations), f (fields: into the fields'' documentations). |
 | --tempdir=directory_name | Directory in which the temporary files will be generated during the compilation process. |
@@ -150,6 +155,7 @@ types of tags can be repeated while others cannot. For example, this `@see` tag 
 ```
 
 
+
 #### Block and Inline Tags
 
 A tag is a special keyword within a documentation comment that the `sarldoc` command processes. There are two kinds of
@@ -173,6 +179,7 @@ An inline tag is allowed and interpreted anywhere that text is allowed. The foll
 ```
 
 
+
 #### Write comments in HTML
 
 The text must be written in HTML with HTML entities and HTML tags. You can use whichever version of HTML your
@@ -190,6 +197,7 @@ in the following example.
 * @see java.lang.Object
 */
 ```
+
 
 
 #### Leading Asterisks
@@ -212,8 +220,8 @@ the top of the HTML page.
 The `sarldoc` command allows method comment inheritance in type declarations to fill in missing text or to explicitly
 inherit method comments. Constructors, fields, and nested types do not inherit documentation comments.
 
-<caution>The source file for an inherited method must be on the path for the documentation comment to be available to
-copy. Neither the class nor its package needs to be passed in on the command line.</caution>
+> **_Caution:_** The source file for an inherited method must be on the path for the documentation comment to be available to
+> copy. Neither the class nor its package needs to be passed in on the command line.
 
 When a main description, or `@return`, `@param`, or `@throws` tag is missing from a method comment, the `sarldoc` command
 copies the corresponding main description or tag comment from the method it overrides or implements (if any).
@@ -282,7 +290,7 @@ This documentation is inspired by the documentation from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

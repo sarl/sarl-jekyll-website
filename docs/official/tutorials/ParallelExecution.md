@@ -55,6 +55,7 @@ agent MyAgent {
 ```
 
 
+
 The call to `emit` is run within the thread of the calling block, i.e. `on Initialize`.
 The event is provides to the SRE, that is routing this event within a dedicated "hidden" thread.
 Consequently, the call to `emit` returns quickly. And, there is no warranty that the event's routing
@@ -63,8 +64,8 @@ is started nor terminated when the function returns.
 In order to allow the parallel treatment of the events by an agent, each event handler, e.g. `on MyEvent`
 is run in a dedicated thread.
 
-<caution>In the previous example, there is no warranty about the order of printing of the two messages. Because of the parallel execution
-of the threads, the `"Agent was spawned"` message may be displayed before the `"Spawn query called"` message.</caution>
+> **_Caution:_** In the previous example, there is no warranty about the order of printing of the two messages.
+> Because of the parallel execution of the threads, the `"Agent was spawned"` message may be displayed before the `"Spawn query called"` message.
 
 ## 2. Agent Spawning
 
@@ -147,6 +148,7 @@ agent MyAgent {
 ```
 
 
+
 The `"Agent was killed"` message is always logged after the `"Do destruction"` message because the executed code corresponds to
 steps 4 and 3, respectively. These steps are run on the same thread.
 
@@ -156,7 +158,7 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

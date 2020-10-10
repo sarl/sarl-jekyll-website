@@ -18,6 +18,7 @@ assert someCondition
 ```
 
 
+
 The `someCondition` expression is the Boolean expression that is dynamically evaluated.
 For example, in the following code, the two first `assert` have their conditions evaluated to true, and do not stop the program.
 The third `assert` condition is evaluated to false. It causes a stop of the program.
@@ -31,6 +32,7 @@ assert x <= 1
 ```
 
 
+
 ## 2. Error Message
 
 Sometimes, it is useful to give an explanation about the failure.
@@ -40,6 +42,7 @@ The message string follows the condition, with a coma character between them.
 ```sarl
 assert someCondition, "the failure explanation is here"
 ```
+
 
 		
 # Enable and Disable Assertions.
@@ -78,7 +81,9 @@ Usually, the option for enabling the assertions is the same as the one of the Ja
 If you want to run your SARL application by launching the Java virtual machine, you could use the standard command
 line options `-enableassertions` and `-ea` that are provided by this virtual machine:
 
-		java [ -enableassertions | -ea  ] <class name>
+```text
+java [ -enableassertions | -ea  ] <class name>
+```
 
 
 
@@ -93,7 +98,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -56,7 +56,9 @@ Such identification enables interaction with representations of the resource ove
 
 Each URI following the general following format (where parts between brackets are optional):
 
-		scheme:[//authority]path[?query][#fragment]
+```text
+scheme:[//authority]path[?query][#fragment]
+```
 
 The URI generic syntax consists of a hierarchical sequence of five components:
 * Scheme: A non-empty scheme component followed by a colon (`:`), consisting of a sequence of characters beginning with a letter and followed by any combination of letters, digits, plus (`+`), period (`.`), or hyphen (`-`). The scheme name refers to a specification for assigning identifiers within that scheme.
@@ -84,12 +86,14 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the agent names is defined by the following BNF grammar:
 
-		AGENT_NAME = "agent:" <ODSL> <CTX> <UUID> <FRG>
-		ODSL = "/" OSL | <empty>
-		OSL = "/" | <empty>
-		CTX = <UUID> "/" SPC | <empty>
-		SPC = <UUID> "/" | <empty>
-		FRG = "#" <ID> | <empty>
+```text
+AGENT_NAME = "agent:" <ODSL> <CTX> <UUID> <FRG>
+ODSL = "/" OSL | <empty>
+OSL = "/" | <empty>
+CTX = <UUID> "/" SPC | <empty>
+SPC = <UUID> "/" | <empty>
+FRG = "#" <ID> | <empty>
+```
 		
 
 ### 1.3. Naming for Behaviors
@@ -109,9 +113,10 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the behavior names is defined by the following BNF grammar (BNF rules in the previous section are re-used):
 
-		BEHAVIOR_NAME = "behavior:" <ODSL> <CTX> <UUID> "/" <ID> <IDX> <FRG>
-		IDX = "/" <INTEGER> | <empty>
-
+```text
+BEHAVIOR_NAME = "behavior:" <ODSL> <CTX> <UUID> "/" <ID> <IDX> <FRG>
+IDX = "/" <INTEGER> | <empty>
+```
 
 ### 1.4. Naming for Skills
 
@@ -130,7 +135,9 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the skill names is defined by the following BNF grammar (BNF rules in the previous sections are re-used):
 
-		SKILL_NAME = "skill:" <ODSL> <CTX> <SPC> <UUID> "/" <ID> <FRG>
+```text
+SKILL_NAME = "skill:" <ODSL> <CTX> <SPC> <UUID> "/" <ID> <FRG>
+```
 
 ### 1.5. Naming for Context
 
@@ -146,7 +153,9 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the agent names is defined by the following BNF grammar (BNF rules in the previous section are re-used):
 
-		CONTEXT_NAME = "context:" <ODSL> <UUID> <FRG>
+```text
+CONTEXT_NAME = "context:" <ODSL> <UUID> <FRG>
+```
 
 
 ### 1.6. Naming for Space
@@ -164,8 +173,9 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the space names is defined by the following BNF grammar (BNF rules in the previous section are re-used):
 
-		SPACE_NAME = "space:" <ODSL> <UUID> "/" <UUID> <FRG>
-
+```text
+SPACE_NAME = "space:" <ODSL> <UUID> "/" <UUID> <FRG>
+```
 
 ### 1.7. Naming for Service
 
@@ -182,7 +192,9 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the service names is defined by the following BNF grammar (BNF rules in the previous section are re-used):
 
-		SERVICE_NAME = "service:" <ODSL> <ID> <FRG>
+```text
+SERVICE_NAME = "service:" <ODSL> <ID> <FRG>
+```
 
 
 ### 1.8. Naming for Artifact
@@ -203,8 +215,9 @@ The fragment part is the name of an attribute/field that is declared into the re
 
 The general syntax of the service names is defined by the following BNF grammar (BNF rules in the previous section are re-used):
 
-		ARTIFACT_NAME = "artifact:" <ODSL> <UUID> <FRG>
-
+```text
+ARTIFACT_NAME = "artifact:" <ODSL> <UUID> <FRG>
+```
 
 
 ## 2. Namespace Service
@@ -246,6 +259,7 @@ var theAgent = namingService.findObject("agent:a7fbd4cc-9e1a-48c3-8ee8-3a7974ccb
 ```
 
 
+
 ### 2.2. Field Accessor
 
 In the case the given name targets a field (when it has a fragment part), the Namespace service create
@@ -263,6 +277,7 @@ class FieldAccess {
 	def toString : String
 }
 ```
+
 
 
 This accessor type enables to have access to the object instance and to the field value.
@@ -311,6 +326,7 @@ agent MyAgent {
 ```
 
 
+
 Consequently, even if the field `notObservableField` is declared, it will never be found by the Namespace space because it is hidden.
 
 As described above, the `@Observable` annotation could be attached to one of the enclosing type in order to mark all the
@@ -327,6 +343,7 @@ agent MyAgent2 {
 ```
 
 
+
 ### 3.2. Capacity to Manage the Access Rights
 
 In order to enable an agent to manage the accesses to its own fields, you could equip this agent with a skill that implements
@@ -337,6 +354,7 @@ interface FieldAccessValidationCapacity {
 	def getFieldAccessRight(Field) : FieldAccessRight
 }
 ```
+
 
 
 When an agent owns a skill implementing `FieldAccessValidationCapacity`, this skill is included into the right checking for accessing to
@@ -373,6 +391,7 @@ skill AccessRightSkill implements FieldAccessValidationCapacity {
 ```
 
 
+
 This skill gives the reading access to the field `field1`, and the reading/writing accesses to the field `field2`.
 Any other field cannot be observed.
 
@@ -388,7 +407,7 @@ Three levels of obersavility are defined into the enumeration `FieldAccessRight`
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

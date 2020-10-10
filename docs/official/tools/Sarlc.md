@@ -25,7 +25,9 @@ A command-line compiler is a tool that could be invoked from the command-line sh
 The `sarlc` tool takes arguments:
 
 
-	sarlc [OPTIONS] <source folder>...
+```text
+sarlc [OPTIONS] <source folder>...
+```
 
 
 The `sarlc` tool takes at least one `source folder` from which the SARL files are read.
@@ -33,7 +35,9 @@ The `sarlc` tool takes at least one `source folder` from which the SARL files ar
 You could change the behavior of the `sarlc` compiler with the command-line options.
 For obtaining a list of the options, type:
 
-	sarlc -h
+```text
+sarlc -h
+```
 
 
 ## 2. Command-Line Options
@@ -64,10 +68,12 @@ The complete list of the options is:
 | --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 1.8, and strictly lower than 12. |
 | --json | When present, the output of the configuration has the Json format. |
 | -l level<br>--log=level | Specifies where to find user class files, and source files. This class path overrides the user class path in the LOG_LEVEL environment variable. If neither LOG_LEVEL, --log nor --{2} is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| -m path<br>--modulepath=path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -o directory_name<br>--outputdir=directory_name | Sets the destination directory for class files. The directory must already exist because sarlc does not create it. If a class is part of a package, then sarlc puts the class file in a subdirectory that reflects the package name and creates directories as needed. If the --outputdir option is not specified, then sarlc assumes target/classes. |
+| -p path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -G<br>--print-generators | Prints the list of the available extra-language generators. |
 | -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
-| -p [val]<br>--progress[=val] | Prints the progress bar on the console. |
+| --progress[=val] | Prints the progress bar on the console. |
 | -t directory_name<br>--tempdir=directory_name | Directory in which the temporary files will be generated during the compilation process. |
 | -v<br>--version | Prints release information. |
 | --wall | Specifies if all the warnings are printed out. |
@@ -84,7 +90,7 @@ The complete list of the options is:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

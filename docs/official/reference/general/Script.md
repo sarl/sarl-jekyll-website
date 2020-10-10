@@ -20,9 +20,11 @@ layout: default
 
 A script is a text file containing SARL code. Each script must follow the format:
 
-	<package declaration>
-	<imports>
-	<top-level features>
+```text
+<package declaration>
+<imports>
+<top-level features>
+```
 
 
 ## 1. Package Declaration
@@ -43,9 +45,9 @@ package io.sarl.docs.reference.gsr
 ```
 
 
-<note> If the `package` keyword is not used, the default package will be used. The default
-package has an empty name. It is recommended in the SARL Best Practices to specify a package's
-name.</note> 
+> **_Note:_** If the `package` keyword is not used, the default package will be used. The default
+> package has an empty name. It is recommended in the SARL Best Practices to specify a package's
+> name. 
 
 
 ## 2. Import Directive
@@ -54,7 +56,7 @@ The _imports_ section of a SARL script is dedicated to declaring imported classe
 Each time you want to use a feature defined in another package, (a different file)
 you include it with the `import` directive.
 
-<note>This directive works in a similar way as in the Java language.</note>
+> **_Note:_** This directive works in a similar way as in the Java language.
 
 The `import` keyword is followed by the qualified name of the feature to import.
 In the following code, the first directive imports `java.util.List`.
@@ -164,7 +166,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

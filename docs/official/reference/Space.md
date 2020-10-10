@@ -127,7 +127,6 @@ interface EventSpace {
 
 
 
-
 The `getAddress` function replies the address in the space of the agent that has the given identifier.
 The `emit` functions permits fire of an event in the space.
 
@@ -201,9 +200,9 @@ the `Behaviors` built-in capacity (see the corresponding
 
 The definition of the space implementation depends upon the runtime environment.
 
-<caution>This section of the space reference document may evolved in future releases of SARL. Please activate
-the "deprecated feature use" warning in your compilation configuration for ensuring
-that you will be notified about any major changes on this part of the API.</caution>
+> **_Caution:_** This section of the space reference document may evolved in future releases of SARL. Please activate
+> the "deprecated feature use" warning in your compilation configuration for ensuring
+> that you will be notified about any major changes on this part of the API.
 
 Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
 
@@ -241,10 +240,10 @@ When an agent wants to move an object by calling the `moveObject` method,
 the space is retrieving the instance of this object in the `entities`, and
 move it. 
 
-<important>The previous implementation has a major problem: it does not permit
-to distribute the information and the interaction objects over a computer network. The space is
-the support of the interaction. Consequently, it should provide the mechanisms for
-routing the events to all the agents other the computer network.</important>
+> **_Important Note::_** The previous implementation has a major problem: it does not permit
+> to distribute the information and the interaction objects over a computer network. The space is
+> the support of the interaction. Consequently, it should provide the mechanisms for
+> routing the events to all the agents other the computer network.
 
 
 
@@ -260,6 +259,7 @@ class PhysicSpaceSpecification implements SpaceSpecification<PhysicSpace> {
 	}
 }
 ```
+
 
 
 The example above is the specification related to the first implementation of the `PhysicSpace`.
@@ -319,7 +319,7 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

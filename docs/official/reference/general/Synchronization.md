@@ -30,6 +30,7 @@ class Example {
 ```
 
 
+
 Since the `calculate` function may be executed in parallel, a multi-threading issues for accessing to the `sum` may occur.
 
 Let the calling of `1000` times the `calculate` function. If we would execute this serially, the expected output would be `1000`,
@@ -212,6 +213,7 @@ def doSomething : void {
 ```
 
 
+
 Another noncompliant usage of the synchronized blocks is:
 
 ```sarl
@@ -221,6 +223,7 @@ def doSomething : void {
 	}
 }
 ```
+
 
 
 In this case, a new lock object is created each time the synchronized block is reached. It means that the lock object is not
@@ -260,7 +263,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

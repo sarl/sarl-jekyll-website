@@ -129,6 +129,7 @@ interface MyInterface {
 ```
 
 
+
 The on-the-fly definition and instantiation of an instance of this interface,
 a.k.a. anonymous class definition in the Java community, could be written is SARL
 with the following closure:
@@ -159,7 +160,6 @@ var instance = new MyInterface() {
 
 
 
-
 ## 5. Fields and Variables
 
 ### 5.1. Is the 'val' keyword defining a constant?
@@ -179,7 +179,6 @@ possible to call the setters of `b`.
 val a : int = 4
 val b : Object = new Object
 ```
-
 
 
 
@@ -216,7 +215,6 @@ a.get(0) == b.get(0)
 
 
 
-
 ## 7. Generic Types
 
 ### 7.1. Why can I not use the '<>' notation for generic parameters?
@@ -227,7 +225,7 @@ not supported: a generic type expression must be written between them.
 
 
 For solving this problem, two choices: i) add a type expression between
-< and >; ii) remove the generic parameter list.
+`<` and `>`; ii) remove the generic parameter list.
 
 ```sarl
 var firstSolution : List<Integer> = new ArrayList<Integer>
@@ -294,6 +292,7 @@ agent MyAgent {
 ```
 
 
+
 This error is standard because the functions of the capacities `C1` and `C2` are implicitly accessible
 in the scope of the agent definition, see `uses` keyword definition. The SARL compiler is then unable
 to determine that is the function to call.
@@ -309,7 +308,6 @@ getSkill(C1).myfunction
 
 
 
-
 ### 9.2. How to return two values?
 
 SARL comes with a `Pair<A,B>` class to build an object for storing two values, nicknamed "key" and "value". It comes useful when a method has
@@ -320,6 +318,7 @@ def kb_getNextJob() : Pair<Integer, Double> {
     //...
 }
 ```
+
 
 
 As of Java 8, and as part of JavaFX, Java provides this `Pair<A,B>` class; check [here](https://www.geeksforgeeks.org/pair-class-in-java/) and
@@ -348,6 +347,7 @@ on CarArrivedPercept {
 ```
 
 
+
 We know that `occurrence` is static, so cannot be changed. However, in the above code,
 `occurrence.car`, is not being changed/assigned, but just used to refer to another entity
 where assignment is performed.
@@ -361,6 +361,7 @@ on CarArrivedPercept {
     occurrence.floor = 1
 }
 ```
+
 
 
 The line `occurrence.floor = 1` generates an error because in this case the SARL compiler
@@ -378,7 +379,6 @@ on CarArrivedPercept {
 
 
 
-
 ### 10.2. Error "Expression with side effect is not allowed in guards"
 
 The enforcement of no-side-effect in guards was introduced in version 0.9: guard expression must not have side effect.
@@ -389,7 +389,6 @@ body has any method that is not [pure](https://en.wikipedia.org/wiki/Pure_functi
 
 If this analysis does not work, the programmer can mark a method as pure using `@Pure` annotation, e.g.,:
 
-
 ```sarl
 @Pure
 def MT_getEntityState(param : E_MoveRandomly) : int {
@@ -397,6 +396,7 @@ def MT_getEntityState(param : E_MoveRandomly) : int {
 	return 0
 }
 ```
+
 
 
 Details on the [documentation page for function definition](../reference/general/FuncDecls.html#purity-of-the-functions).
@@ -422,13 +422,10 @@ Yes. Since the SARL compiler generates valid Java code including the documentati
 you could generate the documentation of your SARL program with the standard javadoc
 tool applied on the generated Java files.
 
-Additionnally, you could use a specific Javadoc doclet in order to generate a documentation 
-that follows the SARL syntax, intead of the Java syntax.
+Additionally, you could use a specific Javadoc doclet in order to generate a documentation 
+that follows the SARL syntax, instead of the Java syntax.
 
 You could find details on the page dedicated to the [Maven documentation plugin](../tools/APIDocumentation.html). 
-
-
-
 
 
 ## 13. Legal Notice
@@ -436,7 +433,7 @@ You could find details on the page dedicated to the [Maven documentation plugin]
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

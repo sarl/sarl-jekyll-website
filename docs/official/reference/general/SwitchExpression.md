@@ -26,10 +26,10 @@ Switch statements come in two main variants: a structured switch, as in Pascal, 
 and an unstructured switch, as in C, which functions as a type of goto.
 ** The SARL language uses structured switchs. **
 
-<importantnote>The switch expression is very different from Java's switch statement. The use of switch is
-not limited to certain values, but can be used for any object reference.
-The operator `==` or its Java-equivalent `Object.equals(Object)` are
-used to compare the value in the case with the one you are switching over.</importantnote>
+> **_Important Note:_** The switch expression is very different from Java's switch statement. The use of switch is
+> not limited to certain values, but can be used for any object reference.
+> The operator `==` or its Java-equivalent `Object.equals(Object)` are
+> used to compare the value in the case with the one you are switching over.
 
 ## 1. Switch Cases
 
@@ -41,6 +41,7 @@ case 'some' : "It's some string."
 case 'other' : "another string."
 }
 ```
+
 
 
 The main expression `myString` is evaluated first and then compared to each 
@@ -57,8 +58,8 @@ statement in SARL.
 The main expression, i.e. the parameter of `switch` can also be a computed value instead 
 of a field or variable.
 
-<importantnote>A case must contains an expression. If you want to do nothing
-for a given case, put an empty block after the colon character.</importantnote>
+> **_Important Note:_** A case must contains an expression. If you want to do nothing
+> for a given case, put an empty block after the colon character.
 
 ## 2. Default Case
 
@@ -74,6 +75,7 @@ default: "default string"
 ```
 
 
+
 ## 3. Case Guards
 
 Consider the following example.
@@ -85,6 +87,7 @@ case 'other' : "another string."
 case myString.length > 5 : "It's a long string."
 }
 ```
+
 
 
 The expression `myString.length > 5` is the guard of the case.
@@ -118,7 +121,7 @@ You can have multiple type guards and cases separated with a comma, to
 have all of them share the same then part.
 
 In the following example, the value `a string` is replied if one of the two first cases matches.
-Otherwisen, the value associated to the default case is used.
+Otherwise, the value associated to the default case is used.
 
 ```sarl
 switch myString {
@@ -141,7 +144,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

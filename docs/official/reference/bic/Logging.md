@@ -37,12 +37,12 @@ def warning(message : Object, exception : Throwable = null, arguments : Object*)
 ```
 
 
+
 The `message` parameter is converted to a string for obtaining the message to output.
 The message is built from the parsing of the message in which parameter constants aree replaced by the `arguments`.
 The `exception` parameter may be given for printing an exception that is the cause of the logging action.
 
 Examples:
-
 ```sarl
 agent A {
 	uses Logging
@@ -54,6 +54,7 @@ agent A {
 	}
 }
 ```
+
 
 
 You could also give a text supplier, in the form of a lambda expression, to these logging functions in order to build the loggeable message dynamically.
@@ -79,11 +80,11 @@ def info(message : Object, arguments : Object*)
 ```
 
 
+
 The `message` parameter is converted to a string for obtaining the message to output.
 The message is built from the parsing of the message in which parameter constants aree replaced by the `arguments`.
 
 Example:
-
 ```sarl
 agent A {
 	uses Logging
@@ -92,6 +93,7 @@ agent A {
 	}
 }
 ```
+
 
 
 You could also give a text supplier, in the form of a lambda expression, to the logging function in order to build the loggeable message dynamically.
@@ -116,11 +118,11 @@ def debug(message : Object, arguments : Object*)
 ```
 
 
+
 The `message` parameter is converted to a string for obtaining the message to output.
 The message is built from the parsing of the message in which parameter constants aree replaced by the `arguments`.
 
 Example:
-
 ```sarl
 agent A {
 	uses Logging
@@ -129,6 +131,7 @@ agent A {
 	}
 }
 ```
+
 
 
 You could also give a text supplier, in the form of a lambda expression, to the logging function in order to build the loggeable message dynamically.
@@ -168,7 +171,6 @@ def setLogLevel(level : int)
 
 
 Example:
-
 ```sarl
 agent A {
 	uses Logging
@@ -193,8 +195,8 @@ def isDebugLogEnabled : boolean
 ```
 
 
-Example:
 
+Example:
 ```sarl
 agent A {
 	uses Logging
@@ -222,7 +224,6 @@ def setLoggingName(name : String)
 
 
 Example:
-
 ```sarl
 agent A {
 	uses Logging
@@ -231,6 +232,7 @@ agent A {
 	}
 }
 ```
+
 
 
 ## 7. Accessing to the backend logger
@@ -250,7 +252,7 @@ def getLogger : Logger
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

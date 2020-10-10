@@ -43,6 +43,7 @@ def registerBehavior(attitude : Behavior) : Behavior
 ```
 
 
+
 This function takes the behavior to be registered, and replies the same behavior.
 When a behavior is registered, it is receiving the events in the default space of
 the inner context of the agent, or received by the agent itself.
@@ -150,9 +151,9 @@ If a scope is provided, it is used for filtering the agents that will
 receive the event. The filterable agents are the current agent itself, and
 all the sub-agents (sub-holons) that were created inside the current agent.
 
-<importantnote>Because a behavior has no associated address, it cannot be
-filtered by the scope. All the agent's behaviors that are waiting for a given event will 
-be executed.</importantnote>
+> **_Important Note:_** Because a behavior has no associated address, it cannot be
+> filtered by the scope. All the agent's behaviors that are waiting for a given event will 
+> be executed.
 
 ```sarl
 var e : Event
@@ -215,7 +216,7 @@ var c : ConcurrentLinkedDeque<Behavior> = getRegisteredBehaviors
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

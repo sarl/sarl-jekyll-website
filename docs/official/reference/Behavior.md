@@ -116,8 +116,8 @@ mechanism as the Java object-oriented language.
 
 The extended behavior is specified just after the `extends` keyword.
 
-<veryimportantnote> A behavior type can extend __only one__ other behavior type. This is close
-to the constraint on the extension of classes in the Java language.</veryimportantnote>
+> **_Very Important Note:_** A behavior type can extend __only one__ other behavior type. This is close
+> to the constraint on the extension of classes in the Java language.
 
 In the following code, a first behavior is defined with the name `MyBehavior` and an attribute named `attr`.
 A second behavior MySubBehavior is defined as the extension of the first behavior. It contains a function named
@@ -302,7 +302,6 @@ class Initialize extends Event {
 ```
 
 
-
 It contains the list of the parameters given that are never set for behaviors.
 
 ```sarl
@@ -376,6 +375,7 @@ behavior Beh1 {
 ```
 
 
+
 According to the SARL operational semantic, the three event handlers for `Initialize` are run in parallel.
 The initialization event handlers are not constructors (as defined in object-oriented programming paradigm),
 they are reacting to the receiving of an `Initialize` occurrence.
@@ -397,6 +397,7 @@ behavior Beh2 extends Beh1 {
     }
 }
 ```
+
 
 
 According to the SARL operational semantic, all the initialization handlers are run in parallel.
@@ -568,9 +569,6 @@ behavior MyBehavior {
 
 
 
-
-
-
 If some cases, you may want to set the skill if one was not set up before. The specific behavior
 is supported by `setSkillIfAbsent(Skill, Class<? extends Capacity>*)`.
 
@@ -593,8 +591,8 @@ For invoking a function implemented by a skill, the two following steps must be 
 * Retrieve the skill instance: the function `getSkill(Class<? extends Capacity>)` permits retrieving the skill associated to the given capacity;
 * Invoke the capacity's action on the retrieved skill.
 
-<note>This method of invocation is not recommended by the SARL developers.
-You should prefer the use of the extension methods (see below).</note>
+> **_Note:_** This method of invocation is not recommended by the SARL developers.
+> You should prefer the use of the extension methods (see below).
 
 ```sarl
 behavior MyBehavior {
@@ -640,7 +638,7 @@ behavior MyBehavior {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

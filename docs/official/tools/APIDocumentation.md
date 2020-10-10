@@ -89,7 +89,7 @@ The Javadoc command provides `-doclet` option for specifying a custom doclet.
 
 A typical command-line to launch is:
 
-```
+```text
 javadoc -doclet io.sarl.docs.doclet.SarlDoclet
         -cp doclet-0.12.jar:path_to_sources
         -source 1.8
@@ -116,7 +116,7 @@ The SARL doclet has the same options as the [Standard doclet](https://docs.oracl
 It is possible to exclude elements from the documentation by adding the `@ExcludeFromApidoc` 
 into the SARL documentation. For example:
 
-```
+```sarl
 /** This is an example of excluded documentation.
  *
  * @ExcludeFromApidoc
@@ -127,12 +127,13 @@ class TheClass {
 
 
 
+
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

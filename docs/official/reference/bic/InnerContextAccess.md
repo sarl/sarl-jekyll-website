@@ -24,6 +24,7 @@ bottom context in the figure above.
 
 
 
+
 ## 1. Retrieving the Inner Context
 
 For retrieving the inner context of an agent, this built-in capacity provides the following function:
@@ -35,7 +36,6 @@ def getInnerContext : AgentContext
 
 
 Example:
-
 ```sarl
 agent A {
 	uses InnerContextAccess
@@ -56,7 +56,6 @@ A member agent is an agent that is not the calling agent, and is a member of at 
 one space of the inner context.
 
 The first function replies if the calling agent has other agents as members of its inner context:
-
 ```sarl
 def hasMemberAgent : boolean
 ```
@@ -64,7 +63,6 @@ def hasMemberAgent : boolean
 
 
 The second function replies the number of agents that are members of the inner context of the calling agent:
-
 ```sarl
 def getMemberAgentCount : int
 ```
@@ -72,7 +70,6 @@ def getMemberAgentCount : int
 
 
 The third function replies all the member agents in the inner context:
-
 ```sarl
 def getMemberAgents : ConcurrentSkipListSet<UUID>
 ```
@@ -80,7 +77,6 @@ def getMemberAgents : ConcurrentSkipListSet<UUID>
 
 
 Examples:
-
 ```sarl
 agent A {
 	uses InnerContextAccess
@@ -115,8 +111,8 @@ The following example illustrates the use of the `isInInnerDefaultSpace` functio
 of an behavior unit. In this example, the behavior unit is run only if the event
 of type `AnEvent` was emitted in the default space of the inner context.
 
-<note>According to the [General Syntax Reference](../GeneralSyntax.html),
-the `event.isInnerDefaultSpace` is equivalent to `isInnerDefaultSpace(event)`.</note>
+> **_Note:_** According to the [General Syntax Reference](../GeneralSyntax.html),
+> the `event.isInnerDefaultSpace` is equivalent to `isInnerDefaultSpace(event)`.
 
 ```sarl
 on AnEvent [ occurrence.inInnerDefaultSpace ] {
@@ -126,13 +122,12 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 
 
 
-
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

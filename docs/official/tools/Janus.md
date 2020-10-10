@@ -27,20 +27,23 @@ For launching the Janus platform from a command-line shell, you could use the `j
 
 The `janus` tool takes arguments:
 
-
-	janus [OPTIONS] <agent_fully_qualified_name>
+```text
+janus [OPTIONS] <agent_fully_qualified_name>
+```
 
 
 The `agent_fully_qualified_name` is the name of the agent to launch. This name is equal to the
 fully qualified name of the agent's type.
 
-<note>Janus enables to launch only one agent from the command-line shell. If you want to launch
-more than one agent, you should launch a first agent, which will create the other agents.</note>
+> **_Note::_** Janus enables to launch only one agent from the command-line shell. If you want to launch
+> more than one agent, you should launch a first agent, which will create the other agents.
 
 You could change the behavior of the `janus` tool with the command-line options.
 For obtaining a list of the options, type:
 
-	janus -help
+```texts
+janus -help
+```
 
 
 ## 2. Command-Line Options
@@ -145,7 +148,7 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -72,6 +72,7 @@ class MySpace implements Space {
 ```
 
 
+
 The `functionAccessibleToTheAgent` function, initially defined into the `MyCapacity` capacity must be defined into the
 `MySpace` space. But for enabling the space to have the identity of the function caller, the identity
 must be given as formal parameter, in addition to the already defined parameters.
@@ -95,6 +96,7 @@ class MySpace implements Space {
     }
 }
 ```
+
 
 
 In order to enable the creation of an instance of MySpace, a space specification must be defined:
@@ -125,6 +127,7 @@ skill MySkill implements MyCapacity {
 	}
 }
 ```
+
 
 
 In the previous code, the reference to the space is put into a skill's field, named `^space`.
@@ -164,13 +167,12 @@ skill MySkill implements MyCapacity {
 
 
 
-
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

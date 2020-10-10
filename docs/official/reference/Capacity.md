@@ -50,7 +50,7 @@ a Capacity: no attribute or field is allowed, and no body (code) for the Action 
 The definition of a Capacity is done with the `capacity` keyword. Below, a Capacity that permits logging messages
 is defined. This Capacity enables an Agent to log information and debugging messages.
 
-<note>Defining a Capacity without Actions is a symptom of a design problem.</note>
+> **_Note:_** Defining a Capacity without Actions is a symptom of a design problem.
 
 ```sarl
 capacity Logging {
@@ -71,8 +71,8 @@ object-oriented language.
 
 The extended Capacity is specified just after the `extends` keyword.
 
-<veryimportantnote> A Capacity type can extend __zero-to-many__ other Capacity types.
-This is similar to the implementation of interfaces in the Java language.</veryimportantnote>
+> **_Very Important Note:_** A Capacity type can extend __zero-to-many__ other Capacity types.
+> This is similar to the implementation of interfaces in the Java language.
 
 In the following code, the `Logging` Capacity (defined above) is extended to enabling the output of error messages.
 
@@ -153,8 +153,8 @@ public def example1
 Several Capacities are defined and reserved by the SARL Core Specification.
 They compose the minimal set of Capacities that a runtime environment must support to run a SARL program.
 
-<veryimportantnote> You must not define a Capacity with a fully qualified name equals to one
-of the reserved Capacities.</veryimportantnote>
+> **_Very Important Note:_** You must not define a Capacity with a fully qualified name equals to one
+> of the reserved Capacities.
 
 The built-in Capacities are defined in the [Built-in Capacity Reference](./BIC.html).
 
@@ -214,7 +214,7 @@ skill MySkill implements MyCapacity {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

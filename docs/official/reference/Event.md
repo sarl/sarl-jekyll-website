@@ -61,7 +61,7 @@ the event in a [Space](./Space.html).
 The sending API is detailed in the [Built-in Capacity
 Reference](./BIC.html).
 
-<note>There is no message concept in SARL. All communication is done by using an `Event`.</note>
+> **_Note:_** There is no message concept in SARL. All communication is done by using an `Event`.
 
 
 
@@ -104,7 +104,7 @@ Each declaration of the attributes illustrates one possible syntax for defining 
 
 According to the type inference mechanism used by SARL, the attribute `something` will have the type `Object`.
 
-<note> Because of the use of the `var` keyword, the values of these attributes can be modified.</note>
+> **_Note:_** Because of the use of the `var` keyword, the values of these attributes can be modified.
 
 ```sarl
 event MyEvent {
@@ -121,11 +121,11 @@ event MyEvent {
 Events in SARL will carry data that is unmodifiable 
 when an attribute is defined using the `val` keyword.
 
-<importantnote> The `val` keyword has the same semantics as the `final` modifier in
-the Java language. It means that an element defined with `val` can be initialized only once. It
-also means that the element is read-only.
-But if the element is a reference to an object, then the referenced object
-is not read-only (only the initial reference is).</importantnote>
+> **_Important Note:_** The `val` keyword has the same semantics as the `final` modifier in
+> the Java language. It means that an element defined with `val` can be initialized only once. It
+> also means that the element is read-only.
+> But if the element is a reference to an object, then the referenced object
+> is not read-only (only the initial reference is).
 
 Because the `val` keyword defines a single-initialization
 variable, there should be a way to specify the initial value.
@@ -144,6 +144,7 @@ event MyEvent {
 ```
 
 
+
 If no constructor is defined in the event type and a super-type is declared, implicit constructors will be assumed.
 Implicit constructors has the same prototypes as the constructors of the super type.
 Details on implicit constructors are given in the reference documentation related to the
@@ -159,8 +160,8 @@ mechanism as the Java object-oriented language.
 
 The extended event is specified just after the `extends` keyword.
 
-<veryimportantnote> An event type can extend __only one__ other event type.  This is similar to the
-model for class extensions in the Java language.</veryimportantnote>
+> **_Very Important Note:_** An event type can extend __only one__ other event type.  This is similar to the
+> model for class extensions in the Java language.
 
 #### Declaration
 
@@ -250,8 +251,8 @@ public var example1 : Object
 Several events are defined and reserved by the SARL Core Specification.
 They describe the minimal set of events that a runtime environment must support to run a SARL program.
 
-<veryimportantnote> You must not define an event with a fully qualified name equals to one of the reserved
-events.</veryimportantnote>
+> **_Very Important Note:_** You must not define an event with a fully qualified name equals to one of the reserved
+> events.
 
 Two types of reserved events exist:
 
@@ -265,7 +266,7 @@ Two types of reserved events exist:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

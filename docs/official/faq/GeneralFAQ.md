@@ -313,7 +313,6 @@ on AgentSpawned {
 
 
 
-
 ### 3.3. Be careful on the emit of events in "on Initialize"
 
 The `on Initialize` event handler in agents is a bit special, as it is the code ran when an agent is born.
@@ -363,9 +362,10 @@ agent Agent2 {
 ```
 
 
+
 The output has been:
 
-```
+```text
 Launching the agent: Agent1
 agent1 spawned
 agent1 spawning Agent2
@@ -398,7 +398,7 @@ Additionally, several run-time errors from the [Janus framework](../tools/Janus.
 You can use `@SupressWarnings(...)` annotations in the entities you do not want
 to be warned. For example, a typical warning SARL will give is lack of
 synchronization for variables that can be accessed/edited concurrently:
-```
+```text
 [WARNING] The field noToSpawn should be synchronized for avoiding value inconsistency
 due to parallel execution. [BootMultiSWIAgents.sarl:70]
 ```
@@ -412,6 +412,7 @@ agent BootMultiSWIAgents {
     //...
 }
 ```
+
 
 
 See the [Issue Codes](https://github.com/sarl/sarl/blob/master/main/coreplugins/io.sarl.lang/src/io/sarl/lang/validation/IssueCodes.java)
@@ -446,7 +447,7 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

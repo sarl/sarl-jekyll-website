@@ -46,6 +46,7 @@ agent MyAgent {
 ```
 
 
+
 For starting the system, we could define a booting agent that starts 100 agents of the previously defined type:
 
 ```sarl
@@ -103,6 +104,7 @@ agent MyAgent {
 }
 ```
 
+
 		
 The agent emits the `MyEvent` event only when the application has started.
 This application-start event is represented by the `StartApplication` event.
@@ -132,18 +134,20 @@ agent BootAgent {
 ```
 
 
+
 The two major steps of the multiagent system initialization are implemented.
 First, when the boot agent starts its life, it is spawning all the agents.
 Each time an agent is spawned, the booting agent is notified with an `AgentSpawned` event.
 When the number of spawned agents reaches 100, the booting agent notifies about the application start
 and commits a suicide.
 
+
 ## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

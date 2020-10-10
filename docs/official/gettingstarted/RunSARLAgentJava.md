@@ -43,13 +43,16 @@ In order to help you to use the bootstrap functions, the SARL API provides a sta
 In the following Java code, the `SRE` utility type is used for retrieving the bootstrap.
  
 
-		public class MyProgram {
-		
-			public static void main(String[] arguments) {
-				SREBootstrap bootstrap = SRE.getBootstrap();
-			}
-		
-		}
+
+```java
+public class MyProgram {
+
+	public static void main(String[] arguments) {
+		SREBootstrap bootstrap = SRE.getBootstrap();
+	}
+
+}
+```
 
 
 Then, it is possible to use the bootstrap for launching an agent. In the following example, a agent of type
@@ -57,8 +60,11 @@ Then, it is possible to use the bootstrap for launching an agent. In the followi
 It is the role of the SARL run-time environment to create this instance for you, with the proper initialization.
 
 
-		SREBootstrap bootstrap = SRE.getBootstrap();
-		bootstrap.startAgent(MyAgent.class)
+
+```java
+SREBootstrap bootstrap = SRE.getBootstrap();
+bootstrap.startAgent(MyAgent.class)
+```
 
 
 In the case you want to launch more than one agent programmatically,
@@ -87,17 +93,20 @@ pass with the `Initialize` event to the launched agent.
 
 
 
-<importantnode>The Janus platform enables to launch a single agent at start-up.
-If you want to launch more agents, please read the next section.</importantnote>
+> **_Very Important Note:_** The Janus platform enables to launch a single agent at start-up.
+> If you want to launch more agents, please read the next section.
 
 
-		import io.sarl.sre.boot.Boot;
-		import myprogram.MyAgent;
-		public class MyProgram {
-		 	public static void main(String[] args) {
-				Boot.createMainObject.startAgent(MyAgent.class, args);
-			}
-		}
+
+```java
+import io.sarl.sre.boot.Boot;
+import myprogram.MyAgent;
+public class MyProgram {
+ 	public static void main(String[] args) {
+		Boot.createMainObject.startAgent(MyAgent.class, args);
+	}
+}
+```
 
 
 In  the case you want to launch more than one agent programmatically,
@@ -120,7 +129,7 @@ Please read the rest of the documentation for obtaining more details.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

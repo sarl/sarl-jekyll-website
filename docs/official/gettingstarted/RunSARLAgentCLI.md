@@ -59,19 +59,23 @@ For launching an agent, you must launch the command-line tool with the fully-qua
 name of the agent as parameter, `myapp.MyAgent` in the following example.
 
 
-	janus myapp.MyAgent
+```text
+janus myapp.MyAgent
+```
 
 
 The janus command-line tool provides options that will enable you to tune the launching configuration:
 
-
-	janus --help
+```text
+janus --help
+```
 
 
 One of the command-line options that is usually mandatory is the --jar option, which enables you to specify the jar files that contains your application:
 
-
-	janus --jar path/to/myapp.jar myapp.MyAgent
+```text
+janus --jar path/to/myapp.jar myapp.MyAgent
+```
 
 
 If the `janus` script indicates to you an error "agent not found", most of the time it is because your application's jar file is not on the class path.
@@ -87,8 +91,9 @@ boot class in a Java Virtual Machine.
 
 The typical command line is:
 
-
-	java -cp app.jar io.sarl.sre.boot.Boot
+```text
+java -cp app.jar io.sarl.sre.boot.Boot
+```
 
 
 
@@ -103,16 +108,16 @@ The last argument is the fully qualified name of the booting class of Janus: `io
 The example given in the previous section causes an error. Indeed, it is mandatory to
 specify the fully qualified name of the agent to launch:
 
+```text
+java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
+```
 
-	java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
 
-
-<veryimportant>The Janus platform allows to start only one agent from the command line.
-If you want to start a collection of agents, you must select one of the following approaches:
-
-* launch a separate Janus platform instance for each agent, or
-* launch an agent that is spawning the other agents.
-</veryimportant> 
+> **_Very Important Note:_** The Janus platform allows to start only one agent from the command line.
+> If you want to start a collection of agents, you must select one of the following approaches:
+> 
+> * launch a separate Janus platform instance for each agent, or
+> * launch an agent that is spawning the other agents.
 
 
 ### 2.3. What is app.jar?
@@ -124,8 +129,9 @@ You may replace the `app.jar` in the previous command lines by the classpath
 that is containing all the jar files required for running your application, including
 the Janus jar file(s):
 
-
-	java -cp /path/to/myapplication.jar:/path/to/io.janusproject.kernel-<version>-with-dependencies.jar io.sarl.sre.boot.Boot myapp.MyAgent
+```text
+java -cp /path/to/myapplication.jar:/path/to/io.janusproject.kernel-<version>-with-dependencies.jar io.sarl.sre.boot.Boot myapp.MyAgent
+```
 
 The `io.janusproject.kernel-<version>-with-dependencies.jar` file may be dowloaded from the [Janus website](http://www.janusproject.io/)
 
@@ -137,8 +143,9 @@ You may also create the `app.jar` file with Maven by using the assembly plugin f
 The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
-
-	java -cp app.jar io.sarl.sre.boot.Boot --help
+```text
+java -cp app.jar io.sarl.sre.boot.Boot --help
+```
 
 
 ## 3. Use Maven Execution Plugin
@@ -153,9 +160,9 @@ you may use the Maven execution plugin for classing this booting class.
 
 The typical command line is:
 
-
-	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot"
-
+```text
+mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot"
+```
 
 
 
@@ -172,17 +179,17 @@ The example given in the previous section causes an error.
 Indeed, it is mandatory to specify the fully qualified name
 of the agent to launch:
 
+```text
+mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot <qualified_name_of_the_agent>"
+```
 
-	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot <qualified_name_of_the_agent>"
 
-
-<veryimportant>The Janus platform allows to start only one agent from the command line.
-If you want to start a collection of agents, you must select
-one of the following approaches:
-
-* launch a separate Janus platform instance for each agent, or
-* launch an agent that is spawning the other agents.
-</veryimportant> 
+> **_Very Important Note:_** The Janus platform allows to start only one agent from the command line.
+> If you want to start a collection of agents, you must select
+> one of the following approaches:
+>
+> * launch a separate Janus platform instance for each agent, or
+> * launch an agent that is spawning the other agents.
 
 
 ### 3.3. Janus Command Line Options
@@ -190,8 +197,9 @@ one of the following approaches:
 The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
-
-	mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot --help"
+```text
+mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot --help"
+```
 
 
 
@@ -207,7 +215,7 @@ In the next section, we will learn how to launch your SARL project from a Java p
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

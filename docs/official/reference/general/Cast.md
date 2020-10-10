@@ -94,6 +94,7 @@ a = x as int
 
 
 
+
 For object types, an explicit cast is required if you need to convert from a base type to a derived type:
 
 ```sarl
@@ -174,6 +175,7 @@ expr instanceof type
 ```
 
 
+
 where `expr` is an expression that evaluates to an instance of some type, and `type` is the name of the
 type to which the result of `expr` is to be converted. The `instanceof` operator is `true` if
 `expr` is non-null and the object that results from evaluating the expression can be converted to
@@ -217,6 +219,7 @@ class Test {
 ```
 
 
+
 In the second example below, the function `toInteger` is defined in the same class as the one where the cast operator is
 defined.
 When the expression `obj as Integer` is evaluated by the compiler, the function `toInteger` is discovered and used
@@ -233,6 +236,7 @@ class Test {
 	def toInteger(v : Type) : Integer { 0 }
 }
 ```
+
 
 
 Any function that is declared into the scope of the cast operator, and following the rules that are described above, may
@@ -256,7 +260,7 @@ class Test {
 ```
 
 
- 
+
 ```sarl
 class Type {
 }
@@ -271,7 +275,6 @@ class Test {
 
 
 
-
 ## 5. Acknowledgements
 
 This documentation is inspired by the documentations from the
@@ -283,7 +286,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

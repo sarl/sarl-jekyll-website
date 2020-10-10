@@ -49,8 +49,8 @@ of a binary expression. They work automatically when the corresponding infix ope
 | a %= b   | Alias to: `a = a % b`                   |
 
 
-<note>The assignment operator is the only one operator that cannot be overridden yet.
-See the [operator overloading section](#11-operator-overloading) for details.</note>
+> **_Note:_** The assignment operator is the only one operator that cannot be overridden yet.
+> See the [operator overloading section](#11-operator-overloading) for details.
 
 
 ## 2. Arithmetic operators
@@ -157,6 +157,7 @@ a numeric value.
 | a &gt;&gt; b     | operator\_doubleGreaterThan | Shift the signed bit representation of a to the left by b units.  |
 | a &lt;&lt;&lt; b | operator\_tripleLessThan    | Not supported.                                                    |
 | a &gt;&gt;&gt; b | operator\_tripleGreaterThan | Shift the unsigned bit representation of a to the left by b units |
+
 
 
 
@@ -277,7 +278,8 @@ new Person => [
 ```
 
 
-<note>Note how the `;` allows two expressions on one line</note>
+
+> **_Note:_** Note how the `;` allows two expressions on one line.
 
 In this example, the instance of Person is created and passed to the
 lambda expression. Inside this expression, the new Person instance is accessible with the `it`
@@ -380,7 +382,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

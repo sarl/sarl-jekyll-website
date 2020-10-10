@@ -39,6 +39,7 @@ the behaviors and the skills.
 
 
 
+
 Let's a basic example.
 
 ```sarl
@@ -46,8 +47,8 @@ Let's a basic example.
 ```
 
 
-It is compiled to the code:
 
+It is compiled to the code:
 ```sarl
 private var name : String
  
@@ -86,8 +87,8 @@ Here is a more complex example, that shows how it works:
 ```
 
  
-It is compiled to the code:
 
+It is compiled to the code:
 ```sarl
 class Person {
   private var name : String
@@ -137,12 +138,10 @@ The annotation `@Data` will turn an annotated class into a value object class. A
 This annotation can be applied to object-oriented types. The agent-oriented types cannot be annotated.
 
 Example:
-
 ```sarl
 @Data class Person {
   val firstName : String
   val lastName : String
-
   static def main(args : String*) {
     val p = new Person(args.get(0), args.get(1))
     println(p.getFirstName + ' ' + p.lastName)
@@ -160,7 +159,6 @@ and the currently implemented class. You can optionally restrict it to explicitl
 This annotation can be applied to object-oriented types. The agent-oriented types cannot be annotated.
 
 Let's start with a basic example:
-
 ```sarl
 interface SomeInterface {
 	def function(param : String) : int
@@ -178,8 +176,8 @@ class MyClass implements SomeInterface {
 
 
 
-The previous code is equivalent to:
 
+The previous code is equivalent to:
 ```sarl
 class MyClass implements SomeInterface {			 
   var myDelegate : SubTypeOfSomeInterface
@@ -204,8 +202,8 @@ class MyClass implements SomeInterface {
 ```
 
 
-The previous code is equivalent to:
 
+The previous code is equivalent to:
 ```sarl
 class MyClass implements SomeInterface {
 	def function(param : String) : int {
@@ -277,6 +275,7 @@ class MyClass {
 ```
 
 
+
 The annotation may mark a specific field in order to exclude it from the equality test generation.
 In the following example, the `field2` field is marked with the annotation. Consequently, it
 is not included within the equality test within the `equals()` function, and the hash code replied
@@ -312,6 +311,7 @@ class MyClass {
 
 
 
+
 The previous code is equivalent to:
 
 ```sarl
@@ -327,6 +327,7 @@ class MyClass {
   }
 }
 ```
+
 
 
 For brevity there are options to the annotation to hide field names, skip fields with null values and print everything on one line.
@@ -345,7 +346,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -76,9 +76,11 @@ is used. In other words, the SRE should declare a service implementation for
 `io.sarl.bootstrap.SREBootstrap` into its `META-INF/services/io.sarl.bootstrap.SREBootstrap` file (for Java 8) or in its service declaration into the module definition (for Java 9 and above):
 
 
-		module mymodule {
-			provides io.sarl.bootstrap.SREBootstrap with mypackage.MyServiceImplementation
-		}
+```java
+module mymodule {
+	provides io.sarl.bootstrap.SREBootstrap with mypackage.MyServiceImplementation
+}
+```
 
 
 ## 2. Static Access to the Bootstrap: the SRE class
@@ -133,6 +135,7 @@ var context = bootstrap.startWithoutAgent
 ```
 
 
+
 The `startWithoutAgent` function takes no argument and returns the root context that is created by the SRE.
 
 
@@ -147,6 +150,7 @@ bootstrap.startAgent(typeof(MyAgent))
 ```
 
 
+
 In the case you would like to create multiple instances of agents of a given type, you could specify the number as first argument of `startAgent`.
 In the following example, 5 agents are launched into the SRE.
 
@@ -154,6 +158,7 @@ In the following example, 5 agents are launched into the SRE.
 var bootstrap = SRE::getBootstrap
 bootstrap.startAgent(5, typeof(MyAgent))
 ```
+
 
 
 It may be useful to give some values to the agent when it is launched. These values are named the initialization arguments for the agent(s).
@@ -165,6 +170,7 @@ precision floating point number `4.5`.
 var bootstrap = SRE::getBootstrap
 bootstrap.startAgent(typeof(MyAgent), "arg1", 4.5)
 ```
+
 
 
 The initialization arguments are received by the launched agent(s) into the `Initialize`, and more precisely into the field
@@ -181,6 +187,7 @@ agent MyAgent {
 
 }
 ```
+
 
 
 In some cases, you would like that the launched agent instance having a specific identifier, and not any more a randomly generated identifier.
@@ -221,6 +228,7 @@ bootstrap.shutdown
 ```
 
 
+
 If you need the function `shutdown` to be not blocking, you could invoke the `shutdown` with a timeout delay (in milliseconds).
 When this delay is reached, the `shutdown` forces the stop of the SRE (even if an agent is not yet fully destroyed) and returns.
 In the following example, we are waiting 15 seconds for stopping the SRE.
@@ -230,6 +238,7 @@ var bootstrap = SRE::getBootstrap
 bootstrap.startAgent(5, typeof(MyAgent))
 bootstrap.shutdown(1500)
 ```
+
 
 
 If the provided timeout value is strictly positive, it is the number of milliseconds to wait for the termination of the shutdown.
@@ -252,7 +261,6 @@ The following functions are provided on the SRE bootstrap to change the SRE conf
 
 
 
-
 ### 3.5. SRE Logging System
 
 The SRE should have a logging system in order to provide to you information, warning and error messages.
@@ -266,6 +274,7 @@ logger.info("my message")
 ```
 
 
+
 You could control in a generic way the verbose level of the kernel logger by calling the function
 `setVerboseLevel`.
 
@@ -273,6 +282,7 @@ You could control in a generic way the verbose level of the kernel logger by cal
 var bootstrap = SRE::getBootstrap
 bootstrap.setVerboseLevel(2)
 ```
+
 
 
 This function takes an integer argument that specifies the requested level of verbose of the logger:
@@ -307,6 +317,7 @@ interface MyService {
 ```
 
 
+
 Assuming that the SRE is implementing this service, you could get the service's instance and use it as illustrated below:
 
 ```sarl
@@ -315,6 +326,7 @@ bootstrap.startWithoutAgent
 var serv = bootstrap.getService(typeof(MyService))
 serv.use
 ```
+
 
 
 The rest of the SARL's API documentation provides description of specific services, e.g. the [naming service](./Naming.html).
@@ -343,6 +355,7 @@ interface SREListener {
 ```
 
 
+
 Both declared functions takes the SRE bootstrap as parameter.
 
 The SRE bootstrap provides the registration function `addSREListener` and the unregistration function `removeSREListener`.
@@ -362,6 +375,7 @@ class MyListener implements SREListener {
 ```
 
 
+
 Then, you could register the listener on the SRE as illustrated below:
 
 ```sarl
@@ -375,6 +389,7 @@ bootstrap.startWithoutAgent
 ```
 
 
+
 Please note that if you register the listener before the start of the SRE, the listener will be notified of the SRE start.
 But, if you register the listener when the SRE is already launched, when the SRE start event will not be notified.
 
@@ -384,7 +399,7 @@ But, if you register the listener when the SRE is already launched, when the SRE
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

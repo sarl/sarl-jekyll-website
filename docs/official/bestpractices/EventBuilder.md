@@ -71,6 +71,7 @@ class MyEventBuilder {
 ```
 
 
+
 The function `newInstance` is defined for creating an instance of the event. This function
 gets the next available global identifier to give it to the event instance, and it increments
 the next available global identifier for the next call to `newInstance`.
@@ -96,7 +97,7 @@ var event2 = builder.newInstance
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

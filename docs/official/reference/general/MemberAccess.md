@@ -68,6 +68,7 @@ agent A {
 ```
 
 
+
 ### 1.2. Read Accesses
 
 Four cases for accessing a property are possible:
@@ -178,9 +179,9 @@ var c = new ArrayList<Integer>
 In the implementation of a constructor, it is possible to call one of the inherited constructors.
 The syntax is similar to Java: the (:super:] keyword is used to represent the inherited constructor.
 
-<importantnote>We recommend that you include the parentheses when invoking the default constructor
-of the super type because, in some cases, typing `super` alone (without the parenthesis pair)
-has no effect, and that is an error.</importantnote>
+> **_Important Note:_** We recommend that you include the parentheses when invoking the default constructor
+> of the super type because, in some cases, typing `super` alone (without the parenthesis pair)
+> has no effect, and that is an error.
 
 ```sarl
 new {
@@ -205,7 +206,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

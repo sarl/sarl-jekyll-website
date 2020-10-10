@@ -67,7 +67,12 @@ layout: default
 </ul>
 
 
-SARL enables to declare objects with an object-oriented programming approach.
+SARL enables to declare objects with an object-oriented programming approach for convenience to develop complex programs, i.e.
+the SARL developer must not learn another language such as Java for programming the objects that are used within the
+SARL program.
+Because of this convenience, the support of object-oriented programming may be less complete than in main stream object programming
+languages.
+ 
 This document describes the basic support of object-oriented programming provided by SARL.
 Before reading this document, we recommend that you read
 the [General Syntax Reference](./GeneralSyntax.html).
@@ -78,7 +83,7 @@ The basics of OOP are enabled in the SARL scripts. If you need more complex or m
 complete support of the OOP, you should use a dedicated language, such as Java,
 [Xtend](https://eclipse.org/xtend/), or [Scala](http://www.scala-lang.org/).
 
-<note>The SARL Eclipse product includes the tools for programming with the Java and Xtend languages.</note>
+> **_Note:_** The SARL Eclipse product includes the tools for programming with the Java and Xtend languages.
 
 
 ## 1. Comparison between SARL and Other Languages
@@ -215,6 +220,7 @@ class MyClass extends AnotherClass {
 ```
 
 
+
 If no constructor is defined in the type and a super-type is declared, implicit constructors will be assumed.
 Implicit constructors has the same prototypes as the constructors of the super type.
 Details on implicit constructors are given in the reference documentation related to the
@@ -240,6 +246,7 @@ class MyClass {
   }
 }
 ```
+
 
 
 Static constructors have the following properties:
@@ -321,14 +328,13 @@ A nested class may be declared with one or more modifiers, which affect its runt
 * `static`: the inner class do not have access to the non-static members of the enclosing type.
 * `strictfp`: avoid the methods of the class to use intermediate floating number formats.
 
-<note>Terminology: Nested classes are divided into two categories: static and non-static.
-Nested classes that are declared static are called <i>static nested classes</i>.
-Non-static nested classes are called <i>inner classes</i>.</note>
+> **_Terminology::_** Nested classes are divided into two categories: static and non-static.
+> Nested classes that are declared static are called **static nested classes**.
+> Non-static nested classes are called **inner classes**.
 
-<note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
+> **_Note:_** The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.
 
-<caution>Until now, all the nested classes must be declared as static. This restriction may be removed in later
-versions.</caution>
+> **_Caution:_** Until now, all the nested classes must be declared as static. This restriction may be removed in later versions.
 
 ```sarl
 class EnclosingClass {
@@ -460,9 +466,9 @@ Since the first name and last name are already sequenced in the function
 its behavior. The `override` keyword is specified for clearly marking this
 implementation of `getFullName` as an override of the parent's implementation.
 
-<note>The return type of the `getFullName` method (called with the name `fullName`,
-according to the [property access syntax](./general/MemberAccess.html#property-syntax))
-is not specified in the overriding prototype since it could be inferred by the SARL compiler.</note>
+> **_Nnote:_** The return type of the `getFullName` method (called with the name `fullName`,
+> according to the [property access syntax](./general/MemberAccess.html#property-syntax))
+> is not specified in the overriding prototype since it could be inferred by the SARL compiler.
 
 For preventing a function to be overridden, you should add the `final` modifier in the signature of
 the method (as in Java).
@@ -505,9 +511,6 @@ class EnclosingClass {
 }
 ```
 
-
-
-	}
 
 
 ## 3. Interface
@@ -679,11 +682,11 @@ A nested interface may be declared with one or more modifiers, which affect its 
 * `static`: the inner interface do not have access to the non-static members of the enclosing type.
 * `strictfp`: avoid the methods of the interface to use intermediate floating number formats.
 
-<note>Terminology: Nested interfaces are divided into two categories: static and non-static.
-Nested interfaces that are declared static are called <i>static nested interfaces</i>.
-Non-static nested interfaces are called <i>inner interfaces</i>.</note>
+> **_Terminology::_** Nested interfaces are divided into two categories: static and non-static.
+> Nested interfaces that are declared static are called **static nested interfaces**.
+> Non-static nested interfaces are called **inner interfaces**.
 
-<note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
+> **_Note:_** The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.
 
 ```sarl
 class EnclosingClass {
@@ -714,7 +717,7 @@ The modifiers for the fields in an interface are:
 	* `public`: there are no restrictions on accessing the field (default);
 * `static`: the field is a class field, not an instance field (default).
 
-<caution>Only fields defined with `val` can be put in an interface.</caution>
+> **_Caution:_** Only fields defined with `val` can be put in an interface.
 
 ```sarl
 public val a : Object;
@@ -801,11 +804,11 @@ A nested interface may be declared with one or more modifiers, which affect its 
 	* `private`: the enumeration is accessible only within its class.
 * `static`: the inner enumeration do not have access to the non-static members of the enclosing type.
 
-<note>Terminology: Nested enumerations are divided into two categories: static and non-static.
-Nested enumerations that are declared static are called <i>static nested enumerations</i>.
-Non-static nested enumerations are called <i>inner enumerations</i>.</note>
+> **_Terminology::_**  Nested enumerations are divided into two categories: static and non-static.
+> Nested enumerations that are declared static are called **static nested enumerations**.
+> Non-static nested enumerations are called **inner enumerations**.
 
-<note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
+> **_Note:_** The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.
 
 ```sarl
 class EnclosingClass {
@@ -901,11 +904,11 @@ A nested annotation type may be declared with one or more modifiers, which affec
 * `abstract`: the annotation type is abstract and cannot be instanced.
 * `static`: the inner annotation type do not have access to the non-static members of the enclosing type.
 
-<note>Terminology: Nested annotation types are divided into two categories: static and non-static.
-Nested annotation types that are declared static are called <i>static nested annotation types</i>.
-Non-static nested annotation types are called <i>inner annotation types</i>.</note>
+> **_Terminology::_** Nested annotation types are divided into two categories: static and non-static.
+> Nested annotation types that are declared static are called **static nested annotation types**.
+> Non-static nested annotation types are called**inner annotation types**.
 
-<note>The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.</note>
+> **_Note:_** The modifiers may differ from the previously described, depending on the enclosing type, e.g. agent.
 
 ```sarl
 class EnclosingClass {
@@ -1032,9 +1035,9 @@ Anonymous classes have restrictions with respect to their members:
 * You cannot declare static initializers or member interfaces in an anonymous class.
 * An anonymous class can have static members provided that they are constant variables.
 
-<note>You can declare the following in anonymous classes: fields, extra methods
-(even if they do not implement any methods of the supertype), instance initializers, 
-local classes. However, you cannot declare constructors in an anonymous class.</note>
+> **_Note:_** You can declare the following in anonymous classes: fields, extra methods
+> (even if they do not implement any methods of the supertype), instance initializers, 
+> local classes. However, you cannot declare constructors in an anonymous class.
 
 ```sarl
 class HelloWorldAnonymousClasses {
@@ -1272,9 +1275,9 @@ Once a final variable has been assigned, it always contains the same value. If a
 holds a reference to an object, then the state of the object may be changed by operations on the
 object, but the variable will always refer to the same object.
 
-<caution>The SARL compiler complains if you write the `final` modifer in conjonction with the `var`
-or `val` modifiers. Indeed, the `val` modifier defines a final variable; and the
-`var` modifier defines a no-final variable.</caution>
+> **_Caution:_** The SARL compiler complains if you write the `final` modifer in conjonction with the `var`
+> or `val` modifiers. Indeed, the `val` modifier defines a final variable; and the
+> `var` modifier defines a no-final variable.
 
 This applies also to arrays, because arrays are objects; if a final variable holds a reference to
 an array, then the components of the array may be changed by operations on the array, but the variable
@@ -1313,9 +1316,9 @@ final class B {
 The `native` keyword is applied to a method to indicate that the method is implemented in
 native code, i.e. outside SARL and Java, using the Java Native Interface.
 
-<note>This modifier is provided for enabling agents to access to low-level resources that
-are not supported by the Java API. You should not use this modifier if you can use
-a higher-level API in place of.</note>
+> **_Note:_** This modifier is provided for enabling agents to access to low-level resources that
+> are not supported by the Java API. You should not use this modifier if you can use
+> a higher-level API in place of.
 
 ```sarl
 class A {
@@ -1337,7 +1340,7 @@ rather than with any instance. Every instance of the type shares a static field,
 fixed location in memory. Any instance can change the value of a static variable, but static variables
 can also be manipulated without creating an instance of the type.
 
-<note>Constants are usually defined as final static fields</note>
+> **_Note:_** Constants are usually defined as final static fields.
 
 Static methods, which have the `static` modifier in their declarations, should be invoked with the
 type name, without the need for creating an instance of the type. 
@@ -1479,10 +1482,6 @@ as reordering memory operations and caching the variable in a CPU register. Usin
 instructs the compiler not to apply these optimizations. This guarantees that a reading thread
 always reads the variable from memory (or from a shared cache), never from a local cache.
 
-<note>From now, it is better to use
-[atomic references](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/atomic/package-summary.html)
-in place of volatile variables.</note>
-
 ```sarl
 class A {
 	volatile var field : int = 4
@@ -1507,7 +1506,7 @@ Thank you to the contributors to these documents.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

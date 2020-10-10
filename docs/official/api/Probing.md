@@ -35,7 +35,7 @@ is observed or not. In this case, it cannot adapt its behavior on its observatio
 Because an agent is defined as an autonomous entity, the agent is supposed to be enabled to specify if a part of itself
 is observable or not, i.e. to specify the access rights.
 
-<caution>The right access management is not yet supported by the SARL API</caution>
+> **_Caution:_** The right access management is not yet supported by the SARL API.
 
 ## 1. What is Observable?
 
@@ -120,6 +120,7 @@ interface IProbeListener {
 ```
 
 
+
 It corresponds to the observer on value changes.
 
 
@@ -130,6 +131,7 @@ interface IProbeReleaseListener {
 	def onProbeReleasedProbe(Probe<Object>)
 }
 ```
+
 
 
 It corresponds to the observer on the release of a probe.
@@ -156,6 +158,7 @@ interface ProbeService {
 
 
 
+
 Creating a probe is done by calling the `probe` function. Basically, you need to specify the [name](./Naming.html) of the
 observed field, the expected type of the value, and optionally the name of the probe. 
 
@@ -175,6 +178,7 @@ var probeService = bootstrap.getService(typeof(ProbeService))
 ```
 
 
+
 Then, an probe is attached to the field named `emergency` of type `Integer` that is defined within the agent `a7fbd4cc-9e1a-48c3-8ee8-3a7974ccb05c`.
 The name `My Probe` is given to the probe. 
 The example loops for displaying the observed value (of course it is not the most efficient usage of a probe).
@@ -182,6 +186,7 @@ The example loops for displaying the observed value (of course it is not the mos
 ```sarl
 var probe = probeService.probe("agent:a7fbd4cc-9e1a-48c3-8ee8-3a7974ccb05c#emergency", typeof(Integer), "My Probe")
 ```
+
 
 
 Then, you could use the value that is extracted by the probe. The example below loops for displaying the observed
@@ -194,12 +199,13 @@ while (true) {
 ```
 
 
+
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

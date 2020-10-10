@@ -57,7 +57,6 @@ agent A {
 
 
 
-
 ## 2. Convertion from Operating System Time to the SARL Run-time Time
 
 At least, there is two different time scales:
@@ -80,6 +79,7 @@ In order to map the time replied by the `getTime` function and the operating-sys
 ```sarl
 operatingSystemTime = getOSTimeFactor * getTime
 ```
+
 
 
 The provided function is:
@@ -127,7 +127,7 @@ operatingSystemTime = toOSDuration(sreTime)
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

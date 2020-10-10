@@ -15,6 +15,7 @@ top-right context in the figure above.
 
 
 
+
 ## 1. Retrieving a Context
 
 For retrieving the context with a particular ID, this built-in capacity provides the following function:
@@ -89,6 +90,7 @@ def join(contextID : UUID, expectedDefaultSpaceID : UUID)
 ```
 
 
+
 This action registers the agent in the default space of the context.
 
 The agent will be involved in the context with the ID given by `contextID`.
@@ -97,8 +99,8 @@ knows the ID of the default space in the context to be involved in.
 If the given `expectedDefaultSpaceID` does not match the ID of the default space in the context
 `contextID`, then the access to the context is forbidden.
 
-<importantnote> The context must already exist, and the default space inside this context must have the same ID 
-as `expectedDefaultSpaceID`.</importantnote>
+> **_Important Note:_** The context must already exist, and the default space inside this context must have the same ID 
+> as `expectedDefaultSpaceID`.
 
 This action fires two events:
 
@@ -109,7 +111,6 @@ This action fires two events:
 
 
 Example:
-
 ```sarl
 agent A {
 	uses ExternalContextAccess
@@ -134,6 +135,7 @@ def leave(contextID : UUID)
 ```
 
 
+
 This action fires two events:
 
 * `ContextLeft` in the inner context's default space.
@@ -143,7 +145,6 @@ This action fires two events:
 
 
 Example:
-
 ```sarl
 agent A {
 	uses ExternalContextAccess
@@ -182,6 +183,7 @@ on AnEvent [ isInSpace(occurrence, myspace) ] {
 ```
 
 
+
 ## 7. Helper for firing an event in a space
 
 Regarding the definition of the `EventSpace` type, the event emiting function takes at least two parameters:
@@ -208,6 +210,7 @@ This function call is equivalent to:
 ```
 
 
+
 The `getID` function is provided by the current entity, e.g. an agent, for obtaining the identifier of the emitter.
 
 From a syntactic point of view, the two calls look similar. But, the call to the `ExternalContextAccess` function uses
@@ -219,7 +222,7 @@ the extension method syntax: the first argument to the function is written prior
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-08-21
+* Release: 2020-10-10
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
