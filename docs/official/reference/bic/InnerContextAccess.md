@@ -111,8 +111,7 @@ The following example illustrates the use of the `isInInnerDefaultSpace` functio
 of an behavior unit. In this example, the behavior unit is run only if the event
 of type `AnEvent` was emitted in the default space of the inner context.
 
-> **_Note:_** According to the [General Syntax Reference](../GeneralSyntax.html),
-> the `event.isInnerDefaultSpace` is equivalent to `isInnerDefaultSpace(event)`.
+<p markdown="1"><span class="label label-info">Note</span> According to the [General Syntax Reference](../GeneralSyntax.html), the `event.isInnerDefaultSpace` is equivalent to `isInnerDefaultSpace(event)`.</p>
 
 ```sarl
 on AnEvent [ occurrence.inInnerDefaultSpace ] {
@@ -127,7 +126,7 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

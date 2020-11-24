@@ -116,8 +116,7 @@ mechanism as the Java object-oriented language.
 
 The extended behavior is specified just after the `extends` keyword.
 
-> **_Very Important Note:_** A behavior type can extend __only one__ other behavior type. This is close
-> to the constraint on the extension of classes in the Java language.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> A behavior type can extend __only one__ other behavior type. This is close to the constraint on the extension of classes in the Java language.</p>
 
 In the following code, a first behavior is defined with the name `MyBehavior` and an attribute named `attr`.
 A second behavior MySubBehavior is defined as the extension of the first behavior. It contains a function named
@@ -591,8 +590,7 @@ For invoking a function implemented by a skill, the two following steps must be 
 * Retrieve the skill instance: the function `getSkill(Class<? extends Capacity>)` permits retrieving the skill associated to the given capacity;
 * Invoke the capacity's action on the retrieved skill.
 
-> **_Note:_** This method of invocation is not recommended by the SARL developers.
-> You should prefer the use of the extension methods (see below).
+<p markdown="1"><span class="label label-info">Note</span> This method of invocation is not recommended by the SARL developers. You should prefer the use of the extension methods (see below).</p>
 
 ```sarl
 behavior MyBehavior {
@@ -638,7 +636,7 @@ behavior MyBehavior {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

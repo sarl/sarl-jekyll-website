@@ -221,8 +221,7 @@ feature of SARL, which has the same semantics as the inheritance mechanism of th
 
 The extended Skill is specified just after the `extends` keyword.
 
-> **_Very Important Note:_** A Skill type can extend __only one__ other Skill type.  This is similar
-> to the constraint on the extension of classes in the Java language.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> A Skill type can extend __only one__ other Skill type.  This is similar to the constraint on the extension of classes in the Java language.</p>
 
 In the following code, the `StandardJavaLogging` Skill (defined above) is extended to override the info output.
 
@@ -348,7 +347,7 @@ Details on the use of Skills may be found in the following:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

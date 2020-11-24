@@ -42,6 +42,13 @@ def execute(command)
   end
 end
 
+# Execute a system command
+def executeA(commandarray)
+  if not system(*commandarray)
+    raise "failure when executing the command:\n$> " + commandarray
+  end
+end
+
 # Chech the title
 def check_title(title)
   if title.nil? or title.empty?
@@ -339,12 +346,26 @@ end
 
 #rake build_generaldoc
 desc "Build general doc"
-task :build_generaldoc, :option do |t, args|
+task :build_generaldoc do
   curdir = Dir.pwd
   sarl_copy = ensure_git_sarl_repository(true)
   puts "Compiling documentation ..."
-  Dir.chdir("#{sarl_copy}/docs/io.sarl.docs.markdown")
-  execute(CONFIG["mvn"]["cmd"] + " -Dmaven.test.skip=true clean install")
+  Dir.chdir(sarl_copy + "/" + CONFIG["sarl"]["doc_suite"])
+  cmdline = []
+  cmdline.push(CONFIG["mvn"]["cmd"])
+  if (CONFIG["sarl"]["info_pattern"])
+	cmdline.push("-Dio.sarl.maven.docs.generator.infonote=" + CONFIG["sarl"]["info_pattern"])
+  end
+  if (CONFIG["sarl"]["warning_pattern"])
+	cmdline.push("-Dio.sarl.maven.docs.generator.warningnote=" + CONFIG["sarl"]["warning_pattern"])
+  end
+  if (CONFIG["sarl"]["danger_pattern"])
+	cmdline.push("-Dio.sarl.maven.docs.generator.dangernote=" + CONFIG["sarl"]["danger_pattern"])
+  end
+  cmdline.push("-Dmaven.test.skip=true")
+  cmdline.push("clean")
+  cmdline.push("install")
+  executeA(cmdline)
   Dir.chdir("#{curdir}")
   puts "Documentation generated"
 end

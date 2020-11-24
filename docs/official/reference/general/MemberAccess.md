@@ -179,9 +179,7 @@ var c = new ArrayList<Integer>
 In the implementation of a constructor, it is possible to call one of the inherited constructors.
 The syntax is similar to Java: the (:super:] keyword is used to represent the inherited constructor.
 
-> **_Important Note:_** We recommend that you include the parentheses when invoking the default constructor
-> of the super type because, in some cases, typing `super` alone (without the parenthesis pair)
-> has no effect, and that is an error.
+<p markdown="1"><span class="label label-warning">Important Note</span> We recommend that you include the parentheses when invoking the default constructor of the super type because, in some cases, typing `super` alone (without the parenthesis pair) has no effect, and that is an error.</p>
 
 ```sarl
 new {
@@ -206,7 +204,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -41,8 +41,7 @@ def killMe
 This action automatically unregisters the calling agent from the default context, and therefore all its
 spaces including the default space.
 
-> **_Very Important Note:_** If the killed agent was a composed agent, it must not have members any more before
-> calling this action, otherwise a `RuntimeException` is thrown.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> If the killed agent was a composed agent, it must not have members any more before calling this action, otherwise a `RuntimeException` is thrown.</p>
 
 This action fires two events:
 
@@ -208,7 +207,7 @@ agent A {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

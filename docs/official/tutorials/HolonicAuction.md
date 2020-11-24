@@ -49,8 +49,7 @@ The elements that are explained in this tutorial are:
 * the emit of events from the super-agent to its sub-agent;
 * the emit of events from the sub-agent to its super-agent.
 
-> **_Note:_** The communication between the sub-agents is out of the scope of this tutorial. For interested
-> readers, the [Agent Reference](../reference/Agent.html) may be read.
+<p markdown="1"><span class="label label-info">Note</span> The communication between the sub-agents is out of the scope of this tutorial. For interested readers, the [Agent Reference](../reference/Agent.html) may be read.</p>
 
 The source code related to this tutorial may be found in the
 [Github of the SARL demos](https://github.com/sarl/sarl/tree/master/contribs/io.sarl.examples/io.sarl.examples.plugin/projects/io-sarl-tutorials-holonicauction/src/main/sarl/io/sarl/examples/holonicauction).
@@ -99,12 +98,7 @@ Therefore, every agent can be seen as a part of a larger
 [holon](https://en.wikipedia.org/wiki/Holon_(philosophy)) _and_ at the same time be composed 
 by other agents that exist in its _inner context_. 
 
-> **_Note:_** According to the SARL specifications, all the agents in a context belong to
-> the default space of this context. This property is important
-> for designing the communication links between two adjacent levels
-> in the hierarchy of agents. The default space of the inner context
-> becomes the natural place where the super-agent and
-> its sub-agents are interacting.
+<p markdown="1"><span class="label label-info">Note</span> According to the SARL specifications, all the agents in a context belong to the default space of this context. This property is important for designing the communication links between two adjacent levels in the hierarchy of agents. The default space of the inner context becomes the natural place where the super-agent and its sub-agents are interacting.</p>
 
 
 ## 4. Definitions of the events
@@ -181,14 +175,9 @@ The bidding must occur when the auctioneer is notifying a new price, i.e. when t
 The bidder computes the new price. If this last is not exceeding the maximal
 price, then the bidder is sending its bid in a `Bid` event.
 
-> **_Interaction Principle:_**
-> For sending data to its super-agent, a sub-agent must
-> fire an event in the default space of the inner context
-> of the super-agent. The `emit` function is supporting this interaction.
+<p markdown="1"><span class="label label-info">Interaction Principle</span>  For sending data to its super-agent, a sub-agent must fire an event in the default space of the inner context of the super-agent. The `emit` function is supporting this interaction.</p>
 
-> **_Caution:_** The `Bid` event is sent in the default space. But there is no
-> restriction on the event's recipient. It means that the super-agent __and__ the
-> other sub-agents will receive this event.
+<p markdown="1"><span class="label label-danger">Caution</span> The `Bid` event is sent in the default space. But there is no restriction on the event's recipient. It means that the super-agent __and__ the other sub-agents will receive this event.</p>
 
 ```sarl
 agent Bidder {
@@ -234,7 +223,7 @@ scope for the event.
 For supporting the holonic communication from the sub-agent to the super-agent, the scope
 of the event corresponds to the address of the super-agent in the default space.
 
-> **_Note:_** The ID of the super-agent, and the ID of the inner context of this super-agent are always the same.
+<p markdown="1"><span class="label label-info">Note</span> The ID of the super-agent, and the ID of the inner context of this super-agent are always the same.</p>
 
 Below, we update the bidding behavior by creating a scope, and providing it to the `emit` function.
 
@@ -293,9 +282,7 @@ the `Behaviors` capacity. This function does the same as:
 
 innerContext.defaultSpace.emit(new Price(50))
 
-> **_Interaction Principle:_** 
-> For sending data to its sub-agents, a super-agent must fire an event in the default space
-> of its inner context. The `wake` function is supporting this interaction.
+<p markdown="1"><span class="label label-info">Interaction Principle</span>  For sending data to its sub-agents, a super-agent must fire an event in the default space of its inner context. The `wake` function is supporting this interaction.</p>
 
 ```sarl
 agent Auctioneer {
@@ -511,10 +498,7 @@ cause all the agents waiting something that will never append.
 
 __We need to stop the agents.__
 
-> **_Important Note:_** In the specification of SARL, a super-agent cannot be killed
-> if there is some other agent belonging to its inner context.
-> Consequently, for stopping the agents, we need to stop the
-> sub-agents before the super-agent.
+<p markdown="1"><span class="label label-warning">Important Note</span> In the specification of SARL, a super-agent cannot be killed if there is some other agent belonging to its inner context. Consequently, for stopping the agents, we need to stop the sub-agents before the super-agent.</p>
 
 
 #### StopAuction event
@@ -641,7 +625,7 @@ agent Auctioneer {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

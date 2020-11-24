@@ -48,7 +48,7 @@ def NAME [([PARAMETER, PARAMETER, PARAMETER...])] [: RETURN TYPE] [BLOCK]
 ```
 
 
-> **_Note:_** The parameters are implicitly declared with the keyword `val` so are read-only.
+<p markdown="1"><span class="label label-info">Note</span> The parameters are implicitly declared with the keyword `val` so are read-only.</p>
 
 The following code gives examples of function declarations:
 
@@ -100,9 +100,7 @@ it is better to let a method further down the call stack handle the exception.
 If a function doesn't catch the checked exceptions that can occur within
 it, the function may specify that it can throw these exceptions.
 
-> **_Note:_** This specification is optional since the SARL compiler determines the
-> exceptions that are not catched, and assumes that they are implicitly
-> thrown outside the function.
+<p markdown="1"><span class="label label-info">Note</span> This specification is optional since the SARL compiler determines the exceptions that are not catched, and assumes that they are implicitly thrown outside the function.</p>
 
 The declaration of the thrown exceptions is done with the 
 `throws` keyword, followed by a list of thrown exception types.
@@ -139,7 +137,7 @@ generic functions:
 
 A generic method's body is declared like that of any other method.
 
-> **_Note:_** Type parameters can represent only reference types, not primitive types (like `int`, `double` and `char`).
+<p markdown="1"><span class="label label-info">Note</span> Type parameters can represent only reference types, not primitive types (like `int`, `double` and `char`).</p>
 
 Two syntaxes are allowed for defining the type parameters of the actions: the `with` syntax, and the bracket syntax.
 
@@ -253,9 +251,7 @@ the action can skip passing a value for the corresponding argument.
 And, when the function is called, the default value is given to the
 skipped argument.
 
-> **_Important Note:_** In SARL, if a formal parameter has a default value, the following formal
-> parameters do not need to have default values as well. This is a major
-> difference with the default values in other languages, such as C++.
+<p markdown="1"><span class="label label-warning">Important Note</span> In SARL, if a formal parameter has a default value, the following formal parameters do not need to have default values as well. This is a major difference with the default values in other languages, such as C++.</p>
  
 ```sarl
 // Function with one parameter with a default value.
@@ -534,7 +530,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

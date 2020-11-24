@@ -200,9 +200,7 @@ the `Behaviors` built-in capacity (see the corresponding
 
 The definition of the space implementation depends upon the runtime environment.
 
-> **_Caution:_** This section of the space reference document may evolved in future releases of SARL. Please activate
-> the "deprecated feature use" warning in your compilation configuration for ensuring
-> that you will be notified about any major changes on this part of the API.
+<p markdown="1"><span class="label label-danger">Caution</span> This section of the space reference document may evolved in future releases of SARL. Please activate the "deprecated feature use" warning in your compilation configuration for ensuring that you will be notified about any major changes on this part of the API.</p>
 
 Below, the implementation extends one of the abstract classes provided by the [Janus Platform](http://www.janusproject.io).
 
@@ -240,10 +238,7 @@ When an agent wants to move an object by calling the `moveObject` method,
 the space is retrieving the instance of this object in the `entities`, and
 move it. 
 
-> **_Important Note::_** The previous implementation has a major problem: it does not permit
-> to distribute the information and the interaction objects over a computer network. The space is
-> the support of the interaction. Consequently, it should provide the mechanisms for
-> routing the events to all the agents other the computer network.
+<p markdown="1"><span class="label label-warning">Important Note</span> The previous implementation has a major problem: it does not permit to distribute the information and the interaction objects over a computer network. The space is the support of the interaction. Consequently, it should provide the mechanisms for routing the events to all the agents other the computer network.</p>
 
 
 
@@ -319,7 +314,7 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

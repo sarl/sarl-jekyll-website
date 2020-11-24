@@ -78,14 +78,12 @@ When it is spawn, an agent is living inside the system in a place named "_Contex
 __A Context defines the boundary of a sub-system, and gathers a collection of spaces__.
 A Space is the support of the interaction between agents respecting the rules defined in the spaces' specification.
 
-> **_Important Note:_** In each context, there is at least one particular space called _Default Space_ to which
-> all agents in this context belong.
+<p markdown="1"><span class="label label-warning">Important Note</span> In each context, there is at least one particular space called _Default Space_ to which all agents in this context belong.</p>
 
 It ensures the existence of a common shared space to all agents in the same context. Each agent can then create
 specific public or private spaces to achieve its personal goals (the blue space on the figure above).
 
-> **_Important Note:_** Since their creation, agents are incorporated into a context called the __Default Context__.
-> It is important to notice that the _Default Context_ is not necessarily the same for every agent.
+<p markdown="1"><span class="label label-warning">Important Note</span> Since their creation, agents are incorporated into a context called the __Default Context__. It is important to notice that the _Default Context_ is not necessarily the same for every agent.</p>
 
 An agent has an identifier for each space it is involved in. For the case of event-based interaction
 spaces, this identifier is  called "address". 
@@ -96,8 +94,7 @@ spaces, this identifier is  called "address".
 During its lifetime, an agent may join and participate in other contexts that are not the default context.
 They are called the external contexts of the agent.
 
-> **_Note:_** There is no restriction about the number of contexts in which an agent is belonging to, except
-> that it is always in its default context.
+<p markdown="1"><span class="label label-info">Note</span> There is no restriction about the number of contexts in which an agent is belonging to, except that it is always in its default context.</p>
 
 For joining or leaving a context, the agent must use the `ExternalContextAccess` built-in capacity. It is detailed in the
 [Built-in Capacity Reference](./BIC.html).
@@ -123,19 +120,16 @@ In many cases, we find the idea of _agents composed of other agents_.
 More recently, the importance of holonic multi-agent systems has been
 recognized by different methodologies such as [ASPECS](http://www.aspecs.org/Home) or O-MASE.
 
-> **_Note:_** In SARL, we recognize that agents can be composed of other agents. Therefore, SARL agents
-> are in fact holons that can compose each other to define hierarchical
-> or recursive multi-agent system, called holarchies.
+<p markdown="1"><span class="label label-info">Note</span> In SARL, we recognize that agents can be composed of other agents. Therefore, SARL agents are in fact holons that can compose each other to define hierarchical or recursive multi-agent system, called holarchies.</p>
 
 In order to achieve this, SARL agents are self-similar structures that 
 compose each other via their contexts. Each agent defines its own context, called __Inner Context__.
 Because this inner context may be joined by other agents, or agents may
 be spawn inside this inner context, it is possible to build a holarchy.
 
-> **_Very Important Note:_** An agent is always a participant of the default space of its inner space.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> An agent is always a participant of the default space of its inner space.</p>
 
-> **_Important Note:_** The unique identifier (usually a Unique Universal Identifier) of
-> the inner context is equal to the unique identifier of its owning agent.
+<p markdown="1"><span class="label label-warning">Important Note</span> The unique identifier (usually a Unique Universal Identifier) of the inner context is equal to the unique identifier of its owning agent.</p>
 
 
 ### 1.4. Universe Agent and Universe Context
@@ -248,8 +242,7 @@ mechanism as the Java object-oriented language.
 
 The extended agent is specified just after the `extends` keyword.
 
-> **_Very Important Note:_** An agent type can extend __only one__ other agent type. This is close
-> to the constraint on the extension of classes in the Java language.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> An agent type can extend __only one__ other agent type. This is close to the constraint on the extension of classes in the Java language.</p>
 
 In the following code, a first agent is defined with the name
 `MyAgent` and an attribute named `attr`.
@@ -783,8 +776,7 @@ For invoking a function implemented by a skill, the two following steps must be 
 * Retrieve the skill instance: the function `getSkill(Class<? extends Capacity>)` permits retrieving the skill associated to the given capacity;
 * Invoke the capacity's action on the retrieved skill.
 
-> **_Note:_** This method of invocation is not recommended by the SARL developers. You should
-> prefer the use of the extension methods (see below).
+<p markdown="1"><span class="label label-info">Note</span> This method of invocation is not recommended by the SARL developers. You should prefer the use of the extension methods (see below).</p>
 
 ```sarl
 agent MyAgent {
@@ -872,7 +864,7 @@ agent MyAgent {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

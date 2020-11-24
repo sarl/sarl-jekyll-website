@@ -78,11 +78,7 @@ def example : boolean {
 By adding the `extension` keyword to a field, a local variable, or a parameter declaration, its
 instance methods become extension methods.
 
-> **_Caution:_** The `extension` keyword must be always written just before the `val` or
-> `var` keywords for fields and local variables, or before the parameter's name.
->
-> In the case of an extension field, you must give the type of the field because the type resolved
-> of SARL cannot infer the type of the field.
+<p markdown="1"><span class="label label-danger">Caution</span> The `extension` keyword must be always written just before the `val` or `var` keywords for fields and local variables, or before the parameter's name.  In the case of an extension field, you must give the type of the field because the type resolved of SARL cannot infer the type of the field.</p>
 
 In the following example, the extension provider is a field. The function `contains(Object)`
 is called with the extension method syntax. The extension provider is the field `list`.
@@ -353,7 +349,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

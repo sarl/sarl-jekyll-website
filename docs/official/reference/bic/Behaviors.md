@@ -151,9 +151,7 @@ If a scope is provided, it is used for filtering the agents that will
 receive the event. The filterable agents are the current agent itself, and
 all the sub-agents (sub-holons) that were created inside the current agent.
 
-> **_Important Note:_** Because a behavior has no associated address, it cannot be
-> filtered by the scope. All the agent's behaviors that are waiting for a given event will 
-> be executed.
+<p markdown="1"><span class="label label-warning">Important Note</span> Because a behavior has no associated address, it cannot be filtered by the scope. All the agent's behaviors that are waiting for a given event will be executed.</p>
 
 ```sarl
 var e : Event
@@ -216,7 +214,7 @@ var c : ConcurrentLinkedDeque<Behavior> = getRegisteredBehaviors
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

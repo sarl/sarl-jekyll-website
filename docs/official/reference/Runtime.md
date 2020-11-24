@@ -190,8 +190,7 @@ Therefore, the agent `SubAgent2` displays `A` and `B` from the inherited definit
 and `D` from the `SubAgent2` definition.
 And, because of the parallel execution of the four event handlers, there is no fixed order for displaying `A`, `B`, `C`, `D`.
 
-> **_Caution:_** Event handlers are inherited, but there is no overriding of event handler. In other words, you cannot replace/override
-> the code of an event handler that is inherited.
+<p markdown="1"><span class="label label-danger">Caution</span> Event handlers are inherited, but there is no overriding of event handler. In other words, you cannot replace/override the code of an event handler that is inherited.</p>
 
 
 #### General Process for Event Handling
@@ -257,8 +256,7 @@ execution fails almost every time with an inconsistent actual output e.g.: `965`
 
 A simple way to avoid the race condition is to make the operation thread-safe by using the `synchronized` keyword.
 
-> **_Caution:_** If a field is assessed from a function called from an event handler, then the synchronization issue
-> still may occur, if neither the function is synchronized nor the event handler. 
+<p markdown="1"><span class="label label-danger">Caution</span> If a field is assessed from a function called from an event handler, then the synchronization issue still may occur, if neither the function is synchronized nor the event handler.</p>
 
 
 ### 5.2. The Synchronized Keyword
@@ -267,8 +265,7 @@ The `synchronized` keyword is included into the SARL language in order to let yo
 accesses to shared data.
 This keyword is formally defined in a dedicated [reference page](./general/Synchronization.html).
 
-> **_Caution:_** The SARL compiler does not apply automatic synchronization to your code yet (it is planned for a future release).
-> You have to manage the `synchronized` keyword manually by yourself.
+<p markdown="1"><span class="label label-danger">Caution</span> The SARL compiler does not apply automatic synchronization to your code yet (it is planned for a future release). You have to manage the `synchronized` keyword manually by yourself.</p>
 
 
 ## 6. Event Sending Run-time Sequence
@@ -316,7 +313,7 @@ caller. That's why in the sequence diagram above, there is no creation of a thre
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

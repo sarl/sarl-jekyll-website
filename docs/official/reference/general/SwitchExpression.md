@@ -26,10 +26,7 @@ Switch statements come in two main variants: a structured switch, as in Pascal, 
 and an unstructured switch, as in C, which functions as a type of goto.
 ** The SARL language uses structured switchs. **
 
-> **_Important Note:_** The switch expression is very different from Java's switch statement. The use of switch is
-> not limited to certain values, but can be used for any object reference.
-> The operator `==` or its Java-equivalent `Object.equals(Object)` are
-> used to compare the value in the case with the one you are switching over.
+<p markdown="1"><span class="label label-warning">Important Note</span> The switch expression is very different from Java's switch statement. The use of switch is not limited to certain values, but can be used for any object reference. The operator `==` or its Java-equivalent `Object.equals(Object)` are used to compare the value in the case with the one you are switching over.</p>
 
 ## 1. Switch Cases
 
@@ -58,8 +55,7 @@ statement in SARL.
 The main expression, i.e. the parameter of `switch` can also be a computed value instead 
 of a field or variable.
 
-> **_Important Note:_** A case must contains an expression. If you want to do nothing
-> for a given case, put an empty block after the colon character.
+<p markdown="1"><span class="label label-warning">Important Note</span> A case must contains an expression. If you want to do nothing for a given case, put an empty block after the colon character.</p>
 
 ## 2. Default Case
 
@@ -144,7 +140,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -35,7 +35,7 @@ is observed or not. In this case, it cannot adapt its behavior on its observatio
 Because an agent is defined as an autonomous entity, the agent is supposed to be enabled to specify if a part of itself
 is observable or not, i.e. to specify the access rights.
 
-> **_Caution:_** The right access management is not yet supported by the SARL API.
+<p markdown="1"><span class="label label-danger">Caution</span> The right access management is not yet supported by the SARL API.</p>
 
 ## 1. What is Observable?
 
@@ -86,7 +86,7 @@ interface Probe<T> {
 	def removeProbeListener(IProbeListener)
 	def removeProbeReleaseListener(IProbeReleaseListener)
 	def setValue(T)
-	def sync(boolean)
+	def sync(boolean, boolean)
 }
 ```
 
@@ -115,7 +115,7 @@ and `IProbeReleaseListener`.
 
 ```sarl
 interface IProbeListener {
-	def probeValueChanged(Probe<Object>)
+	def probeValueChanged(Probe<Object>, boolean)
 }
 ```
 
@@ -205,7 +205,7 @@ while (true) {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

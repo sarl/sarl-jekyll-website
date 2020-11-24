@@ -45,9 +45,7 @@ package io.sarl.docs.reference.gsr
 ```
 
 
-> **_Note:_** If the `package` keyword is not used, the default package will be used. The default
-> package has an empty name. It is recommended in the SARL Best Practices to specify a package's
-> name. 
+<p markdown="1"><span class="label label-info">Note</span> If the `package` keyword is not used, the default package will be used. The default package has an empty name. It is recommended in the SARL Best Practices to specify a package's name.</p>
 
 
 ## 2. Import Directive
@@ -56,7 +54,7 @@ The _imports_ section of a SARL script is dedicated to declaring imported classe
 Each time you want to use a feature defined in another package, (a different file)
 you include it with the `import` directive.
 
-> **_Note:_** This directive works in a similar way as in the Java language.
+<p markdown="1"><span class="label label-info">Note</span> This directive works in a similar way as in the Java language.</p>
 
 The `import` keyword is followed by the qualified name of the feature to import.
 In the following code, the first directive imports `java.util.List`.
@@ -166,7 +164,7 @@ This documentation is inspired by the documentations from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

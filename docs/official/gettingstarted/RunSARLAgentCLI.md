@@ -113,11 +113,7 @@ java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
 ```
 
 
-> **_Very Important Note:_** The Janus platform allows to start only one agent from the command line.
-> If you want to start a collection of agents, you must select one of the following approaches:
-> 
-> * launch a separate Janus platform instance for each agent, or
-> * launch an agent that is spawning the other agents.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> The Janus platform allows to start only one agent from the command line. If you want to start a collection of agents, you must select one of the following approaches:  * launch a separate Janus platform instance for each agent, or * launch an agent that is spawning the other agents.</p>
 
 
 ### 2.3. What is app.jar?
@@ -184,12 +180,7 @@ mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boo
 ```
 
 
-> **_Very Important Note:_** The Janus platform allows to start only one agent from the command line.
-> If you want to start a collection of agents, you must select
-> one of the following approaches:
->
-> * launch a separate Janus platform instance for each agent, or
-> * launch an agent that is spawning the other agents.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> The Janus platform allows to start only one agent from the command line. If you want to start a collection of agents, you must select one of the following approaches:  * launch a separate Janus platform instance for each agent, or * launch an agent that is spawning the other agents.</p>
 
 
 ### 3.3. Janus Command Line Options
@@ -215,7 +206,7 @@ In the next section, we will learn how to launch your SARL project from a Java p
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

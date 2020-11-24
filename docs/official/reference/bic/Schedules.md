@@ -368,18 +368,16 @@ The `ifTrue` function is equivalent to `setGuard`, except that it is replying th
 The `unless` function sets the guard of the task to the negation of the given condition. It replies
 the current task.
 
-> **_Caution:_** The `ifTrue` and `unless` functions should not be used on the result of the scheduling functions.
-> Indeed, if you call these two function on the value replied by `execute` for example, the execution platform
-> could have launched the task before the guard is set. Consider the following code
-> 
->```sarl
->			execute [ doSomething ].unless [ myVar > 5 ]
->
+<p markdown="1"><span class="label label-danger">Caution</span> The `ifTrue` and `unless` functions should not be used on the result of the scheduling functions. Indeed, if you call these two function on the value replied by `execute` for example, the execution platform could have launched the task before the guard is set.</p>
+
+Consider the following code:
+```sarl
+execute [ doSomething ].unless [ myVar > 5 ]
 ```
 
->
-> The call to `execute` is done before the call to `unless`. It means that the execution platform could have
-> already checked if a guard is assosiated and `true`, before the `unless` function sets the guard.
+
+The call to `execute` is done before the call to `unless`. It means that the execution platform could have
+already checked if a guard is assosiated and `true`, before the `unless` function sets the guard.
 
 The best practice for setting the task guards is to create a task, set the guard, and execute the task:
 
@@ -420,7 +418,7 @@ for (taskName : getActiveTasks) {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

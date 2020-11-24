@@ -23,6 +23,9 @@ Its role is to provide all the libraries and plugins that are needed for running
 
 For launching the Janus platform from a command-line shell, you could use the `janus` tool.
 
+<p markdown="1"><span class="label label-danger">Caution</span> The `janus` does not provide a support for exchaning events over a computer network. If you would like to have benefit of this feature, you should use one of the following methods: 1. Add a library on the classpath that includes the networking feature to the SRE; or 2. Use the version of the SRE that includes the standard network feature: [janusnode](./Janusnode.html).</p>
+
+
 ## 1. Usage
 
 The `janus` tool takes arguments:
@@ -35,8 +38,7 @@ janus [OPTIONS] <agent_fully_qualified_name>
 The `agent_fully_qualified_name` is the name of the agent to launch. This name is equal to the
 fully qualified name of the agent's type.
 
-> **_Note::_** Janus enables to launch only one agent from the command-line shell. If you want to launch
-> more than one agent, you should launch a first agent, which will create the other agents.
+<p markdown="1"><span class="label label-info">Note</span> Janus enables to launch only one agent from the command-line shell. If you want to launch more than one agent, you should launch a first agent, which will create the other agents.</p>
 
 You could change the behavior of the `janus` tool with the command-line options.
 For obtaining a list of the options, type:
@@ -72,7 +74,7 @@ the classpath of your application, more options may become available.
 | --internal-error-log-level=level | Specify the logging level for the internal errors within the parallel executors; Default is: all. |
 | -j<br>--json | When present, the output of the configuration has the Json format. |
 | -k duration<br>--keep-alive=duration | Specify the duration in seconds during which a thread is staying alive even if there is not task to be run; After this duration, iddle threads are destroyed by the SRE; Default value is 60. |
-| -l level<br>--log=level | Specifies where to find user class files, and source files. This class path overrides the user class path in the LOG_LEVEL environment variable. If neither LOG_LEVEL, --log nor --{2} is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
+| -l level<br>--log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error/critical/severe, warning, info, config, fine, debug/finer, finest, all. |
 | --max-threads=number | Specify the maximal number of threads that could be created by the SRE; Default is 512. |
 | --min-threads=number | Specify the minimal number of threads that should be created by the SRE; Default is 0. |
 | --name=name | Specify the name of the program that is shown into the logs for example; Default is 'SARL Run-time Environment'. |
@@ -148,7 +150,7 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

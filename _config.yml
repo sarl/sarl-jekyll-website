@@ -60,6 +60,9 @@ sarl:
   doc_suite: docs/io.sarl.docs.markdown
   generated_doc: target/classes
   generated_apidoc: target/site/apidocs
+  info_pattern: <p markdown="1"><span class="label label-info">$1</span> $2</p>
+  warning_pattern: <p markdown="1"><span class="label label-warning">$1</span> $2</p>
+  danger_pattern: <p markdown="1"><span class="label label-danger">$1</span> $2</p>
 
 git:
   branch: master

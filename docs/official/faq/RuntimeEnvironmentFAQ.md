@@ -112,7 +112,7 @@ standard may be used to run Janus.
 ### 2.3. What is the version of the Java virtual machine to install?
 
 Janus requires the JDK 1.8 or higher
-(and strictly lower than 12) to run and compile.
+(and strictly lower than 15) to run and compile.
 Note that if you plan to create Android applications, you may 
 configure your JDK to produce 1.6 class files from 1.8 Java code,
 depending of the current supported standard on Android platforms.
@@ -310,7 +310,7 @@ You should submit your issue on
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

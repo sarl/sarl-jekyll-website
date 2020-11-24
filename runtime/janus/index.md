@@ -15,8 +15,8 @@ Janus-based applications can be distributed across a network.
 Janus could be used as an agent-oriented platform, an organizational platform, and/or an holonic platform. 
 It also natively manages the concept of recursive agents and holons.
 
-Janus platform was initially published during the 2007-2008 period. Since 2014, Janus is fully reimplemented to
-support the SARL Agent-Oriented Programming Language.
+Janus platform was initially published during the 2007-2008 period as a pure Java framework. Since 2014, Janus is fully reimplemented to
+support the SARL Agent-Oriented Programming Language. And since 2020, it is fully re-implemented using the SARL language.
 
 ## About the Version Number of Janus
 

@@ -93,8 +93,7 @@ pass with the `Initialize` event to the launched agent.
 
 
 
-> **_Very Important Note:_** The Janus platform enables to launch a single agent at start-up.
-> If you want to launch more agents, please read the next section.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> The Janus platform enables to launch a single agent at start-up. If you want to launch more agents, please read the next section.</p>
 
 
 
@@ -129,7 +128,7 @@ Please read the rest of the documentation for obtaining more details.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

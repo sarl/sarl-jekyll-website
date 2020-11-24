@@ -15,6 +15,7 @@ layout: default
   <li><a href="#31-event-communication">3.1. Event Communication</a></li>
   <li><a href="#32-parallel-execution">3.2. Parallel Execution</a></li>
   <li><a href="#33-organizational-patterns">3.3. Organizational Patterns</a></li>
+  <li><a href="#34-sarl-run-time-environment">3.4. SARL Run-time Environment</a></li>
 </ul>
 <li><a href="#4-best-practices-with-sarl">4. Best Practices with SARL</a></li>
 <li><a href="#5-reference-documentation">5. Reference Documentation</a></li>
@@ -70,6 +71,10 @@ layout: default
 ### 3.3. Organizational Patterns
 
 * [English Auction with Holons](./tutorials/HolonicAuction.html)
+
+### 3.4. SARL Run-time Environment
+
+* [Creating an extension for the Janus SRE](./tutorials/SreExtension.html)
 
 ## 4. Best Practices with SARL
 
@@ -159,6 +164,7 @@ layout: default
 * [sarlc](./tools/Sarlc.html): command-line SARL compiler.
 * [sarldoc](./tools/Sarldoc.html): command-line SARL documentation generator.
 * [janus](./tools/Janus.html): launching SARL agents with the Janus platform.
+* [janusnode](./tools/Janusnode.html): launching SARL agents with the Janus platform over a computer network.
 
 ## 8. Documentation Format
 
@@ -170,7 +176,7 @@ layout: default
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

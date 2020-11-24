@@ -70,8 +70,7 @@ composed of four source folders:
 
 The default output folder is `target/classes`.
 
-> **_Note:_** The names of these folders are following the conventions of a Maven-based project (described below). In this way, you will
-> be able to turn the Maven nature on your SARL project on/off.
+<p markdown="1"><span class="label label-info">Note</span> The names of these folders are following the conventions of a Maven-based project (described below). In this way, you will be able to turn the Maven nature on your SARL project on/off.</p>
 
 ![Source Code Folders](./new_sarl_project_screen_3.png)
 
@@ -146,9 +145,7 @@ Replace the version number `0.12.0-SNAPSHOT` of SARL with the one you want to us
 The Maven configuration is based on the use of `sarl-maven-plugin`. This plugin is in charge of compiling the SARL and
 the Java files. Details about the `sarl-maven-plugin` may be found on [this page](../tools/MavenSarlPlugin.html).
 
-> **_Important Note:_** You must set the `extensions` tag to true for the `sarl-maven-plugin` plugin. If you missed to set it, the plugin
-> will not able to be integrated in the Maven life-cycle. The consequence will be that only the Java compiler will be
-> invoked.
+<p markdown="1"><span class="label label-warning">Important Note</span> You must set the `extensions` tag to true for the `sarl-maven-plugin` plugin. If you missed to set it, the plugin will not able to be integrated in the Maven life-cycle. The consequence will be that only the Java compiler will be invoked.</p>
 
 ### 2.2. Configuration of a runtime environment (optional)
 
@@ -160,8 +157,9 @@ In several specific cases, you may want to include the runtime environment into 
 this case, you could replace the Maven dependency to the SARL sdk (as defined in the previous section) by a Maven dependency
 to the runtime environment library.
 
-> **_Caution:_** Replacing the SARL sdk library by the run-time environment library within the Maven dependencies is not the
-> recommended approach by the SARL core developers.
+<p markdown="1"><span class="label label-danger">Caution</span> Replacing the SARL sdk library by the run-time environment library within the Maven dependencies is not the recommended approach by the SARL core developers.</p>
+
+#### Janus as maven dependency
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
 
@@ -208,10 +206,52 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
 ```
 
 
-> **_Important Note:_** If you want to have the dependencies to both `io.sarl.maven.sdk` and `io.janusproject.kernel` in your
-> POM file, you must be sure that the imported version of the Google Guava library is the one provided by the Janus
-> platform. For ensuring this, you must specify the version of the Guava library by defining it in the "dependencyManagement"
-> section of your pom file.
+<p markdown="1"><span class="label label-warning">Important Note</span> If you want to have the dependencies to both `io.sarl.maven.sdk` and `io.janusproject.kernel` in your POM file, you must be sure that the imported version of the Google Guava library is the one provided by the Janus platform. For ensuring this, you must specify the version of the Guava library by defining it in the "dependencyManagement" section of your pom file.</p>
+
+
+
+#### Janus with networking feature as maven dependency
+
+By default, the Janus framework does not activate its network feature. If you would like to build a project with this feature,
+you have to use another Maven dependency: `io.janusproject.kernel.network`.
+
+```xml
+ <project>
+   ...
+    <properties>
+       ...
+       <janus.version>3.0.12.0-SNAPSHOT</janus.version>
+    </properties>
+    ...
+    <build>
+       <plugins>
+          ...
+          <plugin>
+             <groupId>io.sarl.maven</groupId>
+             <artifactId>sarl-maven-plugin</artifactId>
+             <version>${sarl.version}</version>
+             <extensions>true</extensions>
+             <configuration>
+                <source>${jdk.version}</source>
+                <target>${jdk.version}</target>
+                <encoding>UTF-8</encoding>
+             </configuration>
+          </plugin>
+       </plugins>
+    </build>
+    ...
+    <dependencies>
+       ...
+       <dependency>
+          <groupId>io.janusproject</groupId>
+          <artifactId>io.janusproject.kernel.network</artifactId>
+          <version>${janus.version}</version>
+       </dependency>
+       ...
+    </dependencies>
+    ...
+ </project>
+```
 
 ## 3. What's next?
 
@@ -224,7 +264,7 @@ In the next section, we will learn how to create our first agent.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

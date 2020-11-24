@@ -61,7 +61,7 @@ the event in a [Space](./Space.html).
 The sending API is detailed in the [Built-in Capacity
 Reference](./BIC.html).
 
-> **_Note:_** There is no message concept in SARL. All communication is done by using an `Event`.
+<p markdown="1"><span class="label label-info">Note</span> There is no message concept in SARL. All communication is done by using an `Event`.</p>
 
 
 
@@ -104,7 +104,7 @@ Each declaration of the attributes illustrates one possible syntax for defining 
 
 According to the type inference mechanism used by SARL, the attribute `something` will have the type `Object`.
 
-> **_Note:_** Because of the use of the `var` keyword, the values of these attributes can be modified.
+<p markdown="1"><span class="label label-info">Note</span> Because of the use of the `var` keyword, the values of these attributes can be modified.</p>
 
 ```sarl
 event MyEvent {
@@ -121,11 +121,7 @@ event MyEvent {
 Events in SARL will carry data that is unmodifiable 
 when an attribute is defined using the `val` keyword.
 
-> **_Important Note:_** The `val` keyword has the same semantics as the `final` modifier in
-> the Java language. It means that an element defined with `val` can be initialized only once. It
-> also means that the element is read-only.
-> But if the element is a reference to an object, then the referenced object
-> is not read-only (only the initial reference is).
+<p markdown="1"><span class="label label-warning">Important Note</span> The `val` keyword has the same semantics as the `final` modifier in the Java language. It means that an element defined with `val` can be initialized only once. It also means that the element is read-only. But if the element is a reference to an object, then the referenced object is not read-only (only the initial reference is).</p>
 
 Because the `val` keyword defines a single-initialization
 variable, there should be a way to specify the initial value.
@@ -160,8 +156,7 @@ mechanism as the Java object-oriented language.
 
 The extended event is specified just after the `extends` keyword.
 
-> **_Very Important Note:_** An event type can extend __only one__ other event type.  This is similar to the
-> model for class extensions in the Java language.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> An event type can extend __only one__ other event type.  This is similar to the model for class extensions in the Java language.</p>
 
 #### Declaration
 
@@ -251,8 +246,7 @@ public var example1 : Object
 Several events are defined and reserved by the SARL Core Specification.
 They describe the minimal set of events that a runtime environment must support to run a SARL program.
 
-> **_Very Important Note:_** You must not define an event with a fully qualified name equals to one of the reserved
-> events.
+<p markdown="1"><span class="label label-danger">Very Important Note</span> You must not define an event with a fully qualified name equals to one of the reserved events.</p>
 
 Two types of reserved events exist:
 
@@ -266,7 +260,7 @@ Two types of reserved events exist:
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

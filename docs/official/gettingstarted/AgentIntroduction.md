@@ -50,9 +50,7 @@ SARL elements are organized in packages. You can define the package using the `p
 The following code will define an agent with a fully qualified name of `io.sarl.docs.gettingstarted.^agent`.
 The character `^` in the package name permits to use a SARL keyword into a package name.
 
-> **_Important Note:_** The package keyword defines the package for all elements in the same SARL file
-> (see the [General Syntax Reference](../reference/GeneralSyntax.html) for details).
-> Therefore FirstAgent and SecondAgent belong to the same package, i.e. `io.sarl.docs.gettingstarted.^agent`.
+<p markdown="1"><span class="label label-warning">Important Note</span> The package keyword defines the package for all elements in the same SARL file (see the [General Syntax Reference](../reference/GeneralSyntax.html) for details). Therefore FirstAgent and SecondAgent belong to the same package, i.e. `io.sarl.docs.gettingstarted.^agent`.</p>
 
 ## 3. Agent Perceptions
 
@@ -71,7 +69,7 @@ Now, we will want our agent to react to `MyEvent` and print a message on the con
 
 To define this event handler, we must use the `on` keyword, and provide the associated code block.
 
-> **_Note:_** The `println` function is provided by the `Logging` capacity. It permits printing a message on the log output.
+<p markdown="1"><span class="label label-info">Note</span> The `println` function is provided by the `Logging` capacity. It permits printing a message on the log output.</p>
 
 ```sarl
 import io.sarl.core.Logging
@@ -151,8 +149,7 @@ Agents need to send data and stimuli to other agents. This communication takes t
 Now, we will want our agent to send data to other agents. The data are embedded into events. The definition of an
 event is described above.
 
-> **_Note:_** In this document, we limit our explanation to the sending of the events in the default space of the default context
-> of the agent.
+<p markdown="1"><span class="label label-info">Note</span> In this document, we limit our explanation to the sending of the events in the default space of the default context of the agent.</p>
 
 For sending an event in the default space, the `DefaultContextInteractions` built-in capacity should be used.
 
@@ -197,7 +194,7 @@ In the next section, we will learn how to start a SARL agent in the Eclipse IDE.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

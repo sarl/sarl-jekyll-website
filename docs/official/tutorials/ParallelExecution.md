@@ -64,8 +64,7 @@ is started nor terminated when the function returns.
 In order to allow the parallel treatment of the events by an agent, each event handler, e.g. `on MyEvent`
 is run in a dedicated thread.
 
-> **_Caution:_** In the previous example, there is no warranty about the order of printing of the two messages.
-> Because of the parallel execution of the threads, the `"Agent was spawned"` message may be displayed before the `"Spawn query called"` message.
+<p markdown="1"><span class="label label-danger">Caution</span> In the previous example, there is no warranty about the order of printing of the two messages. Because of the parallel execution of the threads, the `"Agent was spawned"` message may be displayed before the `"Spawn query called"` message.</p>
 
 ## 2. Agent Spawning
 
@@ -158,7 +157,7 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-10-10
+* Release: 2020-11-25
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
