@@ -118,7 +118,7 @@ of models inspired from their experience in different domains.
 In many cases, we find the idea of _agents composed of other agents_.
 
 More recently, the importance of holonic multi-agent systems has been
-recognized by different methodologies such as [ASPECS](http://www.aspecs.org/Home) or O-MASE.
+recognized by different methodologies such as [ASPECS](http://www.aspecs.org) or O-MASE.
 
 <p markdown="1"><span class="label label-info">Note</span> In SARL, we recognize that agents can be composed of other agents. Therefore, SARL agents are in fact holons that can compose each other to define hierarchical or recursive multi-agent system, called holarchies.</p>
 
@@ -864,7 +864,7 @@ agent MyAgent {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

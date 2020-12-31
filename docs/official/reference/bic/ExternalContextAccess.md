@@ -86,7 +86,7 @@ agent A {
 Agents must be able to join a new parent context. The following function gives this capability to them:
 
 ```sarl
-def join(contextID : UUID, expectedDefaultSpaceID : UUID)
+def join(contextID : UUID, expectedDefaultSpaceID : UUID) : AgentContext
 ```
 
 
@@ -98,6 +98,8 @@ The parameter `expectedDefaultSpaceID` is only used to check if the caller of th
 knows the ID of the default space in the context to be involved in. 
 If the given `expectedDefaultSpaceID` does not match the ID of the default space in the context
 `contextID`, then the access to the context is forbidden.
+
+The `join` function replies the reference to the joined context.
 
 <p markdown="1"><span class="label label-warning">Important Note</span> The context must already exist, and the default space inside this context must have the same ID as `expectedDefaultSpaceID`.</p>
 
@@ -113,8 +115,8 @@ Example:
 ```sarl
 agent A {
 	uses ExternalContextAccess
-		var idc : UUID
-		var ids : UUID
+	var idc : UUID
+	var ids : UUID
 	def myaction {
 		idc = UUID::randomUUID
 		ids = UUID::randomUUID
@@ -221,7 +223,7 @@ the extension method syntax: the first argument to the function is written prior
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

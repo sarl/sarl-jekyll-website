@@ -60,13 +60,62 @@ title: Download SARL
 			</table>
 		</div>
 	</div>
+	<div class="col-md-4">
+		<div class="pricing">
+			<table>
+				<tfoot>
+					<tr>
+						<td></td>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="focus">Last Version Supporting<br/><img width="100px" src="../images/java8.png"/> <br/>{{site.sarl_java8_version}}<br/><span>Just Download and Unzip<br/><a href="./changes_{{site.sarl_java8_version}}.html">Changes in {{site.sarl_java8_version}}</a></span></td>
+					</tr>
+					<tr>
+						<td style="text-align: center; white-space: nowrap;">
+							<a href="{{site.sarl_java8_download.win64.product}}"
+							onclick="ga('send','event','Downloads','Download', 'Stable Windows 64')"
+							class="btn btn-primary btn-large"
+							style="width: 45%;"><i class="fa fa-windows"></i> Win 64-bit</a><br/>
+							<span class="btn btn-note" style="width: 45%;">
+								<a href="{{site.sarl_java8_download.win64.md5}}">md5</a>&nbsp;&middot;&nbsp;<a href="{{site.sarl_java8_download.win64.sha1}}">sha1</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center; white-space: nowrap;">
+							<a href="{{site.sarl_java8_download.mac64.product}}"
+							onclick="ga('send','event','Downloads','Download', 'Stable MacOS 64')"
+							class="btn btn-primary btn-large" style="width: 45%;"><i class="fa fa-apple"></i> OS X 64-bit</a><br/>
+							<span class="btn btn-note" style="width: 45%;">
+								<a href="{{site.sarl_java8_download.mac64.md5}}">md5</a>&nbsp;&middot;&nbsp;<a href="{{site.sarl_java8_download.mac64.sha1}}">sha1</a>
+							</span>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align: center; white-space: nowrap;">
+							<a href="{{site.sarl_java8_download.linux64.product}}"
+							onclick="ga('send','event','Downloads','Download', 'Stable Linux 64')"
+							class="btn btn-primary btn-large"
+							style="width: 45%;"><i class="fa fa-linux"></i> Linux 64-bit</a><br/>
+							<span class="btn btn-note" style="width: 45%;">
+								<a href="{{site.sarl_java8_download.linux64.md5}}">md5</a>&nbsp;&middot;&nbsp;<a href="{{site.sarl_java8_download.linux64.sha1}}">sha1</a>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	<div class="col-md-1">&nbsp;</div>
 </div>
 
 <div class="row">
 	<h1>Installation Instructions</h1>
 	<p>
-		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html" target="_blank"><i class="fa fa-coffee"></i> Java Runtime Environment 1.8 or higher</a> installed in order to compile and execute.
+		SARL is implemented in Java, so you must have a <a href="http://www.oracle.com/technetwork/java/index.html" target="_blank"><i class="fa fa-coffee"></i> Java Runtime Environment {{site.sarl_min_jdk_version}} or higher</a> installed in order to compile and execute.
 	</p>
 
 
@@ -78,7 +127,7 @@ title: Download SARL
 </div>
 
 <div class="row">
-	<h2>Install Pre-Configured Eclipse with SARL SDK</h2>
+	<h2>Install pre-configured Eclipse with SARL SDK</h2>
 	<ol>
 		<li>Download the distribution from above that matches your OS.</li>
 		<li>Unzip the archive into the directory of your choice. Windows Users should choose a directory close to the root since the zip contains a deeply nested folder structure. The maximum path length on windows may not exceed 256 characters.</li>
@@ -88,7 +137,7 @@ title: Download SARL
 </div>
 
 <div class="row">
-	<h2>Maven Support</h2>
+	<h2>Maven support</h2>
 	<p>You can also compile SARL code using <a href="http://maven.apache.org" target="_blank"><i class="fa fa-maxcdn"></i> Maven</a>.
 	   The configuration of Maven is given in the tutorial "<a href="{{ page.relative }}docs/official/gettingstarted/CreateFirstProject.html#2-create-a-sarl-project-with-maven">Create First Project</a>".</p>
 	<p>The lastest version numbers could be obtain from the <a href="http://search.maven.org" target="_blank"><i class="fa fa-maxcdn"></i> Maven Central Repository</a>, or from the <a href="http://maven.sarl.io" target="_blank"><i class="fa fa-maxcdn"></i> Maven repositories of SARL</a>.</p>
@@ -97,7 +146,7 @@ title: Download SARL
 
 <div class="row">
 	<a id="download_janus"></a>
-	<h2>Download the Java Library for Janus Run-time Environment</h2>
+	<h2>Download the Java library for Janus run-time environment</h2>
 	<p>
 		The <a href="{{page.relative}}/runtime/janus/index.html">Janus run-time environment</a> is already included into the SARL product that could be downloaded above. Nevertheless, you could download the Janus platform by clicking on the following link:
 		<ul>
@@ -111,36 +160,50 @@ title: Download SARL
 </div>
 
 <div class="row">
-	<h2>Command line tools</h2>
+	<h2>Command-line tools</h2>
 	<p>
 		Several command-line tools could be dowloaded with the following links.
 		<ul>
-		<li>SARL compiler : <a 
+		<li>SARL compiler (sarlc): <a 
 			onclick="ga('send','event','Downloads','Download', 'Sarlc Windows')"
 			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/{{site.sarl_stable_version}}/io.sarl.lang.sarlc-{{site.sarl_stable_version}}.exe"><i class="fa fa-windows"></i> Windows</a>, <a
 			onclick="ga('send','event','Downloads','Download', 'Sarlc Linux')"
 			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/{{site.sarl_stable_version}}/io.sarl.lang.sarlc-{{site.sarl_stable_version}}.sh"><i class="fa fa-linux"></i> Linux</a>, <a
 			onclick="ga('send','event','Downloads','Download', 'Sarlc MacOS')"
-			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/{{site.sarl_stable_version}}/io.sarl.lang.sarlc-{{site.sarl_stable_version}}.dmg"><i class="fa fa-apple"></i> OS X</a>.</li>
-		<li>Janus run-time environment : <a 
+			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarlc/{{site.sarl_stable_version}}/io.sarl.lang.sarlc-{{site.sarl_stable_version}}.dmg"><i class="fa fa-apple"></i> OS X</a></li>
+		<li>Janus run-time environment: <ul>
+			<li><i>Without</i> network support (janus): <a 
 			onclick="ga('send','event','Downloads','Download', 'Janus Windows')"
 			href="http://maven.sarl.io/io/janusproject/io.janusproject.kernel/{{site.janus_stable_version}}/io.janusproject.kernel-{{site.janus_stable_version}}.exe"><i class="fa fa-windows"></i> Windows</a>, <a 
 			onclick="ga('send','event','Downloads','Download', 'Janus Linux')"
 			href="http://maven.sarl.io/io/janusproject/io.janusproject.kernel/{{site.janus_stable_version}}/io.janusproject.kernel-{{site.janus_stable_version}}.sh"><i class="fa fa-linux"></i> Linux</a>, <a
 			onclick="ga('send','event','Downloads','Download', 'Janus MacOS')"
-			href="http://maven.sarl.io/io/janusproject/io.janusproject.kernel/{{site.janus_stable_version}}/io.janusproject.kernel-{{site.janus_stable_version}}.dmg"><i class="fa fa-apple"></i> OS X</a>.</li>
+			href="http://maven.sarl.io/io/janusproject/io.janusproject.kernel/{{site.janus_stable_version}}/io.janusproject.kernel-{{site.janus_stable_version}}.dmg"><i class="fa fa-apple"></i> OS X</a></li>
+			<li><i>With</i> network support (janusnode): <a 
+			onclick="ga('send','event','Downloads','Download', 'Janus Windows')"
+			href="http://maven.sarl.io/io/janusproject/io.janusproject.kernel.network/{{site.janus_stable_version}}/io.janusproject.kernel.network-{{site.janus_stable_version}}.exe"><i class="fa fa-windows"></i> Windows</a>, <a 
+			onclick="ga('send','event','Downloads','Download', 'Janus Linux')"
+			href="http://maven.sarl.io/io/janusproject/io.janusproject.kernel.network/{{site.janus_stable_version}}/io.janusproject.kernel.network-{{site.janus_stable_version}}.sh"><i class="fa fa-linux"></i> Linux</a></li>
+			</li></ul>
+		<li>Generator of the API documentation (sarldoc): <a 
+			onclick="ga('send','event','Downloads','Download', 'Sarldoc Windows')"
+			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarldoc/{{site.sarl_stable_version}}/io.sarl.lang.sarldoc-{{site.sarl_stable_version}}.exe"><i class="fa fa-windows"></i> Windows</a>, <a
+			onclick="ga('send','event','Downloads','Download', 'Sarldoc Linux')"
+			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarldoc/{{site.sarl_stable_version}}/io.sarl.lang.sarldoc-{{site.sarl_stable_version}}.sh"><i class="fa fa-linux"></i> Linux</a>, <a
+			onclick="ga('send','event','Downloads','Download', 'Sarldoc MacOS')"
+			href="http://maven.sarl.io/io/sarl/io.sarl.lang.sarldoc/{{site.sarl_stable_version}}/io.sarl.lang.sarldoc-{{site.sarl_stable_version}}.dmg"><i class="fa fa-apple"></i> OS X</a></li>
 		</ul>
 	</p>
 </div>
 
 <div class="row">
-	<h2>Debian and Ubuntu Packages</h2>
+	<h2>Debian and Ubuntu packages</h2>
 	<p>The command-line tools are also packaged for the <a href="http://www.arakhne.org/sarl/" target="_blank"><i class="fa fa-linux"></i> Debian and Ubuntu operating systems</a>.
 	   The process for including the Debian/Ubuntu package repository into your system's configuration is explained on the <a href="http://www.arakhne.org/ubuntu.html" target="_blank"><i class="fa fa-linux"></i> Arakhn&ecirc;.org website</a>.
 </div>
 
 <div class="row">
-	<h2>Install SARL SDK From Update Site (not recommended)</h2>
+	<h2>Install SARL SDK from the Eclipse update site (not recommended)</h2>
 	
 	
 	<p>If you have an Eclipse running :</p>
@@ -162,26 +225,26 @@ title: Download SARL
 	<p>The latest product under development of SARL could be downloaded by clicking on one of the following links.
 	<p>No warranty is given regarding the stability and the efficiency of this version of the product, since it is built periodically based on developers' contributions.
 	<ul>
-	<li><i class="fa fa-windows"></i> Windows: <a 
-		onclick="ga('send','event','Downloads','Download', 'Unstable Windows 64')"
-		href="{{site.sarl_unstable_download.win64}}">64 bits</a></li>
-	<li><i class="fa fa-apple"></i> MacOS: <a 
-		onclick="ga('send','event','Downloads','Download', 'Unstable MacOS 64')"
-		href="{{site.sarl_unstable_download.mac64}}">64 bits</a></li>
-	<li><i class="fa fa-linux"></i> Linux: <a 
-		onclick="ga('send','event','Downloads','Download', 'Unstable Linux 64')"
-		href="{{site.sarl_unstable_download.linux64}}">64 bits</a></li>
+	<li><a onclick="ga('send','event','Downloads','Download', 'Unstable Windows 64')"
+		href="{{site.sarl_unstable_download.win64}}">
+		<i class="fa fa-windows"></i> Windows 64 bits</a></li>
+	<li><a onclick="ga('send','event','Downloads','Download', 'Unstable MacOS 64')"
+		href="{{site.sarl_unstable_download.mac64}}">
+		<i class="fa fa-apple"></i> MacOS 64 bits</a></li>
+	<li><a onclick="ga('send','event','Downloads','Download', 'Unstable Linux 64')"
+		href="{{site.sarl_unstable_download.linux64}}">
+		<i class="fa fa-linux"></i> Linux 64 bits</a></li>
 	</ul>
 </div>
 
 <div class="row">
-	<h1>Getting a old version of SARL</h1>
+	<h1>Getting an old version of SARL</h1>
 	<p>The old versions of SARL are available on <a href="{{site.sarl_old_versions}}">Google Drive</a>.
 </div>
 
 {% if site.github_username %}
 <div class="row">
-	<h1>Getting the Source Code</h1>
+	<h1>Getting the source code</h1>
 	<p>The source code of SARL is available on <a href="https://github.com/{{ site.github_username }}" target="_blank"><i class="fa fa-github"></i> Github</a>.</p>
 	<p>You could get the source code by cloning the GIT repository:</p>
 	<pre class="prettyprint"><code>git clone https://github.com/{{ site.github_username }}.git</code></pre>

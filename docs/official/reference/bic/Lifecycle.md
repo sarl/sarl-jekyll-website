@@ -33,7 +33,7 @@ this query.
 The `Lifecycle` capacity provides the following function for committing a suicide:
 
 ```sarl
-def killMe
+def killMe(abnormalTerminationCause : Throwable = null)
 ```
 
 
@@ -61,6 +61,12 @@ agent A {
 }
 ```
 
+
+
+The optional argument of the `killMe` function enables to provide the cause of an abnormal termination of the agent.
+This cause must be a throwable object, e.g. an exception.
+If the argument `abnormalTerminationCause` is provided, its value is put into the field `abnormalTerminationCause` of the fired `AgentKilled`
+event.
 
 
 ## 2. Spawning in the default context
@@ -207,7 +213,7 @@ agent A {
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

@@ -80,6 +80,7 @@ The complete list of the options is:
 | --generate-pures[=true&#124;false] | Specifies if the @Pure annotations should be generated; default is true. |
 | --generate-serials[=true&#124;false] | Specifies if the serial identifiers should be generated; default is true. |
 | --generate-tostring[=true&#124;false] | Specifies if the toString functions should be generated; default is true. |
+| --generatemarkdownconfighelp | Prints the configuration parameters using a Markdown table. |
 | --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
 | --generator=identifiers | Enables extra-language generators. The parameter is a list of identifiers of the generators to turn on, separated by ':'. See the option -G for printing out the list of the available generators. |
 | -h<br>--help | Prints this message. |
@@ -289,7 +290,7 @@ This documentation is inspired by the documentation from the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

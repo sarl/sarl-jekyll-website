@@ -18,8 +18,19 @@ layout: default
 
 
 
-[Janus](http://www.janusproject.io) is the default SARL Run-time Environment (SRE).
-Its role is to provide all the libraries and plugins that are needed for running SARL agents.
+[Janus](http://www.sarl.io/runtime/janus/index.html) is an open-source multi-agent platform fully implemented in SARL. 
+Janus could be used as an agent-oriented platform, an organizational platform, and/or an holonic platform. 
+It also natively manages the concept of recursive agents and holons.
+Janus platform was initially published during the 2007-2008 period as a pure Java framework. Since 2014, Janus is fully reimplemented to
+support the SARL Agent-Oriented Programming Language. And since 2020, it is fully re-implemented using the SARL language.
+
+Janus implementation follows the standards of software engineering as much as possible. Basically, the key
+implementation choices of Janus that are under interest in this tutorial are:
+1. [*Microkernel architecture*](http://www.fipa.org/repository/standardspecs.html): Janus implementation is based on a microkernel that provides the key features of an agent framework, and that could be easily extended. The key features are implemented as services.
+2. [*Service-based architecture*](https://en.wikipedia.org/wiki/Service-oriented_architecture): The main features of the Janus framework are implemented as services, e.g. context management, agent lifecycle, logging, etc.
+3. [*Dependency Injection*](https://en.wikipedia.org/wiki/Dependency_injection): Modules (and services) are injected into the using objects with [Google Guice](https://github.com/google/guice). It provides support for dependency injection using annotations to configure Java objects. Dependency injection is a design pattern whose core principle is to separate behavior from dependency resolution.
+
+
 
 For launching the Janus platform from a command-line shell, you could use the `janus` tool.
 
@@ -67,7 +78,8 @@ the classpath of your application, more options may become available.
 | --cp=path | Specifies where to find user class files, and source files. This class path overrides the user class path in the SRE_CLASSPATH environment variable. If neither SRE_CLASSPATH, --cp nor --classpath is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -d uuid<br>--default-space-id=uuid | Specify the identifier (UUID) of the default space into the root context; Default is 7ba8885d-545b-445a-a0e9-b655bc15ebe0. |
 | -e {reflect, polymorphic}<br>--event-bus={reflect, polymorphic} | Specify the type of event bus to create for each agent; Default is reflect. |
-| -g<br>--generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
+| --generatemarkdownconfighelp | Prints the configuration parameters using a Markdown table. |
+| --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
 | -h<br>--help | Prints this message. |
 | -H<br>--help-config | Prints information about application modules and their configuration options. |
 | --inject-agents={true&#124;false} | Specify if the agents should be injected with field values by the SRE; Default is false. |
@@ -150,7 +162,7 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

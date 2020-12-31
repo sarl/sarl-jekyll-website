@@ -167,7 +167,8 @@ the code itself and in the documentation text, you could use the copying and ref
 
 For saving a piece of the SARL code, you should use the macro `[:id](value)`, where
 `id` is a name that you should give to the saved value (only alphnumerical and dot characters are allowed).
-The `value` is the text to capture.
+The `value` is the text to capture. If the parenthesis characters may cause problem for enclosing the `value`, you
+could replace them by one of `{}`, `||` or `$$`.
 
 For putting back in the text the captured text, you should use the macro `[:id:]`, with
 the `id` is the name of the captured value. This macro put the saved text inside a Markdown code environment.
@@ -319,7 +320,7 @@ The other resources, such as images should be in the `src/main/resources` folder
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

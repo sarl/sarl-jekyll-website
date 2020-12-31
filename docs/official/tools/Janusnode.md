@@ -12,28 +12,42 @@ layout: default
 <li><a href="#2-usage">2. Usage</a></li>
 <li><a href="#3-command-line-options">3. Command-Line Options</a></li>
 <li><a href="#4-list-of-errors-and-warnings">4. List of Errors and Warnings</a></li>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#5-configuration-of-the-networking-feature">5. Configuration of the networking feature</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
 
-[Janus](http://www.janusproject.io) is the default SARL Run-time Environment (SRE).
-Its role is to provide all the libraries and plugins that are needed for running SARL agents.
+[Janus](http://www.sarl.io/runtime/janus/index.html) is an open-source multi-agent platform fully implemented in SARL. 
+Janus could be used as an agent-oriented platform, an organizational platform, and/or an holonic platform. 
+It also natively manages the concept of recursive agents and holons.
+Janus platform was initially published during the 2007-2008 period as a pure Java framework. Since 2014, Janus is fully reimplemented to
+support the SARL Agent-Oriented Programming Language. And since 2020, it is fully re-implemented using the SARL language.
+
+Janus implementation follows the standards of software engineering as much as possible. Basically, the key
+implementation choices of Janus that are under interest in this tutorial are:
+1. [*Microkernel architecture*](http://www.fipa.org/repository/standardspecs.html): Janus implementation is based on a microkernel that provides the key features of an agent framework, and that could be easily extended. The key features are implemented as services.
+2. [*Service-based architecture*](https://en.wikipedia.org/wiki/Service-oriented_architecture): The main features of the Janus framework are implemented as services, e.g. context management, agent lifecycle, logging, etc.
+3. [*Dependency Injection*](https://en.wikipedia.org/wiki/Dependency_injection): Modules (and services) are injected into the using objects with [Google Guice](https://github.com/google/guice). It provides support for dependency injection using annotations to configure Java objects. Dependency injection is a design pattern whose core principle is to separate behavior from dependency resolution.
+
+
 
 The [`janus`](./Janus.html) tool is the base command-line tool for launching the SRE.
-But, it does not provide a support for exchaning events over a computer
+But, it does not provide a support for exchanging events over a computer
 network. If you would like to have benefit of this feature, you should use one of the following
 methods:
 
-1. Add on the classpath of the `janus` command a library that includes the networking feature to the SRE; or
-2. Use the version of the SRE that already includes the standard network feature: `janusnode`.
+1. Add on the classpath of the `janus` command the [library that includes the networking feature](./JanusNetworkExtension.html) to the SRE; or
+2. Use the version of the SRE that already includes the [standard network feature](./JanusNetworkExtension.html): `janusnode`.
 
 The `janusnode` is explained on this page.
 
 ## 1. Basics of the Networking Feature
 
-Basically, the networking feature of the SRE enables you to launch instances of the Janus kernel on different
+Basically, the networking feature of the Janus SRE enables you to launch instances of the Janus kernel on different
 computers, and exchange events between these instances.
+
+![General Networking Architecture](./janusnetworkextension.png)
 
 In order to implement this feature, the [Hazelcast](http://www.hazelcast.com) library is used.
 Hazelcast is an open source in-memory data grid based on Java. In a Hazelcast grid, data is
@@ -44,7 +58,8 @@ failure of any single node.
 In addition to the data-sharing and efficient communication means, Hazelcast provides the ability
 to build the node network automatically. Each Hazelcast node that is associated to a given cluster
 name is *connected automatically* to the other nodes in the same cluster on the local network.
-It means that you do not need to provide a network configuration to the `janusnode` tool.
+It means that you do not need to provide a network configuration to the Janus SRE.
+
 
 ## 2. Usage
 
@@ -88,7 +103,8 @@ more options may become available.
 | --cp=path | Specifies where to find user class files, and source files. This class path overrides the user class path in the SRE_CLASSPATH environment variable. If neither SRE_CLASSPATH, --cp nor --classpath is specified, then the user class path is built upon the current folder. If a user class path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -d uuid<br>--default-space-id=uuid | Specify the identifier (UUID) of the default space into the root context; Default is 7ba8885d-545b-445a-a0e9-b655bc15ebe0. |
 | -e {reflect, polymorphic}<br>--event-bus={reflect, polymorphic} | Specify the type of event bus to create for each agent; Default is reflect. |
-| -g<br>--generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
+| --generatemarkdownconfighelp | Prints the configuration parameters using a Markdown table. |
+| --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
 | -h<br>--help | Prints this message. |
 | -H<br>--help-config | Prints information about application modules and their configuration options. |
 | --inject-agents={true&#124;false} | Specify if the agents should be injected with field values by the SRE; Default is false. |
@@ -99,7 +115,7 @@ more options may become available.
 | --max-threads=number | Specify the maximal number of threads that could be created by the SRE; Default is 512. |
 | --min-threads=number | Specify the minimal number of threads that should be created by the SRE; Default is 0. |
 | --name=name | Specify the name of the program that is shown into the logs for example; Default is 'SARL Run-time Environment'. |
-| --network=true&#124;false | Specifies if the networking features of the SRE are enabled or disabled. If the given value is "true", the features are enable. If the given value is "false", the features are disable. The value could also be changed with the SRE_NETWORK_ENABLE environment variable. The default value for the enabling flag is true. |
+| --network=true&#124;false | Specifies if the networking features of the SRE are enabled or disabled. If the given value is "true", the features are enable. If the given value is "false", the features are disable. The value could also be changed with the SRENETWORK_ENABLE environment variable. The default value for the enabling flag is false. |
 | --no-agent | Start the SRE without agent at boot time. In this case, the fully qualified name that may be provided on the command line is simply ignored. Agents should be spawned later by calling the programmatic API of the SRE. |
 | -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
 | -r uuid<br>--root-context-id=uuid | Specify the identifier (UUID) of the root context; Default is 2c38fb7f-f363-4f6e-877b-110b1f07cc77. |
@@ -119,14 +135,17 @@ more options may become available.
 The list of error and warning messages that may be generated by Janus are provided on the
 help page of the [main command-line tool](./Janus.html).
 
+## 5. Configuration of the networking feature
+
+The configuration of the networking feature is explained on this [page](./JanusNetworkExtension.html).
 
 
-## 5. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

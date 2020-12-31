@@ -30,8 +30,10 @@ layout: default
   <li><a href="#22-what-version-of-the-java-virtual-machine-is-required">2.2. What version of the Java virtual machine is required?</a></li>
   <li><a href="#23-why-does-sarl-display-an-error-on-startup">2.3. Why does SARL display an error on startup?</a></li>
   <li><a href="#24-why-does-sarl-eclipse-fail-on-windows-10">2.4. Why does SARL Eclipse fail on Windows 10?</a></li>
-  <li><a href="#25-why-does-the-sarl-product-launch-but-not-contain-any-features-related-to-sarl">2.5. Why does the SARL product launch but not contain any features related to SARL?</a></li>
-  <li><a href="#26-why-does-the-content-assistant-not-propose-any-suggestion-on-macos">2.6. Why does the content assistant not propose any suggestion on MacOS?</a></li>
+  <li><a href="#25-why-does-sarl-eclipse-fail-on-macos-x">2.5. Why does SARL Eclipse fail on MacOS X?</a></li>
+  <li><a href="#26-why-does-the-sarl-product-launch-but-not-contain-any-features-related-to-sarl">2.6. Why does the SARL product launch but not contain any features related to SARL?</a></li>
+  <li><a href="#27-why-does-the-content-assistant-not-propose-any-suggestion-on-macos-x">2.7. Why does the content assistant not propose any suggestion on MacOS X?</a></li>
+  <li><a href="#28-why-is-the-sarl-development-environment-becoming-slow-or-frozen">2.8. Why is the SARL development environment becoming slow or frozen?</a></li>
 </ul>
 <li><a href="#3-implementation-of-sarl-applications">3. Implementation of SARL Applications</a></li>
 <ul>
@@ -116,7 +118,7 @@ complete support for holons.
 __Yes__.
 
 An extension to SARL is available that defines an organizational space based on the
-[CRIO meta-model](http://www.aspecs.org/CRIO) (Capacity-Role-Interaction-Organization).
+[CRIO meta-model](http://www.aspecs.org/CRIO.html) (Capacity-Role-Interaction-Organization).
 This meta-model defines a system as a set of organizations  in which roles are defined
 and interact together. Agents play roles in organization instances (or groups) and
 provides embedded capacity implementations required by the played roles.
@@ -249,7 +251,33 @@ or use the 32-bit version of the SARL Eclipse product.
 If another error occurs, you should go on the SARL forum and report this problem.
 
 
-### 2.5. Why does the SARL product launch but not contain any features related to SARL?
+### 2.5. Why does SARL Eclipse fail on MacOS X?
+
+Several MacOS X users reported that errors when they try to launch the SARL Eclipse product.
+Plenty of reasons may be the cause of the failure. As usually, it is always better to
+read the ".log" file for determining this cause.
+
+Nevertheless, the two most reported causes of avoidance of the SARL Eclipse launch are:
+
+1. The Java virtual machine (JVM) is not valid for running SARL Eclipse. To solve this problem:
+   * install the JDK 1.8, and configuring your operating system to use it by default; or
+   * force the SARL product to use the JDK 1.8 by editing the `eclipse-sarl.ini` file into the folder of the SARL IDE. Add the following parameter on a new line: `-vm path`, where `path` is the path to the binary file `javaw` or `java` of at least the JDK 1.8.
+
+2. The Gatekeeper of MacOS X blocks the launch of the SARL Eclipse, because Gatekeeper considers SARL Eclipse as unstable. You could confirm this problem by looking into your `system.log` file and searching for a message that looks like:
+
+```
+(application.io.sarl.lang.product.72020573.72020798[78958]): removing service since it exited with consistent failure - OS_REASON_EXEC | Gatekeeper policy blocked execution
+```
+
+On order to enable Gatekeper to enable the SARL Eclipse launch, you should type on the Terminal the following command:
+```
+sudo xattr -rd com.apple.quarantine Eclipse.app
+```
+
+Where `Eclipse.app` is the name of the SARL Eclipse application on MacOS X.
+
+
+### 2.6. Why does the SARL product launch but not contain any features related to SARL?
 
 This is due to a problem in your configuration. SARL tools need the Eclipse
 framework to be run with a Java Development Kit 1.8 or higher.
@@ -259,13 +287,11 @@ You must run the SARL product with a valid version of the JDK.
 Two ways are available for solving this issue:
 
 1. install the JDK 1.8, and configuring your operating system to use it by default; or
-2. force the SARL product to use the JDK 1.8 by editing the `eclipse-sarl.ini` file
-into the folder of the SARL IDE. Add the following parameter on a new line: `-vm path`, where `path` is the
-path to the binary file `javaw[.exe]` or `java[.exe]` of at least the JDK 1.8.
+2. force the SARL product to use the JDK 1.8 by editing the `eclipse-sarl.ini` file into the folder of the SARL IDE. Add the following parameter on a new line: `-vm path`, where `path` is the path to the binary file `javaw[.exe]` or `java[.exe]` of at least the JDK 1.8.
 
 
 
-### 2.6. Why does the content assistant not propose any suggestion on MacOS?
+### 2.7. Why does the content assistant not propose any suggestion on MacOS X?
 
 By default in the SARL product, the shortcut key for invoking the content assistant is `Ctrl+Space` or `Apple+Space`.
 But, the Spotlight tool on MacOS is also using the same shortcut key.
@@ -275,9 +301,27 @@ For enabling the SARL product content assist, we recommend to change its shortcu
 * Window > Preferences
 * General > Keys
 * Content Assist
-* Change the shortcut key
+
+And, change the shortcut key.
 
 ![Content assist shortcut change](./ctrlspaceprefs.png)
+
+
+### 2.8. Why is the SARL development environment becoming slow or frozen?
+
+Sometimes the SARL product is entering into an invalid state and causes the garbage collector of its Java virtual
+machine to be slower and slower until a quasi freeze of the SARL product.
+Most of the times, it is due to an error occurring into the code-mining feature
+of the SARL editor. This feature shows up (in gray in the editor) the hidden or implicit peaces of code.
+Before the code-mining issues are definitively fixed, you could disable the code-mining feature in order
+to have your SARL development environment running without problem.
+
+For disabling the code-mining feature, go to:
+
+* Window > Preferences
+* SARL > Editors
+
+And, uncheck the option `Show implicit SARL code in the editors (codemining)`.
 
 
 ## 3. Implementation of SARL Applications
@@ -447,7 +491,7 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

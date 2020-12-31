@@ -121,10 +121,10 @@ The killing function is provided by the
 [`Lifecycle`](../reference/bic/Lifecycle.html) capacity.
 
 The agent killing process is divided into several steps:
-1. Call of the killing function;
+1. Call of the killing function (possibly with the abnormal termination cause);
 2. Synchronous execution of the [:destroyblock] of the agent;
-3. SRE-specific destruction of the agent;
-4. Firing of the AgentKilled event.
+3. Destruction of the agent within the SRE;
+4. Firing of the AgentKilled event (possibly with the abnormal termination cause).
 
 Step 1 is run within the thread of the caller.
 Steps 2 to 4 are run within an internal thread of the SRE.
@@ -157,7 +157,7 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

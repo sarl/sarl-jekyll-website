@@ -68,7 +68,7 @@ git:
   branch: master
 
 mvn:
-  cmd: mvn1.8
+  cmd: /home/sgalland/bin/mvn1.8
 
 transfer:
   command: rsync
@@ -130,4 +130,19 @@ sarl_unstable_download:
   linux64: "http://updates.sarl.io/products/eclipse-sarl-unstable.linux.gtk.x86_64.zip"
   mac64: "http://updates.sarl.io/products/eclipse-sarl-unstable.macosx.cocoa.x86_64.zip"
 sarl_old_versions: https://drive.google.com/open?id=14Rqx8GyYvtd2LNxZsiECuc48uPRTQz6I
+sarl_java8_version: 0.12.0
+sarl_java8_download:
+  win64:
+    product: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-win32.win32.x86_64.zip"
+    md5: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-win32.win32.x86_64.zip.md5"
+    sha1: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-win32.win32.x86_64.zip.sha1"
+  linux64:
+    product: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-linux.gtk.x86_64.zip
+    md5: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-linux.gtk.x86_64.zip.md5
+    sha1: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-linux.gtk.x86_64.zip.sha1
+  mac64:
+    product: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-macosx.cocoa.x86_64.zip
+    md5: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-macosx.cocoa.x86_64.zip.md5
+    sha1: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.11.0/io.sarl.lang.updatesite-0.12.0-macosx.cocoa.x86_64.zip.sha1
+sarl_min_jdk_version: 1.8
 

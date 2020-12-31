@@ -26,17 +26,19 @@ layout: default
   <li><a href="#54-sarl-development-toolkit-sdk-and-programming-interface-api">5.4. SARL Development Toolkit (SDK) and Programming Interface (API)</a></li>
 </ul>
 <li><a href="#6-compilation-and-generation-infrastructure">6. Compilation and Generation Infrastructure</a></li>
+<li><a href="#7-execution-and-run-time-environment">7. Execution and Run-Time Environment</a></li>
 <ul>
-  <li><a href="#61-run-time-behavior-of-sarl-programs">6.1. Run-time Behavior of SARL Programs</a></li>
+  <li><a href="#71-run-time-behavior-of-sarl-programs">7.1. Run-time Behavior of SARL Programs</a></li>
+  <li><a href="#72-janus-sre">7.2. Janus SRE</a></li>
 </ul>
-<li><a href="#7-other-tools">7. Other Tools</a></li>
+<li><a href="#8-other-tools">8. Other Tools</a></li>
 <ul>
-  <li><a href="#71-syntax-highlightning">7.1. Syntax Highlightning</a></li>
-  <li><a href="#72-apache-maven">7.2. Apache Maven</a></li>
-  <li><a href="#73-command-line-tools">7.3. Command Line Tools</a></li>
+  <li><a href="#81-syntax-highlightning">8.1. Syntax Highlightning</a></li>
+  <li><a href="#82-apache-maven">8.2. Apache Maven</a></li>
+  <li><a href="#83-command-line-tools">8.3. Command Line Tools</a></li>
 </ul>
-<li><a href="#8-documentation-format">8. Documentation Format</a></li>
-<li><a href="#9-legal-notice">9. Legal Notice</a></li>
+<li><a href="#9-documentation-format">9. Documentation Format</a></li>
+<li><a href="#10-legal-notice">10. Legal Notice</a></li>
 
 </ul>
 
@@ -60,8 +62,9 @@ layout: default
 
 ### 3.1. Event Communication
 
-* [Agent Communication with the Ping Pong Agents](./tutorials/PingPong.html)
-* [Agent Communication in Sub-Space with the Ping Pong Agents](./tutorials/PingPongSpace.html)
+* [Agent Communication with the ping-pong agents](./tutorials/PingPong.html)
+* [Agent Communication in sub-space with the ping-pong agents](./tutorials/PingPongSpace.html)
+* [Override the agent event bus with the Behaviors capacity](./tutorials/EventBusOverrideWithCapacity.html)
 
 ### 3.2. Parallel Execution
 
@@ -125,6 +128,7 @@ layout: default
 * [Behavior Reference](./reference/Behavior.html)
 * [Built-in Capacity Reference](./reference/BIC.html)
 * [Space Reference](./reference/Space.html)
+* [Management of the Failures and Validation Errors](./reference/Failures.html)
 * [Compiler Errors](./reference/CompilerErrors.html)
 
 ### 5.3. Object-Oriented Programming
@@ -145,38 +149,48 @@ layout: default
 * [Basics of the SARL Compilation Process](./compilation/Basics.html)
 * [Generation to the Python Language](./compilation/PythonGeneration.html)
 
-### 6.1. Run-time Behavior of SARL Programs
+## 7. Execution and Run-Time Environment
+
+### 7.1. Run-time Behavior of SARL Programs
 
 * [Run-time Behavior of SARL Programs](./reference/Runtime.html)
 
-## 7. Other Tools
+### 7.2. Janus SRE
 
-### 7.1. Syntax Highlightning
+* [Janus SRE Official Page](http://www.sarl.io/runtime/janus/index.html)
+* [Creating extensions for Janus](./tutorials/SreExtension.html)
+* Official Janus Extensions:
+  * [Connecting Janus nodes over a computer network](./tools/JanusNetworkExtension.html)
+* Command-line Tools:
+  * [janus](./tools/Janus.html): launching SARL agents with the Janus platform.
+  * [janusnode](./tools/Janusnode.html): launching SARL agents with the Janus platform over a computer network.
+
+## 8. Other Tools
+
+### 8.1. Syntax Highlightning
 
 * [Syntax highlighting styles for SARL inside other tools](./tools/SyntaxHighlightning.html)
 
-### 7.2. Apache Maven
+### 8.2. Apache Maven
 
 * [maven-sarl-plugin](./tools/MavenSarlPlugin.html): the Maven plugin for the SARL compiler.
 
-### 7.3. Command Line Tools
+### 8.3. Command Line Tools
 
 * [sarlc](./tools/Sarlc.html): command-line SARL compiler.
 * [sarldoc](./tools/Sarldoc.html): command-line SARL documentation generator.
-* [janus](./tools/Janus.html): launching SARL agents with the Janus platform.
-* [janusnode](./tools/Janusnode.html): launching SARL agents with the Janus platform over a computer network.
 
-## 8. Documentation Format
+## 9. Documentation Format
 
 * [Specific Markdown format for the documentation](./DocumentationContribution.html)
 
 
-## 9. Legal Notice
+## 10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

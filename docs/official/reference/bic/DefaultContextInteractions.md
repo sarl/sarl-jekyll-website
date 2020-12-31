@@ -16,8 +16,14 @@ layout: default
   <li><a href="#32-creation-of-scopes-with-lambda-expressions">3.2. Creation of scopes with Lambda expressions</a></li>
   <li><a href="#33-inverted-syntax-for-emitting-an-event">3.3. Inverted syntax for emitting an event.</a></li>
 </ul>
-<li><a href="#4-testing-if-an-element-is-related-to-the-default-context">4. Testing if an element is related to the default context</a></li>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#4-interaction-with-the-parent-agent">4. Interaction with the parent agent</a></li>
+<ul>
+  <li><a href="#41-getting-the-identifier-of-the-parent-agent">4.1. Getting the identifier of the parent agent</a></li>
+  <li><a href="#42-getting-the-event-scope-of-the-parent-agent">4.2. Getting the event scope of the parent agent</a></li>
+  <li><a href="#43-emit-an-event-to-the-parent-agent">4.3. Emit an event to the parent agent</a></li>
+</ul>
+<li><a href="#5-testing-if-an-element-is-related-to-the-default-context">5. Testing if an element is related to the default context</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
@@ -152,7 +158,7 @@ Another way to scope is based on the test of the agent identifiers of `UUID` typ
 In the following example,
 
 ```sarl
-emit(new MyEvent) [ it.UUID == id1 || it.UUID == id2 ]
+emit(new MyEvent) [ it.ID == id1 || it.ID == id2 ]
 ```
 
 
@@ -169,7 +175,7 @@ agent A {
 
 	def myaction(receiverId : UUID) {
 		var ^event : Event = new MyEvent
-		^event.emit [ it.UUID == receiverId ] 
+		^event.emit [ it.ID == receiverId ] 
 	}
 }
 ```
@@ -181,7 +187,48 @@ The scope restricts the receiver according to this identifier.
 
 
 
-## 4. Testing if an element is related to the default context
+## 4. Interaction with the parent agent
+
+Each agent is member of a context that is the default context. According to the SARL metamodel, each context
+is own by an agent. This agent is named the "default parent agent".
+
+
+### 4.1. Getting the identifier of the parent agent
+
+The `DefaultContextInteractions` capacity provides the function `getDefaultParentID` function for obtaining
+the identifier of the parent agent.
+
+```sarl
+def getDefaultParentID : UUID
+```
+
+
+
+### 4.2. Getting the event scope of the parent agent
+
+The `DefaultContextInteractions` capacity provides the function `getDefaultParentScope` function for obtaining
+a scope that matches the parent agent.
+
+```sarl
+def getDefaultParentScope : Scope<Address>
+```
+
+
+This scope could be used to emit the events.
+
+
+### 4.3. Emit an event to the parent agent
+
+The `DefaultContextInteractions` capacity provides the function `emitToParent` function for
+sending an event to the parent agent only.
+
+```sarl
+def emitToParent(^event : Event)
+```
+
+
+
+## 5. Testing if an element is related to the default context
 
 The `DefaultContextInteractions` provides a collection of utility functions that test if
 their parameters are related to the default context or the default space.
@@ -212,12 +259,12 @@ on AnEvent [ occurrence.inDefaultSpace ] {
 
 
 
-## 5. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-11-25
+* Release: 2020-12-31
 
 > Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
