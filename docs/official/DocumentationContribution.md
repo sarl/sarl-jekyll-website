@@ -320,9 +320,9 @@ The other resources, such as images should be in the `src/main/resources` folder
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-12-31
+* Release: 2021-01-13
 
-> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.

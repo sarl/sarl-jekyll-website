@@ -194,13 +194,13 @@ Regarding the definition of the `EventSpace` type, the event emiting function ta
 
 The first parameter is used for setting the event's source when it was not already done.
 
-The `ExternalContextAccess` provides functions for helping to fire events into an event space:
+The `ExternalContextAccess` provides the `emit` function for helping to fire events into an event space:
 ```sarl
 ^space.emit(^event)
 ```
 
 
-This function's call is takes two parameters:
+A call to the `emit` function takes two parameters:
 
 * `^space` is the variable which contains the reference to the space in which the event should be fired.
 * `^event` is the variable which contains the event to fire.
@@ -223,9 +223,9 @@ the extension method syntax: the first argument to the function is written prior
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-12-31
+* Release: 2021-01-13
 
-> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.

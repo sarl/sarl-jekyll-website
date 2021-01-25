@@ -9,9 +9,10 @@ layout: default
 <ul class="page_outline" id="page_outline">
 
 <li><a href="#1-retrieving-the-inner-context">1. Retrieving the Inner Context</a></li>
-<li><a href="#2-members-of-an-agent">2. Members of an Agent</a></li>
-<li><a href="#3-testing-if-an-element-is-related-to-the-inner-context">3. Testing if an element is related to the inner context</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#2-retrieving-the-default-space-of-the-inner-context">2. Retrieving the Default Space of the Inner Context</a></li>
+<li><a href="#3-members-of-an-agent">3. Members of an Agent</a></li>
+<li><a href="#4-testing-if-an-element-is-related-to-the-inner-context">4. Testing if an element is related to the inner context</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -48,7 +49,30 @@ agent A {
 
 
 
-## 2. Members of an Agent
+## 2. Retrieving the Default Space of the Inner Context
+
+For retrieving the default space of the inner context, this built-in capacity provides the following function:
+
+```sarl
+def getInnerDefaultSpace : EventSpace
+```
+
+
+
+Example:
+```sarl
+agent A {
+	uses InnerContextAccess
+	var s : EventSpace
+	def myaction {
+		s = getInnerDefaultSpace
+	}
+}
+```
+
+
+
+## 3. Members of an Agent
 
 For retrieving information on the member agents of the current agent, several functions are
 provided by this built-in capacity.
@@ -93,7 +117,7 @@ agent A {
 
 
 
-## 3. Testing if an element is related to the inner context
+## 4. Testing if an element is related to the inner context
 
 The `InnerContextAccess` provides a collection of utility functions that test if their parameters
 are related to the inner context.
@@ -121,14 +145,14 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 
 
 
-## 4. Legal Notice
+## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-12-31
+* Release: 2021-01-13
 
-> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.

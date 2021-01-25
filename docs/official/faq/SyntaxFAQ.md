@@ -54,7 +54,8 @@ layout: default
 </ul>
 <li><a href="#11-agent-capacities">11. Agent Capacities</a></li>
 <ul>
-  <li><a href="#111-how-do-i-control-the-log-level-of-the-logging-built-in-capacity">11.1. How do I control the log-level of the Logging built-in capacity?</a></li>
+  <li><a href="#111-how-to-restrict-the-list-of-agents-that-will-receive-an-event">11.1. How to restrict the list of agents that will receive an event?</a></li>
+  <li><a href="#112-how-do-i-control-the-log-level-of-the-logging-built-in-capacity">11.2. How do I control the log-level of the Logging built-in capacity?</a></li>
 </ul>
 <li><a href="#12-documentation">12. Documentation</a></li>
 <ul>
@@ -405,7 +406,46 @@ Details on the [documentation page for function definition](../reference/general
 
 ## 11. Agent Capacities
 
-### 11.1. How do I control the log-level of the Logging built-in capacity?
+### 11.1. How to restrict the list of agents that will receive an event?
+
+The functions for emitting an event are named `emit` (for emitting a specific context) and
+`wake` (for emitting into the internal context only).
+These functions are provided by the agent capacities `DefaultContextInteractions`,
+`ExternalContextAccess` or `Behaviors`
+These two functions have an optional last argument that is the scoping expression:
+
+```sarl
+def emit(e : Event, scope : (Address) => boolean = null)
+def wake(e : Event, scope : (Address) => boolean = null)
+```
+
+
+This scoping expression is a lambda expression that takes the agent's address of a candidate for receiving the event,
+and returns `true` if the agent with the given address should receive the event.
+
+Let a local variable named [:selectedagentidfield] of type `UUID` that contains the identifier of an agent
+that is expected to receive an event of type `MyEvent`.
+The following code provides the call to the `emit` for sending the event only to this selected agent. 
+
+```sarl
+emit(new MyEvent) [
+	it.ID == selectedAgentID
+]
+```
+
+
+The first argument of the `emit` is the occurrence of the event to send to the other agents.
+The second argument is the lambda expression for scoping the receivers. This argument is written
+according to the externalized form of the lambda expression (between brackets).
+The lambda expression expression has an argument, named `it` by default, of type `Address`.
+This address is the one of a agent candidate for receiving the event.
+Then, the expression in the lanmda expression tests if the identifier of the candidate is equal
+to the identifier of the selected agent, namely `selectedAgentID`
+
+By adding the scoping lambda expression, only the selected agent will receive the agent.
+ 
+
+### 11.2. How do I control the log-level of the Logging built-in capacity?
 
 Use `setLogLevel()` of the `Logging` capacity, as explained here in the
 [API documentation](http://www.sarl.io/docs/official/reference/bic/Logging.html).
@@ -433,9 +473,9 @@ You could find details on the page dedicated to the [Maven documentation plugin]
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2020-12-31
+* Release: 2021-01-13
 
-> Copyright &copy; 2014-2020 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
 > Licensed under the Apache License, Version 2.0;
 > you may not use this file except in compliance with the License.
