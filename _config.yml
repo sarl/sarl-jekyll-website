@@ -60,9 +60,19 @@ sarl:
   doc_suite: docs/io.sarl.docs.markdown
   generated_doc: target/classes
   generated_apidoc: target/site/apidocs
+  samples_folder: contribs/io.sarl.examples/io.sarl.examples.plugin/projects
   info_pattern: <p markdown="1"><span class="label label-info">$1</span> $2</p>
   warning_pattern: <p markdown="1"><span class="label label-warning">$1</span> $2</p>
   danger_pattern: <p markdown="1"><span class="label label-danger">$1</span> $2</p>
+  sample_folder: library
+  sample_categories:
+    io.sarl.math: Mathematics
+    io.sarl.metamodel: Illustrations of SARL Concepts
+    io.sarl.simulation: Simulation Models
+    io.sarl.simulation.nature: Biology and Natural Phenomena
+    io.sarl.simulation.art: Art
+    io.sarl.templates: Templates of Applications
+    io.sarl.tutorials: Turotials (code of)
 
 git:
   branch: master

@@ -452,3 +452,24 @@ div .gsc-input-box {
   background-color: inherit;
 }
 
+table.sarlSamples {
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+img.sarlSamples {
+  width: 100%;
+  margin: 0px;
+}
+
+tr.sarlSamples {
+  border: none;
+}
+
+td.sarlSamplesScreenshot {
+  border: none;
+  width: 150px;
+  margin: 0px;
+}
+
