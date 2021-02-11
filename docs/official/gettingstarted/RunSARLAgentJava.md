@@ -1,9 +1,9 @@
 ---
-title: "Run SARL Agent from a Java Program"
+title: "Run SARL Agent from a Java or SARL Program"
 layout: default
 ---
 
-# Run SARL Agent from a Java Program
+# Run SARL Agent from a Java or SARL Program
 
 
 <ul class="page_outline" id="page_outline">
@@ -19,7 +19,7 @@ layout: default
 
 For running an agent, you must launch this agent on the runtime environment.
 This document explains how to launch an agent on any SARL Run-time Environment (SRE)
-from a Java program.
+from a Java program or SARL class.
 
 The default SRE is the [Janus platform](http://www.janusproject.io). 
 
@@ -73,7 +73,7 @@ you could call the `startAgent` function with the number of agent instances you 
 
 ## 3.  Direct Access to the API of the Janus SRE
 
-Caution: using the API of Janus within your program is not recommended by the SARL team. Prefer to use the Bootstrap API.
+<p markdown="1"><span class="label label-danger">Caution</span> : Using the API of Janus within your program is not recommended by the SARL team, because the API of the Janus framework is considered as private and may evolve quickly. Prefer to use the Bootstrap API that is described into the previous section.</p>
 
 
 
@@ -128,7 +128,7 @@ Please read the rest of the documentation for obtaining more details.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2021-01-13
+* Release: 2021-02-11
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

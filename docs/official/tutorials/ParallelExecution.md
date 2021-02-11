@@ -157,7 +157,7 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2021-01-13
+* Release: 2021-02-11
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

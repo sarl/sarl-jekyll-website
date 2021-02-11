@@ -50,7 +50,7 @@ layout: default
 * [Agent Definition Introduction](./gettingstarted/AgentIntroduction.html)
 * [Run SARL Agent in the Eclipse IDE](./gettingstarted/RunSARLAgentEclipse.html)
 * [Run SARL Agent from the Command Line](./gettingstarted/RunSARLAgentCLI.html)
-* [Run SARL Agent from a Java Program](./gettingstarted/RunSARLAgentJava.html)
+* [Run SARL Agent from a Java Program or a SARL class](./gettingstarted/RunSARLAgentJava.html)
 
 ## 2. Frequently Asked Questions (FAQ)
 
@@ -190,7 +190,7 @@ layout: default
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2021-01-13
+* Release: 2021-02-11
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
