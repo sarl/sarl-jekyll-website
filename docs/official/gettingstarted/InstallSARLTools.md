@@ -24,7 +24,7 @@ In the next section, we will learn how to create a SARL project.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2021-02-11
+* Release: 2021-02-14
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >

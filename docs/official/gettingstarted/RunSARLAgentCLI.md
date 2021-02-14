@@ -18,7 +18,9 @@ layout: default
   <li><a href="#21-boot-of-janus">2.1. Boot of Janus</a></li>
   <li><a href="#22-specify-the-agent-to-launch">2.2. Specify the Agent to Launch</a></li>
   <li><a href="#23-what-is-app-jar">2.3. What is app.jar?</a></li>
-  <li><a href="#24-janus-command-line-options">2.4. Janus Command Line Options</a></li>
+  <li><a href="#24-app-jar-by-hand">2.4. app.jar by hand</a></li>
+  <li><a href="#25-creating-app-jar-with-maven-assembly-plugin">2.5. Creating app.jar with maven-assembly-plugin</a></li>
+  <li><a href="#26-janus-command-line-options">2.6. Janus Command Line Options</a></li>
 </ul>
 <li><a href="#3-use-maven-execution-plugin">3. Use Maven Execution Plugin</a></li>
 <ul>
@@ -121,6 +123,8 @@ java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
 In the previous section, we assume that all the application binary files are
 contained into the `app.jar` file.
 
+### 2.4. app.jar by hand
+
 You may replace the `app.jar` in the previous command lines by the classpath
 that is containing all the jar files required for running your application, including
 the Janus jar file(s):
@@ -131,10 +135,70 @@ java -cp /path/to/myapplication.jar:/path/to/io.janusproject.kernel-<version>-wi
 
 The `io.janusproject.kernel-<version>-with-dependencies.jar` file may be dowloaded from the [Janus website](http://www.janusproject.io/)
 
+### 2.5. Creating app.jar with maven-assembly-plugin
+
 You may also create the `app.jar` file with Maven by using the assembly plugin for creating a jar file with all the dependencies inside.
+To do so, you have to update the `pom.xml` file of your project and to define the assembly specification.
+
+The content of the `pom.xml` must include the assembly plugin definition:
+
+```xml
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <version>3.3.0</version>
+  <executions>
+    <execution>
+      <id>make-assembly-with-deps</id>
+      <phase>package</phase>
+      <goals>
+        <goal>single</goal>
+      </goals>
+      <configuration>
+        <descriptors>
+          <descriptor>with-dependencies.xml</descriptor>
+        </descriptors>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+The previous definition mentions the file `with-dependencies.xml` that contains the assembly specification.
+The content of this file could be:
+
+```xml
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+  <id>with-dependencies</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <unpack>true</unpack>
+      <scope>runtime</scope>
+    </dependencySet>
+  </dependencySets>
+  <containerDescriptorHandlers>
+    <!-- Merge service description's files in a proper way -->
+    <containerDescriptorHandler>
+      <handlerName>metaInf-services</handlerName>
+    </containerDescriptorHandler>
+  </containerDescriptorHandlers>
+</assembly>
+```
+
+The tag `containerDescriptorHandlers` is **very important** to be present into the definition.
+Without this tag, the SARL and Janus services will not be correctly merged into the
+generated Jar file with all the dependencies.
+
+<p markdown="1"><span class="label label-danger">Caution</span> You must use the version 3.3.0 (or higher) of `maven-assembly-plugin` to have access to the mentioned capability.</p>
 
 
-### 2.4. Janus Command Line Options
+### 2.6. Janus Command Line Options
 
 The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
@@ -206,7 +270,7 @@ In the next section, we will learn how to launch your SARL project from a Java p
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
 * Status: Draft Release
-* Release: 2021-02-11
+* Release: 2021-02-14
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
