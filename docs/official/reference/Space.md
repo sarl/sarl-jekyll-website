@@ -137,7 +137,6 @@ Event spaces that are allowing the agents to be register and unregister are "ope
 
 ```sarl
 interface OpenEventSpace {
-	def register(EventListener, boolean) : Address
 	def registerStrongParticipant(EventListener) : Address
 	def registerWeakParticipant(EventListener) : Address
 	def unregister(EventListener) : Address
@@ -147,8 +146,9 @@ interface OpenEventSpace {
 
 
 
-The functions `register` and `unregister` permit an agent to be involved or not.
-The function `register` fires the event `ParticipantJoined`.
+
+The functions `registerStrongParticipant`, `registerWeakParticipant` and `unregister` permit an agent to be involved or not.
+The functions `registerStrongParticipant` and `registerWeakParticipant` fires the event `ParticipantJoined`.
 And, the function `unregister` fires the event `ParticipantLeft`.
 
 
@@ -313,8 +313,8 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -324,4 +324,4 @@ class MySpaceSpecification implements SpaceSpecification<MySpace> {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

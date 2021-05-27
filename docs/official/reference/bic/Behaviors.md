@@ -12,6 +12,11 @@ layout: default
 <li><a href="#2-unregistering-a-behavior">2. Unregistering a Behavior</a></li>
 <li><a href="#3-registering-a-behavior-with-an-event-filter">3. Registering a Behavior with an event filter</a></li>
 <li><a href="#4-executing-a-behavior">4. Executing a Behavior</a></li>
+<ul>
+  <li><a href="#41-awaking-all-behaviors-and-sub-agents">4.1. Awaking all behaviors and sub-agents</a></li>
+  <li><a href="#42-awaking-a-specific-behavior">4.2. Awaking a specific behavior</a></li>
+  <li><a href="#43-awaking-multiple-specific-behaviors">4.3. Awaking multiple specific behaviors</a></li>
+</ul>
 <li><a href="#5-creating-an-event-listener">5. Creating an Event Listener</a></li>
 <li><a href="#6-accessing-to-the-collection-of-the-registered-behaviors">6. Accessing to the collection of the registered behaviors</a></li>
 <li><a href="#7-legal-notice">7. Legal Notice</a></li>
@@ -137,7 +142,15 @@ beh.registerBehavior [^event | ^event instanceof MyEvent]
 ## 4. Executing a Behavior
 
 A behavior is executed through its event handlers. Consequently, for running a behavior, it is mandatory
-to wake it with an event. This particular feature is supported by:
+to wake it with an event. 
+This section describes the functions for awaking
+the behaviors with an event occurrence.
+
+
+### 4.1. Awaking all behaviors and sub-agents
+
+The regular way for awaking agent behaviors is to fire an event into all the registered behaviors.
+This particular feature is supported by:
 
 ```sarl
 def wake(evt : Event, scope : Scope<Address> = null)
@@ -162,6 +175,38 @@ var scope : Scope<Address> = [ it.ID !== null ]
 wake(e, scope)
 ```
 
+
+
+### 4.2. Awaking a specific behavior
+
+In some specific cases, you may want to wake up a single specific behavior with an event, such that, the other
+behaviors of the agents and its sub-agents are not receiving the event occurrence.
+This particular feature is supported by:
+
+```sarl
+def wake(beh : Behavior, evt : Event)
+```
+
+
+
+This function emits the given event into the given behavior, and neither in the inner space of the agent nor the other
+registered behaviors of the agent.
+
+
+### 4.3. Awaking multiple specific behaviors
+
+As an extension of the `wake` function that is presented into the previous section, you could wake up multiple
+behaviors with a single event occurrence, assuming that the list of the behaviors to wake up is known and provided.
+This feature is implemented by:
+
+```sarl
+def wake(behs : Iterable<Behavior>, evt : Event)
+```
+
+
+
+This function emits the given event into each of the given behaviors, and neither in the inner space of the agent nor the other
+registered behaviors of the agent that are not specified into the `behs` argument.
 
 
 ## 5. Creating an Event Listener
@@ -192,7 +237,7 @@ Two functions are provided for accessing to the collection of the registered beh
 
 ```sarl
 def hasRegisteredBehavior : boolean
-def getRegisteredBehaviors : ConcurrentLinkedDeque<Behavior>
+def getRegisteredBehaviors : ConcurrentCollection<Behavior>
 ```
 
 
@@ -203,7 +248,7 @@ The getRegisteredBehaviors replies an unmodifiable collection of the registered 
 
 ```sarl
 var b : boolean = hasRegisteredBehavior
-var c : ConcurrentLinkedDeque<Behavior> = getRegisteredBehaviors
+var c : ConcurrentCollection<Behavior> = getRegisteredBehaviors
 ```
 
 
@@ -213,8 +258,8 @@ var c : ConcurrentLinkedDeque<Behavior> = getRegisteredBehaviors
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -224,4 +269,4 @@ var c : ConcurrentLinkedDeque<Behavior> = getRegisteredBehaviors
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

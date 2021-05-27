@@ -85,7 +85,7 @@ The complete list of the options is:
 | --generator=identifiers | Enables extra-language generators. The parameter is a list of identifiers of the generators to turn on, separated by ':'. See the option -G for printing out the list of the available generators. |
 | -h<br>--help | Prints this message. |
 | -H<br>--help-config | Prints information about application modules and their configuration options. |
-| --java-compiler[=none&#124;ecj&#124;javac] | Specifies the Java compiler to be run; default is ecj. |
+| --java-compiler[=none&#124;ecj&#124;javac] | Specifies the Java compiler to be run; default is javac. |
 | --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 1.8, and strictly lower than 15. |
 | --javadoc=file | Specify the path to the executable of Javadoc. If it is not specified, the value will be inferred from the current installation of the Java environment. |
 | --json | When present, the output of the configuration has the Json format. |
@@ -289,8 +289,8 @@ This documentation is inspired by the documentation from the
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -300,4 +300,4 @@ This documentation is inspired by the documentation from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

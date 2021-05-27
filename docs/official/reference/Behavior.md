@@ -296,7 +296,9 @@ is registered in its owning agent, it receives the `Initialize` event.
 This event is defined as:
 
 ```sarl
-class Initialize extends Event {
+event Initialize {
+	val parameters : Object[]
+	val spawner : UUID
 }
 ```
 
@@ -411,7 +413,7 @@ two are defined into `Beh2`. This mechanism is generalized to all the events wit
 The counterpart of `Initialize` is the event `Destroy`. This event is defined as:
 
 ```sarl
-class Destroy extends Event {
+event Destroy {
 }
 ```
 
@@ -635,8 +637,8 @@ behavior MyBehavior {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -646,4 +648,4 @@ behavior MyBehavior {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

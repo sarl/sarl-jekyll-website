@@ -269,8 +269,8 @@ In the next section, we will learn how to launch your SARL project from a Java p
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -280,4 +280,4 @@ In the next section, we will learn how to launch your SARL project from a Java p
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

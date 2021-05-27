@@ -95,7 +95,7 @@ def getMemberAgentCount : int
 
 The third function replies all the member agents in the inner context:
 ```sarl
-def getMemberAgents : ConcurrentSkipListSet<UUID>
+def getMemberAgents : ConcurrentSet<UUID>
 ```
 
 
@@ -106,7 +106,7 @@ agent A {
 	uses InnerContextAccess
 	var b : boolean
 	var n : int
-	var m : ConcurrentSkipListSet<UUID>
+	var m : ConcurrentSet<UUID>
 	def myaction {
 		b = hasMemberAgent
 		n = getMemberAgentCount
@@ -149,8 +149,8 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -160,4 +160,4 @@ on AnEvent [ occurrence.inInnerDefaultSpace ] {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

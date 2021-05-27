@@ -35,39 +35,10 @@ event MyAgentPersonalFailure extends Failure
 
 The definition of these new types of events following the general rules for the [event definition](./Event.html).
 As for all the SARL events, they must be fired into a [space](./Space.html) for being processed by an agent.
-
-
-### 1.2. Parallel Task Failures
-
-As soon as an agent starts [parallel tasks](./bic/Schedules.html), these tasks may fail.
-The SARL API provides a specific failure event sub-type that is describing the cause of a failing task: `io.sarl.core.TaskFailure`.
-
-This event is fired each time an exception is thrown into a parallel task.
-In addition to the field `cause`, the `TaskFailure` event contains the reference to the failing task, accessible with the `task` field.
-
-The following code shows an example of the submission of a failing parallel task, and the catching of this failure with a `TaskFailure` event handler.
-
-```sarl
-agent MyAgent {
-	uses Logging, Schedules
-	on Initialize {
-		in(1.seconds) [
-			throw new MyError
-		]
-	}
-	on TaskFailure {
-		var reason : Object = occurrence.cause
-		var task : AgentTask = occurrence.task
-		info("Task failed:" + task
-			+ " because of: " + reason)
-	}
-}
-```
-
  
 
 
-### 1.3. Over Types of Failures
+### 1.2. User-Specific Failures
 
 It is still possible for you to define your own failure events. You only need to define a sub-type of `Failure`.
 For example, the following code define the `MyFailure` event:
@@ -101,7 +72,7 @@ agent MyAgent {
  
 
 
-### 1.4. Abnormal Agent Killing
+### 1.3. Killing Agent with Abnormal Termination Cause
 
 An agent may be destroyed due to an internal fault. However, according to the SARL metamodel and the implementation choices of the SARL Run-time Environment, if a failure or an error occured into the agent, only the associated failing task is broken. The agent is still alive and may react to over events.
 
@@ -200,12 +171,106 @@ agent AgentA {
 
 
 
-## 3. Legal Notice
+
+## 3. System-Specific Failures
+
+This section describes several specific failures that are already defined into the SARL API.
+
+### 3.1. Parallel Task Failures
+
+As soon as an agent starts [parallel tasks](./bic/Schedules.html), these tasks may fail.
+The SARL API provides a specific failure event sub-type that is describing the cause of a failing task: `io.sarl.core.TaskFailure`.
+
+This event is fired each time an exception is thrown into a parallel task.
+In addition to the field `cause`, the `TaskFailure` event contains the reference to the failing task, accessible with the `task` field.
+
+The following code shows an example of the submission of a failing parallel task, and the catching of this failure with a `TaskFailure` event handler.
+
+```sarl
+agent MyAgent {
+	uses Logging, Schedules
+	on Initialize {
+		in(1.seconds) [
+			throw new MyError
+		]
+	}
+	on TaskFailure {
+		var reason : Object = occurrence.cause
+		var task : AgentTask = occurrence.task
+		info("Task failed:" + task
+			+ " because of: " + reason)
+	}
+}
+```
+
+
+
+### 3.2. Failure of Agent Spawn
+
+In some cases, the spawning of an agent cannot be executed, for example, when an error occured
+into the agent initialization event handler.
+
+In order to be notified of the failure of an agent spawn, the spawning agent receives an
+occurrence of `AgentSpawnFailure`.
+The following code shows up an event handler that outputs an error message when the
+agent spawn action has failed.
+
+```sarl
+agent MyAgent {
+	uses Lifecycle, Logging
+	def aFunction {
+		typeof(MyOtherAgent).spawn
+	}
+	on AgentSpawnFailure {
+		error("Agent spawning of type " + occurrence.agentType + " has failed with the cause: " + occurrence.cause)
+	}
+}
+```
+
+
+The `AgentSpawnFailure` event provides the following attributes:
+
+* `agentType`: the type of the agent for which a spawn has failed,
+* `cause`: the cause of the agent spawn failure.
+
+
+
+### 3.3. Failure of Agent Killing
+
+As explained in the previous sections, the agent could stop its execution by calling the
+`killMe` function.
+
+In some cases, the killing of the agent is canceled. For example, an agent cannot kill
+itself if its contains sub-agents in its inner context.
+
+In order to be notified of the cancelation of its killing, the agent receives an
+occurrence of `AgentKillFailure`.
+The following code shows up an event handler that outputs an error message when the
+agent killing action has failed.
+
+```sarl
+agent MyAgent {
+	uses Lifecycle, Logging
+	def aFunction {
+		killMe
+	}
+	on AgentKillFailure {
+		error("Agent killing has failed with the cause: " + occurrence.cause)
+	}
+}
+```
+
+
+The cause of the agent kill failure is provided by the `cause` attribute.
+
+
+
+## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -215,4 +280,4 @@ agent AgentA {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

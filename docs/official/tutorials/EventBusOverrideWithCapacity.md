@@ -138,7 +138,7 @@ capacity.
 override hasRegisteredBehavior : boolean {
 	this.behaviorDelegate.hasRegisteredBehavior
 }
-override getRegisteredBehaviors : ConcurrentLinkedDeque<Behavior> {
+override getRegisteredBehaviors : ConcurrentCollection<Behavior> {
 	this.behaviorDelegate.getRegisteredBehaviors
 }
 override registerBehavior(attitude : Behavior, filter : (Event) => boolean, initializationParameters : Object*) : Behavior {
@@ -149,6 +149,12 @@ override unregisterBehavior(attitude : Behavior) : Behavior {
 }
 override wake(^event : Event, scope : Scope<Address>) {
 	this.behaviorDelegate.wake(^event, scope)
+}
+override wake(beh : Behavior, ^event : Event) {
+	this.behaviorDelegate.wake(beh, ^event)
+}
+override wake(behs : Iterable<Behavior>, ^event : Event) {
+	this.behaviorDelegate.wake(behs, ^event)
 }
 ```
 
@@ -184,8 +190,8 @@ The initialization process does the following steps:
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -195,4 +201,4 @@ The initialization process does the following steps:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

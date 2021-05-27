@@ -26,7 +26,7 @@ layout: default
 </ul>
 <li><a href="#3-observable-and-not-observable-fields">3. Observable and Not Observable Fields</a></li>
 <ul>
-  <li><a href="#31-obsersable-annotation">3.1. @Obsersable Annotation</a></li>
+  <li><a href="#31-observable-annotation">3.1. @Observable Annotation</a></li>
   <li><a href="#32-capacity-to-manage-the-access-rights">3.2. Capacity to Manage the Access Rights</a></li>
 </ul>
 <li><a href="#4-legal-notice">4. Legal Notice</a></li>
@@ -311,7 +311,7 @@ By default, into the SRE, the algorithm for checking the field access from an in
     * The access to the field is denied to the invoking entity. It will be notified that the field was not found.
 
 
-### 3.1. @Obsersable Annotation
+### 3.1. @Observable Annotation
 
 In the following example, two fields are defined for the agent `MyAgent`.
 The first field is named `observableField` and it is marked as observable because it is annotated with `@Observable`.
@@ -350,7 +350,7 @@ In order to enable an agent to manage the accesses to its own fields, you could 
 the `FieldAccessValidationCapacity` capacity:
 
 ```sarl
-interface FieldAccessValidationCapacity {
+capacity FieldAccessValidationCapacity {
 	def getFieldAccessRight(Field) : FieldAccessRight
 }
 ```
@@ -406,8 +406,8 @@ Three levels of obersavility are defined into the enumeration `FieldAccessRight`
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -417,4 +417,4 @@ Three levels of obersavility are defined into the enumeration `FieldAccessRight`
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

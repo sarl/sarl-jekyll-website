@@ -10,9 +10,10 @@ layout: default
 
 <li><a href="#1-stopping-the-agent-execution">1. Stopping the Agent Execution</a></li>
 <li><a href="#2-spawning-in-the-default-context">2. Spawning in the default context</a></li>
-<li><a href="#3-spawning-in-a-specific-context">3. Spawning in a specific context</a></li>
-<li><a href="#4-spawning-with-a-specific-agent-identifier">4. Spawning with a specific agent identifier</a></li>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#3-spawning-with-a-specific-agent-identifier-in-the-default-context">3. Spawning with a specific agent identifier in the default context</a></li>
+<li><a href="#4-spawning-in-a-specific-context">4. Spawning in a specific context</a></li>
+<li><a href="#5-spawning-with-a-specific-agent-identifier-in-a-specific-context">5. Spawning with a specific agent identifier in a specific context</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
@@ -43,10 +44,12 @@ spaces including the default space.
 
 <p markdown="1"><span class="label label-danger">Very Important Note</span> If the killed agent was a composed agent, it must not have members any more before calling this action, otherwise a `RuntimeException` is thrown.</p>
 
-This action fires two events:
+This action fires two events in case of success, and one event in case of failure:
 
-* `AgentKilled` in the default space of all contexts to which the calling agent belongs.
-* `Destroy` inside the killed agent agent.
+* `AgentKilled` is fired in case of success in the default space of all contexts to which the calling agent belongs.
+* `Destroy` is fired in case of success inside the killed agent agent.
+* `AgentKillFailure` is fired in case of failure into the default space of the inner context of the agent; This event contains the cause of the failure.
+
 
 
 
@@ -116,7 +119,49 @@ agent A {
 
 
 
-## 3. Spawning in a specific context
+## 3. Spawning with a specific agent identifier in the default context
+
+Some time, it is useful to create an agent with a specific identifier. The following function permits to spawn an agent
+with a given identifier in the default context:
+
+```sarl
+def spawnWithID(agentType : Class<? extends Agent>,
+agentId : UUID,
+      parameters : Object*)
+```
+
+
+
+This action creates an instance of the given agent type, with the given identifier, and launches the agent
+into the default context.
+The parameters are passed to the spawned agent inside the `Initialize` event: the `parameters` field.
+
+This action fires two events:
+
+* `AgentSpawned` in the default space of the context. The source of the event is the calling agent.
+* `Initialize` in spawned agent.
+
+Example:
+```sarl
+agent A {
+	uses Lifecycle
+	def myaction {
+		var aid : UUID
+		var type : Class<? extends Agent>
+		var p1 : Object
+		var p2 : Object
+		type = typeof(A)
+		p1 = new Object
+		p2 = new Object
+		spawnWithID(type, aid, #[p1, p2])
+	}
+}
+```
+
+
+
+
+## 4. Spawning in a specific context
 
 When one or more agents should be spawned into a specific agent context, the two following functions
 could be used for launching the agents:
@@ -165,7 +210,7 @@ agent A {
 
 
 
-## 4. Spawning with a specific agent identifier
+## 5. Spawning with a specific agent identifier in a specific context
 
 Some time, it is useful to create an agent with a specific identifier. The following function permits to spawn an agent
 with a given identifier in a specific context:
@@ -208,12 +253,12 @@ agent A {
 
 
 
-## 5. Legal Notice
+## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -223,4 +268,4 @@ agent A {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>

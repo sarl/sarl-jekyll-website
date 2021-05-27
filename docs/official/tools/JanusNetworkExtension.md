@@ -66,7 +66,7 @@ In order to include the networking extension into your project, you could add th
    ...
     <properties>
        ...
-       <janus.version>3.0.12.0-SNAPSHOT</janus.version>
+       <janus.version>3.0.12.0</janus.version>
     </properties>
     ...
     <dependencies>
@@ -94,10 +94,11 @@ More details could be obtain by calling your Janus-based software with the comma
 
 | Section | Property | Type | Description |
 | ------- | -------- | ---- | ----------- |
-| srenetwork |  |  | Configuration for the SRE networking feature |
-|  | clusterName | string | Name of the Hazelcast cluster. By default, this name is based on the identifier of the agent root context. |
+| srenetwork |  |  |  |
 |  | enable | boolean | Enable or disable the networking features. |
+|  | localHazelcastInstance | boolean | Enable or disable the local Hazelcast instance. |
 |  | clusterMemberIPs | string | Specify the list of the IP adresses for the members that are allowed to be in the cluster. This configuration is used only if the join method is configured to TCP/IP. |
+|  | clusterName | string | Name of the Hazelcast cluster. By default, this name is based on the identifier of the agent root context. |
 |  | joinMethod | *"multicast"* &#124; *"tcp_ip"* | Specify the method for joining the Hazelcast cluster over the computer network |
 |  | minClusterSize | int | Specify the minimal number of nodes to wait for starting in the cluster before really launching the SARL Run-time Environment |
 |  | portAutoIncrement | boolean | Enable or disable the auto-incrementation of the Hazelcast port numbers. |
@@ -109,8 +110,8 @@ More details could be obtain by calling your Janus-based software with the comma
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.12
-* Status: Draft Release
-* Release: 2021-02-14
+* Status: Stable Release
+* Release: 2021-05-27
 
 > Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
 >
@@ -120,4 +121,4 @@ More details could be obtain by calling your Janus-based software with the comma
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0-SNAPSHOT.</small>
+<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
