@@ -24,6 +24,7 @@ category_dir: news/categories
 
 # Where to find the API docs
 apidoc_dir: docs/api
+apidoc_url: docs/api/index.html?overview-summary.html
 
 # Where to find the Suite docs
 suitedoc_dir: docs/official
