@@ -73,7 +73,7 @@ sarl:
     io.sarl.simulation.nature: Biology and Natural Phenomena
     io.sarl.simulation.art: Art
     io.sarl.templates: Templates of Applications
-    io.sarl.tutorials: Turotials (code of)
+    io.sarl.tutorials: Tutorials (code of)
 
 git:
   branch: master
