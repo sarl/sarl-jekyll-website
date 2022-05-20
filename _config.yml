@@ -157,4 +157,8 @@ sarl_java8_download:
     md5: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.12.0/io.sarl.lang.updatesite-0.12.0-macosx.cocoa.x86_64.zip.md5
     sha1: http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.12.0/io.sarl.lang.updatesite-0.12.0-macosx.cocoa.x86_64.zip.sha1
 sarl_min_jdk_version: 1.8
-
+janus_download:
+  version3: https://search.maven.org/remotecontent?filepath=io/janusproject/io.janusproject.kernel/3.0.12.0/io.janusproject.kernel-3.0.12.0-with-dependencies.jar
+  version2: https://search.maven.org/remotecontent?filepath=io/janusproject/io.janusproject.kernel/2.0.10.1/io.janusproject.kernel-2.0.10.1-with-dependencies.jar
+  version1: https://search.maven.org/remotecontent?filepath=io/janusproject/v1/kernel/kernel/1.1/kernel-1.1-with-dependencies.jar
+  

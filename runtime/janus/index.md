@@ -18,6 +18,16 @@ It also natively manages the concept of recursive agents and holons.
 Janus platform was initially published during the 2007-2008 period as a pure Java framework. Since 2014, Janus is fully reimplemented to
 support the SARL Agent-Oriented Programming Language. And since 2020, it is fully re-implemented using the SARL language.
 
+## Major Versions of the Janus Framework
+
+As explained before, Janus was developped in different versions:
+
+| Major version | Description | Year for the end of maintenance | Download |
+|---|---|---|---|
+| 3 | Re-implementation in SARL of the Janus framework; It is still a binary Java library that supports the features of the SARL metamodel and could be used in applications written with SARL or Java | n/c | [{{site.janus_stable_version}}]({{site.janus_download.version3}}) |
+| 2 | Re-implementation in Java of the Janus framework to accept the code of agents that are written with SARL. Support the major features of the SARL metamodel. It is a binary Java library that could be used in applications written with SARL or Java. Holonic features are supported. Organizational metamodel from the version 1 is not directly implemented, but equivalent concepts are provided, e.g. organizations in V1 could be transformed to space specification in V2, and groups in V1 could be transformed to spaces in V2 | 2020 | [2.0.10.1]({{site.janus_download.version2}}) |
+| 1 | Original version, fully written in Java (not linked to SARL), that is providing the organizational, holonic and agent features. Many extensions and plugins are also provided | 2014 | [1.1]({{site.janus_download.version1}}) |
+
 ## About the Version Number of Janus
 
 The version number of Janus follows a specific convention for its definition. This convention will permits you
