@@ -1,55 +1,18 @@
 -----------------------------
-INSTALL ON UBUNTU (16.04)
+INSTALL ON UBUNTU (22.04)
 -----------------------------
-1)  apt-get install ruby ruby-dev make gcc ruby-all-dev rake nodejs ruby-nokogiri ruby-bundler ruby-stringex python-setuptools
-2)  gem install --no-rdoc --no-ri jekyll
-3)  gem install --no-rdoc --no-ri jekyll-scholar
-    (the dependencies should be installed also)
-4)  cd <sarl>/formatting-styles/pygments
-5)  python setup.py develop
-6)  python setup.py install
-
------------------------------
-INSTALL ON UBUNTU (18.04)
------------------------------
-* https://jekyllrb.com/docs/installation/ubuntu/
-* apt-get install rake
-* gem install stringex
-* gem install nokogiri
-* gem install --no-ri jekyll-scholar
-* gem install redcarpet
-* gem install pygments.rb -v 0.6.3
-
------------------------------
-INSTALL ON UBUNTU (19.04)
------------------------------
-* apt-get install ruby ruby-all-dev
-* gem install jekyll
-* gem install stringex
-* gem install nokogiri
-* gem install --no-ri jekyll-scholar
-* gem install pygments.rb
-* gem install redcarpet
-
------------------------------
-INSTALL ON UBUNTU (20.04)
------------------------------
-* apt-get install ruby ruby-all-dev
-* gem install jekyll
-* gem install stringex
-* gem install nokogiri
-* gem install -N jekyll-scholar
-* gem install pygments.rb
-* gem install redcarpet
-* gem pristine nokogiri --version 1.10.9
+apt-get install rake ruby-dev
+gem install -N jekyll-scholar 
+gem install -N stringex
+gem install -N nokogiri
 
 -----------------------
 FAST GENERATION PROCESS
 -----------------------
 1)  cd $HOME/git
-2)  git clone https://sgalland@bitbucket.org/srodriguez/sarl-site.git
+2)  git clone https://github.com/sarl/sarl-jekyll-website.git
 3)  git clone https://github.com/sarl/sarl.github.io.git
-4)  cd sarl-site
+4)  cd sarl-jekyll-website
 5)  Change the website file (html...)
 6)  rake build_full
 7)  rake transfer

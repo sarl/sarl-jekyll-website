@@ -173,7 +173,7 @@ module Jekyll
 			path = File.join(rootFolder, documentationFolder)
 
 			if not File.directory?(path) then
-				raise("SARL code sample reference must be a folder into the configuration")
+				raise("SARL code sample reference must be a folder into the configuration. See sarl/samples_folder in configuration.")
 			end
 			
 			path = File.absolute_path(path)			
@@ -271,7 +271,7 @@ module Jekyll
 			path = File.join(rootFolder, documentationFolder)
 
 			if not File.directory?(path) then
-				raise("SARL code sample reference must be a folder into the configuration")
+				raise("SARL code sample reference must be a folder into the configuration. See sarl/samples_folder in configuration")
 			end
 			
 			path = File.absolute_path(path)			

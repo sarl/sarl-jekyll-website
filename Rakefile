@@ -45,7 +45,7 @@ end
 # Execute a system command
 def executeA(commandarray)
   if not system(*commandarray)
-    raise "failure when executing the command:\n$> " + commandarray
+    raise "failure when executing the command:\n$> #{commandarray}"
   end
 end
 
