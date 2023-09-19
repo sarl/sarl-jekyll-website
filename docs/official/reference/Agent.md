@@ -35,6 +35,7 @@ layout: default
   <li><a href="#43-reactive-behaviors">4.3. Reactive Behaviors</a></li>
   <li><a href="#44-parallel-execution-of-the-reactive-behaviors">4.4. Parallel Execution of the Reactive Behaviors</a></li>
   <li><a href="#45-pro-active-behaviors">4.5. Pro-active Behaviors</a></li>
+  <li><a href="#46-specific-agent-architectures">4.6. Specific Agent Architectures</a></li>
 </ul>
 <li><a href="#5-capacities-and-skills">5. Capacities and Skills</a></li>
 <ul>
@@ -306,6 +307,7 @@ The modifiers for the fields in an agent are:
 	* `protected`: the field is accessible within the same package, and derived agents;
 	* `package`: the field is accessible only within the same package of its agent;
 	* `private`: the field is accessible only within its agent (default).
+* `static`: the field is a class field, not an instance field.
 
 Examples:
 
@@ -313,6 +315,7 @@ Examples:
 protected var example1 : Object
 package var example2 : Object
 private var example3 : Object
+static var example4 : Object
 ```
 
 
@@ -692,6 +695,10 @@ agent MyAgent {
 ```
 
 
+### 4.6. Specific Agent Architectures
+
+It is possible to define the behaviors of an agent according to a specific and already known agent architecture.
+SARL API provides a list of well-known agent architectures that are listed [here](./AgentArchitectures.html).
 
 ## 5. Capacities and Skills
 
@@ -864,16 +871,20 @@ agent MyAgent {
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

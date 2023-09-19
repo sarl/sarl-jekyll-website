@@ -307,6 +307,7 @@ in ascending precedence, i.e. from the lower priority to the higher priority.
 | **                                                  | left to right   |
 | !, - (unary), + (unrary)                            | right to left   |
 | ++, --                                              | not associative |
+| feature, literal, closure, structure expressions    | not associative |
 
 
 
@@ -328,6 +329,17 @@ unary postfix operators always associate left-to-right.
 Note that the associativity is meaningful for member access operators, even though they are grouped with
 unary postfix operators: `a.b++` is parsed `(a.b)++` and not `a.(b++)`.
 Operator precedence is unaffected by operator overloading.
+
+Another example of operator precedence could be related to the [extension method](./Extension.html) and the
+expression `-125.abs`.
+This expression means that the function `abs` is invoked with the value that is
+mentioned before the dot character as first argument.
+According to the precedence table above, this expression must be interpreted as `-abs(125`.
+Indeed, the feature call to the function `abs` has a higher precedence than the minus
+unary operator.
+
+
+
 
 
 ## 11. Operator Overloading
@@ -379,16 +391,20 @@ This documentation is inspired by the documentations from the
 ## 13. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

@@ -33,7 +33,7 @@ implementation choices of Janus that are under interest in this tutorial are:
 By default, Janus does not provide a support for exchanging events over a computer
 network. For enabling this communication feature, a specific Janus extension is needed.
 
-This documentation page describes the extension `io.janusproject.kernel.network` that adds the communication
+This documentation page describes the extension `janus.network` that adds the communication
 among Janus nodes over a computer network.
 
 The extension described on this page was defined according to the [standard method for extending Janus](../tutorials/SreExtension.html).
@@ -66,14 +66,14 @@ In order to include the networking extension into your project, you could add th
    ...
     <properties>
        ...
-       <janus.version>3.0.12.0</janus.version>
+       <janus.version>3.0.13.0</janus.version>
     </properties>
     ...
     <dependencies>
        ...
        <dependency>
-          <groupId>io.janusproject</groupId>
-          <artifactId>io.janusproject.kernel.network</artifactId>
+          <groupId>io.sarl.sre.janus</groupId>
+          <artifactId>janus.network</artifactId>
           <version>${janus.version}</version>
        </dependency>
        ...
@@ -82,7 +82,11 @@ In order to include the networking extension into your project, you could add th
  </project>
 ```
 
-The `io.janusproject.kernel.network` maven module provides the network extension **AND** all the libraries related to the Janus SRE.
+
+
+
+
+The `janus.network` maven module provides the network extension **AND** all the libraries related to the Janus SRE.
 
 
 ## 3. Configuration of the plugin
@@ -94,7 +98,7 @@ More details could be obtain by calling your Janus-based software with the comma
 
 | Section | Property | Type | Description |
 | ------- | -------- | ---- | ----------- |
-| srenetwork |  |  |  |
+| srenetwork |  |  | Configuration for the SRE networking feature |
 |  | enable | boolean | Enable or disable the networking features. |
 |  | localHazelcastInstance | boolean | Enable or disable the local Hazelcast instance. |
 |  | clusterMemberIPs | string | Specify the list of the IP adresses for the members that are allowed to be in the cluster. This configuration is used only if the join method is configured to TCP/IP. |
@@ -109,16 +113,20 @@ More details could be obtain by calling your Janus-based software with the comma
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

@@ -85,7 +85,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.12.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.13.0` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
@@ -93,8 +93,8 @@ Replace the version number `0.12.0` of SARL with the one you want to use. You co
     ...
     <properties>
        ...
-       <sarl.version>0.12.0</sarl.version>
-	   <jdk.version>1.8</jdk.version>
+       <sarl.version>0.13.0</sarl.version>
+	   <jdk.version>17</jdk.version>
 	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     ...
@@ -104,7 +104,7 @@ Replace the version number `0.12.0` of SARL with the one you want to use. You co
 		  <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.8.1</version>
+			<version>3.11.0</version>
 			<configuration>
 				<source>${jdk.version}</source>
 				<target>${jdk.version}</target>
@@ -112,13 +112,12 @@ Replace the version number `0.12.0` of SARL with the one you want to use. You co
 			</configuration>
 		  </plugin>
           <plugin>
-             <groupId>io.sarl.maven</groupId>
+             <groupId>io.sarl.lang</groupId>
              <artifactId>sarl-maven-plugin</artifactId>
              <version>${sarl.version}</version>
              <extensions>true</extensions>
              <configuration>
                 <source>${jdk.version}</source>
-                <target>${jdk.version}</target>
                 <encoding>${project.build.sourceEncoding}</encoding>
              </configuration>
           </plugin>
@@ -128,8 +127,8 @@ Replace the version number `0.12.0` of SARL with the one you want to use. You co
     <dependencies>
       ...
        <dependency>
-          <groupId>io.sarl.maven</groupId>
-          <artifactId>io.sarl.maven.sdk</artifactId>
+          <groupId>io.sarl.sdk</groupId>
+          <artifactId>sdk</artifactId>
           <version>${sarl.version}</version>
        </dependency>
        ...
@@ -142,6 +141,10 @@ Replace the version number `0.12.0` of SARL with the one you want to use. You co
 
 
 
+
+
+
+
 The Maven configuration is based on the use of `sarl-maven-plugin`. This plugin is in charge of compiling the SARL and
 the Java files. Details about the `sarl-maven-plugin` may be found on [this page](../tools/MavenSarlPlugin.html).
 
@@ -149,7 +152,7 @@ the Java files. Details about the `sarl-maven-plugin` may be found on [this page
 
 ### 2.2. Configuration of a runtime environment (optional)
 
-For executing your SARL program, a [run-time environment](http://www.sarl.io/runtime/index.html) should be used.
+For executing your SARL program, a [run-time environment](https://www.sarl.io/runtime/index.html) should be used.
 By default, the SARL development environment replaces any reference to the SARL libraries by the run-time environment's libraries
 when the SARL program is launched within the SARL environment or when a runnable Jar library is created.
 
@@ -157,13 +160,13 @@ In several specific cases, you may want to include the runtime environment into 
 this case, you could replace the Maven dependency to the SARL sdk (as defined in the previous section) by a Maven dependency
 to the runtime environment library.
 
-<p markdown="1"><span class="label label-danger">Caution</span> Replacing the SARL sdk library by the run-time environment library within the Maven dependencies is not the recommended approach by the SARL core developers.</p>
+<p markdown="1"><span class="label label-danger">Caution</span> Replacing the SARL sdk library by the SARL run-time environment (SRE) library within the Maven dependencies is not the recommended approach by the SARL core developers.</p>
 
 #### Janus as maven dependency
 
-The runtime environment that is recommended by the developers of SARL is [Janus](http://www.janusproject.io). 
+The runtime environment that is recommended by the developers of SARL is [Janus](http://www.sarl.io/runtime/janus/). 
 
-Replace the version number (`3.0.12.0`) of the [Janus platform](http://www.janusproject.io) with the one you want to use.
+Replace the version number (`3.0.13.0`) of the [Janus platform](http://www.sarl.io/runtime/janus/) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -172,20 +175,19 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>3.0.12.0</janus.version>
+       <janus.version>3.0.13.0</janus.version>
     </properties>
     ...
     <build>
        <plugins>
           ...
           <plugin>
-             <groupId>io.sarl.maven</groupId>
+             <groupId>io.sarl.lang</groupId>
              <artifactId>sarl-maven-plugin</artifactId>
              <version>${sarl.version}</version>
              <extensions>true</extensions>
              <configuration>
                 <source>${jdk.version}</source>
-                <target>${jdk.version}</target>
                 <encoding>UTF-8</encoding>
              </configuration>
           </plugin>
@@ -195,8 +197,8 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
     <dependencies>
        ...
        <dependency>
-          <groupId>io.janusproject</groupId>
-          <artifactId>io.janusproject.kernel</artifactId>
+          <groupId>io.sarl.sre.janus</groupId>
+          <artifactId>janus.kernel</artifactId>
           <version>${janus.version}</version>
        </dependency>
        ...
@@ -206,34 +208,33 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
 ```
 
 
-<p markdown="1"><span class="label label-warning">Important Note</span> If you want to have the dependencies to both `io.sarl.maven.sdk` and `io.janusproject.kernel` in your POM file, you must be sure that the imported version of the Google Guava library is the one provided by the Janus platform. For ensuring this, you must specify the version of the Guava library by defining it in the "dependencyManagement" section of your pom file.</p>
+
 
 
 
 #### Janus with networking feature as maven dependency
 
 By default, the Janus framework does not activate its network feature. If you would like to build a project with this feature,
-you have to use another Maven dependency: `io.janusproject.kernel.network`.
+you have to use another Maven dependency: `janus.network`.
 
 ```xml
  <project>
    ...
     <properties>
        ...
-       <janus.version>3.0.12.0</janus.version>
+       <janus.version>3.0.13.0</janus.version>
     </properties>
     ...
     <build>
        <plugins>
           ...
           <plugin>
-             <groupId>io.sarl.maven</groupId>
+             <groupId>io.sarl.lang</groupId>
              <artifactId>sarl-maven-plugin</artifactId>
              <version>${sarl.version}</version>
              <extensions>true</extensions>
              <configuration>
                 <source>${jdk.version}</source>
-                <target>${jdk.version}</target>
                 <encoding>UTF-8</encoding>
              </configuration>
           </plugin>
@@ -243,8 +244,8 @@ you have to use another Maven dependency: `io.janusproject.kernel.network`.
     <dependencies>
        ...
        <dependency>
-          <groupId>io.janusproject</groupId>
-          <artifactId>io.janusproject.kernel.network</artifactId>
+          <groupId>io.sarl.sre.janus</groupId>
+          <artifactId>janus.network</artifactId>
           <version>${janus.version}</version>
        </dependency>
        ...
@@ -262,16 +263,20 @@ In the next section, we will learn how to create our first agent.
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

@@ -75,12 +75,12 @@ interface SREBootstrap {
 A run-time environment, such as [Janus](http://www.janusproject.io) must provide an implementation of this bootstrap interface.
 In order to find this implementation, the [standard Java service management feature](https://docs.oracle.com/javase/8/docs/api/java/util/ServiceLoader.html)
 is used. In other words, the SRE should declare a service implementation for
-`io.sarl.bootstrap.SREBootstrap` into its `META-INF/services/io.sarl.bootstrap.SREBootstrap` file (for Java 8) or in its service declaration into the module definition (for Java 9 and above):
+`io.sarl.lang.core.SREBootstrap` into its `META-INF/services/io.sarl.lang.core.SREBootstrap` file (for Java 8) or in its service declaration into the module definition (for Java 9 and above):
 
 
 ```java
 module mymodule {
-	provides io.sarl.bootstrap.SREBootstrap with mypackage.MyServiceImplementation
+	provides io.sarl.lang.core.SREBootstrap with mypackage.MyServiceImplementation
 }
 ```
 
@@ -399,16 +399,20 @@ But, if you register the listener when the SRE is already launched, when the SRE
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

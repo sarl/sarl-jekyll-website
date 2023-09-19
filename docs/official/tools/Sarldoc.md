@@ -86,17 +86,16 @@ The complete list of the options is:
 | -h<br>--help | Prints this message. |
 | -H<br>--help-config | Prints information about application modules and their configuration options. |
 | --java-compiler[=none&#124;ecj&#124;javac] | Specifies the Java compiler to be run; default is javac. |
-| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 1.8, and strictly lower than 15. |
+| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 17, and strictly lower than 18. |
 | --javadoc=file | Specify the path to the executable of Javadoc. If it is not specified, the value will be inferred from the current installation of the Java environment. |
 | --json | When present, the output of the configuration has the Json format. |
 | --locale=locale_code  | Specify the locale that should be used into the documentation; default value is en_US. |
-| --log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error/critical/severe, warning, info, config, fine, debug/finer, finest, all. |
+| --log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error, warning, info, debug, trace, all. |
 | -m path<br>--modulepath=path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
 | -o directory_name<br>--outputdir=directory_name | Sets the destination directory for class files. The directory must already exist because sarlc does not create it. If a class is part of a package, then sarlc puts the class file in a subdirectory that reflects the package name and creates directories as needed. If the --outputdir option is not specified, then sarlc assumes target/classes. |
 | -p path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
-| -G<br>--print-generators | Prints the list of the available extra-language generators. |
 | -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
-| --progress[=val] | Prints the progress bar on the console. |
+| --progress[=true&#124;false] | Prints the progress bar on the console. |
 | -s [true&#124;false]<br>--sincetag[=true&#124;false] | Specify if the @since tag should be supported by Sarldoc; default value is true. |
 | --tags=name:placements:header(:name:placements:header)* | Specify the custom tags with the given names, placements and heading texts. The 'placements' must be a list of characters in: X (disable: disable tag), a (all: in all pages), o (overview: into the overview page), p (packages: into the packages'' documentations), t (types: into the types'' documentations), c (constructors: into constructors'' documentations), m (methods: into the methods'' documentations), f (fields: into the fields'' documentations). |
 | --tempdir=directory_name | Directory in which the temporary files will be generated during the compilation process. |
@@ -109,6 +108,7 @@ The complete list of the options is:
 | --write-storages[=true&#124;false] | Specifies if the storage files should be generated; default is true. |
 | --write-traces[=true&#124;false] | Specifies if the trace files should be generated; default is true. |
 | -x<br>--xml | When present, the output of the configuration has the XML format. |
+
 
 
 
@@ -288,16 +288,20 @@ This documentation is inspired by the documentation from the
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

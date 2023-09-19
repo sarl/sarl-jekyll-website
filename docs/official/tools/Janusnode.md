@@ -9,11 +9,12 @@ layout: default
 <ul class="page_outline" id="page_outline">
 
 <li><a href="#1-basics-of-the-networking-feature">1. Basics of the Networking Feature</a></li>
-<li><a href="#2-usage">2. Usage</a></li>
-<li><a href="#3-command-line-options">3. Command-Line Options</a></li>
-<li><a href="#4-list-of-errors-and-warnings">4. List of Errors and Warnings</a></li>
-<li><a href="#5-configuration-of-the-networking-feature">5. Configuration of the networking feature</a></li>
-<li><a href="#6-legal-notice">6. Legal Notice</a></li>
+<li><a href="#2-note-on-the-application-classpath">2. Note on the application classpath</a></li>
+<li><a href="#3-usage">3. Usage</a></li>
+<li><a href="#4-command-line-options">4. Command-Line Options</a></li>
+<li><a href="#5-list-of-errors-and-warnings">5. List of Errors and Warnings</a></li>
+<li><a href="#6-configuration-of-the-networking-feature">6. Configuration of the networking feature</a></li>
+<li><a href="#7-legal-notice">7. Legal Notice</a></li>
 
 </ul>
 
@@ -61,7 +62,18 @@ name is *connected automatically* to the other nodes in the same cluster on the 
 It means that you do not need to provide a network configuration to the Janus SRE.
 
 
-## 2. Usage
+## 2. Note on the application classpath
+
+The `janusnode` command-line tool adds automatically the Jar files of Janus on the application classpath.
+It means that you don't need to add any SRE, including Janus, in the dependencies of your project if you plan to use the Janus command line tool.
+
+For other methods for launching a SARL application, please refer to one of:
+
+* [Running an agent from the command-line shell](../gettingstarted/RunSARLAgentCLI.html)
+* [Running an agent inside SARL Eclipse environment](../gettingstarted/RunSARLAgentEclipse.html)
+* [Running an agent from a Java program progammatically](../gettingstarted/RunSARLAgentJava.html)
+
+## 3. Usage
 
 The `janusnode` tool takes arguments:
 
@@ -83,7 +95,7 @@ janusnode -help
 ```
 
 
-## 3. Command-Line Options
+## 4. Command-Line Options
 
 The Janus framework provides options on the command-line.
 The list of the options is displayed below. This list includes
@@ -111,7 +123,7 @@ more options may become available.
 | --internal-error-log-level=level | Specify the logging level for the internal errors within the parallel executors; Default is: all. |
 | -j<br>--json | When present, the output of the configuration has the Json format. |
 | -k duration<br>--keep-alive=duration | Specify the duration in seconds during which a thread is staying alive even if there is not task to be run; After this duration, iddle threads are destroyed by the SRE; Default value is 60. |
-| -l level<br>--log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error/critical/severe, warning, info, config, fine, debug/finer, finest, all. |
+| -l level<br>--log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error, warning, info, debug, trace, all. |
 | --max-threads=number | Specify the maximal number of threads that could be created by the SRE; Default is 512. |
 | --min-threads=number | Specify the minimal number of threads that should be created by the SRE; Default is 0. |
 | --name=name | Specify the name of the program that is shown into the logs for example; Default is 'SARL Run-time Environment'. |
@@ -120,7 +132,7 @@ more options may become available.
 | -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
 | -r uuid<br>--root-context-id=uuid | Specify the identifier (UUID) of the root context; Default is 2c38fb7f-f363-4f6e-877b-110b1f07cc77. |
 | --service-start-timeout=timeout | Specify the timeout for waiting a service to be started (in milliseconds); A value equal to zero means that the SRE waits for ever; Default is 0. |
-| --service-stop-timeout=timeout | Specify the timeout for waiting a service to be stopped (in milliseconds); A value equal to zero means that the SRE waits for ever; Default is 10 000. |
+| --service-stop-timeout=timeout | Specify the timeout for waiting a service to be stopped (in milliseconds); A value equal to zero means that the SRE waits for ever; Default is 10 000. |
 | --thread-purge={true&#124;false} | Specify if the executor service is periodically purging the thread pools; Default is: true. |
 | --thread-timeout=timeout | Specify the numbers of seconds that the SRE is waiting for thread terminations before timeout; Default is: 30. |
 | -v<br>--version | Prints release information. |
@@ -130,29 +142,33 @@ more options may become available.
 
 
 
-## 4. List of Errors and Warnings
+## 5. List of Errors and Warnings
 
 The list of error and warning messages that may be generated by Janus are provided on the
 help page of the [main command-line tool](./Janus.html).
 
-## 5. Configuration of the networking feature
+## 6. Configuration of the networking feature
 
 The configuration of the networking feature is explained on this [page](./JanusNetworkExtension.html).
 
 
-## 6. Legal Notice
+## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

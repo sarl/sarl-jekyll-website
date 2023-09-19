@@ -18,7 +18,7 @@ layout: default
   <li><a href="#21-boot-of-janus">2.1. Boot of Janus</a></li>
   <li><a href="#22-specify-the-agent-to-launch">2.2. Specify the Agent to Launch</a></li>
   <li><a href="#23-what-is-app-jar">2.3. What is app.jar?</a></li>
-  <li><a href="#24-app-jar-by-hand">2.4. app.jar by hand</a></li>
+  <li><a href="#24-splitting-app-jar-in-separated-jar-files-by-hand">2.4. Splitting app.jar in separated jar files by hand</a></li>
   <li><a href="#25-creating-app-jar-with-maven-assembly-plugin">2.5. Creating app.jar with maven-assembly-plugin</a></li>
   <li><a href="#26-janus-command-line-options">2.6. Janus Command Line Options</a></li>
 </ul>
@@ -45,7 +45,6 @@ Three methods could be used for launching an agent with Janus:
 * [Using Maven execution plugin](#3-use-maven-execution-plugin).
 
 
-
 ## 1. Use the Janus command-line tool
 
 The SARL project provides a [command-line tool for launching agents](../tools/Janus.html) on the Janus runtime environment.
@@ -53,7 +52,7 @@ The SARL project provides a [command-line tool for launching agents](../tools/Ja
 
 ### 1.1. Download the janus command-line tool
 
-You could download this command line tool, named "janus" on the [downloading page of SARL](http://www.sarl.io/download/index.html).
+You could download this command line tool, named "janus" on the [downloading page of SARL](https://www.sarl.io/download/index.html).
 
 ### 1.2. Launching the agent
 
@@ -76,12 +75,15 @@ janus --help
 One of the command-line options that is usually mandatory is the --jar option, which enables you to specify the jar files that contains your application:
 
 ```text
-janus --jar path/to/myapp.jar myapp.MyAgent
+janus --jar path/to/app.jar myapp.MyAgent
 ```
 
 
 If the `janus` script indicates to you an error "agent not found", most of the time it is because your application's jar file is not on the class path.
 The --jar option becomes mandatory for specifying the jar file.
+
+
+<p markdown="1"><span class="label label-danger">Very Important Note</span> The Janus command-line tool adds automatically the Jar files of the SRE (i.e., Janus) on the application classpath. It means that you don't need to add any SRE, including Janus, in the dependencies of your project if you plan to use the Janus command line tool.</p>
 
 
 ## 2. Use the standard java method
@@ -94,15 +96,18 @@ boot class in a Java Virtual Machine.
 The typical command line is:
 
 ```text
-java -cp app.jar io.sarl.sre.boot.Boot
+java -cp app.jar io.sarl.sre.janus.boot.Boot
 ```
 
 
 
 The option `-cp` specifies the Jar file that contains
-the compiled classes. The given `app.jar` file is a Jar file that is containing the Janus
+the compiled classes. The given `app.jar` file is a Jar file that must contain the Janus
 platform, the SARL libraries, and the application classes.
-The last argument is the fully qualified name of the booting class of Janus: `io.sarl.sre.boot.Boot`
+The creation of this `app.jar` file is explained in this [tutorial](../tutorials/CreateRunnableJar.html).
+The last argument is the fully qualified name of the booting class of Janus: `io.sarl.sre.janus.boot.Boot`
+
+<p markdown="1"><span class="label label-danger">Very Important Note</span> With this method, you must add the SRE, e.g., Janus, on the classpath (or in the dependencies) of your project.</p>
 
 
 ### 2.2. Specify the Agent to Launch
@@ -111,7 +116,7 @@ The example given in the previous section causes an error. Indeed, it is mandato
 specify the fully qualified name of the agent to launch:
 
 ```text
-java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
+java -cp app.jar io.sarl.sre.janus.boot.Boot myapp.MyAgent
 ```
 
 
@@ -123,21 +128,21 @@ java -cp app.jar io.sarl.sre.boot.Boot myapp.MyAgent
 In the previous section, we assume that all the application binary files are
 contained into the `app.jar` file.
 
-### 2.4. app.jar by hand
+### 2.4. Splitting app.jar in separated jar files by hand
 
-You may replace the `app.jar` in the previous command lines by the classpath
+You may replace the app.jar in the previous command lines by the classpath
 that is containing all the jar files required for running your application, including
 the Janus jar file(s):
 
 ```text
-java -cp /path/to/myapplication.jar:/path/to/io.janusproject.kernel-<version>-with-dependencies.jar io.sarl.sre.boot.Boot myapp.MyAgent
+java -cp /path/to/myapplication.jar:/path/to/janus.kernel-<version>-with-dependencies.jar io.sarl.sre.janus.boot.Boot myapp.MyAgent
 ```
 
-The `io.janusproject.kernel-<version>-with-dependencies.jar` file may be dowloaded from the [Janus website](http://www.janusproject.io/)
+The `janus.kernel-<version>-with-dependencies.jar` file must be dowloaded from the [Janus website](http://www.janusproject.io/)
 
 ### 2.5. Creating app.jar with maven-assembly-plugin
 
-You may also create the `app.jar` file with Maven by using the assembly plugin for creating a jar file with all the dependencies inside.
+You may also create the app.jar file with Maven by using the assembly plugin for creating a jar file with all the dependencies inside.
 To do so, you have to update the `pom.xml` file of your project and to define the assembly specification.
 
 The content of the `pom.xml` must include the assembly plugin definition:
@@ -204,7 +209,7 @@ The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
 ```text
-java -cp app.jar io.sarl.sre.boot.Boot --help
+java -cp app.jar io.sarl.sre.janus.boot.Boot --help
 ```
 
 
@@ -221,7 +226,7 @@ you may use the Maven execution plugin for classing this booting class.
 The typical command line is:
 
 ```text
-mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot"
+mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.janus.boot.Boot"
 ```
 
 
@@ -232,6 +237,9 @@ The option `-Dexec.args` contains the command line arguments to pass to Java.
 The first argument is the classpath of the project. You must not change `%classpath` because it will be dynamically
 replaced by the Maven plugin. 
 
+<p markdown="1"><span class="label label-danger">Very Important Note</span> With this method, you must add the SRE, e.g., Janus, on the classpath (or in the dependencies) of your project.</p>
+
+
 
 ### 3.2. Specify the Agent to Launch
 
@@ -240,7 +248,7 @@ Indeed, it is mandatory to specify the fully qualified name
 of the agent to launch:
 
 ```text
-mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot <qualified_name_of_the_agent>"
+mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.janus.boot.Boot <qualified_name_of_the_agent>"
 ```
 
 
@@ -253,7 +261,7 @@ The Janus platform provides a collection of command line options.
 For obtaining the list of these options, you should type:
 
 ```text
-mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.boot.Boot --help"
+mvn exec:exec -Dexec.executable=java -Dexec.args="-cp %classpath io.sarl.sre.janus.boot.Boot --help"
 ```
 
 
@@ -268,16 +276,20 @@ In the next section, we will learn how to launch your SARL project from a Java p
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

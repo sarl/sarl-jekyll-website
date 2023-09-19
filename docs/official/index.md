@@ -12,10 +12,12 @@ layout: default
 <li><a href="#2-frequently-asked-questions-faq">2. Frequently Asked Questions (FAQ)</a></li>
 <li><a href="#3-tutorials">3. Tutorials</a></li>
 <ul>
-  <li><a href="#31-event-communication">3.1. Event Communication</a></li>
-  <li><a href="#32-parallel-execution">3.2. Parallel Execution</a></li>
-  <li><a href="#33-organizational-patterns">3.3. Organizational Patterns</a></li>
-  <li><a href="#34-sarl-run-time-environment">3.4. SARL Run-time Environment</a></li>
+  <li><a href="#31-base-exercises">3.1. Base Exercises</a></li>
+  <li><a href="#32-event-communication">3.2. Event Communication</a></li>
+  <li><a href="#33-parallel-execution">3.3. Parallel Execution</a></li>
+  <li><a href="#34-action-selection-architectures">3.4. Action Selection Architectures</a></li>
+  <li><a href="#35-organizational-patterns">3.5. Organizational Patterns</a></li>
+  <li><a href="#36-sarl-run-time-environment">3.6. SARL Run-time Environment</a></li>
 </ul>
 <li><a href="#4-best-practices-with-sarl">4. Best Practices with SARL</a></li>
 <li><a href="#5-reference-documentation">5. Reference Documentation</a></li>
@@ -61,23 +63,38 @@ layout: default
 
 ## 3. Tutorials
 
-### 3.1. Event Communication
+### 3.1. Base Exercises
+
+* [Base of syntax](./tutorials/IntroductionBase.html)
+* [Strings of characters](./tutorials/IntroductionString.html)
+* [Lists](./tutorials/IntroductionList.html)
+* [Maps or dictionaries](./tutorials/IntroductionMap.html)
+* [Functions or actions](./tutorials/IntroductionFunction.html)
+* [Lambda Expressions](./tutorials/IntroductionFunction.html)
+* [Object-Oriented Classes](./tutorials/IntroductionClass.html)
+
+### 3.2. Event Communication
 
 * [Agent Communication with the ping-pong agents](./tutorials/PingPong.html)
 * [Agent Communication in sub-space with the ping-pong agents](./tutorials/PingPongSpace.html)
 * [Override the agent event bus with the Behaviors capacity](./tutorials/EventBusOverrideWithCapacity.html)
 
-### 3.2. Parallel Execution
+### 3.3. Parallel Execution
 
 * [Parallel execution within the agents](./tutorials/ParallelExecution.html)
 * [Initialization of a multiagent system](./tutorials/MASInitialization.html)
 
-### 3.3. Organizational Patterns
+### 3.4. Action Selection Architectures
+
+* [Goal-oriented Action Selection from Video Game Field](./tutorials/GameTGob.html)
+
+### 3.5. Organizational Patterns
 
 * [English Auction with Holons](./tutorials/HolonicAuction.html)
 
-### 3.4. SARL Run-time Environment
+### 3.6. SARL Run-time Environment
 
+* [Creating a runnable application file with embedded SRE](./tutorials/CreateRunnableJar.html).
 * [Creating an extension for the Janus SRE](./tutorials/SreExtension.html)
 
 ## 4. Best Practices with SARL
@@ -189,16 +206,20 @@ layout: default
 ## 10. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

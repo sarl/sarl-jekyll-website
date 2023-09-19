@@ -23,7 +23,7 @@ As SARL has adopted an event-based programming philosophy, most of the fault han
 
 ### 1.1. General Framework
 
-The SARL API defines a specific [event](./Event.html) that is representing any failure or validation error that the agent could handle if it is interested by: `io.sarl.core.Failure`.
+The SARL API defines a specific [event](./Event.html) that is representing any failure or validation error that the agent could handle if it is interested by: `io.sarl.api.core.Failure`.
 Each time an agent needs to be notified about a fault (into its agent tasks for example), an occurrence of this event type is fired in the internal context of the agent.
 
 There is plenty of causes for a validation error or a failure. Since the `Failure` event type is general, it is possible to refine its meaning by extending it with an event sub-type, e.g.:
@@ -179,7 +179,7 @@ This section describes several specific failures that are already defined into t
 ### 3.1. Parallel Task Failures
 
 As soon as an agent starts [parallel tasks](./bic/Schedules.html), these tasks may fail.
-The SARL API provides a specific failure event sub-type that is describing the cause of a failing task: `io.sarl.core.TaskFailure`.
+The SARL API provides a specific failure event sub-type that is describing the cause of a failing task: `io.sarl.api.core.TaskFailure`.
 
 This event is fired each time an exception is thrown into a parallel task.
 In addition to the field `cause`, the `TaskFailure` event contains the reference to the failing task, accessible with the `task` field.
@@ -268,16 +268,20 @@ The cause of the agent kill failure is provided by the `cause` attribute.
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

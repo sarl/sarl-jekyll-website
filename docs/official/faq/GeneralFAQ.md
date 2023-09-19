@@ -221,9 +221,9 @@ Virtual Machine with Eclipse may be used to run SARL.
 
 ### 2.2. What version of the Java virtual machine is required?
 
-SARL requires the JDK 1.8 or higher to compile and run.
+SARL requires the JDK 17 or higher to compile and run.
 Note that if you plan to create Android applications, you should
-configure your JDK to produce 1.6 class files from 1.8 Java code. 
+configure your JDK to produce 1.6 class files from 17 Java code. 
 
 
 
@@ -262,26 +262,26 @@ Nevertheless, the three most reported causes of avoidance of the SARL Eclipse la
 #### a) The Java virtual machine (JVM) is not valid for running SARL Eclipse
 
 To solve this problem:
-* Install the JDK 1.8, and configuring your operating system to use it by default;
-* Force the SARL product to use the JDK 1.8 by editing the `eclipse-sarl.ini` file as follows.
+* Install the JDK 17, and configuring your operating system to use it by default;
+* Force the SARL product to use the JDK 17 by editing the `sarlide.ini` and `Info.plist` files as follows.
 
 
 
-The editing of the `eclipse-sarl.ini` could be done by following the steps:
+The editing of the `sarlide.ini` file could be done by following the steps:
 
-1. Locate the folder in which your JVM (not the standard Mac JRE) is installed, e.g. `/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/bin`. The previous folder must contains the tools `javac` and `java`.
+1. Locate the folder in which your JVM (not the standard Mac JRE) is installed, e.g. `/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin`. The previous folder must contains the tools `javac` and `java`.
 2. Open the folder in which the SARL `Eclipse.app` was copied
 3. Right-click on `Eclipse.app` and select `Show Package Contents`
 4. Move to `Contents/Eclipse`
-5. Open `eclipse-sarl.ini` with a text editor
+5. Open `sarlide.ini` with a text editor
 6. Add the following lines into the file or update the lines if they exist (there is a line break that must be inside the file content):
 ```
 -vm
-/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/bin
+/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin
 ```
-7. Save and start the SARL IDE.
+7. Save.
 
-An complete example of the eclipse-sarl.ini file is:
+An complete example of the `sarlide.ini` file is:
 
 ```
 -startup
@@ -289,12 +289,71 @@ An complete example of the eclipse-sarl.ini file is:
 --launcher.library
 ../Eclipse/plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.1.1100.v20190907-0426
 -vm
-/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home/bin
+/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin
 -vmargs
 -Xms256m
 -Xmx1g
 -XstartOnFirstThread
 -Dorg.eclipse.swt.internal.carbon.smallFonts
+```
+
+
+The editing of the `Info.plist` file could be done by following the steps:
+
+1. Locate the folder in which your JVM (not the standard Mac JRE) is installed, e.g. `/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin`. The previous folder must contains the tools `javac` and `java`.
+2. Open the folder in which the SARL `Eclipse.app` was copied
+3. Right-click on `Eclipse.app` and select `Show Package Contents`
+4. Move to `Contents/Eclipse/Eclipse.app/Contents`
+5. Open `Info.plist` with a text editor
+6. Add the following lines into the file or update the lines if they exist:
+```
+<array>
+   <string>-vm</string>
+   <string>/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin/java</string>
+</array>
+```
+7. Save and start the SARL IDE.
+
+An complete example of the `Info.plist` file is:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>CFBundleExecutable</key>
+		<string>eclipse</string>
+		<key>CFBundleGetInfoString</key>
+		<string>Eclipse 4.16 for Mac OS X, Copyright IBM Corp. and others 2002, 2020. All rights reserved.</string>
+		<key>CFBundleIconFile</key>
+		<string>Eclipse.icns</string>
+		<key>CFBundleIdentifier</key>
+		<string>org.eclipse.Eclipse</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>Eclipse</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>4.16</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleVersion</key>
+		<string>4.16</string>
+		<key>NSHighResolutionCapable</key>
+		<true />
+		<key>CFBundleDevelopmentRegion</key>
+		<string>English</string>
+		<key>Eclipse</key>
+		<array>
+			<string>-vm</string>
+			<string>/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin/java</string>
+			<string>-keyring</string>
+			<string>~/.eclipse_keyring</string>
+		</array>
+	</dict>
+</plist>
 ```
 
 #### b) The Gatekeeper of MacOS X blocks the launch of the SARL Eclipse
@@ -322,14 +381,14 @@ This error message has the same cause as the Gatekeeper error that is described 
 ### 2.6. Why does the SARL product launch but not contain any features related to SARL?
 
 This is due to a problem in your configuration. SARL tools need the Eclipse
-framework to be run with a Java Development Kit 1.8 or higher.
+framework to be run with a Java Development Kit 17 or higher.
 You are currently running the SARL product with a lower version of the JDK.
 
 You must run the SARL product with a valid version of the JDK.
 Two ways are available for solving this issue:
 
-1. install the JDK 1.8, and configuring your operating system to use it by default; or
-2. force the SARL product to use the JDK 1.8 by editing the `eclipse-sarl.ini` file into the folder of the SARL IDE. Add the following parameter on a new line: `-vm path`, where `path` is the path to the binary file `javaw[.exe]` or `java[.exe]` of at least the JDK 1.8.
+1. install the JDK 17, and configuring your operating system to use it by default; or
+2. force the SARL product to use the JDK 17 by editing the `sarlide.ini` file into the folder of the SARL IDE. Add the following parameter on a new line: `-vm path`, where `path` is the path to the binary file `javaw[.exe]` or `java[.exe]` of at least the JDK 17.
 
 
 
@@ -475,7 +534,7 @@ agent is created, the `spawn()` commands returns.
 
 We provide a [page](../reference/CompilerErrors.html) that lists all the issue messages from the SARL compiler. 
 
-Additionally, several run-time errors from the [Janus framework](../tools/Janus.html) are explained [here](../tools/Janus.html#3-list-of-errors-and-warnings). 
+Additionally, several run-time errors from the [Janus framework](../tools/Janus.html) are explained [here](../tools/Janus.html#list-of-errors-and-warnings). 
 
 
 
@@ -513,7 +572,7 @@ for a complete list of what can be suppressed.
 The sources for SARL are available on
 [Github](https://github.com/sarl/sarl).
 Details for getting the source code may be found on the
-[download page](http://www.sarl.io/download/). 
+[download page](https://www.sarl.io/download/). 
 
 
 ### 4.2. How can I find the current issues?
@@ -531,16 +590,20 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

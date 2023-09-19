@@ -62,7 +62,7 @@ Janus is available as a Maven artifact. The artifact is available on the [Maven 
 
 You should change the version number {{site.janus_stable_version}} according to the version of your choice. All of the available version numbers could be found on the [Maven Central Repository](http://search.maven.org).
 
-![Janus on Maven Central](https://img.shields.io/maven-central/v/io.janusproject/io.janusproject.kernel.svg?label=Available%20on%20Maven%20Central)
+![Janus on Maven Central](https://img.shields.io/maven-central/v/io.sarl.sre.janus/janus.kernel.svg?label=Available%20on%20Maven%20Central)
 
 ## Command-Line Tool
 

@@ -1,10 +1,11 @@
 -----------------------------
-INSTALL ON UBUNTU (22.04)
+INSTALL ON UBUNTU (22.06)
 -----------------------------
 apt-get install rake ruby-dev
 gem install -N jekyll-scholar 
 gem install -N stringex
 gem install -N nokogiri
+gem install -N mercenary
 
 -----------------------
 FAST GENERATION PROCESS

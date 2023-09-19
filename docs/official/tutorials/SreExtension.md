@@ -15,7 +15,7 @@ layout: default
   <li><a href="#31-select-the-modules-from-janus">3.1. Select the modules from Janus</a></li>
   <li><a href="#32-write-the-extension-code">3.2. Write the extension code</a></li>
   <li><a href="#33-determine-the-injection-module">3.3. Determine the injection module</a></li>
-  <li><a href="#34-write-a-module-for-the-new-injection">3.4. Write a module for the new injection</a></li>
+  <li><a href="#34-write-a-module-for-injecting-your-new-logging-service">3.4. Write a module for injecting your new logging service</a></li>
   <li><a href="#35-write-a-bootique-module-provider">3.5. Write a Bootique module provider</a></li>
   <li><a href="#36-define-the-bootique-module-provider-as-java-service">3.6. Define the Bootique module provider as Java service</a></li>
   <li><a href="#37-add-the-library-in-the-classpath">3.7. Add the library in the classpath</a></li>
@@ -37,7 +37,7 @@ This document describes the basics of the extension of the Janus run-time enviro
 Before reading this document, it is recommended reading
 the [General Syntax Reference](../reference/GeneralSyntax.html).
 
-<p markdown="1"><span class="label label-danger">Caution</span> This tutorial will use the syntax of the SARL programming language for illustration. However, you could define your extension with any programming language that is compatible with Java, e.g. [Scala](http://www.scala-lang.org/) or [Kotlin](https://kotlinlang.org/).</p>
+<p markdown="1"><span class="label label-danger">Caution</span> This tutorial will use the syntax of the SARL programming language for illustration. However, you could define your extension with any programming language that is Java ir compatible with Java, e.g. [Scala](http://www.scala-lang.org/) or [Kotlin](https://kotlinlang.org/).</p>
 
 ## 1. Janus Framework
 
@@ -61,13 +61,14 @@ Before starting to create an extension for Janus, you have to be sure you have u
 
 [Bootique](http://bootique.io) is a platform for building container-less runnable Java applications.
 It is designed for microservices (but not limited to), as it allows you to create a fully-functional application with minimal-to-no setup.
-Unlike traditional container-based applications, Bootique allows you to control your `main()` method and create Java applications that behave
-like simple executable commands. Each Bootique application can be started with a (YAML) configuration, or configured with shell
+Unlike traditional container-based applications, Bootique allows you to control your `main()` method and create Java applications that behave like simple executable commands.
+Each Bootique application can be started with a (YAML) configuration, or configured with shell
 variables and is ideally suited for Docker and cloud deployments.
 
 Compared to other products, Bootique has a focus on modularity and clean pluggable architecture.
 It is built on top of a [dependency injection container](https://en.wikipedia.org/wiki/Dependency_injection)
-([Google Guice](https://github.com/google/guice)), and pretty much anything in Bootique can be customized/overridden.
+(but not [Google Guice](https://github.com/google/guice) that is another injector used by the SARL compiler itself),
+and pretty much anything in Bootique can be customized/overridden.
 
 *Why is Bootique used into Janus?*
 As described above, the features of bootique enables the define and *override* injected modules with less effort.
@@ -78,15 +79,15 @@ For all these reasons, Bootique was included into Janus.
 
 ## 3. Creating an extension step-by-step
 
-This section explains how to create step-by-step an extension to Janus.
-In order to create an Janus extension, the following steps could be followed.
+This section explains how to create an extension to Janus step-by-step.
+In order to create this extension, the following steps should be followed.
 
 ### 3.1. Select the modules from Janus
 
-For creating a Janus extension, even more complex than the one explained in this tutorial, you should study and understood
-the implementation of Janus in order to select the best module to override for your purpose.
+For creating a Janus extension, even more complex than the one explained in this tutorial, you should study and understand
+the implementation of Janus in order to select the best module or service to override for your purpose.
 
-For matter of simplicity in this tutorial, the logging service of Janus is chosen for illustrating the extension.
+For matter of simplicity in this tutorial, the logging service of Janus is chosen for illustrating the extension creation.
 The type that is defined in Janus for representing the logging service is `LoggingService`.
 
 
@@ -96,12 +97,15 @@ After selecting the modules to be extended, you should write your code:
 
 ```sarl
 package mypackage
-import io.sarl.sre.services.logging.LoggingService
-import com.google.common.util.concurrent.AbstractService
+import org.arakhne.afc.services.IService
+import io.sarl.sre.janus.services.logging.LoggingService
 
 class MyLoggingService extends AbstractService implements LoggingService {
 	val platformLogger = new MyLogger
 	var kernelLogger : MyLogger
+	override getReferenceType : Class<? extends IService> {
+		typeof(LoggingService)
+	}
 	override getPlatformLogger : Logger {
 		this.platformLogger
 	}
@@ -122,18 +126,19 @@ class MyLoggingService extends AbstractService implements LoggingService {
 		return log
 	}
 	
-	override doStart {
+	override onStart {
 	}
-	override doStop {
+	override onStop {
 	}
+	
 }
 ```
 
 
 In the previous code, the type `MyLogger` is defined as an implementation of the JUL logger.
-The contruction takes as optional argument the name of the logger, and as mandatory argument the parent logger.
+The construction takes as optional argument the name of the logger, and as mandatory argument the parent logger.
 
-Three functions must be defined in your own implementation of the logging system, namely `MyLoggingService`:
+Four functions must be defined in your own implementation of the logging system, namely `MyLoggingService`:
 
 * `getPlatformLogger`: replies the root logger of all the loggers of the SRE.
 * `getKernelLogger`: replies the logger that is dedicated to the SRE kernel.
@@ -141,7 +146,10 @@ Three functions must be defined in your own implementation of the logging system
 * `createAgentLogger`: create the logger for the agent with the given name. The second parameter permits to control the verbosity of the logger.
 
 
-<p markdown="1"><span class="label label-info">Note</span> In the previous code, the interface `LoggingService` is directly implemented. It is also possible to extend a class that is defined into the Janus code and implemeting this interface in order to have benefit of existing code.</p>
+<p markdown="1"><span class="label label-info">Note</span> In the previous code, the interface `LoggingService` is directly implemented. It is also possible to extend a class that is defined into the Janus code and implementing this interface in order to have benefit of existing code.</p>
+
+The functions `onStart` and `onStop` are invoked when the service is started an stopped, respectively.
+You could code in these two functions any intialization or destruction code.
 
 
 ### 3.3. Determine the injection module
@@ -153,41 +161,43 @@ It is then mandatory to determine:
 1. where the injection is defined, i.e. in which injection module, and
 2. how the injection is defined, i.e. the binded types.
 
-In Janus, the modules are defined into the package `io.sarl.sre.boot.internal`, or one of its sub-packages.
-The module that corresponds to the logging system is defined in the class `io.sarl.sre.boot.internal.services.LoggingServiceModule`.
+In Janus, the modules are defined into the package `io.sarl.sre.janus.boot`, or one of its sub-packages.
+The module that corresponds to the logging system is defined in the class `io.sarl.sre.janus.boot.internal.services.JulLoggingService`.
 The definition of this module is close to:
 
 ```sarl
-package mypackage
-import com.google.inject.AbstractModule
-import io.sarl.sre.services.logging.LoggingService
+package io.sarl.sre.janus.boot.internal.services
+import io.bootique.di.Binder
+import io.bootique.di.BQModule
+import io.sarl.sre.janus.services.logging.LoggingService
 
-class LoggingServiceModule extends AbstractModule {
-	override configure {
-		typeof(LoggingService).bind.to(typeof(JanusLoggingService)).asEagerSingleton
+class LoggingServiceModule implements BQModule {
+	override configure(extension binder : Binder) {
+		typeof(LoggingService).bind.to(typeof(JulLoggingService)).inSingletonScope
 	}
 }
 ```
 
 
-The key principle of the injection definition is the type binding: each time a type A needs to be injected, the injector creates an instance of the binded type B, e.g. with the code `A.bind(B)`.
-In the previous code, the type `LoggingService` that should be injected is binded to an instance of type `JanusLoggingService`, that is a Janus-internal definition of the logging service.
-The function `asEagerSingleton` forces the injection engine to create the single instance, and no more.
+The key principle of the injection definition is the type binding: each time a type `A` needs to be injected, the injector creates an instance of the binded type `B`. This binding is defined with a code similar to `A.bind.to(B)`.
+In the previous code, the type `LoggingService` that should be injected is binded to an instance of type `JulLoggingService`, that is a Janus-internal definition of the logging service.
+The function `inSingletonScope` forces the injection engine to create the single instance, and no more.
 
 
-### 3.4. Write a module for the new injection
+### 3.4. Write a module for injecting your new logging service
 
-Now you have determined the original injection module and definition, you could define your own module and injection for your extension.
+Now you have determined the original injection module and definition, you could define your own injection module for your extension.
 The following code is the definition of the injection module that binds the `LoggingService` to the new implementation of the logging service.
 
 ```sarl
 package mypackage
-import com.google.inject.AbstractModule
-import io.sarl.sre.services.logging.LoggingService
+import io.bootique.di.Binder
+import io.bootique.di.BQModule
+import io.sarl.sre.janus.services.logging.LoggingService
 
-class MyLoggingServiceModule extends AbstractModule {
-	override configure {
-		typeof(LoggingService).bind.to(typeof(MyLoggingService)).asEagerSingleton
+class MyLoggingServiceModule implements BQModule {
+	override configure(extension binder : Binder) {
+		typeof(LoggingService).bind.to(typeof(MyLoggingService)).inSingletonScope
 	}
 }
 ```
@@ -196,38 +206,42 @@ class MyLoggingServiceModule extends AbstractModule {
 
 ### 3.5. Write a Bootique module provider
 
-As explained previously, the Bootique library is used for enabling the overriding of the injection definitions.
-The API of this library imposes to define a specific provider for the module in your extension. This provider has the role to:
+As explained previously, the Bootique framework is used for enabling the overriding of the injection definitions.
+The API of this framework imposes to define a specific provider for the module in your extension. This provider has the role to:
 
 1. Define name and the documentation of the extension.
-2. Create the configuration binding.
-3. Define the overriding of the module.
+2. Create the configuration binding, if any.
+3. Define the overriding of the module, i.e. the existing injection module that is overriding by your own module.
 4. Create the associated injection module on demand.
 
 This provider has a central role into the Bootique architecture. Without this provider, it is impossible to
-include an extension into your application.
+include an extension into your application without re-compiling all the source code of Janus with your extension
+inside. This particular feature of bootique enables to load your extension at run-time without the need to
+re-compile the Janus code itself.
 
 Therefore, the code of the Bootique provider is:
 
 ```sarl
 package mypackage
-import io.sarl.sre.services.logging.LoggingService
+import io.sarl.sre.janus.services.logging.LoggingService
+import io.bootique.BQModuleMetadata
 import io.bootique.BQModuleProvider
-import io.bootique.BQModule
-import com.google.inject.Module
+import io.bootique.di.Binder
+import io.bootique.di.BQModule
+import java.util.Collection
 
 class MyLoggingServiceModuleProvider implements BQModuleProvider {
-	override moduleBuilder : BQModule.Builder {
-		BQModule::builder(module)
+	override moduleBuilder : BQModuleMetadata.Builder {
+		BQModuleMetadata::builder(module)
 			.providerName(name)
 			.description("This is my extension")
 			.overrides(overrides)
 	}
-	override module : Module {
+	override module : BQModule {
 		new MyLoggingServiceModule
 	}
-	override overrides : Collection<Class<? extends Module>> {
-		#[JanusLoggingService]
+	override overrides : Collection<Class<? extends BQModule>> {
+		#[LoggingServiceModule]
 	}
 }
 ```
@@ -238,32 +252,36 @@ It replies a factory for the Bootique module. This factory is built with the fun
 that takes the injection module instance (replied by the second function to be defined).
 Then, it is possible to specify more attributes for the Bootique module, such as:
 
-* The name of the provider with the function `providerName` that takes the name of the module as argument. The function `name` replies this name. It already defined into the super type.
-* A description for the extension that is shown up into the help page of the application.
+* The name of the provider with the function `providerName` that takes the name of the module as argument. The function `name` replies this name. It is already defined into the super type.
+* A description for the extension that is shown up in the help page of the application.
 * The specification of the overridden modules. The function `overrides` replies the list of the injection module typenames that are overridden by your extension. By default, this function replies an empty list.
 
 The function `module` must be defined for creating the instance of the injection module.
 
-The function `overrides` must reply the list of the module types that are overridden by the extension.
+The function `overrides` must reply the list of the module types that are overridden by the extension, here the original
+logging module from Janus.
 
-To conclude this section, the builder that is created this class is used by the Bootique framework in order to create and include your extension into the application.
+To conclude this section, the builder is used by the Bootique framework to create and include your extension into the application.
 
 
 ### 3.6. Define the Bootique module provider as Java service
 
-Defining the Bootique injection module provider, as in the previous section is not enough to enable Bootique to use your extension.
-Indeed, the Bootique must find your library dynamically on the application classpath.
+Defining the Bootique injection module provider, as in the previous section, is not enough to enable Bootique to use your extension.
+Indeed, the Bootique must find your library dynamically (at run-time) on the application classpath.
 Java framework defines a standard for discovering new features on the classpath: the Java services.
 
-<p markdown="1"><span class="label label-danger">Caution</span> the Java services are different than the SRE services. The first services are defined in order to extend your application dynamically (similar to plugins). The second services are designed to run the agents.</p>
+<p markdown="1"><span class="label label-danger">Caution</span> the Java services are different than the SRE services. The first services are defined by JAva Consortium in order to extend your application dynamically (similar to plugins). The second services are designed to run the agents in the Janus framework.</p>
 
 It is almost easy to provide your Bootique module provider to the Bootique framework.
 Indeed a Bootique module provider is assimilated to a Java service, and could be declared according to this Java standard.
 
-There is two methods for declared a Java service: one for Java 8 and one for Java 9 and higher.
 
 
-**For Java 8:** You must create a file into the folder `META-INF/services` with the name `io.bootique.BQModuleProvider` (that is the fully
+There is two methods for declared a Java service: one for Java 8 to 10, and one for Java 11 or higher.
+Even if SARL requires the version 17 of the Java Virtual Machine, The two methods are explained because
+they are still usable in Java 17 applications.
+
+**For Java 8 or higher:** You must create a file into the folder `META-INF/services` with the name `io.bootique.BQModuleProvider` (that is the fully
 qualified name of the Bootique module provider class). Each line of this file contains the fully qualified name of an implementation of
 a Bootique module provider to be added to the application classpath. Therefore, you could add your own Bootique module provider in this file.
 The content of the file `META-INF/services/io.bootique.BQModuleProvider` becomes:
@@ -273,7 +291,7 @@ mypackage.MyLoggingServiceModuleProvider
 ```
 
 
-**For Java 9 and higher:** Since the introduction of the modules into the Java standards, you must declare the provided Java services
+**For Java 11 or higher:** Since the introduction of the modules into the Java standards, you must declare the provided Java services
 in the file `module-info.java`:
 
 ```java
@@ -286,8 +304,9 @@ module mypackage.myextension {
 
 ### 3.7. Add the library in the classpath
 
-Once you have written and compiled your extension in order to obtain the library file `myextension.jar`.
-For including your extension into the application, you have only to add the jar file in the classpath (or the module path).
+Once you have written and compiled your extension to obtain the library file `myextension.jar`.
+For including your extension into the application, you have only to add the jar file in the classpath (or the module path)
+of your application.
 
 For example, running the Janus framework with your extension may be done with the following command line:
 ```
@@ -327,7 +346,7 @@ jetty:
 ```
 
 While not strictly required, as a rule the top-level keys in the file belong to configuration objects of individual modules.
-In the example above `log` subtree configures bootique-logback module, while `jetty` subtree configures bootique-jetty.
+In the example above `log` subtree configures bootique logging module, while `jetty` subtree configures bootique jetty module.
 
 
 ### 4.2. Create a configuration object
@@ -400,14 +419,17 @@ A simple approach is to update the injection module by adding the function XXX.
 
 ```sarl
 package mypackage
-import com.google.inject.AbstractModule
-import io.sarl.sre.services.logging.LoggingService
+import io.sarl.sre.janus.services.logging.LoggingService
 import io.bootique.config.ConfigurationFactory
-import com.google.inject.Injector
+import io.bootique.di.Binder
+import io.bootique.di.BQModule
+import io.bootique.di.Injector
+import io.bootique.di.Provides
+import javax.inject.Singleton
 
-class MyLoggingServiceModule extends AbstractModule {
-	override configure {
-		typeof(LoggingService).bind.to(typeof(MyLoggingService)).asEagerSingleton
+class MyLoggingServiceModule implements BQModule {
+	override configure(extension binder : Binder) {
+		typeof(LoggingService).bind.to(typeof(MyLoggingService)).inSingletonScope
 	}
 	@Provides
 	@Singleton
@@ -439,15 +461,18 @@ The use of the class `VariableDecls` must be done into the injection module:
 
 ```sarl
 package mypackage
-import com.google.inject.AbstractModule
-import io.sarl.sre.services.logging.LoggingService
+import io.sarl.sre.janus.services.logging.LoggingService
 import io.bootique.config.ConfigurationFactory
-import com.google.inject.Injector
+import io.bootique.di.BQModule
+import io.bootique.di.Binder
+import io.bootique.di.Injector
+import io.bootique.di.Provides
 import org.arakhne.afc.bootique.variables.VariableDecls
+import javax.inject.Singleton
 
-class MyLoggingServiceModule extends AbstractModule {
-	override configure {
-		typeof(LoggingService).bind.to(typeof(MyLoggingService)).asEagerSingleton
+class MyLoggingServiceModule implements BQModule {
+	override configure(extension binder : Binder) {
+		typeof(LoggingService).bind.to(typeof(MyLoggingService)).inSingletonScope
 		VariableDecls::extend(binder).declareVar(MyConfiguration::PROP1_NAME)
 	}
 	@Provides
@@ -469,17 +494,20 @@ This mapping is declared into the injection module:
 
 ```sarl
 package mypackage
-import com.google.inject.AbstractModule
-import io.sarl.sre.services.logging.LoggingService
+import io.sarl.sre.janus.services.logging.LoggingService
 import io.bootique.config.ConfigurationFactory
-import com.google.inject.Injector
-import org.arakhne.afc.bootique.variables.VariableDecls
+import io.bootique.di.BQModule
+import io.bootique.di.Binder
+import io.bootique.di.Injector
+import io.bootique.di.Provides
 import io.bootique.meta.application.OptionMetadata
+import org.arakhne.afc.bootique.variables.VariableDecls
+import javax.inject.Singleton
 import static extension io.bootique.BQCoreModule.extend
 
-class MyLoggingServiceModule extends AbstractModule {
-	override configure {
-		typeof(LoggingService).bind.to(typeof(MyLoggingService)).asEagerSingleton
+class MyLoggingServiceModule implements BQModule {
+	override configure(extension binder : Binder) {
+		typeof(LoggingService).bind.to(typeof(MyLoggingService)).inSingletonScope
 		VariableDecls::extend(binder).declareVar(MyConfiguration::PROP1_NAME)
 		binder.extend.addOption(OptionMetadata::builder("opt", "This is the option to set prop1")
 				.valueRequired("value")
@@ -505,16 +533,20 @@ The function `OptionMetadata::builder` enables to create a description of the co
 ## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

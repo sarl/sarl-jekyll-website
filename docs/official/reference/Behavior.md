@@ -205,6 +205,7 @@ The modifiers for the fields in a behavior are:
 	* `protected`: the field is accessible within the same package, and derived agents;
 	* `package`: the field is accessible only within the same package of its agent;
 	* `private`: the field is accessible only within its agent (default).
+* `static`: the field is a class field, not an instance field.
 
 Examples:
 
@@ -213,6 +214,7 @@ public var example0 : Object
 protected var example1 : Object
 package var example2 : Object
 private var example3 : Object
+static var example4 : Object
 ```
 
 
@@ -229,6 +231,7 @@ The modifiers for the methods in a behavior are:
 * `abstract`: the method has no implementation in the class.
 * `dispatch`: the method provides an implementation for the dispatch method mechanism.
 * `final`: the method cannot be overridden in derived classes.
+* `static`: the method is a class method, not an instance method.
 
 Examples:
 
@@ -248,6 +251,8 @@ final def example5 { }
 // Dispatch functions
 dispatch def example7(p : Integer) { }
 dispatch def example7(p : Float) { }
+// Static / Class function
+static def example8 { }
 ```
 
 
@@ -636,16 +641,20 @@ behavior MyBehavior {
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

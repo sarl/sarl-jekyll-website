@@ -72,7 +72,7 @@ To define this event handler, we must use the `on` keyword, and provide the asso
 <p markdown="1"><span class="label label-info">Note</span> The `println` function is provided by the `Logging` capacity. It permits printing a message on the log output.</p>
 
 ```sarl
-import io.sarl.core.Logging
+import io.sarl.api.core.Logging
 agent MyAgent {
 	uses Logging
 	on MyEvent {
@@ -97,9 +97,9 @@ Likewise, when the agent is going to stop its execution (we will see how to stop
 a `Destroy` Event. The purpose of this event is to release any system resource properly.
 
 ```sarl
-import io.sarl.core.Logging
-import io.sarl.core.Initialize
-import io.sarl.core.Destroy
+import io.sarl.api.core.Logging
+import io.sarl.api.core.Initialize
+import io.sarl.api.core.Destroy
 agent MyAgent {
 	uses Logging
 	on Initialize {
@@ -122,9 +122,9 @@ This instance is called an `occurrence`.
 In the case of an Initialize events you can access the arguments for the agent spawn using `occurrence.parameters`).
 
 ```sarl
-import io.sarl.core.Logging
-import io.sarl.core.Initialize
-import io.sarl.core.Destroy
+import io.sarl.api.core.Logging
+import io.sarl.api.core.Initialize
+import io.sarl.api.core.Destroy
 agent MyAgent {
 	uses Logging
 	on Initialize {
@@ -156,7 +156,7 @@ For sending an event in the default space, the `DefaultContextInteractions` buil
 Below, we define an agent that is using this capacity.
 
 ```sarl
-import io.sarl.core.DefaultContextInteractions
+import io.sarl.api.core.DefaultContextInteractions
 agent MyAgent {
 	uses DefaultContextInteractions
 }
@@ -192,16 +192,20 @@ In the next section, we will learn how to start a SARL agent in the Eclipse IDE.
 ## 6. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>

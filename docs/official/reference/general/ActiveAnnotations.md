@@ -33,7 +33,11 @@ If you want to add getter and or setter methods for your fields, `@Accessors` is
 This annotation can be applied to either object-oriented types and several agent-oriented types.
 The agent-oriented types in which you could uses the `@Accessors` annotation are the agents,
 the behaviors and the skills.
+To uses this annotation, you have to import it as:
 
+```sarl
+import org.eclipse.xtend.lib.annotations.Accessors
+```
 
 
 
@@ -123,11 +127,10 @@ class Person {
 ```
 
 
-
 ## 2.  @Data
 
 The annotation `@Data` will turn an annotated class into a value object class. A class annotated with
-[:dataannon] is processed according to the following rules:
+`@Data` is processed according to the following rules:
 
 * all fields are final, i.e. they must be declared with `val`,
 * getter methods will be generated (if they do not yet exist),
@@ -139,6 +142,7 @@ This annotation can be applied to object-oriented types. The agent-oriented type
 
 Example:
 ```sarl
+import org.eclipse.xtend.lib.annotations.Data
 @Data class Person {
   val firstName : String
   val lastName : String
@@ -151,7 +155,6 @@ Example:
 
 
 
-
 ## 3.  @Delegate
 
 The `@Delegate` annotation automatically generates delegate methods for all interfaces shared between the delegate
@@ -160,6 +163,7 @@ This annotation can be applied to object-oriented types. The agent-oriented type
 
 Let's start with a basic example:
 ```sarl
+import org.eclipse.xtend.lib.annotations.Delegate
 interface SomeInterface {
 	def function(param : String) : int
 }
@@ -267,6 +271,7 @@ The annotation may mark a type, as in the following example.
 In this case, no equality test function is generated within the marked type and all its subtypes.
 
 ```sarl
+import io.sarl.lang.core.annotation.NoEqualityTestFunctionsGeneration
 @NoEqualityTestFunctionsGeneration
 class MyClass {
   var field1 : int
@@ -291,7 +296,6 @@ class MyClass {
 
 
 
-
 ## 5. @ToString
 
 The `@ToString` annotation enables to generate the function that replies the string representation
@@ -302,6 +306,7 @@ This annotation can be applied to object-oriented types. The agent-oriented type
 Let's a basic example:
 
 ```sarl
+import org.eclipse.xtend.lib.annotations.ToString
 @ToString
 class MyClass {
   var field1 : int
@@ -334,7 +339,6 @@ For brevity there are options to the annotation to hide field names, skip fields
 
 
 
-
 ## 6. Acknowledgements
 
 This documentation is inspired by the documentations from the
@@ -344,16 +348,20 @@ This documentation is inspired by the documentations from the
 ## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.12
+* Version: 0.13
 * Status: Stable Release
-* Release: 2021-05-27
+* Release: 2023-09-19
 
-> Copyright &copy; 2014-2021 [the original authors or authors](http://www.sarl.io/about/index.html).
+> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
-> Licensed under the Apache License, Version 2.0;
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the [License](http://www.apache.org/licenses/LICENSE-2.0).
+> Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
+> you may not use this file except in compliance with CC-BY-SA-4.0.
+> You may obtain a copy of [CC-BY-4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+>
+> Examples of SARL code are licensed under the Apache License, Version 2.0;
+> you may not use this file except in compliance with the Apache License.
+> You may obtain a copy of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator io.sarl.maven.docs.generator 0.12.0.</small>
+<small>Generated with the translator docs.generator 0.13.0.</small>
