@@ -156,6 +156,13 @@ sarl_stable_download:
     sha1: 
       lastest: "http://maven.sarl.io/io/sarl/eclipse/io.sarl.eclipse.products.ide/0.13.0/io.sarl.eclipse.products.ide-0.13.0-macosx.cocoa.x86_64.tar.gz.sha1"
       jdk8: "http://maven.sarl.io/io/sarl/io.sarl.lang.updatesite/0.12.0/io.sarl.lang.updatesite-0.12.0-macosx.cocoa.x86_64.zip.sha1"
+  mac64arm:
+    product: 
+      lastest: "http://maven.sarl.io/io/sarl/eclipse/io.sarl.eclipse.products.ide/0.13.0/io.sarl.eclipse.products.ide-0.13.0-macosx.cocoa.aarch64.tar.gz"
+    md5: 
+      lastest: "http://maven.sarl.io/io/sarl/eclipse/io.sarl.eclipse.products.ide/0.13.0/io.sarl.eclipse.products.ide-0.13.0-macosx.cocoa.aarch64.tar.gz.md5"
+    sha1: 
+      lastest: "http://maven.sarl.io/io/sarl/eclipse/io.sarl.eclipse.products.ide/0.13.0/io.sarl.eclipse.products.ide-0.13.0-macosx.cocoa.aarch64.tar.gz.sha1"
 sarl_old_versions: https://drive.google.com/open?id=14Rqx8GyYvtd2LNxZsiECuc48uPRTQz6I
 sarl_min_jdk_version: 17
 janus_download:
