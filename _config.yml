@@ -54,7 +54,6 @@ build:
 
 sarl:
   git_name: sarl/sarl
-#  url: https://github.com/sarl/sarl.git
   url: ../sarl.dsl
   workdir: /tmp
   branch: master
