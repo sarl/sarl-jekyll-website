@@ -286,7 +286,7 @@ qualified name of the Bootique module provider class). Each line of this file co
 a Bootique module provider to be added to the application classpath. Therefore, you could add your own Bootique module provider in this file.
 The content of the file `META-INF/services/io.bootique.BQModuleProvider` becomes:
 
-```
+```text
 mypackage.MyLoggingServiceModuleProvider
 ```
 
@@ -309,7 +309,7 @@ For including your extension into the application, you have only to add the jar 
 of your application.
 
 For example, running the Janus framework with your extension may be done with the following command line:
-```
+```text
 janus -cp myextension.jar myagent
 ```
 
@@ -533,9 +533,9 @@ The function `OptionMetadata::builder` enables to create a description of the co
 ## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -549,4 +549,4 @@ The function `OptionMetadata::builder` enables to create a description of the co
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

@@ -14,7 +14,7 @@ The Maven dependency to add is:
 <dependency>
 	<groupId>io.sarl.sdk</groupId>
 	<artifactId>api.gametgob</artifactId>
-	<version>0.13.0</version>
+	<version>0.14.0-SNAPSHOT</version>
 </dependency>
 ```
 
@@ -148,7 +148,7 @@ It has two major weaknesses: it fails to take account of side effects that an ac
 
 Let the following example, provided in the book "Artificial Intelligence for Games", by Ian Millington (published by MK):
 
-```
+```text
 Goal: Eat = 4
 Goal: Bathroom = 3
 Action: Drink-Soda (Eat -2; Bathroom +3)
@@ -217,7 +217,7 @@ This can be factored into the discontentment calculation. If it is known how goa
 
 Let the following example, provided in the book "Artificial Intelligence for Games", by Ian Millington (published by MK):
 
-```
+```text
 Goal: Eat = 4 changing at +4 per hour
 Goal: Bathroom = 3 changing at +2 per hour
 Action: Eat-Snack (Eat -2) 15 minutes
@@ -262,9 +262,9 @@ For creating an agent that is using the TGob mechanism, please refer to the tuto
 ## 3. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -278,4 +278,4 @@ For creating an agent that is using the TGob mechanism, please refer to the tuto
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

@@ -90,7 +90,7 @@ fully qualified name of the agent's type.
 You could change the behavior of the `janusnode` tool with the command-line options.
 For obtaining a list of the options, type:
 
-```texts
+```text
 janusnode -help
 ```
 
@@ -155,9 +155,9 @@ The configuration of the networking feature is explained on this [page](./JanusN
 ## 7. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -171,4 +171,4 @@ The configuration of the networking feature is explained on this [page](./JanusN
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

@@ -101,7 +101,7 @@ Write a SARL script to concatenate the following maps to create a new one.
 
 * Sample Maps:
 
-```
+```text
 dic1={1:10, 2:20}
 dic2={3:30, 4:40}
 dic3={5:50,6:60}
@@ -214,7 +214,7 @@ Write a SARL program to combine two maps by adding values for common keys.
 
 * Inputs:
 
-```
+```text
 d1 = {'a': 100, 'b': 200, 'c':300}
 d2 = {'a': 300, 'b': 200, 'd':400}
 ```
@@ -241,7 +241,7 @@ Write a SARL program to create and display all combinations of letters, selectin
 * Sample data: `{'1':['a','b'], '2':['c','d']}`
 * Expected Output:
 
-```
+```text
 ac
 ad
 bc
@@ -284,7 +284,7 @@ Write a SARL program to print a map in table format.
 
 * Sample Input:
 
-```
+```text
 {1: ["Samuel", 21, 'Data Structures'],
  2: ["Richie", 20, 'Machine Learning'],
  3: ["Lauren", 21, 'OOPS with java'],
@@ -293,7 +293,7 @@ Write a SARL program to print a map in table format.
 
 * Expected Output:
 
-```
+```text
 Samuel	21	Data Structures
 Richie	20	Machine Learning
 Lauren	21	OOPS with java
@@ -326,7 +326,7 @@ Write a SARL program to get the top three items in a shop.
 * Sample data: `{'item1': 45.50, 'item2':35, 'item3': 41.30, 'item4':55, 'item5': 24}`
 * Expected Output:
 
-```
+```text
 item4 55
 item1 45.5
 item3 41.3
@@ -392,13 +392,13 @@ Write a SARL program to store map data in a JSON file.
 
 * Original map:
 
-```
+```json
 {'students': [{'firstName': 'Nikki', 'lastName': 'Roysden'}, {'firstName': 'Mervin', 'lastName': 'Friedland'}, {'firstName': 'Aron ', 'lastName': 'Wilkins'}], 'teachers': [{'firstName': 'Amberly', 'lastName': 'Calico'}, {'firstName': 'Regine', 'lastName': 'Agtarap'}]}
 ```
 
 * Json file:
 
-```
+```json
 {'students': [{'firstName': 'Nikki', 'lastName': 'Roysden'}, {'firstName': 'Mervin', 'lastName': 'Friedland'}, {'firstName': 'Aron ', 'lastName': 'Wilkins'}], 'teachers': [{'firstName': 'Amberly', 'lastName': 'Calico'}, {'firstName': 'Regine', 'lastName': 'Agtarap'}]}
 ```
 
@@ -409,7 +409,7 @@ Write a SARL program to store map data in a JSON file.
 
 Write a SARL program to create a map of keys x, y, and z where each key has as value a list from 11-20, 21-30, and 31-40 respectively. Access the fifth value of each key from the map.
 
-```
+```text
 {'x': [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
 'y': [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
 'z': [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]}
@@ -575,7 +575,7 @@ Write a SARL program to access map key's element by index.
 * Sample Input: `{'physics': 80, 'math': 90, 'chemistry': 86}`
 * Expected Output:
 
-```
+```text
 0 = physics
 1 = math
 2 = chemistry
@@ -707,9 +707,9 @@ Write a SARL program to invert a given map with non-unique hashable values.
 ## 61. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -723,4 +723,4 @@ Write a SARL program to invert a given map with non-unique hashable values.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

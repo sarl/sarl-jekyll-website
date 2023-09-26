@@ -98,7 +98,7 @@ Write a SARL program to display the current date and time.
 
 * Sample Output :
 
-```
+```text
 Current date and time:
 2014-07-05 14:34:14
 ```
@@ -111,7 +111,7 @@ Write a SARL program that calculates the area of a circle based on the radius en
 
 * Sample Output:
 
-```
+```text
 r = 1.1
 Area = 3.8013271108436504
 ```
@@ -132,7 +132,7 @@ Write a SARL program that accepts a sequence of comma-separated numbers from the
 * Sample data: `3, 5, 7, 23`
 * Output:
 
-```
+```text
 List : ['3', ' 5', ' 7', ' 23']
 ```
 
@@ -153,7 +153,7 @@ Write a SARL program that accepts a filename from the command line, and prints t
 
 Write a SARL program to display the first and last colors from the following list.
 
-```
+```text
 color_list = ["Red","Green","White" ,"Black"]
 ```
 
@@ -265,7 +265,7 @@ Write a SARL program that checks whether a specified value is contained within a
 
 * Test Data:
 
-```
+```text
 3 -> [1, 5, 8, 3] : True
 -1 -> [1, 5, 8, 3] : False
 ```
@@ -286,7 +286,7 @@ Write a SARL program to print all even numbers from a given list of numbers in t
 
 * Sample numbers list:
 
-```
+```text
 numbers = [    
     386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345, 
     399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217, 
@@ -304,14 +304,14 @@ Write a SARL program that prints out all colors from `color_list_1` that are not
 
 * Test Data:
 
-```
+```text
 color_list_1 = set(["White", "Black", "Red"])
 color_list_2 = set(["Red", "Green"])
 ```
 
 * Expected Output:
 
-```
+```text
 {'Black', 'White'}
 ```
 
@@ -570,9 +570,9 @@ Write a SARL program to determine the largest and smallest integers, longs, and 
 ## 60. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -586,4 +586,4 @@ Write a SARL program to determine the largest and smallest integers, longs, and 
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

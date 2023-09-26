@@ -85,7 +85,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.13.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.14.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
@@ -93,7 +93,7 @@ Replace the version number `0.13.0` of SARL with the one you want to use. You co
     ...
     <properties>
        ...
-       <sarl.version>0.13.0</sarl.version>
+       <sarl.version>0.14.0-SNAPSHOT</sarl.version>
 	   <jdk.version>17</jdk.version>
 	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -166,7 +166,7 @@ to the runtime environment library.
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.sarl.io/runtime/janus/). 
 
-Replace the version number (`3.0.13.0`) of the [Janus platform](http://www.sarl.io/runtime/janus/) with the one you want to use.
+Replace the version number (`3.0.14.0-SNAPSHOT`) of the [Janus platform](http://www.sarl.io/runtime/janus/) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -175,7 +175,7 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>3.0.13.0</janus.version>
+       <janus.version>3.0.14.0-SNAPSHOT</janus.version>
     </properties>
     ...
     <build>
@@ -222,7 +222,7 @@ you have to use another Maven dependency: `janus.network`.
    ...
     <properties>
        ...
-       <janus.version>3.0.13.0</janus.version>
+       <janus.version>3.0.14.0-SNAPSHOT</janus.version>
     </properties>
     ...
     <build>
@@ -263,9 +263,9 @@ In the next section, we will learn how to create our first agent.
 ## 4. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -279,4 +279,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

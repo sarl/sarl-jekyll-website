@@ -76,7 +76,7 @@ Sometimes, it is useful to point an internal section out within the targeted res
 notation. The format of the anchor name is the title of the section, in lower case, with all characters that are not
 alphanumeric to be replaced by the `-` character. 
 
-```
+```text
 [My link 3](./index.html#event-communication)
 ```
 		
@@ -318,9 +318,9 @@ The other resources, such as images should be in the `src/main/resources` folder
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -334,4 +334,4 @@ The other resources, such as images should be in the `src/main/resources` folder
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

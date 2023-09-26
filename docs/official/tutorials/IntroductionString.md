@@ -364,7 +364,7 @@ Write a SARL program to print the square and cube symbols in the area of a recta
 
 * Input variables:
 
-```
+```text
 area = 1256.66
 volume = 1254.725
 decimals = 2
@@ -372,7 +372,7 @@ decimals = 2
 
 * Sample output:
 
-```
+```text
 The area of the rectangle is 1256.66cm2
 The volume of the cylinder is 1254.725cm3
 ```
@@ -387,7 +387,7 @@ Write a SARL program to print the index of a character in a string.
 * Sample string: `w3resource`
 * Expected output:
 
-```
+```text
 Current character w position at 0
 Current character 3 position at 1
 Current character r position at 2
@@ -413,7 +413,7 @@ Write a SARL program to convert a given string into a list of words.
 * Input: `The quick brown fox jumps over the lazy dog.`
 * Sample Output:
 
-```
+```text
 ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog.']
 ```
 
@@ -543,7 +543,7 @@ Write a SARL program to wrap a given string into a paragraph with a given width.
 * Input the width of the paragraph: `10`
 * Result:
 
-```
+```text
 The quick
 brown fox.
 ```
@@ -603,9 +603,9 @@ Write a SARL program to replace each character of a word of length five and more
 ## 61. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -619,4 +619,4 @@ Write a SARL program to replace each character of a word of length five and more
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

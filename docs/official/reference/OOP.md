@@ -202,10 +202,10 @@ class Vector<T extends Number> {
 An SARL class can define any number of constructors. Unlike Java, you do not have to repeat the name of the
 class over and over again, but use the keyword `new` to declare a constructor.
 
-Constructors can also delegate to other constructors using ```this(args...)``` in their first line.
+Constructors can also delegate to other constructors using `this(args...)` in their first line.
 
 If the super class does not define a no-argument constructor, you have to explicitly call
-one using ```super(args...)``` as the first expression in the body of the constructor.
+one using `super(args...)` as the first expression in the body of the constructor.
 
 ```sarl
 class MyClass extends AnotherClass {
@@ -1488,9 +1488,9 @@ Thank you to the contributors to these documents.
 ## 9. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -1504,4 +1504,4 @@ Thank you to the contributors to these documents.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>

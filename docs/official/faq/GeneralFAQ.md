@@ -275,15 +275,17 @@ The editing of the `sarlide.ini` file could be done by following the steps:
 4. Move to `Contents/Eclipse`
 5. Open `sarlide.ini` with a text editor
 6. Add the following lines into the file or update the lines if they exist (there is a line break that must be inside the file content):
-```
+
+```text
 -vm
 /Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin
 ```
+
 7. Save.
 
 An complete example of the `sarlide.ini` file is:
 
-```
+```text
 -startup
 ../Eclipse/plugins/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar
 --launcher.library
@@ -306,17 +308,19 @@ The editing of the `Info.plist` file could be done by following the steps:
 4. Move to `Contents/Eclipse/Eclipse.app/Contents`
 5. Open `Info.plist` with a text editor
 6. Add the following lines into the file or update the lines if they exist:
-```
+
+```xml
 <array>
    <string>-vm</string>
    <string>/Library/Java/JavaVirtualMachines/jdk17/Contents/Home/bin/java</string>
 </array>
 ```
+
 7. Save and start the SARL IDE.
 
 An complete example of the `Info.plist` file is:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -360,12 +364,13 @@ An complete example of the `Info.plist` file is:
 
 Because Gatekeeper considers SARL Eclipse as unstable. You could confirm this problem by looking into your `system.log` file and searching for a message that looks like:
 
-```
+```text
 (application.io.sarl.lang.product.72020573.72020798[78958]): removing service since it exited with consistent failure - OS_REASON_EXEC | Gatekeeper policy blocked execution
 ```
 
-On order to enable Gatekeper to enable the SARL Eclipse launch, you should type on the Terminal the following command:
-```
+In order to enable Gatekeper to enable the SARL Eclipse launch, you should type on the Terminal the following command:
+
+```text
 sudo xattr -rd com.apple.quarantine Eclipse.app
 ```
 
@@ -543,6 +548,7 @@ Additionally, several run-time errors from the [Janus framework](../tools/Janus.
 You can use `@SupressWarnings(...)` annotations in the entities you do not want
 to be warned. For example, a typical warning SARL will give is lack of
 synchronization for variables that can be accessed/edited concurrently:
+
 ```text
 [WARNING] The field noToSpawn should be synchronized for avoiding value inconsistency
 due to parallel execution. [BootMultiSWIAgents.sarl:70]
@@ -590,9 +596,9 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 ## 5. Legal Notice
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.13
-* Status: Stable Release
-* Release: 2023-09-19
+* Version: 0.14
+* Status: Draft Release
+* Release: 2023-09-26
 
 > Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
 >
@@ -606,4 +612,4 @@ You should submit your issue on [this page](https://github.com/sarl/sarl/issues/
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.13.0.</small>
+<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
