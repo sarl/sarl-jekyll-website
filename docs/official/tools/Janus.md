@@ -1,9 +1,9 @@
 ---
-title: "Janus Command-line Launcher"
+title: "Janus Command-line Launcher - janus"
 layout: default
 ---
 
-# Janus Command-line Launcher
+# Janus Command-line Launcher - janus
 
 
 <ul class="page_outline" id="page_outline">
@@ -12,14 +12,15 @@ layout: default
 <li><a href="#2-usage">2. Usage</a></li>
 <li><a href="#3-command-line-options">3. Command-Line Options</a></li>
 <li><a href="#4-list-of-errors-and-warnings">4. List of Errors and Warnings</a></li>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#5-version-specification">5. Version Specification</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
 
 
 
-[Janus](http://www.sarl.io/runtime/janus/index.html) is an open-source multi-agent platform fully implemented in SARL. 
+[Janus](http://www.sarl.io/runtime/janus/) is an open-source multi-agent platform fully implemented in SARL. 
 Janus could be used as an agent-oriented platform, an organizational platform, and/or an holonic platform. 
 It also natively manages the concept of recursive agents and holons.
 Janus platform was initially published during the 2007-2008 period as a pure Java framework. Since 2014, Janus is fully reimplemented to
@@ -44,9 +45,9 @@ It means that you don't need to add any SRE, including Janus, in the dependencie
 
 For other methods for launching a SARL application, please refer to one of:
 
-* [Running an agent from the command-line shell](../gettingstarted/RunSARLAgentCLI.html)
-* [Running an agent inside SARL Eclipse environment](../gettingstarted/RunSARLAgentEclipse.html)
-* [Running an agent from a Java program progammatically](../gettingstarted/RunSARLAgentJava.html)
+* [Running an agent from the command-line shell](../getstarted/RunSARLAgentCLI.html)
+* [Running an agent inside SARL Eclipse environment](../getstarted/RunSARLAgentEclipse.html)
+* [Running an agent from a Java program progammatically](../getstarted/RunSARLAgentJava.html)
 
 
 ## 2. Usage
@@ -93,16 +94,17 @@ the classpath of your application, more options may become available.
 | --generatemarkdownconfighelp | Prints the configuration parameters using a Markdown table. |
 | --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
 | -h<br>--help | Prints this message. |
-| -H<br>--help-config | Prints information about application modules and their configuration options. |
+| -H [prefix]<br>--help-config[=prefix] | Prints information about application modules and their configuration options. Optionally, you can provide a 'prefix' argument to print only the specified config. |
 | --inject-agents={true&#124;false} | Specify if the agents should be injected with field values by the SRE; Default is false. |
 | --internal-error-log-level=level | Specify the logging level for the internal errors within the parallel executors; Default is: all. |
 | -j<br>--json | When present, the output of the configuration has the Json format. |
 | -k duration<br>--keep-alive=duration | Specify the duration in seconds during which a thread is staying alive even if there is not task to be run; After this duration, iddle threads are destroyed by the SRE; Default value is 60. |
 | -l level<br>--log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error, warning, info, debug, trace, all. |
 | --max-threads=number | Specify the maximal number of threads that could be created by the SRE; Default is 512. |
-| --min-threads=number | Specify the minimal number of threads that should be created by the SRE; Default is 0. |
+| --min-threads=number | Specify the minimal number of threads that should be created by the SRE; Default is 1. |
 | --name=name | Specify the name of the program that is shown into the logs for example; Default is 'SARL Run-time Environment'. |
 | --no-agent | Start the SRE without agent at boot time. In this case, the fully qualified name that may be provided on the command line is simply ignored. Agents should be spawned later by calling the programmatic API of the SRE. |
+| -o {true&#124;false}<br>--on-processors={true&#124;false} | Specify if the executor service maps thread number to available processor number; Default is: false. |
 | -C<br>--printconfig | Print the current configuration. The output format is Yaml by default. See --json for a Json output, and --xml for a XML output. |
 | -r uuid<br>--root-context-id=uuid | Specify the identifier (UUID) of the root context; Default is 2c38fb7f-f363-4f6e-877b-110b1f07cc77. |
 | --service-start-timeout=timeout | Specify the timeout for waiting a service to be started (in milliseconds); A value equal to zero means that the SRE waits for ever; Default is 0. |
@@ -169,14 +171,16 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 
 
 
-## 5. Legal Notice
+## 5. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 6. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -188,4 +192,4 @@ The long code is provided by the SARL compiler at the end of the issue messages.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

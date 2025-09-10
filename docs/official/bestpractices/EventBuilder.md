@@ -11,7 +11,8 @@ layout: default
 <li><a href="#1-definition-of-the-event">1. Definition of the event</a></li>
 <li><a href="#2-definition-of-the-event-builder">2. Definition of the event builder</a></li>
 <li><a href="#3-use-of-the-event-builder">3. Use of the event builder</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-version-specification">4. Version Specification</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -43,9 +44,6 @@ Consequently, a constructor is defined with the identifier value as parameter.
 ```sarl
 event MyEvent {
 	val id : long
-	new (id : long) {
-		this.id = id
-	}
 }
 ```
 
@@ -90,16 +88,16 @@ var event2 = builder.newInstance
 ```
 
 
-
-
-## 4. Legal Notice
+## 4. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 5. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -111,4 +109,4 @@ var event2 = builder.newInstance
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

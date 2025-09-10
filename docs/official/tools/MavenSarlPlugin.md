@@ -1,9 +1,9 @@
 ---
-title: "Maven Plugin for the SARL Compiler"
+title: "Maven Plugin for the SARL Compiler - sarl-maven-plugin"
 layout: default
 ---
 
-# Maven Plugin for the SARL Compiler
+# Maven Plugin for the SARL Compiler - sarl-maven-plugin
 
 
 <ul class="page_outline" id="page_outline">
@@ -11,7 +11,8 @@ layout: default
 <li><a href="#1-note-on-the-application-classpath">1. Note on the application classpath</a></li>
 <li><a href="#2-usage">2. Usage</a></li>
 <li><a href="#3-configuration">3. Configuration</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-version-specification">4. Version Specification</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -37,9 +38,9 @@ It means that it does not enforce if a SARL runtime environment is installed and
 
 For launching a SARL application, please refer to one of:
 
-* [Running an agent from the command-line shell](../gettingstarted/RunSARLAgentCLI.html)
-* [Running an agent inside SARL Eclipse environment](../gettingstarted/RunSARLAgentEclipse.html)
-* [Running an agent from a Java program progammatically](../gettingstarted/RunSARLAgentJava.html)
+* [Running an agent from the command-line shell](../getstarted/RunSARLAgentCLI.html)
+* [Running an agent inside SARL Eclipse environment](../getstarted/RunSARLAgentEclipse.html)
+* [Running an agent from a Java program progammatically](../getstarted/RunSARLAgentJava.html)
 
 
 ## 2. Usage
@@ -47,7 +48,7 @@ For launching a SARL application, please refer to one of:
 Open the file `pom.xml` of your project, and edit it for obtaining a content similar to the
 configuration below.
 
-Replace the version number `0.14.0-SNAPSHOT` of SARL with the one you want to use. You could search on the
+Replace the version number `0.15.0` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -56,8 +57,8 @@ Replace the version number `0.14.0-SNAPSHOT` of SARL with the one you want to us
     ...
     <properties>
        ...
-       <sarl.version>0.14.0-SNAPSHOT</sarl.version>
-       <jdk.version>17</jdk.version>
+       <sarl.version>0.15.0</sarl.version>
+       <jdk.version>21</jdk.version>
        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     ...
@@ -77,7 +78,7 @@ Replace the version number `0.14.0-SNAPSHOT` of SARL with the one you want to us
 		  <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.11.0</version>
+			<version>3.14.0</version>
 			<configuration>
 				<source>${jdk.version}</source>
 				<encoding>${project.build.sourceEncoding}</encoding>
@@ -127,11 +128,12 @@ The configuration section may contains the following elements.
 | generateTraceFiles | compile, testCompile | boolean | Indicates if the trace files should be generated. | true |
 | input | clean, compile, initialize, testCompile | java.io.File | The directory in which the standard SARL code files are located. | src/main/sarl |
 | integrationTestInput | clean, compile, initialize, testCompile | java.io.File | The directory in which the integration test SARL code files are located. | src/it/sarl |
+| issueSeverities | compile, testCompile | java.util.Map&lt;java.lang.String, java.lang.String&gt; | Overriding of the issue severities. |  |
 | javaCompiler | compile, testCompile | java.lang.String | Indicates the Java compiler to be invoked by the SARL maven plugin. |  |
 | optimization | compile, testCompile | java.lang.String | Indicates the level of optimization. |  |
 | output | clean, compile, initialize, testCompile | java.io.File | The directory in which the Java code files are generated from the standard SARL code files. | src/main/generated-sources/sarl |
 | skip | clean, compile, initialize, testCompile | boolean | Skip the execution of the mojo. | false |
-| source | compile, testCompile | java.lang.String | Version of the Java specification used for the source files. | 17 |
+| source | compile, testCompile | java.lang.String | Version of the Java specification used for the source files. | 21 |
 | tempDirectory | compile, testCompile | java.io.File | Location of the temporary compiler directory. |  |
 | testInput | clean, compile, initialize, testCompile | java.io.File | The directory in which the test SARL code files are located. | src/test/sarl |
 | testOutput | clean, compile, initialize, testCompile | java.io.File | The directory in which the Java code files are generated from the test SARL code files. | src/test/generated-sources/sarl |
@@ -142,14 +144,16 @@ The configuration section may contains the following elements.
 
 
 
-## 4. Legal Notice
+## 4. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 5. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -161,4 +165,4 @@ The configuration section may contains the following elements.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

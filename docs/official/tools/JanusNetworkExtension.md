@@ -11,12 +11,13 @@ layout: default
 <li><a href="#1-general-principles-of-the-extension">1. General Principles of the Extension</a></li>
 <li><a href="#2-maven-inclusion">2. Maven Inclusion</a></li>
 <li><a href="#3-configuration-of-the-plugin">3. Configuration of the plugin</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-version-specification">4. Version Specification</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
 
-[Janus](http://www.sarl.io/runtime/janus/index.html) is an open-source multi-agent platform fully implemented in SARL. 
+[Janus](http://www.sarl.io/runtime/janus/) is an open-source multi-agent platform fully implemented in SARL. 
 Janus could be used as an agent-oriented platform, an organizational platform, and/or an holonic platform. 
 It also natively manages the concept of recursive agents and holons.
 Janus platform was initially published during the 2007-2008 period as a pure Java framework. Since 2014, Janus is fully reimplemented to
@@ -36,7 +37,7 @@ network. For enabling this communication feature, a specific Janus extension is 
 This documentation page describes the extension `janus.network` that adds the communication
 among Janus nodes over a computer network.
 
-The extension described on this page was defined according to the [standard method for extending Janus](../tutorials/SreExtension.html).
+The extension described on this page was defined according to the [standard method for extending Janus](../tutorials/runtime/SreExtension.html).
 
 ## 1. General Principles of the Extension
 
@@ -66,7 +67,7 @@ In order to include the networking extension into your project, you could add th
    ...
     <properties>
        ...
-       <janus.version>3.0.14.0-SNAPSHOT</janus.version>
+       <janus.version>3.0.15.0</janus.version>
     </properties>
     ...
     <dependencies>
@@ -110,14 +111,16 @@ More details could be obtain by calling your Janus-based software with the comma
 
 
 
-## 4. Legal Notice
+## 4. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 5. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -129,4 +132,4 @@ More details could be obtain by calling your Janus-based software with the comma
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

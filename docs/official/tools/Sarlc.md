@@ -1,9 +1,9 @@
 ---
-title: "SARL Command-line Compiler"
+title: "SARL Command-line Compiler - sarlc"
 layout: default
 ---
 
-# SARL Command-line Compiler
+# SARL Command-line Compiler - sarlc
 
 
 <ul class="page_outline" id="page_outline">
@@ -11,7 +11,8 @@ layout: default
 <li><a href="#1-note-on-the-application-classpath">1. Note on the application classpath</a></li>
 <li><a href="#2-usage">2. Usage</a></li>
 <li><a href="#3-command-line-options">3. Command-Line Options</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-version-specification">4. Version Specification</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -28,9 +29,9 @@ It means that it does not check if a SARL runtime environment is installed and u
 
 For launching a SARL application, please refer to one of:
 
-* [Running an agent from the command-line shell](../gettingstarted/RunSARLAgentCLI.html)
-* [Running an agent inside SARL Eclipse environment](../gettingstarted/RunSARLAgentEclipse.html)
-* [Running an agent from a Java program progammatically](../gettingstarted/RunSARLAgentJava.html)
+* [Running an agent from the command-line shell](../getstarted/RunSARLAgentCLI.html)
+* [Running an agent inside SARL Eclipse environment](../getstarted/RunSARLAgentEclipse.html)
+* [Running an agent from a Java program progammatically](../getstarted/RunSARLAgentJava.html)
 
 ## 2. Usage
 
@@ -76,9 +77,9 @@ The complete list of the options is:
 | --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
 | --generator=identifiers | Enables extra-language generators. The parameter is a list of identifiers of the generators to turn on, separated by ':'. See the option -G for printing out the list of the available generators. |
 | -h<br>--help | Prints this message. |
-| -H<br>--help-config | Prints information about application modules and their configuration options. |
+| -H [prefix]<br>--help-config[=prefix] | Prints information about application modules and their configuration options. Optionally, you can provide a 'prefix' argument to print only the specified config. |
 | --java-compiler[=none&#124;ecj&#124;javac] | Specifies the Java compiler to be run; default is javac. |
-| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 17, and strictly lower than 18. |
+| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 21, and strictly lower than 27. |
 | --json | When present, the output of the configuration has the Json format. |
 | -l level<br>--log=level | Specifies the level of logging of the application. This log level could be also controlled by setting the environment variable LOG_LEVEL. If neither LOG_LEVEL nor --log is specified, then the default log level set to info is used. The accepted values are: off, error, warning, info, debug, trace, all. |
 | -m path<br>--modulepath=path | Specifies where to find module class files, and source files. This module path overrides the user module path in the SARLC_MODULEPATH environment variable. If neither SARLC_MODULEPATH, --p nor --modulepath is specified, then the user module path is built upon the source folders, the generated file folders, and the standard SARL libraries. If a user module path is specified, it must contains the the user libraries and the standard SARL libraries. |
@@ -99,14 +100,16 @@ The complete list of the options is:
 
 
 
-## 4. Legal Notice
+## 4. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 5. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -118,4 +121,4 @@ The complete list of the options is:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

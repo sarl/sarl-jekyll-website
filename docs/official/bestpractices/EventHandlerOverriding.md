@@ -11,7 +11,8 @@ layout: default
 <li><a href="#1-operational-semantic-of-the-event-handlers">1. Operational semantic of the event handlers</a></li>
 <li><a href="#2-defining-the-super-behavior-in-a-function">2. Defining the super behavior in a function</a></li>
 <li><a href="#3-overriding-the-super-function">3. Overriding the super function</a></li>
-<li><a href="#4-legal-notice">4. Legal Notice</a></li>
+<li><a href="#4-version-specification">4. Version Specification</a></li>
+<li><a href="#5-legal-notice">5. Legal Notice</a></li>
 
 </ul>
 
@@ -95,15 +96,16 @@ agent MyAgent extends MySuperAgent {
 ```
 
 
-
-## 4. Legal Notice
+## 4. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 5. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -115,4 +117,4 @@ agent MyAgent extends MySuperAgent {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

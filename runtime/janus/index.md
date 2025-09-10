@@ -54,8 +54,8 @@ Janus is available as a Maven artifact. The artifact is available on the [Maven 
 
 
     <dependency>
-      <groupId>io.janusproject</groupId>
-      <artifactId>io.janusproject.kernel</artifactId>
+      <groupId>io.sarl.sre.janus</groupId>
+      <artifactId>janus.kernel</artifactId>
       <version>{{site.janus_stable_version}}</version>
     </dependency>
 

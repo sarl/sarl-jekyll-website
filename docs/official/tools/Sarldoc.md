@@ -1,9 +1,9 @@
 ---
-title: "SARL Documentation Generator"
+title: "SARL Documentation Generator - sarldoc"
 layout: default
 ---
 
-# SARL Documentation Generator
+# SARL Documentation Generator - sarldoc
 
 
 <ul class="page_outline" id="page_outline">
@@ -18,7 +18,8 @@ layout: default
 </ul>
 <li><a href="#4-tags">4. Tags</a></li>
 <li><a href="#5-acknowledgements">5. Acknowledgements</a></li>
-<li><a href="#6-legal-notice">6. Legal Notice</a></li>
+<li><a href="#6-version-specification">6. Version Specification</a></li>
+<li><a href="#7-legal-notice">7. Legal Notice</a></li>
 
 </ul>
 
@@ -84,9 +85,9 @@ The complete list of the options is:
 | --generatemarkdownhelp | Prints the list of the command-line options using a Markdown table. |
 | --generator=identifiers | Enables extra-language generators. The parameter is a list of identifiers of the generators to turn on, separated by ':'. See the option -G for printing out the list of the available generators. |
 | -h<br>--help | Prints this message. |
-| -H<br>--help-config | Prints information about application modules and their configuration options. |
+| -H [prefix]<br>--help-config[=prefix] | Prints information about application modules and their configuration options. Optionally, you can provide a 'prefix' argument to print only the specified config. |
 | --java-compiler[=none&#124;ecj&#124;javac] | Specifies the Java compiler to be run; default is javac. |
-| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 17, and strictly lower than 18. |
+| --java-source[=version] | Specifies the Java version of the Java source code that is accepted, and of the Java class files for targeting a specific release of the Java virtual machine. Java class files will run on the specified target and on later releases, but not on earlier releases of the Java virtual machine. Provided version must be greater than or equal to 21, and strictly lower than 27. |
 | --javadoc=file | Specify the path to the executable of Javadoc. If it is not specified, the value will be inferred from the current installation of the Java environment. |
 | --json | When present, the output of the configuration has the Json format. |
 | --locale=locale_code  | Specify the locale that should be used into the documentation; default value is en_US. |
@@ -285,14 +286,16 @@ Tags have the following types:
 This documentation is inspired by the documentation from the
 [Oracle Javadoc](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html) project.
 
-## 6. Legal Notice
+## 6. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 7. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -304,4 +307,4 @@ This documentation is inspired by the documentation from the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

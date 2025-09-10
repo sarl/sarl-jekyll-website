@@ -32,6 +32,12 @@ A list of references (papers and PhD theses on or using SARL) is available below
 
 # 2. Journal, Conference and Workshop Papers
 
+### 2024
+{% bibliography --file publications -q @*[year=2024] %}
+
+### 2023
+{% bibliography --file publications -q @*[year=2023] %}
+
 ### 2022
 {% bibliography --file publications -q @*[year=2022] %}
 
@@ -60,6 +66,9 @@ A list of references (papers and PhD theses on or using SARL) is available below
 {% bibliography --file publications -q @*[year=2014] %}
 
 # 3. Presentations and Talks
+
+### 2023
+{% bibliography --file presentations -q @*[year=2023] %}
 
 ### 2019
 {% bibliography --file presentations -q @*[year=2019] %}

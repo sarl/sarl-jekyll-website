@@ -277,7 +277,7 @@ module Jekyll
 			path = File.absolute_path(path)			
 			rootDir = File.absolute_path('.')
 			pagePath = Jekyll.configuration({})['sarl']['sample_folder']
-			relOutFolder = File.join('.', pagePath)
+			relOutFolder = pagePath #File.join('.', pagePath)
 			outFolder = File.join(rootDir, pagePath)
 			
 			content = read_document_descriptions(path)
@@ -286,21 +286,36 @@ module Jekyll
 			pages = copy_sample_documentation(content, outFolder, relOutFolder)
 			
 			for page in pages do
-				site.pages << Jekyll::Page.new(
-					site,
-					rootDir,
-					File.dirname(page),
-					File.basename(page))
+				if is_page_exist(site, page) then
+					puts "      SARL Samples: skiping page registration: " + page + "\n"
+				else
+					puts "      SARL Samples: registering page: " + page + "\n"
+					site.pages << Jekyll::Page.new(
+						site,
+						rootDir,
+						File.dirname(page),
+						File.basename(page))
+				end
 			end
 		end
 
+		def is_page_exist(site, page)
+			for registered_page in site.pages do
+				if page == registered_page.relative_path then
+					return true
+				end
+			end
+			return false
+		end
+
 		def copy_sample_documentation(samples, outFolder, relOutFolder)
-			pages = []
+			generated_pages = Hash.new()
 			samples.each_value do |samples0|
 				samples0.each do |id, sample|
 					puts "      SARL Samples: copying files for " + id + "\n"
 					sampleOutFolder = File.join(outFolder, id)
 					sampleRelOutFolder = File.join(relOutFolder, id)
+					puts "      SARL Samples: out is: " + sampleOutFolder + "\n"
 					# Resources
 					if sample[:islocal] then
 						for resource in sample[:resources] do
@@ -311,7 +326,7 @@ module Jekyll
 							fext = File.extname(outputResource).to_s
 							if fext == '.html' or fext == '.md' or fext == '.htm' then
 								make_jekyll_markdown(sample[:name], inputResource, outputResource)
-								pages.push(File.join(sampleRelOutFolder, resource))
+								generated_pages[outputResource] = File.join(sampleRelOutFolder, resource)
 							else
 								FileUtils.cp(inputResource, outputResource)
 							end
@@ -334,11 +349,11 @@ module Jekyll
 						puts "      SARL Samples: > " + File.basename(sample[:mainPage]) + "\n"
 						FileUtils.mkpath(File.dirname(outputMainPage))
 						make_jekyll_markdown(sample[:name], inputMainPage, outputMainPage)
-						pages.push(File.join(sampleRelOutFolder, 'index.md'))
+						generated_pages[outputMainPage] = File.join(sampleRelOutFolder, 'index.md')
 					end
 				end
 			end
-			return pages
+			return generated_pages.values
 		end
 
 		def clean_folder(path)

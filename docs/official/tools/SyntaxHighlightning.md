@@ -1,9 +1,9 @@
 ---
-title: "SARL Syntax highlighting with other tools"
+title: "SARL Syntax highlighting with other code editors"
 layout: default
 ---
 
-# SARL Syntax highlighting with other tools
+# SARL Syntax highlighting with other code editors
 
 
 <ul class="page_outline" id="page_outline">
@@ -21,7 +21,8 @@ layout: default
 <li><a href="#7-sublime-text-editor">7. Sublime Text Editor</a></li>
 <li><a href="#8-textmate-editor">8. TextMate Editor</a></li>
 <li><a href="#9-vim-editor">9. Vim Editor</a></li>
-<li><a href="#10-legal-notice">10. Legal Notice</a></li>
+<li><a href="#10-version-specification">10. Version Specification</a></li>
+<li><a href="#11-legal-notice">11. Legal Notice</a></li>
 
 </ul>
 
@@ -159,14 +160,16 @@ For using the SARL style, you should:
 
 
 
-## 10. Legal Notice
+## 10. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 11. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -178,4 +181,4 @@ For using the SARL style, you should:
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

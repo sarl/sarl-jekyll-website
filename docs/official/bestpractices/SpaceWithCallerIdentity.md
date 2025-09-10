@@ -12,7 +12,8 @@ layout: default
 <li><a href="#2-space-definition">2. Space Definition</a></li>
 <li><a href="#3-skill-definition">3. Skill Definition</a></li>
 <li><a href="#4-accessing-to-the-function-caller-instance">4. Accessing to the function caller instance</a></li>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#5-version-specification">5. Version Specification</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
@@ -34,7 +35,7 @@ the operation on the space.
 
 ## 1. Capacity Definition
 
-The first step is the [definition of a capacity](../reference/Capacity.html) that enables an agent to access to
+The first step is the [definition of a capacity](../lang/aop/Capacity.html) that enables an agent to access to
 the operations of the space.
 
 In the following example, the `MyCapacity` capacity is defined with the `functionAccessibleToTheAgent` function. 
@@ -166,15 +167,16 @@ skill MySkill implements MyCapacity {
 ```
 
 
-
-## 5. Legal Notice
+## 5. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 6. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -186,4 +188,4 @@ skill MySkill implements MyCapacity {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

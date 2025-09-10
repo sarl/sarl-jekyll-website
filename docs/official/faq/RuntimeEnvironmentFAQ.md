@@ -28,6 +28,7 @@ layout: default
   <li><a href="#29-error-agent-class-not-found">2.9. Error: "Agent class not found."</a></li>
   <li><a href="#210-error-invalid-byte-2-of-4-byte-utf-8-sequence">2.10. Error: "Invalid byte 2 of 4-byte UTF-8 sequence."</a></li>
   <li><a href="#211-how-to-create-a-runnable">2.11. How to create a runnable?</a></li>
+  <li><a href="#212-how-to-create-a-runnable-jar-file">2.12. How to create a runnable JAR file?</a></li>
 </ul>
 <li><a href="#3-runtime-behavior-of-janus">3. Runtime Behavior of Janus</a></li>
 <ul>
@@ -42,7 +43,8 @@ layout: default
   <li><a href="#42-how-can-i-find-the-current-issues">4.2. How can I find the current issues?</a></li>
   <li><a href="#43-how-can-i-report-a-problem-or-a-bug-in-janus-components">4.3. How can I report a problem or a bug in Janus components?</a></li>
 </ul>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#5-version-specification">5. Version Specification</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
@@ -54,13 +56,13 @@ layout: default
 
 SRE stands for "SARL Runtime Environment". The SRE is an implementation of an agent platform, which is able to
 run a SARL program. The official standard SRE supported by the SARL developers is the
-[Janus platform](http://www.janusproject.io).
+[Janus platform](http://www.sarl.io/runtime/janus/).
 
 
 ### 1.2. What is Janus?
 
 Janus is an open-source multi-agent platform fully implemented 
-in Java 17. Janus enables developers to quickly create 
+in Java 21. Janus enables developers to quickly create 
 web, enterprise and desktop agent-based applications.
 
 
@@ -74,7 +76,7 @@ organizational platform, and/or a holonic platform. It
 also natively manages the concept of recursive agents and 
 holons.
 
-Official website: [www.janusproject.io](http://www.janusproject.io)
+Official website: [http://www.sarl.io/runtime/janus/](http://www.sarl.io/runtime/janus/)
 
 
 ### 1.3. Where can I ask my question?
@@ -102,20 +104,20 @@ Several run-time errors from the [Janus framework](../tools/Janus.html) are expl
 
 ### 2.2. Is my operating system compatible with Janus?
 
-The [Janus runtime platform](http://www.janusproject.io)
+The [Janus runtime platform](http://www.sarl.io/runtime/janus/)
 is a Java application. Every operating system which has 
 a Java Virtual Machin, especially the Java Development Kit (JDK),
-with at least with the 17
+with at least with the 21
 standard may be used to run Janus. 
 
 
 
 ### 2.3. What is the version of the Java virtual machine to install?
 
-Janus requires the JDK 17 or higher
-(and strictly lower than 18) to run and compile.
+Janus requires the JDK 21 or higher
+(and strictly lower than 27) to run and compile.
 Note that if you plan to create Android applications, you may 
-configure your JDK to produce 1.6 class files from 17 Java code,
+configure your JDK to produce 1.6 class files from 21 Java code,
 depending of the current supported standard on Android platforms.
 
 
@@ -124,10 +126,10 @@ depending of the current supported standard on Android platforms.
 
 Three methods are available for launching one or more agents in the Janus platform:
 
-* [From the command line](../gettingstarted/RunSARLAgentCLI.html).
-* [Inside the Eclipse IDE](../gettingstarted/RunSARLAgentEclipse.html).
-* [From a Java program](../gettingstarted/RunSARLAgentJava.html).
-* [By creating a runnable application file](../tutorials/CreateRunnableJar.html).
+* [From the command line](../getstarted/RunSARLAgentCLI.html).
+* [Inside the Eclipse IDE](../getstarted/RunSARLAgentEclipse.html).
+* [From a Java program](../getstarted/RunSARLAgentJava.html).
+* [By creating a runnable application file](../tutorials/runtime/CreateRunnableJar.html).
 
 
 
@@ -169,7 +171,7 @@ Eclipse environment, OR when the installed SRE is not compatible with the instal
 version of the SARL tools, which are embedded in Eclipse.
 
 For solving this problem, you must download the latest
-[Janus platform](http://www.janusproject.io), and install it in your Eclipse
+[Janus platform](http://www.sarl.io/runtime/janus/), and install it in your Eclipse
 (Menu `Window&gt; Preferences&gt; SARL&gt; Installed SREs`).
 
 
@@ -183,9 +185,7 @@ the capacities' definitions may not be the same.
 For solving this problem, you must download the version of the SARL Runtime Environment (SRE)
 that is implementing the version of the SARL specification that you're using on Eclipse IDE.
 For the Janus platform, the versions of the latest stable and development releases are displayed on
-[this page](http://maven.janusproject.io/VERSION.txt).
-For determining if the Janus platform implements the correct version of the SARL specification,
-please read the explanation  on [how Janus version numbers are built](http://www.janusproject.io/#versionnumber).
+[this page](http://www.sarl.io/runtime/janus/).
 
 
 ### 2.9. Error: "Agent class not found."
@@ -237,6 +237,102 @@ The "Java Application" does not.
 Consequently, if you need to run agents and if you start your application with a "Java 
 Application" launch configuration, you must add manually the SRE libraries in the classpath.
 
+If you want ot create a runnable jar file, read the following comment.
+
+
+### 2.12. How to create a runnable JAR file?
+
+In the Java programming environment, a runnable JAR (Java Archive) file represents a self-contained and executable unit that encapsulates both compiled bytecode and necessary metadata, facilitating the distribution and execution of the application. The creation of a runnable JAR file involves the compilation of SARL and Java source code into bytecode by the SARL and Java compilers, followed by the packaging of these class files along with any associated resources into the JAR archive. This process is typically managed through build tools such as Maven or Gradle, which automate the compilation, packaging, and dependency management tasks. 
+
+Different methods may be used for creating the runnable JAR for your application:
+
+#### If you are using Maven for compiling your application
+
+1. First, you have to include in the class path all the needed libraries for running the SARL application, including the SARL runtime environment (SRE) itself. See the section for [adding Janus SRE in the classpth](../getstarted/CreateFirstProject.html#configuration-of-a-runtime-environment-optional).
+2. Create a file in the same folder on the Maven POM configuration file that is defining the packaging of the runnable JAR file. The name of this file is assumed to be `run.xml`. More details on the format of this file could be found on the [Maven Assembly plugin page](https://maven.apache.org/plugins/maven-assembly-plugin/assembly.html).
+```xml
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+  <id>run</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <unpack>true</unpack>
+      <scope>runtime</scope>
+    </dependencySet>
+  </dependencySets>
+  <containerDescriptorHandlers>
+		<!-- Merge service description's files in a proper way -->
+		<containerDescriptorHandler>
+			<handlerName>metaInf-services</handlerName>
+		</containerDescriptorHandler>
+		<!-- Merge plugin description's files in a proper way -->
+		<containerDescriptorHandler>
+			<handlerName>file-aggregator</handlerName>
+			<configuration>
+				<filePattern>plugin.properties</filePattern>
+				<outputPath>plugin.properties</outputPath>
+			</configuration>
+		</containerDescriptorHandler>
+  </containerDescriptorHandlers>
+</assembly>
+```
+3. Update the Maven POM configuration for creating the runnable JAR file. Here, we use the [Maven Assembly plugin](https://maven.apache.org/plugins/maven-assembly-plugin/assembly.html). In this XML configuration, replace the name of the main class `io.sarl.mycode.application.MainClass` by the name of the class in your code that is containing the `main()` function.
+```xml
+<build>
+  ...
+  <plugins>
+      ...
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.7.1</version>
+        <executions>
+          <execution>
+            <id>run-application</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>run.xml</descriptor>
+              </descriptors>
+              <archive>
+                <manifest>
+                  <mainClass>io.sarl.mycode.application.MainClass</mainClass>
+                </manifest>
+              </archive>
+              <attach>false</attach>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      ...
+  </plugins>
+  ...
+</build>
+```
+4. Run Maven tool:
+```bash
+$ mvn clean install
+```
+5. Your runnable JAR file will be generated in the `target` folder generated by the Maven tool.
+
+#### If you are not using Maven for compiling your application
+
+1. First, you have to be sure that you are running your application with a `SARL Application` launch configuration. It is mandatory in order to have a `main()` function for running the application.
+2. Second, you have to include in the class path all the needed libraries for running the SARL application, including the SARL runtime environment (SRE) itself. See the section for [adding Janus SRE in the classpth](../getstarted/CreateFirstProject.html#configuration-of-a-runtime-environment-optional).
+3. In the SARL development environment, right click on your projet name.
+4. Select the `Export` item in the contextual menu.
+5. In the Export dialog box, open the `SARL` section and select the export wizard with the name `Runnable SARL application`, and click on `Next`.
+6. Select your launch configuration. It is not appearing, it means that your have not defining a `SARL application` launch configuration for your application.
+7. Specify the path where to create your runnable JAR file, and click on finish.
+   
 
 ## 3. Runtime Behavior of Janus
 
@@ -247,7 +343,7 @@ __No__.
 There is no warranty on the receiving order of the events.
 This is a particular implementation choice of the runtime
 environment. For example, the
-[Janus runtime environment](http://www.janusproject.io) executes
+[Janus runtime environment](http://www.sarl.io/runtime/janus/) executes
 the event handlers in parallel. The real order of execution depends on
 how the Java executor is running the handlers on the threads.
 
@@ -324,14 +420,16 @@ You should submit your issue on
 [this page](https://github.com/sarl/sarl/issues/new).
 
 
-## 5. Legal Notice
+## 5. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 6. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -343,4 +441,4 @@ You should submit your issue on
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>

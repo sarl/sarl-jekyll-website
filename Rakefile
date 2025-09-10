@@ -1,4 +1,3 @@
-# == Dependencies ==============================================================
 
 require 'rake'
 require 'yaml'
@@ -88,7 +87,7 @@ end
 
 # Create the file with the slug and open the default editor
 def create_file(directory, filename, content, title, editor, force=false)
-  if not force and File.exists?("#{directory}/#{filename}")
+  if not force and File.exist?("#{directory}/#{filename}")
     raise "The file already exists."
   else
     write_file(content, title, directory, filename)
@@ -172,7 +171,7 @@ def ensure_git_sarl_repository(updateIfExists=false)
   if(sarl_git_url.start_with?('http:', 'https:', 'ssh:', 'git:')) then
     sarl_copy = CONFIG["sarl"]["workdir"] + "/sarl_copy"
 
-    if(!File.exists?(sarl_copy)) then
+    if(!File.exist?(sarl_copy)) then
       puts "No working copy found. Cloning to #{sarl_copy}..."    
       execute("git clone #{sarl_git_url} #{sarl_copy}")
     elsif (updateIfExists) then
@@ -265,7 +264,7 @@ task :build do
   output_dir = CONFIG["build"]["output_dir"]
   files_to_ignore = CONFIG["build"]["files_to_ignore"].strip.split(/\s*:\s*/)
   files_to_ignore.each do |fti|
-    if File.exists?("#{output_dir}/#{fti}") then
+    if File.exist?("#{output_dir}/#{fti}") then
       puts "       Undeploying: #{fti}"
       FileUtils.rm("#{output_dir}/#{fti}")
     end

@@ -1,9 +1,9 @@
 ---
-title: "API Documentation for SARL"
+title: "API Documentation for SARL - sarl-doclet"
 layout: default
 ---
 
-# API Documentation for SARL
+# API Documentation for SARL - sarl-doclet
 
 
 <ul class="page_outline" id="page_outline">
@@ -16,7 +16,8 @@ layout: default
   <li><a href="#41-doclet-options">4.1. Doclet Options</a></li>
   <li><a href="#42-exclude-elements-from-the-documentation">4.2. Exclude elements from the documentation</a></li>
 </ul>
-<li><a href="#5-legal-notice">5. Legal Notice</a></li>
+<li><a href="#5-version-specification">5. Version Specification</a></li>
+<li><a href="#6-legal-notice">6. Legal Notice</a></li>
 
 </ul>
 
@@ -47,7 +48,7 @@ by their equivalent into the SARL syntax.
 The SARL doclet is provided into the Maven module:
 
 * Group Id: `io.sarl.docs`
-* Artifact Id: `io.sarl.docs.doclet`
+* Artifact Id: `docs.doclet`
 
 See the next sections for details on the usage of the SARL doclet.
 
@@ -69,10 +70,10 @@ file.
             <artifactId>maven-javadoc-plugin</artifactId>
 
             <configuration>
-                <doclet>io.sarl.docs.doclet.SarlDoclet</doclet>
+                <doclet>io.sarl.docs.doclet2.Doclet</doclet>
                 <docletArtifact>
                     <groupId>io.sarl.docs</groupId>
-                    <artifactId>io.sarl.docs.doclet</artifactId>
+                    <artifactId>docs.doclet</artifactId>
                     <version>${sarl.version}</version>
                 </docletArtifact>
             </configuration>
@@ -80,6 +81,9 @@ file.
     </plugins>
 </build>
 ```
+
+
+
 
 ## 3. Command-Line Generation
 
@@ -90,9 +94,9 @@ The Javadoc command provides `-doclet` option for specifying a custom doclet.
 A typical command-line to launch is:
 
 ```text
-javadoc -doclet io.sarl.docs.doclet.SarlDoclet
-        -cp doclet-0.14.jar:path_to_sources
-        -source 1.8
+javadoc -doclet io.sarl.docs.doclet2.Doclet
+        -cp doclet-0.15.jar:path_to_sources
+        -source 21
         -sourcepath path_to_sources
         -d path_to_documentation
 ```
@@ -128,14 +132,16 @@ class TheClass {
 
 
 
-## 5. Legal Notice
+## 5. Version Specification
 
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
-* Version: 0.14
-* Status: Draft Release
-* Release: 2023-09-26
+* Version: 0.15
+* Status: Stable Release
+* Release: 2025-09-10
 
-> Copyright &copy; 2014-2023 [SARL.io, the Original Authors and Main Authors](https://www.sarl.io/about/index.html).
+## 6. Legal Notice
+
+> Copyright &copy; 2014-2025 [SARL.io, the Original Authors and Main Authors](http://www.sarl.io/about/index.html).
 >
 > Documentation text and medias are licensed under the Creative Common CC-BY-SA-4.0;
 > you may not use this file except in compliance with CC-BY-SA-4.0.
@@ -147,4 +153,4 @@ class TheClass {
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.14.0-SNAPSHOT.</small>
+<small>Generated with the translator docs.generator 0.15.0.</small>
