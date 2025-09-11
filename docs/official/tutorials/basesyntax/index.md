@@ -24,7 +24,7 @@ To get the most out of these exercises, we recommend that you follow them in the
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.15
 * Status: Stable Release
-* Release: 2025-09-10
+* Release: 2025-09-11
 
 ## 2. Legal Notice
 
@@ -40,4 +40,4 @@ To get the most out of these exercises, we recommend that you follow them in the
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.15.0.</small>
+<small>Generated with the translator docs.generator 0.15.1.</small>

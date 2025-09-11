@@ -86,7 +86,7 @@ Follow the steps of the project creation wizard, and finally click on the **Fini
 
 Open the file `pom.xml`, and edit it for obtaining a content similar to the configuration below.
 
-Replace the version number `0.15.0` of SARL with the one you want to use. You could search on the
+Replace the version number `0.15.1` of SARL with the one you want to use. You could search on the
 [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 ```xml
@@ -94,7 +94,7 @@ Replace the version number `0.15.0` of SARL with the one you want to use. You co
     ...
     <properties>
        ...
-       <sarl.version>0.15.0</sarl.version>
+       <sarl.version>0.15.1</sarl.version>
 	   <jdk.version>21</jdk.version>
 	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -167,7 +167,7 @@ to the runtime environment library.
 
 The runtime environment that is recommended by the developers of SARL is [Janus](http://www.sarl.io/runtime/janus/). 
 
-Replace the version number (`3.0.15.0`) of the [Janus platform](http://www.sarl.io/runtime/janus/) with the one you want to use.
+Replace the version number (`3.0.15.1`) of the [Janus platform](http://www.sarl.io/runtime/janus/) with the one you want to use.
 You could search on the [Maven Central Repository](http://search.maven.org/) for the last available version.
 
 
@@ -176,7 +176,7 @@ You could search on the [Maven Central Repository](http://search.maven.org/) for
    ...
     <properties>
        ...
-       <janus.version>3.0.15.0</janus.version>
+       <janus.version>3.0.15.1</janus.version>
     </properties>
     ...
     <build>
@@ -223,7 +223,7 @@ you have to use another Maven dependency: `janus.network`.
    ...
     <properties>
        ...
-       <janus.version>3.0.15.0</janus.version>
+       <janus.version>3.0.15.1</janus.version>
     </properties>
     ...
     <build>
@@ -266,7 +266,7 @@ In the next section, we will learn how to create our first agent.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.15
 * Status: Stable Release
-* Release: 2025-09-10
+* Release: 2025-09-11
 
 ## 5. Legal Notice
 
@@ -282,4 +282,4 @@ In the next section, we will learn how to create our first agent.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.15.0.</small>
+<small>Generated with the translator docs.generator 0.15.1.</small>

@@ -14,7 +14,7 @@ The Maven dependency to add is:
 <dependency>
 	<groupId>io.sarl.sdk</groupId>
 	<artifactId>api.gametgob</artifactId>
-	<version>0.15.0</version>
+	<version>0.15.1</version>
 </dependency>
 ```
 
@@ -264,7 +264,7 @@ For creating an agent that is using the TGob mechanism, please refer to the tuto
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.15
 * Status: Stable Release
-* Release: 2025-09-10
+* Release: 2025-09-11
 
 ## 4. Legal Notice
 
@@ -280,4 +280,4 @@ For creating an agent that is using the TGob mechanism, please refer to the tuto
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.15.0.</small>
+<small>Generated with the translator docs.generator 0.15.1.</small>

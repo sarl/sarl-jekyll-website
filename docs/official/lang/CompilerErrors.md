@@ -404,7 +404,7 @@ the long code as argument to `@SuppressWarnings` too.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.15
 * Status: Stable Release
-* Release: 2025-09-10
+* Release: 2025-09-11
 
 ## 2. Legal Notice
 
@@ -420,4 +420,4 @@ the long code as argument to `@SuppressWarnings` too.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.15.0.</small>
+<small>Generated with the translator docs.generator 0.15.1.</small>

@@ -158,7 +158,7 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 * Specification: SARL General-purpose Agent-Oriented Programming Language ("Specification")
 * Version: 0.15
 * Status: Stable Release
-* Release: 2025-09-10
+* Release: 2025-09-11
 
 ## 5. Legal Notice
 
@@ -174,4 +174,4 @@ steps 4 and 3, respectively. These steps are run on the same thread.
 >
 > You are free to reproduce the content of this page on copyleft websites such as Wikipedia.
 
-<small>Generated with the translator docs.generator 0.15.0.</small>
+<small>Generated with the translator docs.generator 0.15.1.</small>
