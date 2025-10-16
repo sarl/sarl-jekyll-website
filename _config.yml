@@ -1,4 +1,5 @@
 name: SARL Site
+url: https://www.sarl.io
 markdown: kramdown
 highlighter: pygments
 permalink: /news/:year/:month/:day/:title.html

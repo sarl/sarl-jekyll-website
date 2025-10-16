@@ -1,0 +1,68 @@
+---
+layout: null
+---
+{
+	"versions": [
+		{
+			"name": "SARL Development Environment",
+			"version": "{{site.sarl_stable_version}}",
+			"min-java": "{{site.sarl_min_jdk_version}}",
+			"download": {
+				"windows": "{{site.sarl_stable_download.win64.product.lastest}}",
+				"mac_x64": "{{site.sarl_stable_download.mac64.product.lastest}}",
+				"mac_a64": "{{site.sarl_stable_download.mac64arm.product.lastest}}",
+				"linux": "{{site.sarl_stable_download.linux64.product.lastest}}"
+			}
+		},
+		{
+			"name": "SARL Development Environment",
+			"version": "{{site.sarl_stable_version_jdk17}}",
+			"min-java": "17",
+			"download": {
+				"windows": "{{site.sarl_stable_download.win64.product.jdk17}}",
+				"mac_x64": "{{site.sarl_stable_download.mac64.product.jdk17}}",
+				"mac_a64": "{{site.sarl_stable_download.mac64arm.product.jdk17}}",
+				"linux": "{{site.sarl_stable_download.linux64.product.jdk17}}"
+			}
+		},
+		{
+			"name": "SARL Development Environment",
+			"version": "{{sarl_stable_version_jdk8}}",
+			"min-java": "8",
+			"download": {
+				"windows": "{{site.sarl_stable_download.win64.product.jdk8}}",
+				"mac_x64": "{{site.sarl_stable_download.mac64.product.jdk8}}",
+				"mac_a64": "{{site.sarl_stable_download.mac64arm.product.jdk8}}",
+				"linux": "{{site.sarl_stable_download.linux64.product.jdk8}}"
+			}
+		}
+	],
+	"sponsors": [
+		{
+			"name": "Université de Technologie de Belfort Montbéliard",
+			"url": "https://www.utbm.fr",
+			"logo": "{{ site.url }}/images/utbmlogo.png"
+		},
+		{
+			"name": "RMIT University",
+			"url": "https://www.rmit.edu.au",
+			"logo": "{{ site.url }}/images/rmitlogo.png"
+		},
+		{
+			"name": "Facultad Regional Tucumán Universidad Tecnológica Nacional",
+			"url": "https://frt.utn.edu.ar",
+			"logo": "{{ site.url }}/images/utnlogo.png"
+		},
+		{
+			"name": "Università della Valle d'Aosta",
+			"url": "https://www.univda.it",
+			"logo": "{{ site.url }}/images/univdalogo.png"
+		},
+		{
+			"name": "Région Bourgogne Franche Comté",
+			"url": "https://www.bourgognefranchecomte.fr",
+			"logo": "{{ site.url }}/images/rbfc.png"
+		}
+	],
+	"donate": ""
+}
