@@ -37,6 +37,8 @@ layout: null
 			}
 		}
 	],
+	"productLogo": "{{ site.url }}/SARL-logo.png",
+	"sponsorPage": "{{ site.url }}/{{ site.sarl.sponsor_page }}",
 	"sponsors": [
 		{
 			"name": "Université de Technologie de Belfort Montbéliard",

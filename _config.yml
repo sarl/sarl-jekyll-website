@@ -54,6 +54,7 @@ build:
   output_dir: _site
 
 sarl:
+  sponsor_page: "supports/"
   git_name: sarl/sarl
   url: ../sarl.dsl
   workdir: /tmp
