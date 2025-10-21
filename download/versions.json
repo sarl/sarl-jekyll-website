@@ -2,11 +2,13 @@
 layout: null
 ---
 {
+	"downloadPage": "{{ site.url }}/download/",
 	"versions": [
 		{
 			"name": "SARL Development Environment",
 			"version": "{{site.sarl_stable_version}}",
 			"min-java": "{{site.sarl_min_jdk_version}}",
+			"changes": "{{ site.url }}/download/changes_{{site.sarl_stable_version}}.html",
 			"download": {
 				"windows": "{{site.sarl_stable_download.win64.product.lastest}}",
 				"mac_x64": "{{site.sarl_stable_download.mac64.product.lastest}}",
@@ -18,6 +20,7 @@ layout: null
 			"name": "SARL Development Environment",
 			"version": "{{site.sarl_stable_version_jdk17}}",
 			"min-java": "17",
+			"changes": "{{ site.url }}/download/changes_{{site.sarl_stable_version_jdk17}}.html",
 			"download": {
 				"windows": "{{site.sarl_stable_download.win64.product.jdk17}}",
 				"mac_x64": "{{site.sarl_stable_download.mac64.product.jdk17}}",
@@ -29,6 +32,7 @@ layout: null
 			"name": "SARL Development Environment",
 			"version": "{{sarl_stable_version_jdk8}}",
 			"min-java": "8",
+			"changes": "{{ site.url }}/download/changes_{{sarl_stable_version_jdk8}}.html",
 			"download": {
 				"windows": "{{site.sarl_stable_download.win64.product.jdk8}}",
 				"mac_x64": "{{site.sarl_stable_download.mac64.product.jdk8}}",
