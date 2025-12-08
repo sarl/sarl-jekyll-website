@@ -12,7 +12,8 @@ This list is by no means complete or exhaustive. If you are using and/or citing 
 <li><a href="#1-citing-sarl">1. Citing SARL</a></li>
 <li><a href="#2-journal-conference-and-workshop-papers">2. Journal, Conference and Workshop Papers</a></li>
 <li><a href="#3-presentations-andtalks">3. Presentations and Talks</a></li>
-<li><a href="#4-publications-before-2014">4. Publications before 2014</a></li>
+<li><a href="#4-publications-using-sarl">4. Publications using SARL</a></li>
+<li><a href="#5-publications-before-2014">4. Publications before 2014</a></li>
 </ul>
 
 # 1. Citing SARL
@@ -41,9 +42,6 @@ A list of references (papers and PhD theses on or using SARL) is available below
 ### 2022
 {% bibliography --file publications -q @*[year=2022] %}
 
-### 2021
-{% bibliography --file publications -q @*[year=2021] %}
-
 ### 2020
 {% bibliography --file publications -q @*[year=2020] %}
 
@@ -55,9 +53,6 @@ A list of references (papers and PhD theses on or using SARL) is available below
 
 ### 2017
 {% bibliography --file publications -q @*[year=2017] %}
-
-### 2016
-{% bibliography --file publications -q @*[year=2016] %}
 
 ### 2015
 {% bibliography --file publications -q @*[year=2015] %}
@@ -85,6 +80,38 @@ A list of references (papers and PhD theses on or using SARL) is available below
 ### 2014
 {% bibliography --file presentations -q @*[year=2014] %}
 
-# 4. Publications before 2014
+# 4. Publications using SARL
+
+### 2025
+{% bibliography --file users -q @*[year=2025] %}
+
+### 2024
+{% bibliography --file users -q @*[year=2024] %}
+
+### 2023
+{% bibliography --file users -q @*[year=2023] %}
+
+### 2022
+{% bibliography --file users -q @*[year=2022] %}
+
+### 2021
+{% bibliography --file users -q @*[year=2021] %}
+
+### 2020
+{% bibliography --file users -q @*[year=2020] %}
+
+### 2019
+{% bibliography --file users -q @*[year=2019] %}
+
+### 2018
+{% bibliography --file users -q @*[year=2018] %}
+
+### 2017
+{% bibliography --file users -q @*[year=2017] %}
+
+### 2016
+{% bibliography --file users -q @*[year=2016] %}
+
+# 5. Publications before 2014
 {% bibliography --file oldpublications %}
 
